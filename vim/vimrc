@@ -1,0 +1,67 @@
+set nocompatible
+syntax on
+set number
+set ruler
+set encoding=utf-8
+set wrap
+set tabstop=4
+set shiftwidth=4
+
+" press <F2> when trying to paste trying to paste from other applications
+set pastetoggle=<F2>
+
+set nocompatible		" required
+filetype off			" required
+
+"set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/The-NERD-tree' 
+Plugin 'VundleVim/ctags.vim'
+Plugin 'VundleVim/taglist-plus'
+Plugin 'VundleVim/cscope_plus.vim'
+
+call vundle#end()
+filetype plugin indent on
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" run NERDTree and focus on (last accessed) window
+autocmd VimEnter * NERDTree | wincmd p
+
+" run NERDTree and focus on (last accessed) window
+autocmd VimEnter * TlistOpen | wincmd p
+
+" maximize and minizme window when using multiple windows using Control-j, Control-k
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+
+" minimum key mappings for cscope
+nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
+
+" s: Find this C symbol
+nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>

@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<title>Pomocnik VIM</title>
+</head>
+<body>
+	<h1>Prikazy</h1>
+	<p>
+	<table>
+		<caption><h3>vyber mojich</h3></caption>
+		<tr> <th>prikaz</th> <th> vyznam</th></tr>
+		<tr><td>dd</td><td>mazanie riadku</td></tr>
+		<tr><td>o</td><td>vlozenie riadku</td></tr>
+		<tr><td>h, j, k, l</td><td>posun kurzoru</td></tr>
+			<tr><td>Ctrl + n</td><td>Doplnenie slov</td></tr>
+	</table>
+	</p>
+
+<h2>Poznamky z videii</h2>
+<pre>
+  :set number   ===zapne cislovanie riadkov
+  shift + g     ===skok na koniec suboru
+  gg            ===skok na zaciatok
+  15gg          ===skok na riadok 15
+  $             ===skok na koniec roadku
+  u             ===navrat v historii
+
+=Mazanie
+  x             ===maze jeden riadok
+  dd            ===zmaze riadok
+  2dd           ===zmaze 2 riadky
+  2dl           ===zmaze 2 znaky dolava
+  dw            ===zmaze slovo
+
+Doplnovanie slov
+  Ctrl + p
+  Ctrl + n      ===Dopluju najblizie slovo pokracujuce za kurzorom
+
+
+Vyhladavanie
+  :set hlsearch ===Farebne zvyraznuje vyskyt posledneho hladaneho slova
+  :nohlsearch   ===Vyplne farebny vyskyt DOCASNE
+  
+  -vyhledávat pomocí ‚/‘, ‚?‘, ‚n‘ a ‚N‘. Možná, že ne až tak známá je možnost použít # a * k nalezení slova pod kurzorem; * hledá dopředu, # dozadu.
+
+</pre>
+
+<h2>MAKRA</h2>
+<pre>
+  :imap       ===Definuje makro najlepsie zacinat znakom , a potom sekvencia pismen
+  Priklad:                  :imap ,h1 \section{}
+  Priklad z netu:          :imap ,tab <TABLE BORDER="0"><CR><TR><TD></TD> <TD></TD></TR><CR></TABLE><Esc>k02f>a </pre>
+  
+Makra podla typov dokumentov
+Zcela konkrétně jsem si ve svém domácím adresáři vytvořil podadresář .vim, do nějž ukládám definiční soubory maker pro jednotlivé formáty - například tex.vim a html.vim. Do svého soukromého .vimrc jsem si pak přidal následující příkazy:
+
+    autocmd BufRead,BufNewFile *.html source ~/.vim/html.vim
+    autocmd BufRead,BufNewFile *.htm source ~/.vim/html.vim
+    autocmd BufRead,BufNewFile *.tex source ~/.vim/tex.vim
+
+Zajistí, že například při vytvoření nebo otevření souboru s příponou .html se aktivují makra definovaná v souboru ~/.vim/html.vim.
+
+<table>
+	<caption><h3>prehliadavnie suborov a praca s nimi</h3></caption>
+		<tr> <th>prikaz</th> <th> vyznam</th></tr>
+		
+<tr><td>:Ex</td><td>zoznam suborov v adresari</td></tr>
+<tr><td>:Sex</td><td>to iste ako :Ex ale v novom okne</td></tr>
+<tr><td>:ls</td><td>zoznam buffrov</td></tr>
+<tr><td>:cd ..</td><td>klasicky cd</td></tr>
+<tr><td>:args</td><td>zoznam otvorenych suboro</td></tr>
+
+
+
+	</table>
+
+
+
+<table>
+	<caption><h3>zmena velkosti pismien a hodnout cisiel</h3></caption>
+		<tr> <th>prikaz</th> <th> vyznam</th></tr>
+		
+<tr><td>guu</td><td>vsetky velke na male</td></tr>
+<tr><td>gUU</td><td>vsetky male na velke</td></tr>
+<tr><td>g~~</td><td>prehod velkost pismen</td></tr>
+<tr><td>vEU</td><td>slovo na velke pismena</td></tr>
+<tr><td>vE~</td><td>prehod velkost pismen v slove</td></tr>
+<tr><td>ggguG</td><td>cely subor na male pismena</td></tr>
+<tr><td>gf</td><td>otvori subor s menom slova pod kurzorom</td></tr>
+<tr><td>ga</td><td>hexadecimalna hodnota znaku</td></tr>
+	</table>
+
+<table>
+	<caption><h3>ukladanie a praca so subor</h3></caption>
+		<tr> <th>prikaz</th> <th> vyznam</th></tr>
+		
+<tr><td>:wn</td><td>uloz a chod na dalsi buffer</td></tr>
+<tr><td>:bd</td><td>odstran bufer zo zoznamu bufrov (teda editovany subor)</td></tr>
+<tr><td>:sav php.htm</td><td>uloz subor pod inym nazvom a zrus original</td></tr>
+<tr><td>:sav! %<.bak </td><td>uloz subor s inou priponov nez ma</td></tr>
+<tr><td>:rew</td><td>chod na zaciatok zoznamu bufferov (rewind)</td></tr>
+<tr><td>:bn</td><td>na dalsi buffer</td></tr>
+<tr><td>:bp</td><td>predchadzajuci bufer</td></tr>
+<tr><td>:sball , :sb</td><td>vsetky buffre na jednu obrazovku</td></tr>
+	</table>
+	
+	<h1>vimtutor</h1>
+	<p>
+		 <h2>ZHRNUTIE LEKCIE 1</h2>
+		 <ul>
+  <li>1. Kurzor sa pohybuje použitím kláves so šípkami alebo klávesmi hjkl.
+          h (do lava)    j (dole)    k (hore)    l (doprava)</li>
+
+  <li>2. Pre spustenie Vimu (z príkazového riadku) napíš: vim FILENAME <ENTER></li>
+
+  <li>3. Na ukončenie Vimu napíš: <ESC>  :q!  <ENTER> pre zrušenie všetkých zmien
+       alebo napíš:   <ESC>   :wq   <ENTER>    pre uloženie zmien.</li>
+
+  <li>4. Na zmazanie znaku na mieste kurzora napíš:  x</li>
+
+  <li>5. Pre vloženie textu na mieste kurzora v normálnom móde napíš:
+         i     napíš vkladaný text   <ESC>  vkladanie pred kurzor
+   A     napíš pridávaný text  <EXC>  vkladanie za riadok</li>
+   </ul>
+
+POZNÁMKA: Stlačenie <ESC> ťa premiestní do normálneho módu alebo zruší
+                nejaký nechcený a čiastočne dokončený príkaz.
+
+	</p>
+	<p>
+	<h2>LEKCIA 2 ZHRNUTIE</h2>
+
+<ul>
+  <li>1. Pre zmazanie znakov od kurzora do konca slova napíš:   dw</li>
+
+  <li>2. Pre zmazanie znakov od kurzora do konca riadku napíš:   d$</li>
+
+  <li>3. Pre zmazanie celého riadku napíš:   dd</li>
+
+  <li>4. Pre zopakovanie pohybu, napíš pred neho číslo:   2w</li>
+
+  <li>5. Formát pre píkaz:
+
+       operátor   [číslo]   pohyb
+     kde:
+       operátor - čo treba robiť, napríklad  d  pre zmazanie
+       [číslo] - je voliteľný počet pre opakovanie pohybu
+       pohyb - pohyb po texte vzhľadom na operátor, napríklad w (slovo),
+                $ (do konca riadku), atď.</li>
+
+  <li>6. Pre pohyb na začiatok riadku použi nulu:  0</li>
+
+  <li>7. Pre vrátenie späť predošlej operácie napíš:        u   (malé u)
+     Pre vrátenie všetkých úprav na riadku napíš:    U   (veľké U)
+     Pre vrátenie vrátených úprav napíš:              CTRL-R</li>
+</ul>
+	</p>
+	<p>
+	                               <h2>LEKCIA 3 ZHRNUTIE</h2>
+
+<ul>
+  <li>1. Na vloženie textu, ktorý už bol zmazaný, napíš  p . To vloží zmazaný
+     text ZA kurzor (ak bol riadok zmazaný prejde na riadok pod kurzorom).
+  </li><li>
+  2. Pre naradenie znaku na mieste kurzora, napíš  r  a potom znak, ktorý
+     nahradí pôvodný znak.
+</li><li>
+  3. Príkaz na upravenie umožňuje zmeniť od kurzora až po miesto, ktoré
+     určuje pohyb.  napr. Napíš  ce  čím zmníš text od pozície
+     kurzora do konca slova, c$  zmení text do konca riadku.
+</li><li>
+  4. Formát pre nahradenie je:
+
+            c    [číslo]    pohyb
+
+</li>
+Teraz prejdi na nalsedujúcu lekciu.
+</ul>
+	</p>
+	<p>
+	  <h2>LEKCIA 4 ZHRNUTIE</h2>
+
+<ul>
+  <li>1. CTRL-g    vypíše tvoju pozíciu v súbore a status súboru.
+            G  ťa premiestni na koniec riadku.
+     číslo  G  ťa premiestni na riadok s číslom.
+           gg  ťa presunie na prvý riadok
+</li><li>
+  2. Napísanie  /  nasledované reťazcom vyhľadá reťazec smerom DOPREDU.
+     Napísanie  ?  nasledované reťazcom vyhľada reťazec smerom DOZADU.
+     Napísanie  n  po vyhľadávaní, vyhľadá nasledujúci výskyt reťazca
+     v rovnakom smere, pričom  N  vyhľadá v opačnom smere.
+     CTRL-O ťa vráti späť na staršiu pozíciu, CTRL-I na novšiu pozíciu.
+</li><li>
+  3. Napísanie  %  keď kurzor je na (,),[,],{, alebo } nájde zodpovdajúcu
+     párnu zátvorku.
+</li><li>
+  4. Pre nahradenie nového za prvý starý v riadku napíš    :s/starý/nový
+     Pre nahradenie nového za všetky staré v riadku napíš  :s/starý/nový/g
+     Pre nahradenie reťazcov medzi dvoma riadkami 3 napíš  :#,#/starý/nový/g
+     Pre nahradenie všetkých výskytov v súbore napíš       :%s/starý/nový/g
+     Pre potvrdenie každého nahradenia pridaj 'c'                :%s/starý/nový/gc
+</li></ul>
+
+	</p><p>
+	 <h2>LEKCIA 5 ZHRNUTIE</h2>
+
+<ul>
+  <li>1.  :!príkaz  spustí vonkajší príkaz.
+
+      Niektoré využiteľné príklady sú:
+        (MS_DOS)    (UNIX)
+         :!dir       :!ls           -  zobrazí obsah adresára
+         :!del FILENAME    :!rm FILENAME    -  odstráni súbor FILENAME
+</li><li>
+  2.  :w FILENAME  uloží aktuálny súbor na disk pod menom FILENAME.
+</li><li>
+  3.  v  pohyb  :w FILENAME  uloží vizuálne označené riadky do
+      súboru FILENAME.
+</li><li>
+  4.  :r FILENAME  vyberie z disku súbor FILENAME a vloží ho do aktuálneho
+      súboru za pozíciou kurzora.
+</li><li>
+  5. :r !dir  načíta výstup z príkazu dir a vloží ho za pozíciu kurzora.
+</li></ul>
+	</p><p>
+	  <h2>LEKCIA 6 ZHRNUTIE</h2>
+
+<ul>
+<li>
+  1. Napíš  o  pre otvorenie riadku pod kurzorom a štart vkladacieho módu.
+     Napíš  O  pre otvorenie riadku nad kurzorom.
+</li><li>
+  2. Napíš  a  pre vkladanie textu ZA kurzor.
+     Napíš  A  pre vkladanie textu za koncom riadku.
+</li><li>
+  3. Príkaz  e  presunie kurozr na koniec slova
+</li><li>
+  4. Operátor  y  vystrihne (skopíruje) text,  p  ho vloží.
+</li><li>
+  5. Napísanie veľkého  R  prepne do nahradzovacieho módu, kým nieje
+     stlačené <ESC>.
+</li><li>
+  6. Napísanie ":set xxx" nastaví možnosť "xxx". Niektoré nastavenia sú:
+     'ic' 'ignorecase' ignoruje veľké a malé písmená počas vyhľadávania.
+     'is' 'incsearch' zobrazuje čiastočné reťazce vyhľadávaného reťazca.
+     'hls' 'hlsearch' vyznačí všetky vyhľadávané reťazce.
+      Môžeš použiť hociktorý z dlhých a krátkych názvov možností.
+</li><li>
+  7. Vlož "no" pred nastavenie pre jeho vypnutie:  :set noic
+</li></ul>
+	</p><p>
+	   <h2>LEKCIA 7 ZHRNUTIE</h2>
+<ul><li>
+  1. Napíš  :help  alebo stlač <F1> alebo <Help> pre otvorenie okna nápovedy.
+</li><li>
+  2. Napíš  :help príkaz  pre vyhľadanie nápovedy ku príkazu príkaz.
+</li><li>
+  3. Napíš  CTRL-W CTRL-W  na preskočenie do iného okna.
+</li><li>
+  4. Napíš  :q  pre zatvorenie okna nápovedy
+</li><li>
+  5. Vytvor štartovací skript vimrc pre udržanie uprednostňovaných nastavení.
+</li><li>
+  6. Počas písania príkazu  :  stlač CTRL-D pre zobrazenie dokončení.
+     Stlač <TAB> pre použitie jedného z dokončení.
+</li></ul>
+	</p>
+
+	<h1>Konfiguracie</h1>
+	<h2>Zbavenie sa .swp ~ a podobne</h2>
+	<p>
+		Do .vimrc nastav <br>
+		set backupdir=~/.vim/backup// <br>
+		set directory=~/.vim/swap// <br>
+		set undodir=~/.vim/undo// <br>
+	</p>
+	
+	
+	<h1>Konfiguracne subory</h1>
+		<h2>Normalny vim</h2>
+		<ul>
+		<li>Staci nakopirovat do home ako .vimrc</li>
+			<li><a href="jenca.vimrc">vim rc</a></li>
+    			<li><a href="moj.vimrc">MOJ vim rc</a></li>	
+			<li><a href="vimrc">vim rc(ZLY ALEBO DACO POMOTANE)</a></li>	
+			<li><a href="vimrc_youcompletme.txt">vim rc youcompletme</a></li>	
+			<li><a href="lenovak.vimrc">lenovak.vimrc</a></li>
+
+		</ul>
+		<h2>Vim IDE</h2>
+		<ul>
+			<li><a href="vimide.tar.gz">IDE od anetky</a></li>
+		</ul>
+	
+
+	<h1>Odkazy</h1>
+	<ul>
+
+		<li><a href="p8-vim.pdf"> Knizka VIM</a></li>
+	<li><a href="http://www.github.com/junegunn/vim-plug"> vim-plug nastroj na pravu doplnkov pluginov</a></li></ul>
+
+
+</body>
+</html>

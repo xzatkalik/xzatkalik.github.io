@@ -1,0 +1,34 @@
+
+<h1>PXE Server</h1>
+
+<h2>TFTP Setup</h2>
+<pre>
+
+
+    TFTP is a very simple file-transfer protocol, which is very similar to FTP but which doesn't use any kind of authentication. If you're not already running a TFTP server you can install one by running:
+
+    root@itchy:~# apt-get install tftpd-hpa
+
+    Once installed you'll need to enable it by editing the file /etc/default/tftpd-hpa. You should change RUN_DAEMON to yes, leaving you with contents like these:
+
+    #Defaults for tftpd-hpa
+    RUN_DAEMON="yes"
+    OPTIONS="-l -s /var/lib/tftpboot"
+
+    Now create the root directory, if it is missing, and start the server:
+
+    root@itchy:~# mkdir -p /var/lib/tftpboot
+    root@itchy:~# /etc/init.d/tftpd-hpa start
+    Starting HPA's tftpd: in.tftpd.
+
+    Once our systems have retrieved an IP address via DHCP they will request files from beneath the /var/lib/tftpboot root directory. We'll come back to the contents of this directory shortly.
+
+
+
+</pre>
+
+
+<h2></h2>
+<pre>
+
+</pre>

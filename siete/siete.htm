@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+	<title>siete a networking</title>
+
+</head>
+<body>
+	<ul>
+			<li><a href="#zaklad">Zakladne nastroje</a></li>
+				<li><a href="#odkazy">Odkazy</a></li>
+			<ul>
+				<li><a href="#siete">Siete</a></li>
+			
+				
+			</ul>
+            <li><a href="techworm_network/index.html">Techworm Prikazy na siet</a></li>		
+	</ul>
+	<h1>Prikazy</h1>
+	
+
+	<table>
+		<caption><h3>Internet DHCPcD </h3></caption>
+		<tr> <th>prikaz</th> <th> vyznam</th></tr>
+		<tr><td>ls /sys/class/net</td><td> vypise sietove zariadenia interfaces </td></tr>
+		<tr><td>dhcpcd interface</td><td>zapne sietovu kartu</td></tr>
+		<tr><td>ip link interface</td><td> info o zariadeni ip link dokaze rozne nastavenia sietovky</td></tr>
+		<tr><td>systemctl enabled dhcpcd</td><td>zapne dhcp automaticky so startom</td></tr>
+		<tr><td>systemctl start dhcpcd</td><td>zapne dhcpcd hned, ak je enabled tak staci restartovat</td></tr>
+		<tr><td>ip addr</td><td>skontrolujeme ip adresy</td></tr>
+		<tr><td></td><td></td></tr>
+	
+
+  <a name=zaklad><h1>zakladne nastroje</h1>
+    <p>
+        <ul>
+            <li>tracert ciel.domena  = hladanie trasy cez routre</li>
+            <li>route {route print windows} = routovacia tabulka</li>
+            <li>ipconfig /all  = podrobny vypis</li>
+            <li>nmap 192.168.1.0/24  = prescanuje rozsah ip</li>
+        </li>
+    </p>
+
+
+	<a name=odkazy></a><h1>Odkazy</h1>
+	<ul>	
+		
+
+		
+		<a name=siete></a><h2>Siete</h2>		
+		<li><a href="siete.pdf"> Prikazy na spravu ip sietovani a podobne</a></li>
+
+	  <li><a href="KonfiguraciaSieteFwLinux.pdf">Konfiguracia siete</a></li>
+	  
+	  
+</ul>
+	
+
+</body>
+</html>
+

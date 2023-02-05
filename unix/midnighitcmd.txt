@@ -1,0 +1,83 @@
+MIDNIGHT comander
+
+Levý a pravý panel zaměníte stisknutím [Ctrl + u]
+Mezi vertikální a horizontální orientací panelů přepínáte pomocí [Alt + ,] Skryté soubory zobrazíte stisknutím [Alt + .].
+
+=VYHLADAVANIE=
+    Nejjednodušší a nejméně účinný je prostřednictvím klávesové zkratky [Alt + s],          která otevře vyhledávací řádek. 
+
+    Alternativně lze stisknout klávesu +, která otevírá okno Výběr.
+    odskrtavanie poloziek, musíte zmáčknout klávesu -.
+
+    označit nebo odznačit. Slouží k tomu klávesa Insert.
+
+
+=Operace se soubory a adresáři=
+
+    Stiskněte [Alt + o]. Obsah adresáře se vypíše do vedlejšího panelu. Můžete pokračovat a stisknout stejnou kombinaci kláves. Postupně se ve vedlejším panelu budou vypisovat obsahy složek.
+
+    Stiskněte [Ctrl + mezerník]. Tím zobrazíte velikost adresáře (ve sloupci Délka).
+
+    Přejděte na nějaký soubor. Stiskněte [Ctrl + x] a potom [q]. Ve druhém panelu se zobrazí obsah daného souboru. To má samozřejmě význam u textových či konfiguračních souborů. Určitě si tímto způsobem nepřehrajete písničku a nepodíváte se na obrázek či video. Můžete postupovat dále a šipkami se přesouvat na další a další soubory, ve druhém panelu se vždy zobrazí obsah právě vybraného souboru.
+    Na rozdíl od režimu výpisu obsahu adresářů lze tento režim opustit a nechat zobrazit původní obsah panelu, a to stejným způsobem, jakým jste tento režim spustili.
+
+    Nyní stiskněte [Ctrl + x] a pak [i]. Ve vedlejším panelu se zobrazí informace o označeném adresáři či souboru. Připomínáme, že v případě adresářů je nutno reálnou velikost získat stisknutím [Ctrl + mezerník]. Použití tohoto příkazu neruší tento režim. Z něj se dostanete opět stejnou cestou, jakou jste se do něj dostali.
+    
+    
+    =Prikazovly riadok=
+    [Ctrl + o]
+    
+   doplnit soubor, do riadku. Vyberte jej v okně MC a stiskněte [Ctrl + Enter], případně [Alt + Enter]. Název vybraného souboru (či složky) se vloží do řádku
+   
+   Pokud byste z nějakého důvodu potřebovali vložit celou cestu, stiskněte [Ctrl + Shift + Enter].
+    
+    Spuštěný příkaz můžete ukončit klasickou cestou, tedy stisknutím [Ctrl + c].
+    
+    
+    Klávesu [Tab] pro doplňování příkazů v řádku nemůžete použít, protože slouží pro přechod na další panel. Musíte tedy nejprve zmáčknout [Esc] a až poté [Tab]. Stejně tak historii příkazů nezobrazíte klávesou šipky nahoru, ale stisknutím [Alt + h].
+    
+    =aliase=
+    
+    Můžete si také vyrobit vlastní alias pro spuštění nějakého příkazu, například aplikace. Dejme tomu, že máte nainstalovaný balík LibreOffice, ale ne ten z repozitáře, ale ze stránky LibreOffice.org. A přejete si určitý soubor spustit právě v této aplikaci. Potom do souboru .bashrc, který se nachází ve vašem domovském adresáři, napište pod komentář # some more ls aliases tento řádek:
+
+alias soffice='/opt/libreofficeXXX/program/soffice'
+    kde XXX je číslo vámi používané verze LibreOffice. Jakmile do řádku v MC napíšete soffice a připojíte název souboru v aktuálně otevřené složce v panelu, pak se tento otevře ve vámi nainstalované verzi LibreOffice.
+
+    
+    =Oblíbené adresáře=
+        
+        
+    Vyberte nějaký adresář.
+    Stiskněte [AltGr + Ctrl + q] pro otevření správce oblíbených položek.
+    Opakovaným stisknutím [Tab] vyberte položku Přidat tento. Stiskněte [Enter].
+    Zadejte název nové položky a stiskněte [Enter].
+    Vyberte ji a stiskněte [Enter].
+    Vyberte jiný adresář a otevřete správce oblíbených položek.
+    Označte nově přidanou oblíbenou položku a pomocí [Tab] vyberte Nová položka.
+    V dialogovém okně zadejte popis adresáře a změňte zobrazenou cestu.
+    Stiskněte tlačítko Přidat.
+    Stiskněte znovu tlačítko Nová položka.
+    Opět zadejte název nové položky a cestu.
+    Stiskněte tlačítko Vložit. Všimněte si, kam se umístila nová položka v porovnání s příkazem Přidat.
+    Vyberte právě přidanou položku a stiskněte tlačítko Smazat.
+    Vyberte předchozí položku a stiskněte [Enter].
+    Přemístěte se do jiného adresáře a otevřete správce oblíbených složek.
+    Stiskněte tlačítko Přidat tento.
+    Napište popisek pro tuto položku a stiskněte tlačítko OK.
+    Stiskněte tlačítko Nová skupina.
+    Zadejte název nové skupiny oblíbených položek a stiskněte tlačítko Přidat.
+    Vyberte nějakou položku adresáře.
+    Stiskněte tlačítko Přesun.
+    Přemístěte se do vytvořené skupiny a stiskněte tlačítko Vložit nebo Připojit.
+    Přemístěte se opět do skupiny.
+    Označte přemístěnou položku a stiskněte tlačítko Přesun.
+    Vyberte položku označenou .. a stiskněte [Enter]. Dostanete se zpět do přehledu oblíbených položek.
+    Stiskněte tlačítko Připojit nebo Vložit.
+    Vyberte skupinu a stiskněte tlačítko Smazat a potvrďte.
+    Stiskněte [F10] či [Esc] pro návrat zpět.
+
+
+
+
+
+

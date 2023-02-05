@@ -1,0 +1,15 @@
+--------------- TO DO --------------
+project: Web Tutorial
+------------------------------------
+=Hlavne zmeny=
+1. UNIX.HTM poriadne nalinkovat a UPRATAT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2. GITIGNORE ZALOZIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+3. Spravit sekciu SERVERe a tam napchat weby .httacces, apache, mqsql, php, moodle, joomla a podobne srandy
+
+=Do buducna=
+1. novy css styl
+2. upratat rozdelenie stranok
+3. vyriesit vkladanie podstanok include alebo nieco obdobne
+ 
+
+

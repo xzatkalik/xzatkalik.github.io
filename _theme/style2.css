@@ -1,0 +1,99 @@
+ * {
+
+/*	border: 1px solid red;*/
+
+}
+.color-primary-0 { color: #2B823A }	/* Main Primary color */
+.color-primary-1 { color: #7CB786 }
+.color-primary-2 { color: #4F9D5D }
+.color-primary-3 { color: #116720 }
+.color-primary-4 { color: #004D0D }
+
+#container {
+	width: 80%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:1em;
+}
+
+html {
+	background-color: white;
+	
+}
+
+header{
+	background-color: #2B823A;
+	padding: 0.5em;
+}
+header form {
+	float: right;
+}
+
+
+nav  {
+	
+	/*display: inline-block;*/
+	background-color: #7CB786;
+	border: 2px dotted black;
+	
+
+}
+
+nav img {
+	
+	display:none;
+}
+
+nav form {
+	position:fixed;
+	display: inline;
+	right:1%;
+	pading:0;	
+}
+nav form input {
+	display:block;
+}
+
+
+nav ul{
+	
+	pading: 0;
+	list-style-type: none;
+	
+	/*text-align:center;*/
+	/*display:inline;*/
+}
+
+nav ul li {
+	display: inline;
+	padding:0.5em;
+	margin-right:0.25em;
+	text-align: center;
+	border: 2px outset black;
+}
+
+nav ul li a { 
+	text-decoration: none;
+	padding: 0.5em;
+	height: 2em;
+	
+
+
+}
+
+nav ul li a:hover{
+	background-color: #dfd;
+}
+
+article {
+	background-color: #4F9D5D;
+	padding: 2em;
+	height: 30em; 
+
+}
+
+footer {
+	float: right;
+	padding: 0.2em 1em 0.2em 1em;
+	background-color: #116720;
+}

@@ -1,0 +1,33 @@
+<html>
+<head>
+
+</head>
+
+<body>
+<h1>Nastavenie siete</h1>
+<pre>
+/etc/network/interfaces
+
+auto lo
+iface lo inet loopback
+
+auto enp0s3
+iface enp0s3 inet dhcp
+
+nameserver 255.255.255.0
+
+alebo
+auto enp0s3
+iface enp0s3 inet static
+address {IP}
+netmask [adresa]
+geteway [adresa]
+dns-nameservers [adresa]
+
+=== Pre ulozenie a aplikaciu
+systemctl restart networking
+</pre>
+
+
+</body>
+</html>

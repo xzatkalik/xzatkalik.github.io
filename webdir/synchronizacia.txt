@@ -1,0 +1,26 @@
+Zalohovacie nastroje
+
+Duplicity
+    -GUI Deja Dup
+    -ma sifrovanie
+
+Rdiff-backup
+    -reverzne inkrementy aktualny + zmeny do minulosti
+
+Rsync
+    -GUI Grsync
+    -dispozicia skoro vsade
+    -vyuzivany inymi systemami
+    -hard linky
+    - adresary typu zaloha0 zaloha1 .. pricom vzdy sa posuvaju, subory su len raz iba zmeny uklada
+    -nejde po blokoch
+
+Rsnapshot
+    -automatizacia nastrojov vyssie
+    -hard linky setri miesto
+    -automatizacia zaloh skripty  do cronu
+    -ide po blokoch setri miesto
+    -hodi sa na servery
+
+MirrorDir
+    -

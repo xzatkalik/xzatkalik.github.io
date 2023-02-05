@@ -1,0 +1,582 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm" selected="selected">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>iSCSI (pyTarget)</u></h2>
+
+
+
+<p>
+<a class="glossary" target="_blank" href="https://sourceforge.net/projects/pytarget/">pyTarget</a> is a Windows iSCSI <font class="file">Target</font> with a GPLv2 licence. The project homepage (<a class="glossary" target="_blank" href="https://pytarget.codeplex.com/">here</a>) states that <font class="file">pyTarget</font> can be used to "<i>...Implement a powerful iSCSI target in python, easily use under most popular systems. It also includes the following features: multi-target, multi-connect/session support chap authentication support header & data digest support erl =2...</i>"
+</p>
+
+
+<p>
+A standalone binary is available for Windows 32-bit - this version does not require that the python environment be installed on the <font class="file">Target</font> system. The <font class="file">pyTarget</font> executable is a console application and can be configured from a web interface. Alternatively the <font class="file">pytarget</font> configuration file can be manually edited. 
+</p>
+
+
+
+<p>
+A third party GUI is being developed by <a class="glossary" target="_blank" href="http://erwan.labalec.fr/">Erwan</a> and is available for download <a class="glossary" target="_blank" href="http://erwan.labalec.fr/other/pytarget_gui.zip">here</a>. The <font class="file">pyTarget</font> GUI is in active development at the time of writing. Screenshots in this page are from version 0.3 - screenshots in this page may not reflect the GUI in any newer version(s). 
+</p>
+
+
+<p>
+A Discussion topic on <a class="glossary" target="_blank" href="http://reboot.pro/">reboot.pro</a> may cover additional settings not discussed in this guide - see <a class="glossary" target="_blank" href="http://reboot.pro/topic/21400-windows-iscsi-target-software/">here</a>.
+</p>
+
+
+<p>
+<font class="file">pyTarget</font> documentation is limited. A .pdf document is included in the download package and a .txt document is available <a class="glossary" target="_blank" href="http://sourceforge.net/projects/pytarget/files/HOWTO.txt/download">here</a>. This page covers creating a basic <font class="file">Target</font> using either the configuration file or the GUI.
+</p>
+
+
+<p>
+This page contains the following sections -
+<ul>
+<li><a class="glossary" href="iscsi_pytarget.htm#disks">Supported Disk Images</a></li>
+<li><a class="glossary" href="iscsi_pytarget.htm#gui">GUI</a></li>
+<li><a class="glossary" href="iscsi_pytarget.htm#config">Configuration File</a></li>
+<li><a class="glossary" href="iscsi_pytarget.htm#parameters">iSCSI Negotiation Parameters</a></li>
+<li><a class="glossary" href="iscsi_pytarget.htm#errors">Error Messages</a></li>
+<li><a class="glossary" href="iscsi_pytarget.htm#authenticate">Client/Host Connections</a></li>
+<li><a class="glossary" href="iscsi_pytarget.htm#win7">Installing Windows 7 to iSCSI Target</a></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<a name="disks"></a>
+<h3 class="breaktop"><u>Supported Disk Images</u></h3>
+
+<p>
+<font class="file">pyTarget</font> supports fixed type disks including RAW files and Virtual Hard Disks (VHD). <font class="file">pyTarget</font> does not support <font class="file">EXPANDABLE</font> type VHD files, however it does support <font class="file">SPARSE</font> type disk images\files. 
+</p>
+
+<p>
+<a name="capacity"></a>
+An existing disk image can be specified in the configuration file. The disk capacity will also need to be specified - 1 x unit = 512 bytes. The following may be useful in calculating disk image capacity -
+<ul>
+<li>1 KiB = 2 units (use <font class="file">capacity="2"</font> in <font class="file">config.xml</font>).</li>
+<li>1 MiB = 2048 units (use <font class="file">capacity="2048"</font> in <font class="file">config.xml</font>).</li>
+<li>1 GiB = 2097152 units (use <font class="file">capacity="2097152"</font> in <font class="file">config.xml</font>).</li>
+</ul>
+</p>
+
+<p>
+If a disk specified in the configuration file does not exist, the <font class="file">pyTarget</font> executable will create a RAW file of the size specified in the <font class="file">capacity=</font> field in <font class="file">config.xml</font>. 
+</p>
+
+
+
+
+
+
+
+
+<a name="gui"></a>
+<h3 class="breaktop"><u>GUI</u></h3>
+
+
+<p>
+Running the GUI will parse data from any existing configuration file (<font class="file">config.xml</font>). Any settings changed in the GUI will be written to the configuration file and will start the <font class="file">pyTarget</font> executable when the <font class="file">Start</font> button is selected. The <font class="file">pyTarget</font> executable will be hidden, however any output will be displaying in the GUI. Starting the GUI without an existing configuration file will display settings similar to the following (GUI version 0.3 - released on 6th February 2017) - 
+<br />
+<img src="img/pytargetgui01.jpg" border=1>
+</p>
+
+
+<p>
+Working from the top to the bottom (and left to right), the fields in the GUI displayed in the image above -
+<ul>
+<li><font class="file">Target IQN</font> - hardcoded to <font class="file">pytarget</font>.</li>
+</ul>
+<ul>
+<a name="debug"></a>
+<li><font class="file">Debug</font> - levels 0 to 6 are supported. The differences between the Debug levels are not documented. The Debug level will control the console output - with Debug level 6 displaying the most verbose output. </li>
+</ul>
+<ul>
+<li><font class="file">IP</font> - IP address automatically retrieved from the <font class="file">pyTarget</font> configuration file. If the configuration file does not exist then the IP address of the system the GUI is running on will be retrieved. <font class="file">pyTarget</font> will send the IP address specified in this field to the iSCSI initiator during discovery. This field can be edited manually, which may be required if the system has more than one network interface.</li>
+</ul>
+<ul>
+<li><font class="file">Disk Image</font> - the name of the disk image. The full path must be specified if the disk image is not in the same directory as <font class="file">pyTarget.exe</font>. This information will be retrieved from any existing configuration file. A disk/path can be manually entered in this field. If an existing disk image + path is manually entered in this field then its capacity will not be calculated and will also have to be specified manually. </li>
+</ul>
+<ul>
+<li><font class="file">Capacity</font> - 1 unit appears to equal 512 bytes. This information will be retrieved from any existing configuration file. The Capacity will automatically be retrieved if the browse button is used to select a Disk Image. </li>
+</ul>
+<ul>
+<li><font class="file">...</font> - browse button. Use to select a disk image. Using the browse button to select an existing file will retrieve its size and calculate the capacity in the format required by <font class="file">pyTarget</font>. </li>
+</ul>
+<ul>
+<li><font class="file">Initiator IQN</font> - specify the IQN of the iSCSI initiator that will be connecting to the <font class="file">Target</font>. This is required for authentication - if the initiator IQN does not match the IQN specified in this field then the connection will be refused. </li>
+</ul>
+<ul>
+<li><font class="file">Start</font> - run <font class="file">pyTarget.exe</font>. The console will be hidden - all console output will be parsed to the GUI and displayed in the field below the <font class="file">Start</font> button. </li>
+</ul>
+<ul>
+<li><font class="file">Stop</font> - stop <font class="file">pyTarget.exe</font>.</li>
+</ul>
+</p>
+
+
+
+
+<p>
+Any changes made in the GUI will be written to the configuration file when the <font class="file">Start</font> button is pressed. 
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="config"></a>
+<h3 class="breaktop"><u>Configuration File</u></h3>
+
+
+<p>
+A configuration file <font class="file">config.xml</font> is included in the <font class="file">pyTarget</font> download, however I recommend that you use the GUI to create a configuration file or compile your own.
+</p>
+
+
+
+<p class="break3em">
+The following entries can be used as the header for <font class="file">config.xml</font>
+<br />
+<textarea style="font-size:12px" cols="80" rows="5" align=left wrap=off readonly>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<root>
+<console ip="" port="3260" debug_level="5" />
+</textarea>
+</p>
+
+<p>
+<ul>
+<li><font class="file">console ip=""</font> - this field can be left empty. Specifying an IP address in this field will limit the IP addresses the Target can listen on. </li>
+</ul>
+<ul>
+<li><font class="file">port="3260"</font> - the TCP port that the <font class="file">Target</font> will listen on. Port 3260 is the default port for iSCSI connections.</li>
+</ul>
+<ul>
+<li><font class="file">debug_level="5"</font> - set the Debug level. See <a class="glossary" href="iscsi_pytarget.htm#debug">here</a>.</li>
+</ul>
+</p>
+
+
+
+
+
+<p class="break3em">
+Now add a <font class="file">Target</font> -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap=off readonly>
+<target name="iqn.iSCSI-target1" ip="192.168.1.1" port="3260" portal="1">
+</textarea>
+</p>
+<p>
+Where
+<ul>
+<li><font class="file">name="iqn.iSCSI-target1"</font> - <font class="file">Target</font> IQN. </li>
+</ul>
+<ul>
+<li><font class="file">ip="192.168.1.1"</font> - <font class="file">Target</font> IP address. Use a valid IP address for a network adapter in use on the <font class="file">Target</font> system.</li>
+</ul>
+<ul>
+<li><font class="file">port="3260"</font> - listed ton port 3260 for incoming connections. </li>
+</ul>
+<ul>
+<li><font class="file">portal="1"</font> - the documentation states that this is the "<i>... the portal field of TargetAddress...</i>"</li>
+</ul>
+</p>
+
+
+<p class="break3em">
+Now add a <font class="file">Host</font> for authentication purposes. Connections to this <font class="file">Target</font> will be refused from any <font class="file">Client</font>/<font class="file">Host</font> not specified - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap=off readonly>
+<host name="iqn.client" target_pwd="" initiator_pwd="">
+</textarea>
+</p>
+<p>
+<ul>
+<li><font class="file">name="iqn.client"</font> - allow connection from a <font class="file">Client</font>/<font class="file">Host</font> with the iSCSI Qualified Name <font class="file">iqn.client</font>.</li>
+</ul>
+<ul>
+<li><font class="file">target_pwd=""</font> - use for CHAP authentication. Leave blank to allow anonymous connections (none password protected).</li>
+</ul>
+<ul>
+<li><font class="file">initiator_pwd=""</font> - use for CHAP authentication. Leave blank to allow anonymous connections (none password protected).</li>
+</ul>
+</p>
+
+
+
+<p class="break3em">
+Now specify/add a disk image -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap=off readonly>
+<lun id="0" type="0" path="D:\iSCSI_target1.ima" capacity="41943040"/>
+</textarea>
+</p>
+<p>
+Where
+<ul>
+<li><font class="file">id="0"</font> - documentation states that this field is used to specify the LUN ID "<i>...lun id, keey unique within host...</i>".</li>
+</ul>
+<ul>
+<li><font class="file">type="0"</font> - documentation states that this field is used for "<i>...lun device type (0 for disk, 1 for tape, etc)...</i>."
+</li>
+</ul>
+<ul>
+<li><font class="file">path="D:\iSCSI_target1.ima"</font> - path to disk image. </li>
+</ul>
+<ul>
+<li><font class="file">capacity="41943040"</font> - 41943040 = 20 GiB. See <a class="glossary" href="iscsi_pytarget.htm#capacity">here</a> for more information.</li>
+</ul>
+</p>
+
+<p>
+And now add a second disk image -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap=off readonly>
+<lun id="1" type="0" path="D:\iSCSI_target2.ima" capacity="20971520"/>
+</textarea>
+</p>
+
+<p>
+Observe that the LUN ID has been changed (<font class="file">id=1</font>), type is still 0 for a disk (<font class="file">type="0"</font>), path is for a different disk image (<font class="file">path="D:\iSCSI_target2.ima"</font>) and the disk capacity is 10 GiB (<font class="file">capacity="20971520"</font>).
+</p>
+
+
+
+
+
+
+<p class="break3em">
+Resulting <font class="file">config.ini</font> file with XML closing tags added for all elements -
+<br />
+<textarea style="font-size:12px" cols="80" rows="12" align=left wrap=off readonly>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<root>
+ <console ip="" port="3260" debug_level="5" />
+  <target name="iqn.iSCSI-target1" ip="192.168.1.1" port="3260" portal="1">
+   <host name="iqn.client" target_pwd="" initiator_pwd="">
+    <lun id="0" type="0" path="D:\iSCSI_target1.ima" capacity="41943040"/>
+    <lun id="1" type="0" path="D:\iSCSI_target2.ima" capacity="20971520"/>
+   </host>
+  </target>
+</root>
+</textarea>
+</p>
+
+
+
+
+<p>
+<b><u><font color="red">NOTE</font></u></b> - Multiple <font class="file">Targets</font> can be specified in the Configuration file - this is not (yet?) possible in the GUI. 
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<a name="parameters"></a>
+<h3 class="breaktop"><u>iSCSI Negotiation Parameters</u></h3>
+
+
+
+
+<p>
+<b><u><font color="red">NOTE</font></u></b> - It is not (yet?) possible to set negotiation parameters in the GUI. 
+</p>
+
+
+
+
+<p class="break3em">
+iSCSI  Negotiation Parameters for individual <font class="file">Targets</font> can be set in the <font class="file">pyTarget</font> configuration file. Supported parameters are -
+<br />
+<textarea style="font-size:12px" cols="80" rows="14" align=left wrap=off readonly>
+<item key="MaxConnections" value="8" />
+<item key="InitialR2T" value="Yes" />
+<item key="ImmediateData" value="Yes" />
+<item key="FirstBurstLength" value="65536" />
+<item key="MaxBurstLength" value="262144" />
+<item key="DefaultTime2Wait" value="2" />    
+<item key="DefaultTime2Retain" value="20" />        
+<item key="MaxOutstandingR2T" value="16" />  
+<item key="DataPDUInOrder" value="Yes" />  
+<item key="DataSequenceInOrder" value="Yes" />     
+<item key="ErrorRecoveryLevel" value="0" />
+<item key="MaxRecvDataSegmentLength" value="65536" />
+</textarea>
+</p>
+
+
+<p class="break3em">
+<b><u><font color="red">NOTE</font></u></b> - the above negotiation parameters are the default values used for each <font class="file">Target</font>. The configuration file can be used to change the default values. 
+</p>
+
+
+
+<p class="break3em">
+Sample <font class="file">config.xml</font> including negotiation parameters -
+<br />
+<textarea style="font-size:12px" cols="80" rows="25" align=left wrap=off readonly>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<root>
+ <console ip="" port="3260" debug_level="5" />
+  <target name="iqn.iSCSI-target1" ip="192.168.1.1" port="3260" portal="1">
+   <host name="iqn.client" target_pwd="" initiator_pwd="">
+    <lun id="0" type="0" path="D:\iSCSI_target1.ima" capacity="41943040"/>
+    <lun id="1" type="0" path="D:\iSCSI_target2.ima" capacity="20971520"/>
+   </host>
+    <!-- negotiation parameter for this target -->
+    <item key="MaxConnections" value="8" />
+    <item key="InitialR2T" value="Yes" />
+    <item key="ImmediateData" value="Yes" />
+    <item key="FirstBurstLength" value="65536" />
+    <item key="MaxBurstLength" value="262144" />
+    <item key="DefaultTime2Wait" value="2" />    
+    <item key="DefaultTime2Retain" value="20" />        
+    <item key="MaxOutstandingR2T" value="16" />  
+    <item key="DataPDUInOrder" value="Yes" />  
+    <item key="DataSequenceInOrder" value="Yes" />     
+    <item key="ErrorRecoveryLevel" value="0" />
+    <item key="MaxRecvDataSegmentLength" value="65536" />
+  </target>
+</root>
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="errors"></a>
+<h3 class="breaktop"><u>Error Messages</u></h3>
+
+
+
+<p>
+<font class="file">pyTarget</font> documentation is limited and the error messages appear obscure at times. 
+</p>
+
+
+
+
+<p class="break3em">
+An error message similar to the following may indicate that another application is listening on port 80 (used by web servers) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="14" align=left wrap=off readonly>
+INFO:   start Http Service ...
+Exception in thread Http Service:
+Traceback (most recent call last):
+  File "threading.pyo", line 525, in __bootstrap_inner
+  File "comm\service_thread.pyo", line 33, in run
+  File "web\main.pyo", line 154, in WebService
+  File "SocketServer.pyo", line 400, in __init__
+  File "BaseHTTPServer.pyo", line 108, in server_bind
+  File "SocketServer.pyo", line 411, in server_bind
+  File "<string>", line 1, in bind
+error: [Errno 10013] An attempt was made to access a socket in a way forbidden b
+y its access permissions
+</textarea>
+</p>
+
+
+
+
+<p class="break3em">
+An error message similar to the following may indicate that another application is listening on port 3260 - the default iSCSI port. This may indicate another iSCSI <font class="file">Target</font> is running (including a hidden <font class="file">pyTarget.exe</font> launched from the GUI) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap=off readonly>
+WARNING:        iscsi service start FAILED, check if port(3260) has been used
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+<a name="authenticate"></a>
+<h3 class="breaktop"><u>Client/Host Connections</u></h3>
+
+<p>
+As stated elsewhere in this page, connections from <font class="file">Client</font>/<font class="file">Host</font> systems will require authentication. Assuming that the <font class="file">Client</font>/<font class="file">Host</font> identifier was set as <font class="file">iqn.client</font>, add the following command to your iPXE script -
+<ul>
+<li><font class="file">set initiator-iqn iqn.client</font> </li>
+</ul>
+</p>
+
+
+<p>
+E.g. -
+<br />
+<textarea style="font-size:12px" cols="80" rows="10" align=left wrap=off readonly>
+#!ipxe
+set boot-url http://${dhcp-server}
+set gateway 0.0.0.0
+set keep-san 1
+set initiator-iqn iqn.client
+SANBOOT iscsi:${dhcp-server}::::iqn.iSCSI-target1
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+<a name="win7"></a>
+<h3 class="breaktop"><u>Installing Windows 7 to iSCSI Target</u></h3>
+
+<p>
+Installing Windows 7 is unusually slow when installing to a <font class="file">pyTarget</font> iSCSI <font class="file">Target</font>. This is covered <a class="glossary" target="_blank" href="http://reboot.pro/topic/21400-windows-iscsi-target-software/?p=202067">here</a>. 
+</p>
+
+
+<p>
+In tests it took several hours to install Windows 7 when using <font class="file">pyTarget</font> - via a Gigabit Ethernet connection. It is possible that changing the Negotiation parameters may increase the installation speed. 
+</p>
+
+
+<p class="breakbottom">
+</p>
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>
+

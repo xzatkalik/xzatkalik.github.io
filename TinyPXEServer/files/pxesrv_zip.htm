@@ -1,0 +1,1432 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm" selected="selected">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>pxesrv Package</u></h2>
+
+
+
+<p>
+This page lists all files and folders included in the <font class="file">Tiny PXE Server</font> version 1.0.0.20 (dated 12/2/2017 (19:29)) download package (<i>pxesrv.zip</i>). The <font class="file">Tiny PXE Server</font> executable (<font class="file">pxesrv.exe</font>) forms only a small part of the download package (executable is only 929 KB) - the remainder of the download is made up of Network Bootstrap Programs, sample files, etc.
+</p>
+
+
+
+
+
+<p>
+The following displays the directory structure. Files are shown in <font color="red">RED</font> (with path in <font color="blue">BLUE</font>). Root directories are shown in <font color="green">GREEN</font>. Click on the <font color="red">RED</font> or <font color="green">GREEN</font> links below for further information about each file/directory - 
+</p>
+
+
+
+<p>
+<ul>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#__offline.bat">__offline.bat</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#__online.bat">__online.bat</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#config.sample">config.sample</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#filter.sample">filter.sample</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#licensing.txt">licensing.txt</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#nics.sample">nics.sample</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#pxespec.pdf">pxespec.pdf</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#pxesrv.exe">pxesrv.exe</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#pxesrv.txt">pxesrv.txt</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#pxesrv-faq.xhtml">pxesrv-faq.xhtml</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#syslogd.exe">syslogd.exe</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#version.txt">version.txt</a></li>
+<li><font color="blue">\</font><a class="red" href="pxesrv_zip.htm#WinNFSd-2.0.zip">WinNFSd-2.0.zip</a></li>
+
+<li><font color="blue">\</font><a class="green" href="pxesrv_zip.htm#files">files</a></li>
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#chain.c32">chain.c32</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#gpxe-1.0.1-gpxe.pxe">gpxe-1.0.1-gpxe.pxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#gpxe-1.0.1-gpxe.kpxe">gpxe-1.0.1-gpxe.kpxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#gpxe-1.0.1-undi.pxe">gpxe-1.0.1-undi.pxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#gpxe-1.0.1+-gpxe.pxe">gpxe-1.0.1+-gpxe.pxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#gpxe-1.0.1+-gpxe.kpxe">gpxe-1.0.1+-gpxe.kpxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#GPXE.KRN">GPXE.KRN</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#gpxelinux.0">gpxelinux.0</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#grldr">grldr</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#hdt.c32">hdt.c32</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#http.gpxe">http.gpxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#ipxe-i386.efi">ipxe-i386.efi</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#ipxe-snponly-i386.efi">ipxe-snponly-i386.efi</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#ipxe-snponly-x86-64.efi">ipxe-snponly-x86-64.efi</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#ipxe-undionly.kpxe">ipxe-undionly.kpxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#ipxe-x86-64.efi">ipxe-x86-64.efi</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#ipxe.iso">ipxe.iso</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#ipxe.lkrn">ipxe.lkrn</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#ipxe.pxe">ipxe.pxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#ipxe.usb">ipxe.usb</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#iscsi.ipxe">iscsi.ipxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#iso.ipxe">iso.ipxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#isosan.ipxe">isosan.ipxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#mboot.c32">mboot.c32</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#memdisk">memdisk</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#menu.c32">menu.c32</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#menu.gpxe">menu.gpxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#menu.ipxe">menu.ipxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#pxelinux.0">pxelinux.0</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#pxelinux.gpxe">pxelinux.gpxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#reboot.c32">reboot.c32</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#reboot.com">reboot.com</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#sanboot.c32">sanboot.c32</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#sanboot.gpxe">sanboot.gpxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#sdi.c32">sdi.c32</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#wimboot">wimboot</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#wimboot.ipxe">wimboot.ipxe</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#winnt.sif">winnt.sif</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#winnt_ris.sif">winnt_ris.sif</a></li> 
+<li><font color="blue">\files\</font><a class="red" href="pxesrv_zip.htm#winpe4.ipxe">winpe4.ipxe</a></li> 
+
+<li><font color="blue">\files\</font><a class="green" href="pxesrv_zip.htm#BOOT">BOOT</a></li>
+
+<li><font color="blue">\files\</font><a class="green" href="pxesrv_zip.htm#debian-installer">debian-installer</a></li>
+
+<li><font color="blue">\files\</font><a class="green" href="pxesrv_zip.htm#images">images</a></li>
+
+<li><font color="blue">\files\</font><a class="green" href="pxesrv_zip.htm#menu.lst">menu.lst</a></li>
+<li><font color="blue">\files\menu.lst\</font><a class="red" href="pxesrv_zip.htm#default_grub4dos">default</a></li> 
+
+<li><font color="blue">\files\</font><a class="green" href="pxesrv_zip.htm#menuconf">menuconf</a></li>
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#bootutil.conf">bootutil.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#centos.conf">centos.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#debian.conf">debian.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#diskutil.conf">diskutil.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#dsl.conf">dsl.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#fc6.conf">fc6.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#floppies.conf">floppies.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#freebsd.conf">freebsd.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#gpxe.conf">gpxe.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#install.conf">install.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#ipxe.conf">ipxe.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#livecds.conf">livecds.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#part.conf">part.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#rescue.conf">rescue.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#suse.conf">suse.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#sysutils.conf">sysutils.conf</a></li> 
+<li><font color="blue">\files\menuconf\</font><a class="red" href="pxesrv_zip.htm#ubuntu.conf">ubuntu.conf</a></li> 
+
+<li><font color="blue">\files\</font><a class="green" href="pxesrv_zip.htm#opensuse-installer">opensuse-installer</a></li>
+
+<li><font color="blue">\files\</font><a class="green" href="pxesrv_zip.htm#pxelinux.cfg">pxelinux.cfg</a></li>
+<li><font color="blue">\files\pxelinux.cfg\</font><a class="red" href="pxesrv_zip.htm#default_pxelinux">default</a></li> 
+
+<li><font color="blue">\files\</font><a class="green" href="pxesrv_zip.htm#SOURCES">SOURCES</a></li>
+
+<li><font color="blue">\files\</font><a class="green" href="pxesrv_zip.htm#ubuntu-installer">ubuntu-installer</a></li>
+</ul>
+</p>
+
+
+
+
+<p>
+Files and folders in the <i>pxesrv.zip</i> package are listed in alphabetical order below - 
+</p>
+
+
+<p>
+<a name="top"></a>
+<font class="a2z2">A</font>
+<a class="a2z" href="pxesrv_zip.htm#b">B</a>
+<a class="a2z" href="pxesrv_zip.htm#c">C</a>
+<a class="a2z" href="pxesrv_zip.htm#d">D</a>
+<font class="a2z2">E</font>
+<a class="a2z" href="pxesrv_zip.htm#f">F</a>
+<a class="a2z" href="pxesrv_zip.htm#g">G</a>
+<a class="a2z" href="pxesrv_zip.htm#h">H</a>
+<a class="a2z" href="pxesrv_zip.htm#i">I</a>
+<font class="a2z2">J</font>
+<font class="a2z2">K</font>
+<a class="a2z" href="pxesrv_zip.htm#l">L</a>
+<a class="a2z" href="pxesrv_zip.htm#m">M</a>
+<a class="a2z" href="pxesrv_zip.htm#n">N</a>
+<a class="a2z" href="pxesrv_zip.htm#o">O</a>
+<a class="a2z" href="pxesrv_zip.htm#p">P</a>
+<font class="a2z2">Q</font>
+<a class="a2z" href="pxesrv_zip.htm#r">R</a>
+<a class="a2z" href="pxesrv_zip.htm#s">S</a>
+<font class="a2z2">T</font>
+<a class="a2z" href="pxesrv_zip.htm#u">U</a>
+<a class="a2z" href="pxesrv_zip.htm#v">V</a>
+<a class="a2z" href="pxesrv_zip.htm#w">W</a>
+<font class="a2z2">X</font>
+<font class="a2z2">Y</font>
+<font class="a2z2">Z</font>
+</p>
+
+
+
+<a name="__offline.bat"></a> 
+<h3 class="breaktop"><u>__offline.bat</u></h3> 
+
+<p>
+Sample batch file that can be used (along with a corresponding entry in <a class="glossary" href="pxesrv_config.htm">config.ini</a> (e.g. <a class="glossary" href="pxesrv_config.htm#offline">offline</a>=<font class="file">C:\pxesrv\__offline.bat</font>)) to execute commands when the <font class="file">Offline</font> button is pressed in the <font class="file">Tiny PXE Server</font> GUI.
+</p>
+
+
+
+
+<a name="__online.bat"></a> 
+<h3 class="breaktop"><u>__online.bat</u></h3> 
+
+<p>
+Sample batch file that can be used (along with a corresponding entry in <a class="glossary" href="pxesrv_config.htm">config.ini</a> (e.g. <a class="glossary" href="pxesrv_config.htm#online">online</a>=<font class="file">C:\pxesrv\__online.bat</font>)) to execute commands when the <font class="file">Online</font> button is pressed in the <font class="file">Tiny PXE Server</font> GUI.
+</p>
+
+
+
+
+
+
+
+
+ 
+
+<br /><br /><a name="b"><a class="a2z3" href="pxesrv_zip.htm#top">B</a></a>
+
+<a name="BOOT"></a> 
+<h3 class="breaktop"><u>BOOT</u> (<font color="green">Directory</font>)</h3> 
+ 
+<p> 
+Directory used for WinPE 2.*\3.*\4.0\5.* files. Copy the <i>BCD</i> store here. This is the default location for WinPE network boot files. If using the <a class="glossary" href="pxesrv_zip.htm#wimboot.ipxe">wimboot.ipxe</a> script then <i>boot.sdi</i> will also need to be copied here. 
+</p> 
+ 
+ 
+ 
+ 
+<a name="bootutil.conf"></a> 
+<h3 class="breaktop"><u>bootutil.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> menu file (<b>Utilitaires de boot</b> menu option). This is a sample menu. The following disk images can be loaded via this sub-menu (the disk images will need to be downloaded and added to the <a class="glossary" href="pxesrv_zip.htm#images">images</a> directory) - 
+<ul>
+<li>grub.img (menu option <b>GRUB</b>)</li>
+<li>sgrub.img (menu option <b>SuperGRUB</b>)</li>
+<li>allinone.img (menu option <a target="_blank" href="http://schierlm.users.sourceforge.net/bootdisk/">AllInOne</a>
+)</li>
+<li>gag.dsk (<a target="_blank" href="http://gag.sourceforge.net/">GAG</a>)</li>
+</ul>
+</p> 
+
+
+ 
+ 
+<br /><br /><a name="c"><a class="a2z3" href="pxesrv_zip.htm#top">C</a></a>
+ 
+<a name="centos.conf"></a> 
+<h3 class="breaktop"><u>centos.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> > <a class="glossary" href="pxesrv_zip.htm#install.conf">install.conf</a> (<b>Install CD's</b> > <b>install Centos</b> menu options). Contains a sample menu for booting the <a target="_blank" href="https://www.centos.org/">CentOS</a> Linux project.
+</p> 
+ 
+
+
+ 
+<a name="config.sample"></a>
+<h3 class="breaktop"><u>config.sample</u></h3>
+
+<p>
+Sample configuration file for use with <a class="glossary" href="pxesrv_zip.htm#pxesrv.exe">pxesrv.exe</a>. Can be used to preload settings - this is covered in more detail in the <a href="pxesrv_config.htm">pxesrv Config</a> section of this guide. The following has been copied from <a class="glossary" href="pxesrv_zip.htm#pxesrv-faq.xhtml">pxesrv-faq.xhtml</a> -
+
+<div id="quote">
+<b>11.how to pre load settings in Tiny PXE Server</b><br />
+rename config,sample into config,ini<br />
+uncomment (remove; in front of the line) the needed lines & set the option(s)
+</div>
+</p>
+ 
+ 
+ 
+ 
+<a name="chain.c32"></a> 
+<h3 class="breaktop"><u>chain.c32</u></h3> 
+ 
+<p>
+PXELinux COM32 module. The following is from <a target="_blank" href="http://www.syslinux.org/wiki/index.php/Comboot/chain.c32">http://www.syslinux.org/.../chain.c32</a> -
+
+<div id="quote">
+"<i>...chain.c32 is a COM32 module for Syslinux. It can chainload MBRs, partition boot sectors, Windows bootloaders (ntldr, setupldr.bin and bootmgr), MS-DOS and PC-DOS io.sys, Freedos kernel.sys, isolinux.bin (only from ISOLINUX), grldr of grub4dos or a bootsector saved to a file. It can also swap BIOS drive numbers or hide partitions....</i>"
+</div> 
+</p> 
+ 
+ 
+ 
+<br /><br /><a name="d"><a class="a2z3" href="pxesrv_zip.htm#top">D</a></a>
+
+<a name="debian.conf"></a> 
+<h3 class="breaktop"><u>debian.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> > <a class="glossary" href="pxesrv_zip.htm#install.conf">install.conf</a> (<b>Install CD's</b> > <b>install Debian</b> menu options). Contains a sample menu option for booting the <a target="_blank" href="https://www.debian.org/">Debian</a> Linux project. 
+</p> 
+
+
+
+ 
+ 
+ 
+<a name="debian-installer"></a> 
+<h3 class="breaktop"><u>debian-installer</u> (<font color="green">Directory</font>)</h3> 
+ 
+<p> 
+Empty directory. <a target="_blank" href="https://www.debian.org/">Debian</a> Linux project files (<i>linux</i> and <i>initrd.gz</i>) can be copied here (to the <a class="glossary" href="pxesrv_zip.htm#debian-installer">\files\debian-installer\</a><i><b>I386</b></i> directory) and booted via the <a class="glossary" href="pxesrv_zip.htm#debian.conf">debian.conf</a> submenu. 
+</p> 
+ 
+ 
+ 
+ 
+<a name="default_grub4dos"></a> 
+<h3 class="breaktop"><u>default (grub4dos)</u></h3> 
+ 
+<p> 
+The plain text boot menu loaded by <a class="glossary" href="pxesrv_zip.htm#grldr">Grub4dos</a>. This is a sample file.  
+</p> 
+ 
+ 
+ 
+ 
+<a name="default_pxelinux"></a> 
+<h3 class="breaktop"><u>default (pxelinux)</u></h3> 
+
+<p> 
+The plain text boot menu loaded by <a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a>. The majority of the menu options will load sub-menus contained in the <a class="glossary" href="pxesrv_zip.htm#menuconf">menuconf</a> directory. Menu options - 
+<ul>
+<li><a class="glossary" href="pxesrv_zip.htm#floppies.conf">Floppies</a> (<i>floppies.conf</i>)</li> 
+<li><a class="glossary" href="pxesrv_zip.htm#bootutil.conf">Utilitaires de boot</a> (<i>bootutil.conf</i>)</li> 
+<li><a class="glossary" href="pxesrv_zip.htm#install.conf">Install CD's</a> (<i>install.conf</i>)</li> 
+<li><a class="glossary" href="pxesrv_zip.htm#diskutil.conf">Utilitaires de disques dur</a> (<i>diskutil.conf</i>)</li> 
+<li><a class="glossary" href="pxesrv_zip.htm#part.conf">Partition Tools</a> (<i>part.conf</i>)</li> 
+<li><a class="glossary" href="pxesrv_zip.htm#sysutils.conf">Utilitaires systemes</a> (<i>sysutils.conf</i>)</li> 
+<li><a class="glossary" href="pxesrv_zip.htm#LiveCDs.conf">Live CDs</a> (<i>livecds.conf</i>)</li> 
+<li><a class="glossary" href="pxesrv_zip.htm#rescue.conf">Rescue</a> (<i>rescue.conf</i>)</li> 
+<li><a class="glossary" href="pxesrv_zip.htm#gpxe.conf">gPXE</a> (<i>gpxe.conf</i>)</li> 
+<li><a class="glossary" href="pxesrv_zip.htm#ipxe.conf">ipxe</a> (<i>ipxe.conf</i>)</li> 
+<li><a class="glossary" href="pxesrv_zip.htm#reboot.c32">Redemarrer</a></li> 
+<li><i>Eteindre</i> - the PXELINUX <i>halt.c32</i> COM32 module is missing and will need to be downloaded and added to the <a class="glossary" href="pxesrv_zip.htm#files">files</a> directory</li> 
+</ul>
+</p> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<a name="diskutil.conf"></a> 
+<h3 class="breaktop"><u>diskutil.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> menu file. The following disk images can be loaded via this sub-menu (disk images will need to be downloaded and added to the <a class="glossary" href="pxesrv_zip.htm#images">\files\images\</a><i><b>hdd\</b></i> directory - the directory <a class="glossary" href="pxesrv_zip.htm#images">\files\images\</a> exits, however the <i>\<b>hdd</b>\</i> sub-directory will need to be created manually) - 
+<ul> 
+<li>hddmaxtor.imz (menu option <b>Maxtor</b>)</li>
+<li>hddIBMhita.imz (menu option <b>Hitachi</b>)</li>
+<li>hddFujitsu.imz (menu option <b>Fujitsu</b>)</li>
+<li>hddSamsung.imz (menu option <b>Samsung</b>)</li>
+<li>hddWD.imz (menu option <b>Western Digital</b>)</li>
+<li>hddSeagate.imz (menu option <b>Seagate</b>)</li>
+</ul>
+</p> 
+ 
+ 
+ 
+ 
+<a name="dsl.conf"></a> 
+<h3 class="breaktop"><u>dsl.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> > <a class="glossary" href="pxesrv_zip.htm#livecds.conf">livecds.conf</a> (<b>Live CDs</b> > <b>dsl</b> menu options). Contains a sample menu for booting the <a target="_blank" href="http://www.damnsmalllinux.org/">Damn Small Linux</a> Linux project.
+</p>
+
+
+ 
+ 
+<br /><br /><a name="f"><a class="a2z3" href="pxesrv_zip.htm#top">F</a></a>
+ 
+<a name="fc6.conf"></a> 
+<h3 class="breaktop"><u>fc6.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> > <a class="glossary" href="pxesrv_zip.htm#install.conf">install.conf</a> (<b>Install CD's</b> > <b>install Fedora</b> menu options). Contains a sample menu for booting the <a target="_blank" href="https://getfedora.org/">Fedora</a> Linux project.
+</p> 
+
+
+
+ 
+
+
+ 
+ 
+ 
+<a name="files"></a> 
+<h3 class="breaktop"><u>files</u></h3> 
+ 
+<p> 
+Directory containing several PXE loaders including <a class="glossary" href="pxesrv_zip.htm#pxelinux.0">pxelinux.0</a>. Assuming the PXE loader is loaded from this directory it will also be the tftp and http root directory.
+</p> 
+ 
+ 
+ 
+ 
+<a name="filter.sample"></a> 
+<h3 class="breaktop"><u>filter.sample</u></h3> 
+
+<p>
+Sample file used to restrict PXE boot to systems with a specified MAC addresses. The following has been copied from <a class="glossary" href="pxesrv_zip.htm#pxesrv-faq.xhtml">pxesrv-faq.xhtml</a> -
+
+<div id="quote">
+<b>12. how to serve only specified mac addresses (and ignore others)</b><br /> 
+rename filter.sample to filter.txt and input specific mac address(es)
+</div>
+</p>
+
+ 
+
+
+ 
+ 
+ 
+ 
+<a name="floppies.conf"></a> 
+<h3 class="breaktop"><u>floppies.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> menu file (<b>Floppies</b> menu option). The following disk images can be loaded via this sub-menu (disk images will need to be downloaded and added to the <a class="glossary" href="pxesrv_zip.htm#images">images</a> directory) - 
+<ul>
+<li>M32-084.IMG (menu option <b>Menuet32</b>)</li>
+<li>xpquick.ima (menu option <b>XPQuick</b>)</li>
+<li>ghostUSB.img (menu option <b>ghostUSB</b>)</li>
+<li>bart.ima (menu option <b>Bart</b>)</li>
+<li>98.ima (menu option <b>DosW98</b>)</li>
+<li>undis3c.imz (menu option <b>Bootdisk with keeppxe Option</b>)</li>
+<li>menu option <b>LinuxBoot</b></li>
+</ul>
+</p> 
+
+
+
+ 
+ 
+ 
+ 
+<a name="freebsd.conf"></a> 
+<h3 class="breaktop"><u>freebsd.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sample menu containing an entry for installing <a target="_blank" href="https://www.freebsd.org/">FreeBSD</a>.
+</p> 
+
+
+
+
+
+ 
+ 
+ 
+ 
+<br /><br /><a name="g"><a class="a2z3" href="pxesrv_zip.htm#top">G</a></a>
+
+<a name="gpxe.conf"></a> 
+<h3 class="breaktop"><u>gpxe.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> menu file (<b>gPXE</b> menu option). This is a sample menu and includes the following options -
+<ul>
+<li>GPXE Kernel</li>
+<li>GPXE Kernel</li>
+<li>DosW98 Http</li>
+</ul>
+Several other options will need to be edited as a number of settings are hardcoded to use IP address http://192.168.1.100. 
+</p> 
+ 
+ 
+ 
+ 
+<a name="gpxe-1.0.1-gpxe.pxe"></a> 
+<h3 class="breaktop"><u>gpxe-1.0.1-gpxe.pxe</u></h3> 
+ 
+<p> 
+gPXE bootstrap loader. This version contains a range of native drivers and gives better performance than the <a class="glossary" href="pxesrv_zip.htm#gpxe-1.0.1-undi.pxe">UNDI</a> version of gPXE, however it may not contain a native driver for <font class="file">client</font> systems NIC. 
+</p>
+
+<p>
+<font class="file">.pxe</font> builds are designed to be chainloaded. On loading, <font class="file">.pxe</font> builds will unload the underlying UNDI and PXE code.
+</p>
+
+<p>
+The following information is from the gPXE website (<a target="_blank" href="http://etherboot.org/wiki/index.php">http://etherboot.org/wiki/index.php</a>) -
+
+<div id="quote">
+<i>"gPXE is an open source (GPL) network bootloader. It provides a direct replacement for proprietary PXE ROMs, with many extra features such as DNS, HTTP, iSCSI, etc. ...gPXE evolved from Etherboot, and is maintained by the Etherboot project.</i>"
+</div>
+</p> 
+
+<p>
+gPXE project homepage - <a target="_blank" href="http://etherboot.org/wiki/start">http://etherboot.org/wiki/start</a>. Please note that gPXE is no longer in development and has been officially replaced with <a target="_blank" href="http://ipxe.org">iPXE</a>.
+</p>
+
+
+
+
+<a name="gpxe-1.0.1-gpxe.kpxe"></a> 
+<h3 class="breaktop"><u>gpxe-1.0.1-gpxe.kpxe</u></h3> 
+ 
+<p>
+This build is similar to <a class="glossary" href="pxesrv_zip.htm#gpxe-1.0.1-gpxe.pxe">gpxe-1.0.1-gpxe.pxe</a> - the only difference being that <font class="file">.kpxe</font> builds will keep the underloading UNDI code loaded but will unload PXE.
+</p>
+
+
+
+
+
+
+
+
+<a name="gpxe-1.0.1-undi.pxe"></a> 
+<h3 class="breaktop"><u>gpxe-1.0.1-undi.pxe</u></h3> 
+ 
+<p> 
+The Universal Network Device Interface (UNDI) version of the gPXE bootstrap loader. This is a <i>"light"</i> version of gPXE with a generic driver that works on cards that have a vendor UNDI ROM - it uses UNDI code contained on the network card it was booted from (i.e. on the client system). UNDI is slower than using a native driver. 
+</p>
+
+<p>
+<font class="file">.pxe</font> builds are designed to be chainloaded. On loading, <font class="file">.pxe</font> builds will unload the underlying UNDI and PXE code.
+</p>
+
+<p>
+See <a class="glossary" href="pxesrv_zip.htm#gpxe-1.0.1-gpxe.pxe">here</a> for more information regarding gPXE. 
+</p>  
+ 
+ 
+
+ 
+ 
+<a name="gpxe-1.0.1+-gpxe.pxe"></a> 
+<h3 class="breaktop"><u>gpxe-1.0.1+-gpxe.pxe</u></h3> 
+ 
+<p> 
+gPXE bootstrap loader. This version contains a range of native drivers and gives better performance than the <a class="glossary" href="pxesrv_zip.htm#gpxe-1.0.1-undi.pxe">UNDI</a> version of gPXE, however it may not contain a native driver for the network card on the client system. 
+</p>
+
+
+<p>
+<font class="file">.pxe</font> builds are designed to be chainloaded. On loading, <font class="file">.pxe</font> builds will unload the underlying UNDI and PXE code.
+</p>
+ 
+ 
+<p>
+See <a class="glossary" href="pxesrv_zip.htm#gpxe-1.0.1-gpxe.pxe">here</a> for more information regarding gPXE. 
+</p>  
+
+ 
+
+
+
+
+<a name="gpxe-1.0.1+-gpxe.kpxe"></a> 
+<h3 class="breaktop"><u>gpxe-1.0.1+-gpxe.kpxe</u></h3> 
+ 
+<p>
+This build is similar to <a class="glossary" href="pxesrv_zip.htm#gpxe-1.0.1+-gpxe.pxe">gpxe-1.0.1+-gpxe.pxe</a> - the only difference being that <font class="file">.kpxe</font> builds will keep the underloading UNDI code loaded but will unload PXE.
+</p>
+
+
+
+
+
+ 
+ 
+<a name="GPXE.KRN"></a> 
+<h3 class="breaktop"><u>GPXE.KRN</u></h3> 
+ 
+<p> 
+The linux kernel version of the gPXE bootstrap loader. This version can be loaded via SYSLINUX/LILO/GRUB.
+</p>
+ 
+<p>
+See <a class="glossary" href="pxesrv_zip.htm#gpxe-1.0.1-gpxe.pxe">here</a> for more information regarding gPXE. 
+</p>  
+
+
+ 
+ 
+ 
+ 
+<a name="gpxelinux.0"></a> 
+<h3 class="breaktop"><u>gpxelinux.0</u></h3> 
+ 
+<p> 
+Part of the PXELINUX package. <i>gpxelinux.0</i> is similar to <a class="glossary" href="pxesrv_zip.htm#pxelinux.0">pxelinux.0</a> with the addition of http support - it can be used to download files using http on a local area network or over the internet. 
+</p> 
+ 
+ 
+ 
+ 
+<a name="grldr"></a> 
+<h3 class="breaktop"><u>grldr</u></h3> 
+ 
+<p> 
+Grub4dos boot loader. Will load the configuration file <i>\menu.lst\</i><a class="glossary" href="pxesrv_zip.htm#default_grub4dos">default</a>
+</p> 
+ 
+ 
+
+
+
+
+
+
+
+
+ 
+ 
+<br /><br /><a name="h"><a class="a2z3" href="pxesrv_zip.htm#top">H</a></a>
+
+ 
+<a name="hdt.c32"></a> 
+<h3 class="breaktop"><u>hdt.c32</u></h3> 
+ 
+<p>
+A SYSLinux COM32 module - Hardware Detection Tool. The following is from <a target="_blank" href="http://www.syslinux.org/wiki/index.php/Hdt_(Hardware_Detection_Tool)">http://www.syslinux.org/.../Hdt_(Hardware_Detection_Tool)</a> -  
+
+<div id="quote">
+"<i>...HDT (for "Hardware Detection Tool") is a Syslinux com32 module designed to display low-level information for any x86 compatible system...</i>" 
+</div> 
+</p> 
+
+
+<a name="http.gpxe"></a> 
+<h3 class="breaktop"><u>http.gpxe</u></h3> 
+ 
+<p>
+Sample gPXE script. Can be specified as <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> in <a class="glossary" href="pxesrv_config.htm">config.ini</a>.
+</p>
+
+
+
+
+
+
+
+ 
+ 
+ 
+<br /><br /><a name="i"><a class="a2z3" href="pxesrv_zip.htm#top">I</a></a>
+ 
+<a name="images"></a> 
+<h3 class="breaktop"><u>images</u> (<font color="green">Directory</font>)</h3> 
+ 
+<p> 
+Directory. A number of menu options will load disk images from this folder. The relevant disk images/files will need to be copied to this folder - refer to <a class="glossary" href="pxesrv_zip.htm#bootutil.conf">bootutil.conf</a> and <a class="glossary" href="pxesrv_zip.htm#floppies.conf">floppies.conf</a>.
+</p> 
+ 
+ 
+ 
+ 
+<a name="install.conf"></a> 
+<h3 class="breaktop"><u>install.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> menu file (<b>Install CD's</b> menu option). This particularly menu contains options for loading additional submenus. Menu options - 
+<ul>
+<li><a class="glossary" href="pxesrv_zip.htm#ubuntu.conf">install ubuntu</a></li>
+<li><a class="glossary" href="pxesrv_zip.htm#suse.conf">install OpenSuse</a></li>
+<li><a class="glossary" href="pxesrv_zip.htm#centos.conf">install Centos</a></li>
+<li><a class="glossary" href="pxesrv_zip.htm#debian.conf">install Debian</a></li>
+<li><a class="glossary" href="pxesrv_zip.htm#fc6.conf">install Fedora</a></li>
+</ul>
+</p> 
+ 
+ 
+ 
+
+
+<a name="ipxe-i386.efi"></a> 
+<h3 class="breaktop"><u>ipxe-i386.efi</u></h3> 
+ 
+<p> 
+iPXE bootstrap loader - for use with 32-bit UEFI <font class="file">Client</font> systems booting in UEFI mode. iPXE version 1.0.0+ (30f9) is included in the <font class="file">Tiny PXE Server</font> version 1.0.0.20 download package (dated 12/2/2017 (19:29)). See also <a class="glossary" href="pxesrv_zip.htm#ipxe-x86-64.efi">ipxe-x86-64.efi</a>
+</p>
+
+
+
+<a name="ipxe-snponly-i386.efi"></a> 
+<h3 class="breaktop"><u>ipxe-snponly-i386.efi</u></h3> 
+ 
+<p> 
+iPXE bootstrap loader - for use with 32-bit UEFI <font class="file">Client</font> systems booting in UEFI mode. iPXE version 1.0.0+ (30f9) is included in the <font class="file">Tiny PXE Server</font> version 1.0.0.20 download package (dated 12/2/2017 (19:29)). See also <a class="glossary" href="pxesrv_zip.htm#ipxe-snponly-x86-64.efi">ipxe-snponly-x86-64.efi</a>
+</p>
+
+
+ 
+<a name="ipxe-snponly-x86-64.efi"></a> 
+<h3 class="breaktop"><u>ipxe-snponly-x86-64.efi</u></h3> 
+ 
+<p>
+iPXE supports booting from the following (<b><u><font color="red">NOTE</font></u></b> - not all features may be supported in UEFI builds) -
+<ul>
+<li>web server via HTTP</li>
+<li>iSCSI SAN</li>
+<li>AoE SAN</li>
+<li>wireless network</li>
+<li>etc.</li>
+</ul>
+</p>
+
+<p>
+iPXE website - <a target="_blank" href="http://ipxe.org/start">http://ipxe.org/start</a>
+</p>
+
+<p>
+<div id="quote">
+"<i>iPXE is the official replacement for gPXE. Any feature present in gPXE is also present in iPXE, and users can seamlessly upgrade from gPXE to iPXE....</i>"
+</div>
+</p>
+
+<p> 
+<font class="file">ipxe-snponly-x86-64.efi</font> is an iPXE network boot program for use on systems with 64-bit UEFI firmware. <font class="file">SNP</font> (Simple Network Protocol) builds are the UEFI equivalent of the <a class="glossary" href="pxesrv_zip.htm#ipxe-undionly.kpxe">UNDI</a> driver used on BIOS systems - using generic code instead of a native driver for the <font class="file">Client</font> NIC. <font class="file">SNP</font> builds should be used on unsupported or misbehaving NICs. <font class="file">SNP</font> is likely to be slower than using a native driver.
+</p> 
+
+
+
+
+
+ 
+ 
+<a name="ipxe-undionly.kpxe"></a> 
+<h3 class="breaktop"><u>ipxe-undionly.kpxe</u></h3> 
+ 
+<p> 
+The Universal Network Device Interface (UNDI) version of the iPXE bootstrap loader - iPXE version 1.0.0+ (30f9) is included in <font class="file">Tiny PXE Server</font> version 1.0.0.20 (dated 12/2/2017 (19:29)). 
+</p>
+
+<p>
+<font class="file">ipxe-undionly.kpxe</font> is a <i>"light"</i> version of iPXE with a generic driver that works on cards that have a vendor UNDI ROM - it uses UNDI code contained on the network card it was booted from (i.e. on the client system). UNDI is slower than using a native driver. 
+</p>
+
+<p>
+<font class="file">.kpxe</font> builds are designed to be chainloaded. On loading, <font class="file">.kpxe</font> builds will keep the underloading UNDI code loaded but will unload PXE.
+</p>
+
+<p>
+See <a class="glossary" href="pxesrv_zip.htm#ipxe-snponly-x86-64.efi">here</a> for more information regarding iPXE. 
+</p>  
+
+
+
+
+<a name="ipxe-x86-64.efi"></a> 
+<h3 class="breaktop"><u>ipxe-x86-64.efi</u></h3> 
+ 
+<p> 
+iPXE bootstrap loader - for use with 64-bit UEFI <font class="file">Client</font> systems booting in UEFI mode. iPXE version 1.0.0+ (30f9) is included in the <font class="file">Tiny PXE Server</font> version 1.0.0.20 download package (dated 12/2/2017 (19:29)). 
+</p>
+
+<p> 
+Unlike the <a class="glossary" href="pxesrv_zip.htm#ipxe-snponly-x86-64.efi">snponly</a> versions of ipxe, this includes a full driver set with native drivers supporting a variety of NICs. If this build includes a native driver for the <font class="file">Client</font> NIC then it's likely to be faster than using the <a class="glossary" href="pxesrv_zip.htm#ipxe-snponly-x86-64.efi">snponly</a> build. 
+</p>
+
+
+
+
+ 
+ 
+ 
+ 
+<a name="ipxe.conf"></a> 
+<h3 class="breaktop"><u>ipxe.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> menu file. This submenu contains two menu options for (chain)loading <a class="glossary" href="pxesrv_zip.htm#ipxe.lkrn">ipxe.lkrn</a> - one will load <a class="glossary" href="pxesrv_zip.htm#menu.ipxe">menu.ipxe</a>, the other will just load the <a class="glossary" href="pxesrv_zip.htm#ipxe.lkrn">ipxe.lkrn</a> kernel without passing any parameters to it. 
+</p> 
+ 
+ 
+
+
+
+
+
+
+ 
+ 
+<a name="ipxe.iso"></a> 
+<h3 class="breaktop"><u>ipxe.iso</u></h3> 
+ 
+<p>
+iPXE bootable iso file - contains (and automatically loads) <a class="glossary" href="pxesrv_zip.htm#ipxe.lkrn">ipxe.lkrn</a>.
+</p> 
+
+
+<p>
+See <a class="glossary" href="pxesrv_zip.htm#ipxe-snponly-x86-64.efi">here</a> for more information regarding iPXE. 
+</p>  
+ 
+ 
+ 
+ 
+
+
+
+ 
+<a name="ipxe.lkrn"></a> 
+<h3 class="breaktop"><u>ipxe.lkrn</u></h3> 
+ 
+
+<p> 
+The linux kernel version of the iPXE bootstrap loader - iPXE version 1.0.0+ (30f9) is included in <font class="file">Tiny PXE Server</font> version 1.0.0.20 (dated 12/2/2017 (19:29)).
+</p>
+
+<p>
+<font class="file">ipxe.lkrn</font> can be loaded via SYSLINUX/LILO/GRUB. It's also included in <a class="glossary" href="pxesrv_zip.htm#ipxe.iso">ipxe.iso</a>.
+</p>
+
+<p>
+See <a class="glossary" href="pxesrv_zip.htm#ipxe-snponly-x86-64.efi">here</a> for more information regarding iPXE. 
+</p>
+ 
+ 
+ 
+
+ 
+ 
+<a name="ipxe.pxe"></a> 
+<h3 class="breaktop"><u>ipxe.pxe</u></h3> 
+ 
+<p> 
+iPXE bootstrap loader - iPXE version 1.0.0+ (30f9) is included in the <font class="file">Tiny PXE Server</font> version 1.0.0.20 download package (dated 12/2/2017 (19:29)). 
+</p>
+
+<p>
+<font class="file">ipxe.pxe</font> contains a range of native drivers and gives better performance than the <a class="glossary" href="pxesrv_zip.htm#ipxe-undionly.kpxe">UNDI</a> version of iPXE, however it may not contain a native driver for the network card on the client system. 
+</p>
+
+<p>
+<font class="file">.pxe</font> builds are designed to be chainloaded. On loading, <font class="file">.pxe</font> builds will unload the underlying UNDI and PXE code.
+</p>
+ 
+<p>
+See <a class="glossary" href="pxesrv_zip.htm#ipxe-snponly-x86-64.efi">here</a> for more information regarding iPXE. 
+</p>
+ 
+ 
+ 
+ 
+<a name="ipxe.usb"></a> 
+<h3 class="breaktop"><u>ipxe.usb</u></h3> 
+ 
+<p> 
+Can be used to PXE boot a client system without native PXE boot support. Write this file to a USB device and boot it on a client system - the file needs to be written (i.e. using a dd type command), not just copied to the device.
+</p> 
+ 
+ 
+
+
+
+
+<a name="iscsi.ipxe"></a> 
+<h3 class="breaktop"><u>iscsi.ipxe</u></h3> 
+ 
+
+<p>
+Sample iPXE script with an example for booting from an iSCSI <font class="file">Target</font>. Can be specified as <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> in <a class="glossary" href="pxesrv_config.htm">config.ini</a>.
+</p>
+
+
+
+
+
+
+
+ 
+ 
+<a name="iso.ipxe"></a> 
+<h3 class="breaktop"><u>iso.ipxe</u></h3> 
+ 
+<p> 
+iPXE script. Sample script to load an ISO file via http - using <a class="glossary" href="pxesrv_zip.htm#memdisk">memdisk</a>. Thie file can be specified as <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> in <a class="glossary" href="pxesrv_config.htm">config.ini</a>.
+</p>
+
+</p> 
+ 
+ 
+ 
+ 
+<a name="isosan.ipxe"></a> 
+<h3 class="breaktop"><u>isosan.ipxe</u></h3> 
+ 
+<p>iPXE script. Sample script to load an ISO file using the <font class="file">SANBOOT</font> command.
+</p> 
+ 
+ 
+ 
+<br /><br /><a name="l"><a class="a2z3" href="pxesrv_zip.htm#top">L</a></a>
+
+<a name="licensing.txt"></a> 
+<h3 class="breaktop"><u>licensing.txt</u></h3> 
+ 
+<p> 
+License for Tiny PXE Server.
+</p> 
+ 
+ 
+ 
+ 
+<a name="livecds.conf"></a> 
+<h3 class="breaktop"><u>livecds.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> menu file (<b>Live CDs</b> menu option). Contains a sample menu with options for booting a range of Linux Live distros. 
+</p> 
+ 
+ 
+ 
+<br /><br /><a name="m"><a class="a2z3" href="pxesrv_zip.htm#top">M</a></a>
+ 
+<a name="mboot.c32"></a> 
+<h3 class="breaktop"><u>mboot.c32</u></h3> 
+ 
+
+
+<p>
+PXELinux COM32 module. The following is from <a target="_blank" href="http://www.syslinux.org/wiki/index.php/Mboot.c32">http://www.syslinux.org/.../Mboot.c32</a> -
+
+<div id="quote">
+"<i>...mboot.c32 is a Syslinux module that loads images using the Multiboot specification. A really good use case for this is booting Xen, or any other hypervisor-based virtualization pieces that also require an initrd/initramfs. If your Xen boot doesn't require an initrd, then it is possible to utilize the existing kernel/append method. Another use case for mboot.c32 is to boot FreeBSD ELF kernels with rootfs.....</i>"
+</div> 
+</p> 
+
+
+ 
+ 
+<a name="memdisk"></a> 
+<h3 class="breaktop"><u>memdisk</u></h3> 
+ 
+<p> 
+Part of the SYSLINUX package. The following is from <a target="_blank" href="http://www.syslinux.org/wiki/index.php/MEMDISK">http://www.syslinux.org/.../MEMDISK</a> -
+<div id="quote">
+"<i>...MEMDISK is meant to allow booting legacy operating systems. MEMDISK can boot floppy images, hard disk images and some ISO images...
+<br /><br />
+...MEMDISK is an auxiliary module used in conjunction with a boot loader that can load linux kernels (EXTLINUX/ISOLINUX/PXELINUX/SYSLINUX, grub, grub4dos grub2, ...). You need a disk image as well as the memdisk file itself. As far as the bootloader is concerned, MEMDISK is the "kernel" and disk image is the initial ramdisk (initrd)....</i>"
+</div> 
+</p> 
+ 
+ 
+ 
+ 
+<a name="menu.c32"></a> 
+<h3 class="breaktop"><u>menu.c32</u></h3> 
+ 
+<p>
+PXELinux COM32 module. The following is from <a target="_blank" href="http://www.syslinux.org/wiki/index.php/menu.c32">http://www.syslinux.org/.../menu.c32</a> -
+
+<div id="quote">
+"<i>...menu.c32 is a comboot module for Syslinux that renders a menu on the screen....</i>"
+</div> 
+</p> 
+
+
+
+
+
+
+<a name="menu.gpxe"></a> 
+<h3 class="breaktop"><u>menu.gpxe</u></h3> 
+ 
+<p>
+Sample gPXE script. Can be specified as <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> in <a class="glossary" href="pxesrv_config.htm">config.ini</a>.
+</p>
+
+
+
+
+
+ 
+ 
+ 
+ 
+<a name="menu.ipxe"></a> 
+<h3 class="breaktop"><u>menu.ipxe</u></h3> 
+ 
+<p> 
+iPXE sample menu with a range of options - many of which duplicate the PXELINUX menus included in the Tiny PXE Server download. 
+</p> 
+ 
+ 
+ 
+ 
+<a name="menu.lst"></a> 
+<h3 class="breaktop"><u>menu.lst</u> (<font color="green">Directory</font>)</h3> 
+ 
+<p> 
+The default location for the <a class="glossary" href="pxesrv_zip.htm#grldr">Grub4dos</a> configuration file - <i>\files\menu.lst\</i><a class="glossary" href="pxesrv_zip.htm#default_grub4dos">default</a>.
+</p> 
+ 
+ 
+ 
+ 
+<a name="menuconf"></a> 
+<h3 class="breaktop"><u>menuconf</u> (<font color="green">Directory</font>)</h3> 
+ 
+<p> 
+Directory containing sub-menus for the <a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> boot loader - loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">Default</a> menu file. 
+</p> 
+
+
+ 
+ 
+ 
+<br /><br /><a name="n"><a class="a2z3" href="pxesrv_zip.htm#top">N</a></a>
+ 
+<a name="nics.sample"></a> 
+<h3 class="breaktop"><u>nics.sample</u></h3> 
+ 
+<p> 
+Sample file. When BINL is used, a request containing VID and PID information is sent to the server. The Tiny PXE Server includes BINL support, however the default behaviour is to parse driver inf files. Rename this file as nics.txt to overrule the built in inf parsing.
+
+
+
+
+ 
+<br /><br /><a name="o"><a class="a2z3" href="pxesrv_zip.htm#top">O</a></a>
+ 
+<a name="opensuse-installer"></a> 
+<h3 class="breaktop"><u>opensuse-installer</u> (<font color="green">Directory</font>)</h3> 
+ 
+<p> 
+Empty directory. <a target="_blank" href="https://www.opensuse.org/">OpenSuse</a> Linux project files (<i>linux</i> and <i>initrd</i>) can be copied here and booted via the <a class="glossary" href="pxesrv_zip.htm#suse.conf">suse.conf</a> submenu. 
+</p> 
+
+
+ 
+ 
+<br /><br /><a name="p"><a class="a2z3" href="pxesrv_zip.htm#top">P</a></a>
+ 
+<a name="part.conf"></a> 
+<h3 class="breaktop"><u>part.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> menu file (<b>Partition Tools</b> menu option). 
+</p> 
+ 
+ 
+ 
+ 
+<a name="pxelinux.0"></a> 
+<h3 class="breaktop"><u>pxelinux.0</u></h3> 
+ 
+<p> 
+<i>pxelinux.0</i> is the PXELINUX Network Bootstrap Program (NBP). The following is from <a target="_blank" href="http://www.syslinux.org/wiki/index.php/PXELINUX">http://www.syslinux.org/.../PXELINUX</a>
+<div id="quote">
+"<i>...PXELINUX is a Syslinux derivative, for booting Linux off a network server, using a network ROM conforming to the Intel PXE (Pre-Execution Environment) specification...</i>"
+</div>
+</p> 
+ 
+<p>
+PXELINUX version <b>4.06</b> is included in the download package - newer versions have issues with chainload compatibility with other boot loaders.
+</p>
+
+ 
+ 
+ 
+<a name="pxelinux.cfg"></a> 
+<h3 class="breaktop"><u>pxelinux.cfg</u> (<font color="green">Directory</font>)</h3> 
+ 
+<p> 
+The default location for the <a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELINUX</a> configuration file - <i>\files\pxelinux.cfg\</i><a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a>.
+</p> 
+
+
+
+
+
+<a name="pxelinux.gpxe"></a> 
+<h3 class="breaktop"><u>pxelinux.gpxe</u></h3> 
+ 
+<p>
+Sample gPXE script. Can be specified as <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> in <a class="glossary" href="pxesrv_config.htm">config.ini</a>.
+</p>
+
+
+
+
+
+
+
+<a name="pxespec.pdf"></a> 
+<h3 class="breaktop"><u>pxespec.pdf</u></h3> 
+ 
+<p>
+<font class="file">Preboot Execution Environment (PXE) Specification</font> (Version 2.1) - 103 page <font class="file">.pdf</font> document covering Intel's PXE Specification. A useful reference document. 
+</p> 
+
+ 
+ 
+<a name="pxesrv-faq.xhtml"></a> 
+<h3 class="breaktop"><u>pxesrv-faq.xhtml</u></h3> 
+ 
+<p> 
+Frequently Asked Questions - contains a range of examples for setting up the Tiny PXE Server to boot various Network Bootstrap Programs (and Windows XP installation via RIS, booting WinPE, etc). The instructions are a very brief how to that can be used as a prompt if you are familiar with PXE booting. 
+</p> 
+ 
+ 
+ 
+ 
+<a name="pxesrv.exe"></a> 
+<h3 class="breaktop"><u>pxesrv.exe</u></h3> 
+ 
+<p> 
+The Tiny PXE Server executable. 
+</p> 
+ 
+ 
+ 
+ 
+<a name="pxesrv.txt"></a>
+<h3 class="breaktop"><u>pxesrv.txt</u></h3>
+
+<p>
+Changelog for the Tiny PXE Server package.
+</p> 
+ 
+ 
+ 
+<br /><br /><a name="r"><a class="a2z3" href="pxesrv_zip.htm#top">R</a></a>
+ 
+<a name="reboot.c32"></a> 
+<h3 class="breaktop"><u>reboot.c32</u></h3> 
+ 
+<p>
+PXELinux COM32 module. The following is from <a target="_blank" href="http://www.syslinux.org/wiki/index.php/Reboot.c32">http://www.syslinux.org/.../Reboot.c32</a> -
+
+<div id="quote">
+"<i>...reboot.c32 is a COM32 module for Syslinux that is able to reboot the PC. It supports cold and warm rebooting.....</i>"
+</div> 
+</p> 
+ 
+ 
+ 
+ 
+<a name="reboot.com"></a> 
+<h3 class="breaktop"><u>reboot.com</u></h3> 
+ 
+<p> 
+Used to reboot a client system. 
+</p> 
+ 
+ 
+ 
+ 
+<a name="rescue.conf"></a> 
+<h3 class="breaktop"><u>rescue.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> menu file. 
+</p> 
+ 
+ 
+ 
+<br /><br /><a name="s"><a class="a2z3" href="pxesrv_zip.htm#top">S</a></a>
+ 
+<a name="sanboot.c32"></a> 
+<h3 class="breaktop"><u>sanboot.c32</u></h3> 
+ 
+<p>
+PXELinux COM32 module. The following is from <a target="_blank" href="http://www.syslinux.org/wiki/index.php/Sanboot.c32">http://www.syslinux.org/.../Sanboot.c32</a> -
+
+<div id="quote">
+"<i>...sanboot.c32 is a comboot module for gpxelinux.0 that enables gPXE's SAN booting options (iSCSI and AoE currently). This is only available in >=syslinux-3.71 for gpxelinux.0....</i>"
+</div> 
+</p> 
+
+
+
+
+
+
+<a name="sanboot.gpxe"></a> 
+<h3 class="breaktop"><u>sanboot.gpxe</u></h3> 
+ 
+<p>
+Sample gPXE script. Can be specified as <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> in <a class="glossary" href="pxesrv_config.htm">config.ini</a>.
+</p>
+
+
+
+
+ 
+
+
+ 
+ 
+<a name="sdi.c32"></a> 
+<h3 class="breaktop"><u>sdi.c32</u></h3> 
+ 
+<p>
+PXELinux COM32 module. Can be used to boot Microsoft System Deployment Images (.SDI type files) - SDI files are often used in Windows Embedded and can be used to boot WinPE 1.*.
+</p> 
+ 
+ 
+ 
+ 
+<a name="SOURCES"></a> 
+<h3 class="breaktop"><u>SOURCES</u> (<font color="green">Directory</font>)</h3> 
+ 
+<p> 
+Empty directory. May be used if booting WinPE - depending on the settings in the BCD store located in the <a class="glossary" href="pxesrv_zip.htm#BOOT">boot</a> directory - this is the default location for the WinPE .wim file if the BCD store contained in the Microsoft WAIK/ADK is used.
+</p> 
+ 
+ 
+ 
+ 
+<a name="suse.conf"></a> 
+<h3 class="breaktop"><u>suse.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> > <a class="glossary" href="pxesrv_zip.htm#install.conf">install.conf</a> (<b>Install CD's</b> > <b>install OpenSuse</b> menu options). Contains a sample menu for booting the <a target="_blank" href="https://www.opensuse.org/">OpenSuse</a> Linux project.
+</p> 
+ 
+
+
+
+<a name="syslogd.exe"></a> 
+<h3 class="breaktop"><u>syslogd.exe</u></h3> 
+ 
+<p> 
+<font class="file">syslog</font> daemon used for logging <font class="file">Tiny PXE Server</font> output.
+</p> 
+ 
+ 
+ 
+ 
+<a name="sysutils.conf"></a> 
+<h3 class="breaktop"><u>sysutils.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via the <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> menu file. 
+</p> 
+ 
+ 
+ 
+<br /><br /><a name="u"><a class="a2z3" href="pxesrv_zip.htm#top">U</a></a>
+ 
+<a name="ubuntu.conf"></a> 
+<h3 class="breaktop"><u>ubuntu.conf</u></h3> 
+ 
+<p> 
+<a class="glossary" href="pxesrv_zip.htm#pxelinux.0">PXELinux</a> sub-menu loaded via <a class="glossary" href="pxesrv_zip.htm#default_pxelinux">default</a> > <a class="glossary" href="pxesrv_zip.htm#install.conf">install.conf</a> (<b>Install CD's</b> > <b>install ubuntu</b> menu options). Contains a sample menu for booting the <a target="_blank" href="http://www.ubuntu.com/
+">Ubuntu</a> Linux project.
+</p> 
+ 
+ 
+ 
+ 
+<a name="ubuntu-installer"></a> 
+<h3 class="breaktop"><u>ubuntu-installer</u> (<font color="green">Directory</font>)</h3> 
+ 
+<p> 
+Empty directory. <a target="_blank" href="http://www.ubuntu.com/">Ubuntu</a> Linux project files (<i>linux</i> and <i>initrd.gz</i>) can be copied here (to the <a class="glossary" href="pxesrv_zip.htm#ubuntu-installer">\files\ubuntu-installer\</a><i><b>I386</b></i> directory) and booted via the <a class="glossary" href="pxesrv_zip.htm#ubuntu.conf">ubuntu.conf</a> submenu. 
+</p> 
+
+
+ 
+
+
+
+ 
+<br /><br /><a name="v"><a class="a2z3" href="pxesrv_zip.htm#top">V</a></a>
+ 
+
+<a name="version.txt"></a> 
+<h3 class="breaktop"><u>version.txt</u></h3> 
+ 
+<p> 
+Text file containing build/version details. 
+</p> 
+ 
+
+
+
+ 
+ 
+<br /><br /><a name="w"><a class="a2z3" href="pxesrv_zip.htm#top">W</a></a>
+ 
+<a name="wimboot"></a> 
+<h3 class="breaktop"><u>wimboot</u></h3> 
+ 
+<p> 
+wimboot is a module loaded by iPXE that can be used to boot WinPE (.wim) images. The following is from <a target="_blank" href="http://ipxe.org/wimboot">http://ipxe.org/wimboot</a> -
+<div id="quote">
+"<i>...wimboot is a boot loader for Windows Imaging Format (.wim) files. It enables you to boot a Windows PE (WinPE) environment from a RAM disk, without wasting the memory used for the RAM disk image...</i>"
+</div>
+</p>
+
+<p> 
+wimboot version 2.5.2 is included in the <font class="file">Tiny PXE Server</font> version 1.0.0.20 (dated 12/2/2017 (19:29)) download package. 
+</p> 
+
+
+ 
+<a name="wimboot.ipxe"></a> 
+<h3 class="breaktop"><u>wimboot.ipxe</u></h3> 
+ 
+<p> 
+iPXE script used in conjunction with <a class="glossary" href="pxesrv_zip.htm#wimboot">wimboot</a> (see <a target="_blank" href="http://ipxe.org/wimboot">http://ipxe.org/wimboot</a>).
+</p> 
+
+<p>
+See also <a class="glossary" href="pxesrv_zip.htm#winpe4.ipxe">winpe4.ipxe</a>.
+</p>
+ 
+ 
+ 
+<a name="WinNFSd-2.0.zip"></a> 
+<h3 class="breaktop"><u>WinNFSd-2.0.zip</u></h3> 
+ 
+<p> 
+WinNSFd is a free open source Network File System (NFS) server for Windows. 
+<div id="quote">
+"<i>...You can use any NFS client to mount a directory of Windows and read/write files via NFS protocol...</i>"
+</div>
+</p> 
+ 
+ 
+
+
+
+ 
+<a name="winnt.sif"></a> 
+<h3 class="breaktop"><u>winnt.sif</u></h3> 
+ 
+<p> 
+Sample file for loading <font class="file">BARTXPE.ISO</font> (in path <font class="file">\images\BARTXPE.ISO</font>). Used for <font class="file">BartPE</font> builds with the Windows 2003 SP1 ramdisk drivers integrated.
+</p> 
+
+
+
+
+
+
+<a name="winnt_ris.sif"></a> 
+<h3 class="breaktop"><u>winnt_ris.sif</u></h3> 
+ 
+<p> 
+Sample file used to automate the installation of Windows NT 5.* systems (Windows 2000/XP/2003) via Remote Installation Service (RIS).
+</p> 
+
+
+
+
+<a name="winpe4.ipxe"></a> 
+<h3 class="breaktop"><u>winpe4.ipxe</u></h3> 
+ 
+<p>
+Sample iPXE script. Can be specified as <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> in <a class="glossary" href="pxesrv_config.htm">config.ini</a>.
+</p>
+
+<p> 
+This script is used to load the <a class="glossary" href="pxesrv_zip.htm#wimboot">wimboot</a> kernel (see <a target="_blank" href="http://ipxe.org/wimboot">http://ipxe.org/wimboot</a>) - loading WinPE. See also <a class="glossary" href="pxesrv_zip.htm#wimboot.ipxe">wimboot.ipxe</a>.
+</p> 
+ 
+
+
+ 
+ 
+<p class="breakbottom">
+</p>
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

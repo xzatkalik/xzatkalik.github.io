@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm" selected="selected">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+<h2 align="center"><u>Tiny PXE Server</u></h2>
+
+
+<p>
+<font class="file">Tiny PXE Server</font> is a portable DHCP server - it does not need to be installed and can be run from a USB device. In addition to DHCP, <font class="file">Tiny PXE Server</font> includes support for the following - 
+<ul>
+<li><a class="glossary" href="pxesrv_config.htm#tftpd">TFTP Daemon</a></li>
+<li><a class="glossary" href="pxesrv_config.htm#httpd">HTTP Daemon</a></li>
+<li><a class="glossary" href="pxesrv_config.htm#dnsd">DNS Daemon</a></li>
+<li><a class="glossary" href="pxesrv_config.htm#binl">BINL</a></li>
+<li><a class="glossary" href="pxesrv_config.htm#proxydhcp">ProxyDHCP</a></li>
+</ul>
+</p>
+
+
+<p>
+The <font class="file">Tiny PXE Server</font> download package (<font class="file">pxesrv.zip</font>) contains the executable, a range of Network Bootstrap Programs (<font class="file">iPXE</font>, <font class="file">Grub4dos</font>, <font class="file">PXELINUX</font>, etc), sample menus for the included Network Bootstrap Programs and some other useful utilities. A full breakdown of the contents of the <font class="file">pxesrv.zip</font> is included in this document. 
+</p>
+
+
+<p>
+The program author describes three main usages for <font class="file">Tiny PXE Server</font> -
+<ul>
+<li>troubleshooting - boot a live system (WinPE, Linux, etc) for recovery purposes or data retrieval.</li>
+</ul>
+
+<ul>
+<li>diskless boot - boot an operating system over a network on systems without storage media (e.g. a thin client). </li>
+</ul>
+
+<ul>
+<li>Operating System Deployment - install an operating system on a client PC without the ability to boot to another media (e.g. install Windows XP on a netbook without a CD/DVD drive).</li>
+</ul>
+</p>
+
+
+
+<p>
+I would also add the following usage -
+<ul>
+<li>Digital Forensic Acquisitions - boot a forensic operating system (e.g. a WinPE based Windows Forensic Environment) and use it to image the client PC over a network. See <a class="glossary" href="forensics.htm">here</a></li>
+</ul>
+</p>
+ 
+
+
+
+<p>
+<font class="file">Tiny PXE Server</font> is freeware - please refer to the licence in the download package. This document is intended as an introduction to <font class="file">Tiny PXE Server</font> (version 1.0.0.20 - dated 12/2/2017 (19:29)) - the content may also apply to other versions. Please note that there are multiple builds of older version of <font class="file">Tiny PXE Server</font> and there is no clear way of differentiating between them. The program author has started adding a text file (<font class="file">version.txt</font>) to the download package with version details.
+</p>
+
+
+
+<p>
+Contents of <font class="file">version.txt</font> from the <font class="file">Tiny PXE Server</font> version used in this guide -
+<br />
+<textarea cols="55" rows="7" align=left readonly>
+Tiny PXE Server version 1.0.0.20
+Feb 12, 2017 - 19:29
+CRC32: A9538E69
+MD5: EF2B7DAA14C8C870F52E7A69844B3DA2
+SHA-1: A85FBB58B9CA51F3BEB45FA0B7ED718A4B55B0C5
+</textarea>
+</p>
+
+
+
+
+
+<p>
+The following links contain a wealth of useful information, including advanced settings not covered in this document -
+<ul>
+<li>Download - <a target="_blank" href="http://reboot.pro/files/file/303-tiny-pxe-server/">http://reboot.pro/files/file/303-tiny-pxe-server/</a></li>
+<li>TinyPXE Server blog - <a target="_blank" href="http://labalec.fr/erwan/?cat=28">http://labalec.fr/erwan/?cat=28</a></li>
+<li>PXE Boot blog - <a target="_blank" href="http://labalec.fr/erwan/?cat=45">http://labalec.fr/erwan/?cat=45</a></li>
+<li>Support thread (current) - <a target="_blank" href="http://reboot.pro/topic/18962-bug-reports-requests-howtos-about-tiny-pxe-server/">http://reboot.pro/...tiny-pxe-server/</a></li>
+<li>Support thread (old) - <a target="_blank" href="http://reboot.pro/topic/18488-tiny-pxe-server/">http://reboot.pro/...tiny-pxe-server/</a></li>
+<li>Forum - <a target="_blank" href="http://reboot.pro/forum/142-tiny-pxe-server/">http://reboot.pro/forum/142-tiny-pxe-server/</a></li>
+</ul>
+</p>
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

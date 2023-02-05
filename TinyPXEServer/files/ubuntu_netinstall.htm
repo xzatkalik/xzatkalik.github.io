@@ -1,0 +1,507 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm" selected="selected">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+<h2 align="center"><u>ubuntu - Network Installation</u></h2>
+
+
+<p>
+The instructions in this page cover installing <font class="file">ubuntu</font> or one of the <font class="file">ubuntu</font> variants (<font class="file">ubuntu</font>, <font class="file">kubuntu</font>, <font class="file">lubuntu</font>, etc.) using network (internet) hosted source files. Page contents -
+<ul>
+<li><a class="glossary" href="ubuntu_netinstall.htm#ubuntu1">Ubuntu - Method 1</a></li>
+<li><a class="glossary" href="ubuntu_netinstall.htm#ubuntu2">Ubuntu - Method 2</a></li>
+<li><a class="glossary" href="ubuntu_netinstall.htm#ubuntu3">Ubuntu - Method 3</a></li>
+<li><a class="glossary" href="ubuntu_netinstall.htm#pxelinux">pxelinux menu settings</a></li>
+<li><a class="glossary" href="ubuntu_netinstall.htm#grub4dos">grub4dos menu settings</a></li>
+<li><a class="glossary" href="ubuntu_netinstall.htm#ipxe">iPXE menu settings</a></li>
+<li><a class="glossary" href="ubuntu_netinstall.htm#ipxe_scripts">iPXE Scripts</a></li>
+</ul>
+</p>
+
+
+<div class="break3em">
+Screenshot of the <font class="file">ubuntu</font> Netinstall GUI (note the options for installing the various desktop variants) - 
+<br >
+<a href="img/linux.install42.png"><IMG SRC="img/linux.install42.png" float=left width=80% margin-right=1% margin-bottom=0.5em border=1></a>
+</div>
+
+
+
+
+
+<a name="ubuntu1"></a>
+<h3 class="breaktop"><u>ubuntu - Method 1</u></h3>
+
+<p>
+If using this first method then no <font class="file">ubuntu</font> source files are required on the <font class="file">Tiny PXE Server</font> system - internet access is however required. 
+</p>
+
+
+<p class="break3em">
+Use the following settings in the <font class="file">Tiny PXE Server</font> configuration file (<a class="glossary" href="pxesrv_config.htm">config.ini</a>) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="4" align="left" wrap="OFF" readonly>
+root=http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-i386/current/images/netboot
+filename=pxelinux.0
+</textarea>
+<br />
+<u><b><font color="red">NOTE</font></b></u> - other <font class="file">ubuntu</font> mirrors can be used - edit the path in the <font class="file">root</font> field as required. 
+</p>
+
+
+
+<p class="break3em">
+Screenshot of the <font class="file">Tiny PXE Server</font> GUI when using the settings above -
+<br />
+<img src="img/linux.install1.jpg" border=1>
+</p>
+
+
+
+
+
+
+<div class="break3em">
+Screenshot of the <font class="file">ubuntu</font> menu options when the <font class="file">Client</font> system was PXE booted - 
+<br >
+<a href="img/linux.install2.png"><IMG SRC="img/linux.install2.png" float=left width=80% margin-right=1% margin-bottom=0.5em border=1></a>
+</div>
+
+
+
+<p class="break3em">
+Complete the steps in the <font class="file">ubuntu</font> netinstall GUI to install the Operating System - this method supports installing to a local disk or iSCSI <font class="file">Target</font>.
+</p>
+
+
+
+<div class="break3em">
+Screenshot of the <font class="file">ubuntu</font> Netinstall GUI - 
+<br >
+<a href="img/linux.install3.png"><IMG SRC="img/linux.install3.png" float=left width=80% margin-right=1% margin-bottom=0.5em border=1></a>
+</div>
+
+
+
+
+
+
+
+
+<a name="ubuntu2"></a>
+<h3 class="breaktop"><u>ubuntu - Method 2</u></h3>
+
+<p>
+This method uses the same <font class="file">ubuntu</font> Netinstall file(s) as <a class="glossary" href="ubuntu_netinstall.htm#ubuntu1">ubuntu - Method 1</a>, however the required Netinstall files are copied locally to the <font class="file">Tiny PXE Server</font> directory. This method can be used to install <font class="file">ubuntu</font> (and variants) using <font class="file">iPXE</font>, <font class="file">pxelinux</font> or <font class="file">grub4dos</font> - an internet connection is still required as Netinstall will need internet access to download the required files during the installation. A local mirror can be used, however setting up a local mirror is beyond the scope of this guide). 
+</p>
+
+
+
+<p class="break3em">
+32-bit <font class="file">ubuntu</font> Netinstall files - 
+<ul>
+<li><a class="glossary" target="_blank" href="http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-i386/current/images/netboot/mini.iso">mini.iso</a> (iso containing kernel and initrd files)</li>
+<li><a class="glossary" target="_blank" href="http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-i386/current/images/netboot/ubuntu-installer/i386/initrd.gz">initrd.gz</a> (initrd file)</li>
+<li><a class="glossary" target="_blank" href="http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-i386/current/images/netboot/ubuntu-installer/i386/linux">linux</a> (kernel file)</li>
+</ul>
+</p>
+
+<a name="ubuntu.links"></a>
+<p class="break3em">
+64-bit <font class="file">ubuntu</font> Netinstall files - 
+<ul>
+<li><a class="glossary" target="_blank" href="http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot/mini.iso">mini.iso</a> (iso containing kernel and initrd files)</li>
+<li><a class="glossary" target="_blank" href="http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/initrd.gz">initrd.gz</a> (initrd file)</li>
+<li><a class="glossary" target="_blank" href="http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/linux">linux</a> (kernel file)</li>
+</ul>
+</p>
+
+
+<p class="break3em">
+<u><b><font color="red">NOTE</font></b></u> - 64-bit Netinstall files are used in the examples in this page - amend as required if using the 32-bit files. The 64-bit version is required if installing <font class="file">ubuntu</font> 64-bit, and the 32-bit version is required if installing <font class="file">ubuntu</font> 32-bit. 
+<p>
+
+
+
+<p class="break3em">
+Download the 64-bit <font class="file">mini.iso</font> file (see links <a class="glossary" href="ubuntu_netinstall.htm#ubuntu.links">here</a>) to the <font class="file">C:\pxesrv\files\iso\</font> directory. Let's rename this file to avoid any conflicts if adding options for a 32-bit (or <font class="file">Debian</font>) Netinstall - rename <font class="file">C:\pxesrv\files\iso\mini.iso</font> to <font class="file">C:\pxesrv\files\iso\ubuntu.xenial.amd64.netinstall.iso</font>. 
+</p>
+
+
+
+
+
+
+<p class="break3em">
+Alternatively, download the required <font class="file">kernel</font> and <font class="file">initrd</font> files (see links <a class="glossary" href="ubuntu_netinstall.htm#ubuntu.links">here</a>), or extract them from <font class="file">mini.iso</font>, and copy them to your <font class="file">Tiny PXE Server</font> directory -
+<ul>
+<li><font class="file">C:\pxesrv\files\ubuntu.xenial.amd64.netinstall\linux</font></li>
+<li><font class="file">C:\pxesrv\files\ubuntu.xenial.amd64.netinstall\initrd.gz</font></li>
+</ul>
+</p>
+
+
+<p class="break3em">
+Now add a menu entry for your preferred Network Bootstrap Program -
+<ul>
+<li><a class="glossary" href="ubuntu_netinstall.htm#pxelinux">pxelinux menu settings</a></li>
+<li><a class="glossary" href="ubuntu_netinstall.htm#grub4dos">grub4dos menu settings</a></li>
+<li><a class="glossary" href="ubuntu_netinstall.htm#ipxe">iPXE menu settings</a></li>
+<li><a class="glossary" href="ubuntu_netinstall.htm#ipxe_scripts">iPXE Scripts</a></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+<a name="ubuntu3"></a>
+<h3 class="breaktop"><u>ubuntu - Method 3</u></h3>
+
+
+Follow the instructions in the <a class="glossary" href="ubuntu.htm">Ubuntu/Lubuntu</a> page and install from Live media (booted from your NFS share). <font class="file">ubuntu</font> and <font class="file">lubuntu</font> both have desktop shortcuts for the installer -
+
+
+
+
+<div class="break3em">
+<font class="file">ubuntu</font> -
+<br />
+<a href="img/ubuntuiscsi4.jpg"><IMG SRC="img/ubuntuiscsi4.jpg" float=left width=80% margin-right=1% margin-bottom=0.5em border=1></a>
+</div>
+
+
+<div class="break3em">
+<font class="file">lubuntu</font> -
+<br />
+<a href="img/ubuntuiscsi5.jpg"><IMG SRC="img/ubuntuiscsi5.jpg" float=left width=80% margin-right=1% margin-bottom=0.5em border=1></a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="pxelinux"></a>
+<h3 class="breaktop"><u>pxelinux menu settings</u></h3>
+
+
+<p>
+Remember to ensure that the required files are copied to your <font class="file">Tiny PXE Server</font> root directory - 
+<ul>
+<li><font class="file">C:\pxesrv\files\pxelinux.0</font></li>
+<li><font class="file">C:\pxesrv\files\memdisk</font></li> 
+<li><font class="file">C:\pxesrv\files\menu.c32</font></li> 
+<li><font class="file">C:\pxesrv\files\pxelinux.cfg\default</font></li>
+</ul>
+</p>
+
+
+
+<p>
+Add the following to <font class="file">C:\pxesrv\files\pxelinux.cfg\default</font> (create this file if required) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="10" align="left" wrap="OFF" readonly>
+LABEL ubuntunetinstall1
+MENU LABEL ubuntu 64-bit Netinstall (Memdisk)
+KERNEL memdisk
+append iso raw initrd=iso/ubuntu.xenial.amd64.netinstall.iso
+
+LABEL ubuntunetinstall2
+MENU LABEL ubuntu 64-bit Netinstall
+KERNEL ubuntu.xenial.amd64.netinstall/linux
+append initrd=ubuntu.xenial.amd64.netinstall/initrd.gz vga=788 --- quiet 
+</textarea>
+</p>
+
+<p>
+Click on one of the following for sample <font class="file">config.ini</font> settings (edit to reflect your own setup) -
+<ul>
+<li><b>DHCP</b> - <a href="txt/config_dhcp_pxelinux1.txt">here</a></li>
+<li><b>Proxy DHCP</b> - <a href="txt/config_proxydhcp_pxelinux1.txt">here</a></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+<a name="grub4dos"></a>
+<h3 class="breaktop"><u>grub4dos menu settings</u></h3>
+
+
+<p>
+Remember to ensure that the required files are copied to your <font class="file">Tiny PXE Server</font> root directory - 
+<ul>
+<li><font class="file">C:\pxesrv\files\grldr</font></li>
+<li><font class="file">C:\pxesrv\files\memdisk</font></li>
+<li><font class="file">C:\pxesrv\files\menu.lst\default</font></li>
+</ul>
+</p>
+
+
+<p>
+Add the following to <font class="file">C:\pxesrv\files\menu.lst\default</font> (create this file if required) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="10" align=left wrap=off readonly>
+title ubuntu 64-bit Netinstall (Memdisk)
+kernel (pd)/memdisk iso raw 
+initrd (pd)/iso/ubuntu.xenial.amd64.netinstall.iso
+
+title ubuntu 64-bit Netinstall
+kernel (pd)/ubuntu.xenial.amd64.netinstall/linux vga=788 --- quiet  
+initrd (pd)/ubuntu.xenial.amd64.netinstall/initrd.gz
+</textarea>
+</p>
+
+
+<p>
+Click on one of the following for <font class="file">config.ini</font> settings (edit to reflect your own setup) -
+<ul>
+<li><b>DHCP</b> - <a href="txt/config_dhcp_grldr1.txt">here</a></li>
+<li><b>Proxy DHCP</b> - <a href="txt/config_proxydhcp_grldr1.txt">here</a></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+<a name="ipxe"></a>
+<h3 class="breaktop"><u>iPXE menu settings</u></h3>
+
+
+<p>
+Remember to ensure that the required files are copied to your <font class="file">Tiny PXE Server</font> root directory - 
+<ul>
+<li><font class="file">C:\pxesrv\files\ipxe.pxe</font> (or <font class="file">C:\pxesrv\files\ipxe-undionly.kpxe</font>)</li>
+<li><font class="file">C:\pxesrv\files\ipxe_menu.txt</font></li> 
+<li><font class="file">C:\pxesrv\files\memdisk</font></li> 
+</ul>
+</p>
+
+<p>
+Add the following to the menu section of <font class="file">C:\pxesrv\files\ipxe_menu.txt</font> (create this file if required) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="5" align=left wrap=off readonly>
+
+item ubuntunetinstall1     ubuntu 64-bit Netinstall (Memdisk)
+item ubuntunetinstall2     ubuntu 64-bit Netinstall 
+item ubuntunetinstall3     ubuntu 64-bit Netinstall (Internet)
+</textarea>
+</p>
+
+
+
+<p>
+Add the following to the menu options section of <font class="file">C:\pxesrv\files\ipxe_menu.txt</font> -
+<br />
+<textarea style="font-size:12px" cols="80" rows="12" align=left wrap=off readonly>
+:ubuntunetinstall1 
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/ubuntu.xenial.amd64.netinstall.iso
+boot
+
+:ubuntunetinstall2
+kernel ${boot-url}/ubuntu.xenial.amd64.netinstall/linux vga=788 --- quiet 
+initrd ${boot-url}/ubuntu.xenial.amd64.netinstall/initrd.gz
+boot
+
+:ubuntunetinstall3
+set boot-url http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64
+kernel ${boot-url}/linux vga=788 --- quiet 
+initrd ${boot-url}/initrd.gz
+boot
+</textarea>
+</p>
+
+
+
+<p>
+E.g. - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="10" align=left wrap=off readonly>
+
+#!ipxe
+#============== Set Variables ===============
+set boot-url http://${dhcp-server}
+
+#================ Main Menu =================
+menu iPXE boot menu
+item ubuntunetinstall1     ubuntu 64-bit Netinstall (Memdisk)
+item ubuntunetinstall2     ubuntu 64-bit Netinstall 
+item ubuntunetinstall3     ubuntu 64-bit Netinstall (Internet)
+choose target && goto ${target}
+
+#============ Main Menu Options =============
+:ubuntunetinstall1 
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/ubuntu.xenial.amd64.netinstall.iso
+boot
+
+:ubuntunetinstall2
+kernel ${boot-url}/ubuntu.xenial.amd64.netinstall/linux vga=788 --- quiet 
+initrd ${boot-url}/ubuntu.xenial.amd64.netinstall/initrd.gz
+boot
+
+:ubuntunetinstall3
+set boot-url http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64
+kernel ${boot-url}/linux vga=788 --- quiet 
+initrd ${boot-url}/initrd.gz
+boot
+</textarea>
+<br />
+<b>NOTE</b> - remember to change <font class="file">set boot-url http://${dhcp-server}</font> if using ProxyDHCP.
+</p>
+
+<p>
+Click on one of the following for <font class="file">config.ini</font> settings (edit to reflect your own setup) -
+<ul>
+<li><b>DHCP</b> - <a href="txt/config_dhcp_ipxe1.txt">here</a></li>
+<li><b>Proxy DHCP</b> - <a href="txt/config_proxydhcp_ipxe1.txt">here</a></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+<a name="ipxe_scripts"></a>
+<h3 class="breaktop"><u>iPXE Scripts</u></h3>
+
+<p>
+<font class="file">iPXE</font> menus are essentially scripts. It's also possible to specify a script using the <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> option in <font class="file">config.ini</font>. For example, create a script in the TFTP root directory <font class="file">C:\pxesrv\files\ubuntu.netinstall.txt</font>  > add <font class="file">altfilename=ubuntu.netinstall.txt</font> to <font class="file">config.ini</font>. NOTE - remember to change any references to <font class="file">${dhcp-server}</font> to <font class="file">${next-server}</font> if using ProxyDHCP. </p>
+
+
+<p>
+Sample iPXE script <font class="file">ubuntu.netinstall.txt</font> - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="10" align=left wrap=off readonly>
+#!ipxe
+set boot-url http://${dhcp-server}
+kernel ${boot-url}/ubuntu.xenial.amd64.netinstall/linux vga=788 --- quiet 
+initrd ${boot-url}/ubuntu.xenial.amd64.netinstall/initrd.gz
+boot
+</textarea>
+</p>
+
+
+
+<p class="breakbottom">
+</p>
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

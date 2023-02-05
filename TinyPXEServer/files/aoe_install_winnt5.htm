@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm" selected="selected">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>AoE (Install Driver - Windows NT 5.*)</u></h2>
+
+
+<p>
+The screenshots in this section were captured on a Windows XP (SP3) system - the process on other Windows NT 5.* should be similar, but may differ slightly.
+</p>
+
+
+<p class="breaktop">
+Start the <b>Add Hardware Wizard</b> (e.g. windows key + R (to open a <font class="file">Run</font> dialog box) and type <font class="file">hdwwiz.cpl</font>) - this should open a windows similar to the screenshot below. Click on <b><u>N</u>ext</b> - 
+<br />
+<img src="img/AoE_winxp_img1.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+When asked <font class="file">Is the hardware connected?</font>, select <font class="file">Yes, I have already connected the hardware</font> &gt; <b>Next</b>
+<br />
+<img src="img/AoE_winxp_img2.jpg" border=1>
+</p>
+
+
+
+<p class="breaktop">
+<font class="file">The following hardware is already installed on your computer</font> &gt; scroll down the list and select <font class="file">Add a new hardware device</font> &gt; <b>Next</b> -
+<br />
+<img src="img/AoE_winxp_img3.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+Select <font class="file">Install the hardware that I manually select from a list (Advanced)</font>, then click on <b>Next</b> - 
+<br />
+<img src="img/AoE_winxp_img4.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+When prompted <font class="file">From the list below, select the type of hardware you are installing</font>, scroll down the list and select <font class="file">SCSI and RAID controllers</font>, then click on <b>Next</b> - 
+<br />
+<img src="img/AoE_winxp_img5.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+When prompted to <font class="file">select the device driver you want to install for this hardware</font>, click on <b>Have Disk...</b> -
+<br />
+<img src="img/AoE_winxp_img6.jpg" border=1>
+</p>
+
+
+
+
+
+
+<p class="breaktop">
+<font class="file">Install From Disk</font> window &gt; Click on <b>Browse...</b> - 
+<br />
+<img src="img/AoE_winxp_img7.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+Now browse to the folder containing your AoE drivers &gt; select <font class="file">aoe.inf</font> &gt; <b>Open</b> -
+<br />
+<img src="img/AoE_winxp_img8.jpg" border=1>
+</p>
+
+
+
+
+
+
+<p class="breaktop">
+The folder path to the AoE driver should be displayed in the <font class="file">Copy manufacturer's files from:</font> field. Click on <b>OK</b> -
+<br />
+<img src="img/AoE_winxp_img9.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+Ensure that <font class="file">AoE Driver</font> is displayed in the <font class="file">Model</font> field and click on <b>Next</b> - 
+<br />
+<img src="img/AoE_winxp_img10.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+<font class="file">The wizard is ready to install your hardware</font> screen should now display  the <font class="file">AoE Driver</font>, click on <b>Next</b> -
+<br />
+<img src="img/AoE_winxp_img11.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+A warning message will be displayed. Click on the <font class="file">Continue Anyway</font> option - 
+<br />
+<img src="img/AoE_winxp_img12.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+Assuming the driver installed without any problems you should see a screen similar to the following (<font class="file">The following hardware was installed:</font> &gt; <font class="file">AoE Driver</font> &gt; <font class="file">Windows has finished installing the software for this device</font>). Click on <b>Finish</b> - 
+<br />
+<img src="img/AoE_winxp_img13.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

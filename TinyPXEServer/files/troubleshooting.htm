@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm" selected="selected">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+<h2 align="center"><u>Troubleshooting</u></h2>
+
+
+
+
+<p>
+If you are having problems with <font class="file">Tiny PXE Server</font> then a packet trace and a log file may assist you with troubleshooting. 
+</p>
+
+<p>
+If the error is due to a bug in <font class="file">Tiny PXE Server</font> then the program author may be able to assist. Please contact the program author via the <a class="glossary" target="_blank" href="http://reboot.pro/topic/18962-bug-reports-requests-howtos-about-tiny-pxe-server/">Bug Reports, Requests, HowTo's about Tiny PXE Server</a> thread on <a class="glossary" target="_blank" href="http://reboot.pro/">reboot.pro</a>. A <a class="glossary" target="_blank" href="https://www.wireshark.org/">wireshark</a> packet trace and logfile and is likely to be requested. 
+</p>
+
+
+<p>
+The iPXE <a class="glossary" target="_blank" href="http://ipxe.org/howto/pcap">Capturing a packet trace</a> page details a complex setup using an "Interceptor Machine" for packet tracing - this may be useful if you have the required hardware. 
+</p>
+
+
+<p>
+Page contents -
+<ul>
+<li><a class="glossary" href="troubleshooting.htm#packet_trace">Packet Trace</a></li>
+<li><a class="glossary" href="troubleshooting.htm#syslog">Syslog</a></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<a name="packet_trace"></a>
+<h3 class="breaktop"><u>Packet Trace</u></h3>
+
+<p>
+Download <a class="glossary" target="_blank" href="https://www.wireshark.org/">wireshark</a> from <a class="glossary" target="_blank" href="https://www.wireshark.org/#download">here</a> (version 2.2.4 used during testing).
+</p>
+
+
+<p class="break3em">
+The screenshots below have been captured from <font class="file">Wireshark Legacy</font>.
+</p>
+
+
+<p class="break3em">
+<div>
+Start <font class="file">Wireshark Legacy</font> and select the <font class="file">interface to capture from</font> (use the same interface that <font class="file">Tiny PXE Server</font> is listening on (displayed in the <font class="file">Option 54 (DHCP Server)*</font> field)) &gt; then click on the <b>Start</b> button (located in the <font class="file">Capture</font> section above the list of available interfaces) - 
+<br >
+<a href="img/wireshark1.jpg"><IMG SRC="img/wireshark1.jpg" float=left width=90% margin-right=1% margin-bottom=0.5em border=1></a>
+</div>
+</p>
+
+
+<p class="break3em">
+<div>
+Or alternatively, press the <font class="file">Ctrl</font>+<font class="file">I</font> keys to open the <font class="file">Wireshark: Capture Interfaces</font> options &gt; select the required interface &gt; click on the <font class="file"><u>S</u>tart</font> button -
+<br >
+<a href="img/wireshark1b.jpg"><IMG SRC="img/wireshark1b.jpg" float=left width=90% margin-right=1% margin-bottom=0.5em border=1></a>
+</div>
+</p>
+
+<p class="break3em">
+<div>
+Ensure <font class="file">Tiny PXE Server</font> is running and boot the <font class="file">Client</font> system. <font class="file">wireshark</font> will display all network traffic on the selected interface - 
+<br >
+<a href="img/wireshark2.jpg"><IMG SRC="img/wireshark2.jpg" float=left width=90% margin-right=1% margin-bottom=0.5em border=1></a>
+</div>
+</p>
+
+
+<p class="break3em">
+After capturing the required information, Stop the capture (press the <font class="file">Ctrl</font>+<font class="file">E</font> keys - or <font class="file"><u>C</u>apture</font> (tab) &gt; <font class="file">S<u>t</u>op</font>) and save the packet trace (press the <font class="file">Ctrl</font>+<font class="file">S</font> keys - or <font class="file"><u>F</u>ile</font> (tab) &gt; <font class="file"><u>S</u>ave</font>).
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="syslog"></a>
+<h3 class="breaktop"><u>Syslog</u></h3>
+
+
+
+<p>
+The <font class="file">Tiny PXE Server</font> logging function was removed in build 1.0.0.20 (Feb 12, 2017 - 19:29). A <font class="file">syslog daemon</font> (<font class="file">syslogd.exe</font>) is now included in the <font class="file">Tiny PXE Server</font> download.
+</p>
+
+
+<p>
+Add the following to <font class="file">C:\pxesrv\config.ini</font> -
+<ul>
+<li><font class="file">syslog=127.0.0.1</font></li>
+</ul>
+</p>
+
+
+<p>
+Start the <font class="file">syslog daemon</font> - <font class="file">Tiny PXE Server</font> will now log to <font class="file">C:\pxesrv\log.txt</font> - review this file as required for troubleshooting, etc. 
+</p>
+
+
+
+<p class="break3em">
+Screenshot of the <font class="file">syslog daemon</font> GUI (this will not be visible if running <font class="file">syslogd.exe</font> as a service) - 
+<br />
+<img src="img/syslogd.jpg" border=1>
+</p>
+
+
+<p class="break3em">
+And sample output to <font class="file">C:\pxesrv\log.txt</font> -
+<br />
+<textarea style="font-size:12px" cols="90" rows="10" align="left" wrap="OFF" readonly>
+16/02/2017 17:34:23:638;127.0.0.1;DHCPd:DISCOVER received, MAC:00-0C-29-81-5A-82, XID:2A815A82
+16/02/2017 17:34:23:810;127.0.0.1;DHCPd:OFFER sent, IP:0.0.0.0, XID:2A815A82
+16/02/2017 17:34:25:701;127.0.0.1;DHCPd:REQUEST discarded, MAC:00-0C-29-81-5A-82, XID:2A815A82
+16/02/2017 17:34:25:747;127.0.0.1;PDHCPd:REQUEST received, MAC:00-0C-29-81-5A-82, IP:192.168.24.129, XID:2A815A82
+16/02/2017 17:34:25:794;127.0.0.1;DHCPd:Arch=00000
+16/02/2017 17:34:25:794;127.0.0.1;Proxy boot filename empty?
+16/02/2017 17:34:25:810;127.0.0.1;PDHCPd:DHCP_ACK sent, IP:192.168.24.129:68, xid:2A815A82
+16/02/2017 17:34:25:810;127.0.0.1;TFTPd:DoReadFile:ipxe.pxe B:1456 T:0
+16/02/2017 17:34:26:138;127.0.0.1;TFTPd:TransferComplete=True (192.168.24.129:2070)
+16/02/2017 17:34:30:602;127.0.0.1;DHCPd:DISCOVER received, MAC:00-0C-29-81-5A-82, XID:12FB3216
+16/02/2017 17:34:30:785;127.0.0.1;DHCPd:iPXE user-class detected
+16/02/2017 17:34:30:788;127.0.0.1;DHCPd:OFFER sent, IP:0.0.0.0, XID:12FB3216
+16/02/2017 17:34:30:790;127.0.0.1;DHCPd:REQUEST discarded, MAC:00-0C-29-81-5A-82, XID:12FB3216
+16/02/2017 17:34:30:793;127.0.0.1;TFTPd:DoReadFile:ipxe.menu.txt B:1432 T:3155
+16/02/2017 17:34:30:795;127.0.0.1;TFTPd:TransferComplete=True (192.168.24.129:30579)
+16/02/2017 17:34:30:797;127.0.0.1;TFTPd:DoReadFile:ipxe.png B:1432 T:39082
+16/02/2017 17:34:30:801;127.0.0.1;TFTPd:TransferComplete=True (192.168.24.129:49737)
+</textarea>
+</p>
+
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>R language</title>
+</head>
+<body>
+	<ul>
+			<li><a href="#Prikazy">Prikazy</a></li>
+			<li><a href="#tutorial">Tutorial</a></li>
+			<li><a href="#chyby">Zname chyby a poblemy</a></li>
+			<li><a href="#odkazy">Odkazy</a></li>
+	</ul>
+	<a name=Prikazy><h1>Prikazy</h1>
+	<p>
+	<table>
+	<caption><h3>zakladne prikazy</h3></caption>
+	<tr> <th>skratka / prikaz</th> <th> vyznam</th></tr>
+	<tr><td>choose(52,5)</td><td> kombinacne cislo 52 nad 5</td></tr>
+	<tr><td> (operacia) </td><td> vykona operaciu a vypise vysledok </td></tr>
+	<tr><td> letters[] </td><td> letters je zabudovana databaza pismen v abecednom poradi </td></tr>
+
+	</table>	
+	<table>
+	<caption><h3>priradenie</h3></caption>
+	<tr> <th>skratka / prikaz</th> <th> vyznam</th></tr>
+	<tr><td>n &lt;- 52 </td><td> priradi 52 do n ctrl + - </td></tr>
+	<tr><td>assign("n",52) </td><td> priradi 52 do n</td></tr>
+	<tr><td>n = 52 </td><td> priradi 52 do n ctrl + - NEPOUZIVAT </td></tr>
+	<tr><td>(n &lt;- 52) </td><td> priradi 52 do n a VYPISE vysledok </td></tr>
+	</table><table>
+	<caption><h3>vektory</h3></caption>
+	<tr> <th>skratka / prikaz</th> <th> vyznam</th></tr>
+	<tr><td>x &lt;- c(1,2,3,4) </td><td> vytvori vektor, s vektorom ide vacsina funkcii cize ak y &lt;- c(5,6,7,8) potom x*y, cos(x*pi) a pod  </td></tr>
+	<tr><td>length(x) </td><td> vypise dlszku vektora x</td></tr>
+	<tr><td>sum(x) </td><td> sucet prvkov vektora x</td></tr>
+	<tr><td>prod(x) </td><td> sucin prvkov vektora x</td></tr>
+	<tr><td>cumsum(x) </td><td> NEVIEM</td></tr>
+	<tr><td>diff(x) </td><td> rozdiel susednych prvkov vektora x</td></tr>
+	</table>
+	<table>
+	<caption><h3>matice a polia</h3></caption>
+	<tr> <th>skratka / prikaz</th> <th> vyznam</th></tr>
+	<tr><td>A &lt;- matrix(a, nrow = 5, ncol= 2) kde a &lt;-c(1,2,3,4,5,6,7,8,9,10)  </td><td> naplnenie matice sa stnadardne deje po stlpcoch  </td></tr>
+
+	</table>
+
+	</p>
+	
+
+
+
+<a name=tutorial></a><h1>Tutorial</h1>
+	<ul>	
+		<li><a href="r_zaklady.html">Zaklady jazyka R</a> --- <a href="r_zaklady.r">Zdrojak</a></li>
+		<li><a href="r_programovanie.html">Programovanie a vlastne fcie v R</a> --- <a href="r_programovanie.r">Zdrojak</a></li>
+		<li><a href="r_cpp.html">R a C++</a> --- <a href="r_cpp.r">Zdrojak</a></li>
+		<li><a href="r_grafika.html">Grafika v R</a> --- <a href="r_grafika.r">Zdrojak</a></li>
+		<li><a href="r_statistika1.html">Statistika 1 v R</a> --- <a href="r_statistika1.r">Zdrojak</a></li>
+
+
+
+
+	</ul>
+
+	<a name=chyby></a><h1>Zname chyby</h1>
+	<table>
+	<caption><h3>Chyby v prostredi</h3></caption>
+	<tr> <th>chyba</th> <th> vyznam</th></tr>
+	<tr><td> Error in plot.new() : figure margins too large </td><td> Treba natiahnut bocne lysty, mala oblast na vykreslenie grafu</td></tr>
+	<tr><td>  </td><td>  </td></tr>
+	<tr><td> </td><td>  </td></tr>
+
+	</table>
+
+
+	<a name=odkazy></a><h1>Odkazy</h1>
+	<ul>	
+		<h2>Literatura</h2>
+<li><a href="https://cran.r-project.org/">R prirucka ist -> Task Views ->TimeSeries
+a matematickej štatistiky </a></li>
+<li><a href="http://brooksandrew.github.io/simpleblog/articles/render-reports-directly-from-R-scripts/">Rko reporty html </a></li>		
+		
+		<li><a href="FundamentalsOfProbAndMStatistics-Slovak.pdf">Základy pravdepodobnosti
+a matematickej štatistiky </a></li>
+
+		<h2>Zdroje udajov</h2>
+		<li><a href="https://datamarket.com/data/list/?q=provider%3Atsdl">Data Market TimeSeries</a></li>
+		<li>kniznica Quandl priamo v R</li>
+
+		<h2>IDEs</h2>
+		<li><a href="https://www.rstudio.com/">Rstudio</a></li>
+			
+		<h2>Jadro jazyka</h2>		
+		<li><a href="https://www.r-project.org/"> R-project.org</a></li>
+
+		<h2>Rtools (pre vyuzitie cpp)</h2>		
+		<li><a href="https://cran.r-project.org/bin/windows/Rtools/"> Rtools (windows)</a> == 'r-base-dev' (linux, sucast balickou) == 'Xcode' (mac) </li>
+
+		
+</ul>
+	
+
+</body>
+</html>

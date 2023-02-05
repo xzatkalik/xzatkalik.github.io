@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+  <title>Jak číslovat stránky</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta name="AUTHOR" content="David Martinek">
+  <meta name="KEYWORDS" content="LaTeX">
+  <link rel="StyleSheet" type="text/css" href="latex.css" media="screen">
+  <link rel="StyleSheet" type="text/css" href="latexprint.css" media="print">
+</head>
+
+<body class="page">
+
+<div class="copyright">
+  &copy; 2005 damig<br>
+</div>
+
+<div class="dochead">
+  <h1>Jak číslovat stránky</h1>
+</div>
+
+<!-- begin include -->
+<div class="menu">
+ 
+ 
+   <div class="item"><a href="http://www.fit.vutbr.cz/~martinek/latex/pagenum.html">ORIGINAL</a></div>
+
+<!--  <div class="item"><a href="todo.html">Co je v plánu</a></div>-->
+
+ 
+</div>
+<!-- end  -->
+
+
+<div class="contents">
+  <!-- Obsah stránky -->
+  <div class="topic">
+  [ <a href="#01">&nbsp;Jak vypnout/přepnout číslování&nbsp;</a> |
+    <a href="#02">&nbsp;Hezčí záhlaví stránek&nbsp;</a> ]
+  </div>
+
+  <a name="01"></a>
+  <h3>Jak vypnout/přepnout číslování</h3>
+  <p>
+    LaTeX implicitně čísluje stránky pomocí arabských číslic. Často je vak potřeba, aby některé stránky v dokumentu byly bez čísel (typicky úvodní stránky), nebo aby byly číslovány pomocí římských číslic (obsah, index, atd.). LaTeX definuje čtyři styly číslování, které lze přepínat pomocí příkazu <tt>\pagestyle</tt>. Přepínání mezi arabskými a římskými číslicemi se dělá pomocí příkazu <tt>\pagenumbering</tt>.
+  </p>
+<pre class="example">
+\begin{document}
+\pagestyle{empty} % vypne číslování stránek
+
+%% titulní strana %%
+\include{titulni}
+\newpage
+
+%% poděkování, věnování, ... %%
+\include{podekovani}
+\newpage
+
+\pagestyle{plain}     % zapne obyčejné číslování
+\setcounter{page}{1}  % nastaví čítač stránek znovu od jedné
+\pagenumbering{Roman} % číslování římskými číslicemi
+
+%% obsah %%
+\tableofcontents
+\newpage
+
+\setcounter{page}{1}   % nastaví čítač stránek znovu od jedné
+\pagenumbering{arabic} % číslování arabskými
+
+%% první kapitola %%
+\section{Úvod}
+...
+</pre>
+  <p >
+    Kromě stylů číslování <tt>empty</tt> a <tt>plain</tt> lze pouít jetě styly <tt>headings</tt> a <tt>myheadings</tt>, které produkují na kadé stránce záhlaví s názvem aktuální kapitoly a číslem stránky. Styl <tt>plain</tt> umísuje čísla stránek doprostřed patičky kadé stránky.
+  </p>
+  <p >
+    LaTeX implicitně pouívá pro čísla stránek arabské číslice (<tt>arabic</tt>). Kromě toho umí jetě číslování malými římskými číslicemi (i, ii, iii, iv: <tt>roman</tt>), velkými římskými číslicemi (I, II, III, IV: <tt>Roman</tt>), malými písmeny (a, b, c: <tt>alph</tt>) a velkými písmeny (A, B, C: <tt>Alph</tt>)
+  </p>
+  <p >
+    Po kadé změně stylu číslování je větinou vhodné znovu nastavit čítač stránek na jedničku pomocí příkazu <tt>\setcounter{page}{1}</tt>. Bez tohoto nastavení by čísla stránek ve výe uvedeném příkladu mohla vypadala takto: iii, iv, 5, 6, 7...
+  </p>
+
+  <a name="02"></a>
+  <h3>Hezčí záhlaví stránek</h3>
+  <p>
+    Běné styly číslování nemusí občas vyhovovat. V těchto případech lze pouít balík <tt>fancyhdr</tt>, který umoňuje specifikovat vlastní styl záhlaví. Ve své diplomové práci jsem pouil následující kód, který produkuje záhlaví s číslem stránky vdy na vnějím okraji stránky. Záhlaví je vdy odděleno od textu tenkou linkou.
+  </p>
+<pre class="example">
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% zajistí, e se názvy kapitol a sekcí nebudou
+% sázet velkými písmeny
+\renewcommand{\chaptermark}[1]{\markright{\thechapter\ #1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+% Nastaví styl záhlaví pro sudé i liché stránky
+\fancyhf{} % smae aktuální nastavení záhlaví a zápatí
+\fancyhead[LE,RO]{\bfseries\thepage} 
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+
+\renewcommand{\headrulewidth}{0.5pt} % tlouka linky
+\renewcommand{\footrulewidth}{0pt}   % patička chybí
+\addtolength{\headheight}{1.2pt} % prostor pro záhlaví
+
+\fancypagestyle{plain}{
+  \fancyhead{} % na prázdných stránkách nechci záhlaví
+  \renewcommand{\headrulewidth}{0pt} % ani linku
+}
+</pre>
+  <p >
+    V dokumentu se pak místo <tt>\pagestyle{plain}</tt> nastaví <tt>\pagestyle{fancy}</tt>.
+  </p>
+  <p >
+    Standardně zůstávají stránky, na nich začíná kapitola, bez záhlaví. Pokud ale chci mít záhlaví i tady, lze to udělat například takto:
+  </p>
+<pre class="example">
+\newcommand{\kapitola}[1]{
+  \chapter{#1}
+  \thispagestyle{fancy}
+}
+</pre>
+  <p >
+    Nyní stačí pouít příkaz <tt>\kapitola{}</tt> pokadé, kdy by se normálně pouil příkaz <tt>\chapter{}</tt>.
+  </p>
+
+  <hr>
+  <p>
+    Autor: <a href="http://www.fit.vutbr.cz/~martinek">David Martinek</a>. Poslední modifikace: <!-- begin flastmod -->
+24. February 2008<!-- end -->. Pokud v tomto dokumentu narazíte na chybu, dejte mi prosím vědět.
+  </p>
+
+</div>
+</body>
+</html>

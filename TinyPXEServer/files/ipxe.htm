@@ -1,0 +1,567 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm" selected="selected">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+<h2 align="center"><u>iPXE</u></h2>
+
+<p>
+The following sections are covered in this page -
+<ul>
+<li><a class="glossary" href="ipxe.htm#intro">Introduction</a></li>
+<li><a class="glossary" href="ipxe.htm#scripts">iPXE Scripts</a></li>
+<li><a class="glossary" href="ipxe.htm#menu">iPXE Menu System</a></li>
+<li><a class="glossary" href="ipxe.htm#submenu">iPXE Submenus</a></li>
+<li><a class="glossary" href="ipxe.htm#compile">Compile iPXE</a></li>
+</ul>
+</p>
+
+
+
+
+
+<a name="intro"></a>
+<h3 class="breaktop"><u>Introduction</u></h3>
+
+
+<p>
+The following information is from the iPXE homepage -
+<div id="quote">
+<a class="glossary" target="_blank" href="http://ipxe.org/start">"...iPXE...provides a full PXE implementation enhanced with additional features such as: 
+<ul>
+<li>boot from a web server via HTTP</li>
+<li>boot from an iSCSI SAN</li>
+<li>boot from a Fibre Channel SAN via FCoE</li>
+<li>boot from an AoE SAN</li>
+<li>boot from a wireless network</li>
+<li>boot from a wide-area network</li>
+<li>boot from an Infiniband network</li>
+<li>control the boot process with a script..."</li>
+</ul></a>
+</div>
+</p>
+
+
+
+
+<p>
+Several versions of ipxe are included in the <font class="file">Tiny PXE Server</font> package, including - 
+
+<ul>
+<li>
+<b>ipxe.pxe</b> - this version contains a range of native drivers and gives better performance than the UNDI version of iPXE, however it may not contain a native driver for the network card on the client system. 
+</li>
+</ul>
+
+<ul>
+<li>
+<b>ipxe-undionly.kpxe</b> - the Universal Network Device Interface (UNDI) version of the iPXE bootstrap loader. This is a "light" version of iPXE with a generic driver that works on cards that have a vendor UNDI ROM - it uses UNDI code contained on the network card it was booted from (i.e. on the client system). UNDI is slower than using a native driver. 
+</li>
+</ul>
+
+
+<ul>
+<li>
+<b>ipxe-snponly.efi</b> - iPXE network boot program for use on systems with UEFI firmware. This file is the UEFI equivalent of the UNDI driver used on BIOS systems. 
+</li>
+</ul>
+
+</p>
+
+
+
+
+
+
+
+
+
+<a name="scripts"></a>
+<h3 class="breaktop"><u>iPXE Scripts</u></h3>
+
+<p>
+iPXE has a command line interface - refer to <a target="_blank" href="http://ipxe.org/cmdline">iPXE command-line</a> for more information. It's also possible to script commands using a plain text file - for more information please refer to <a target="_blank" href="http://ipxe.org/scripting">iPXE scripting</a>. iPXE scripts must contain the text string "<b>#!ipxe</b>" (without quotes) in the first line - e.g. -
+<br />
+<textarea cols="55" rows="7" align=left readonly>
+#!ipxe
+kernel http://192.168.2.1/memdisk iso raw
+initrd http://192.168.2.1/iso/WinPE.iso
+boot
+</textarea>
+</p>
+
+
+<p>
+iPXE scripting supports variables - a variable can be defined using the <b>set</b> command. The example below will set the <b>boot-url</b> variable as <b>http://192.168.2.1</b>, which is then used throughout the remainder of the script -
+<br />
+<textarea cols="55" rows="7" align=left readonly>
+#!ipxe
+set boot-url http://192.168.2.1
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/WinPE.iso
+boot
+</textarea>
+</p>
+
+
+
+
+<p>
+Certain variables are predefined based on settings obtained from <font class="file">Tiny PXE Server</font> - 
+<ul>
+<li>
+<b>${dhcp-server}</b> - the IP address of the DHCP server.
+</li>
+
+
+<li>
+<b>${next-server}</b> - the IP address of the ProxyDHCP server.
+</li>
+</ul>
+</p>
+
+
+
+
+
+<p>
+Setting a variable defined by settings from the DHCP server -
+<br />
+<textarea cols="55" rows="7" align=left readonly>
+#!ipxe
+set boot-url http://${dhcp-server}
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/WinPE.iso
+boot
+</textarea>
+</p>
+
+
+
+
+<p>
+One of the following methods can be used to execute a script - 
+<ul>
+<li>Embedded within ipxe</li>
+<li>loaded via command-line</li>
+<li>Add as <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> in <font class="file">Tiny PXE Server</font> (e.g. <i>altfilename=wimboot.ipxe</i>).</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<a name="menu"></a>
+<h3 class="breaktop"><u>iPXE Menu System</u></h3>
+
+
+<p>
+This section covers creating a <u><i>BASIC</i></u> <font class="file">iPXE</font> menu. For more detailed information about the <font class="file">iPXE</font> menu system please refer to the following (external links) -
+<ul>
+<li><a target="_blank" href="http://ipxe.org/cmd/menu">menu</a></li>
+<li><a target="_blank" href="http://ipxe.org/cmd/item">item</a></li>
+<li><a target="_blank" href="http://ipxe.org/cmd/choose">choose</a></li>
+</ul>
+</p>
+
+
+<p>
+For a more complex sample menu refer to <a target="_blank" href="https://gist.github.com/robinsmidsrod/2234639">https://gist.github.com/robinsmidsrod/2234639</a>. Refer also to the sample menu included in the <font class="file">Tiny PXE Server</font> download package - <font class="file">\files\menu.ipxe</font>.
+</p>
+
+
+<p>
+Open a text editor (e.g. <font class="file">notepad.exe</font>) and add the following text on the first line -
+<br />
+<textarea cols="55" rows="3" align=left readonly>
+#!ipxe
+</textarea>
+</p>
+
+
+<p>
+Now add a variable to identify the HTTP Server - subsequent menu options can then use this to load any required files from the server. Note, any of the following options could be used for the <b>boot-url</b> variable (adjust to suit your setup) -
+<ul>
+<li><b>set boot-url http://${dhcp-server}</b> - IP address of the DHCP server.</li>
+<li><b>set boot-url http://${next-server}</b> - IP address of the Proxy DHCP server.</li>
+<li><b>set boot-url http://192.168.2.1</b> - syntax if using a fixed IP address.</li>
+</ul>
+<textarea cols="55" rows="3" align=left readonly>
+set boot-url http://${dhcp-server}
+
+</textarea>
+</ul>
+</p>
+
+
+
+<p>
+Next lets add a menu - 
+<br />
+<textarea cols="55" rows="3" align=left readonly>
+menu iPXE boot menu
+</textarea>
+</p>
+
+
+
+
+<p>
+Now lets add a menu item (syntax is <i>item [label] menu_text</i> - in the example below the <i>label</i> is "winpe", the text that will be displayed is "WinPE.iso (SANBoot)" - 
+<br />
+<textarea cols="55" rows="3" align=left readonly>
+item winpe      WinPE.iso (SANBoot)
+</textarea>
+</p>
+
+
+
+
+<p>
+Or alternatively, a menu item with a hotkey (<b>W</b> in this case) - 
+<br />
+<textarea cols="55" rows="3" align=left readonly>
+item --key w winpe      WinPE.iso (SANBoot)
+</textarea>
+</p>
+
+
+
+
+
+<p>
+Now we need to add the <font class="file">choose</font> command to script what happens if the item is selected -
+<br />
+<textarea cols="55" rows="3" align=left readonly>
+choose target && goto ${target}
+</textarea>
+</p>
+
+
+
+
+
+
+<p>
+Now add the commands that will be executed for the menu item if it's selected (note that a line starting with a <b>:</b> is a placemark used with the <font class="file">goto</font> command - syntax is <i>:[label]</i>. In this case we want to skip to the <i>winpe</i> section as this is the label used for our menu entry (<i>item winpe ....</i>))-
+<br />
+<textarea cols="55" rows="5" align=left readonly>
+:winpe
+sanboot --no-describe ${boot-url}/iso/WinPE.iso
+boot
+</textarea>
+</p>
+
+
+
+<p>
+Putting all of this together -
+<br />
+<textarea cols="55" rows="10" align=left readonly>
+#!ipxe
+set boot-url http://${dhcp-server}
+menu iPXE boot menu
+item winpe      WinPE.iso (SANBoot)
+choose target && goto ${target}
+:winpe
+sanboot --no-describe ${boot-url}/iso/WinPE.iso
+boot
+</textarea>
+</p>
+
+
+
+
+
+<p>
+Lets add a second menu item and add some comments so it's a bit easier to read (any lines starting with a <b>#</b> will not be executed) -
+<br />
+<textarea cols="55" rows="22" align=left readonly>
+#!ipxe
+#============== Set Variables ===============
+set boot-url http://${dhcp-server}
+
+#================ Main Menu =================
+menu iPXE boot menu
+item winpe      WinPE.iso (SANBoot)
+item winpe2     WinPE.iso (MEMDisk)
+choose target && goto ${target}
+
+#============ Main Menu Options =============
+:winpe
+sanboot --no-describe ${boot-url}/iso/WinPE.iso
+boot
+
+:winpe2
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/WinPE.iso
+boot
+
+#============== Main Menu End ===============
+
+</textarea>
+<br>
+Screenshot of the above menu (detail) - 
+<br />
+<IMG SRC="img/ipxe_menu1.jpg" BORDER=2>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="submenu"></a>
+<h3 class="breaktop"><u>iPXE Submenus</u></h3>
+
+<p>
+Building on the information in the <a class="glossary" href="ipxe.htm#menu">iPXE Menu System</a> section, let's add a submenu. To demonstrate the syntax for submenus, a WinPE submenu will be added as a main menu item, with two WinPE menu options added to the new submenu. Submenus are added as an <font class="file">item</font> using  the <font class="file">item</font> [<font class="file">LABEL</font>] <font class="file">menu_text</font> syntax. E.g. -
+<br />
+<textarea cols="55" rows="5" align=left readonly>
+
+menu iPXE boot menu
+item winpe      WinPE Options
+choose target && goto ${target}
+</textarea>
+</p>
+
+
+<p>
+Screenshot (detail) -
+<br />
+<img src="img/ipxe_menu2.jpg" border=1>
+</p>
+
+
+
+<p>
+Selecting <font class="file">WinPE Options</font> in the main menu will load the settings in the <font class="file">:winpe</font> placemark - in this case another menu. E.g. -
+<br />
+<textarea cols="55" rows="7" align=left readonly>
+
+:winpe
+menu WinPE (Sub)menu
+item winpe1     WinPE.iso (SANBoot)
+item winpe2     WinPE.iso (MEMDisk)
+choose target && goto ${target}
+</textarea>
+</p>
+
+
+<p>
+Screenshot (detail) -
+<br />
+<img src="img/ipxe_menu3.jpg" border=1>
+</p>
+
+
+
+<p>
+Now we need to add the settings for the menu options in the new <font class="file">WinPE (Sub)menu</font> (<font class="file">winpe1</font> and <font class="file">winpe2</font>) -
+<br />
+<textarea cols="55" rows="15" align=left readonly>
+
+:winpe1
+sanboot --no-describe ${boot-url}/iso/WinPE.iso
+boot
+
+:winpe2
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/WinPE.iso
+boot
+
+</textarea>
+</p>
+
+
+
+
+
+
+
+<p>
+New menu -
+<br />
+<textarea cols="55" rows="20" align=left readonly>
+
+#!ipxe
+#============== Set Variables ===============
+set boot-url http://${dhcp-server}
+
+#================ Main Menu =================
+menu iPXE boot menu
+item winpe      WinPE Options
+choose target && goto ${target}
+
+#=============== WinPE Menu =================
+:winpe
+menu WinPE (Sub)menu
+item winpe1     WinPE.iso (SANBoot)
+item winpe2     WinPE.iso (MEMDisk)
+choose target && goto ${target}
+
+:winpe1
+sanboot --no-describe ${boot-url}/iso/WinPE.iso
+boot
+
+:winpe2
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/WinPE.iso
+boot
+
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+
+<a name="compile"></a>
+<h3 class="breaktop"><u>Compile iPXE</u></h3>
+
+<p>
+The <font class="file">Tiny PXE Server</font> download contains precompiled version of <font class="file">iPXE</font> - some of the <font class="file">iPXE</font> commands (including <font class="file">console</font>) are not supported in these builds. 
+</p>
+
+
+<p>
+To compile your own <font class="file">iPXE</font>, refer to the following website - <a target="_blank" href="https://rom-o-matic.eu/">https://rom-o-matic.eu/</a>. Configuring <font class="file">iPXE</font> is beyond the scope of this document. There are a bewildering amount of options available if the <i>Advanced</i> settings are selected so choose carefully. Advantages of compiling your own build include -
+
+<ul>
+<li>Embed a script (e.g. a menu)</li>
+<li>Support for additional commands (e.g. console)</li>
+<li>Build for a particular Network Adapter - potentially resulting in a smaller file size.</li>
+<li>Add PXE support if this feature is missing (or broken) on the client system.</li>
+
+</ul> 
+</p>
+
+
+
+
+<p class="breakbottom">
+</p>
+
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Windows a NT balast</title>
+</head>
+<body>
+	<ul>
+			<li><a href="#10">Windows 10</a></li>
+			<li><a href="#7">Windows 7</a></li>
+			<li><a href="#xp">Windows xp</a></li>
+			<li><a href="#other">Windows other</a></li>
+			<li><a href="#odkazy">Odkazy</a></li>
+	</ul>
+	<h1>Prikazy</h1>
+	<p>
+	
+
+	</p>
+	<a name=10></a><h1>Windows 10</h1>
+	<p>
+	</p>
+	
+	<a name=7></a><h1>Windows 7</h1>
+	<p>
+	</p>
+	<a name=7-safemode></a><h2></h2>
+  <pre>
+      Pre vstup do nudzoveho rezimu stlac F8
+  </pre>
+
+
+	<a name=xp></a><h1>Windows XP</h1>
+	<p>
+	<li><a href="xp_lite.rtf">Windows xp lite navod</a></li>
+	</p>
+
+	<a name=odkazy></a><h1>Odkazy</h1>
+	<ul>	
+		
+	  <li><a href="">odkaz</a></li>
+</ul>
+	
+
+</body>
+</html>

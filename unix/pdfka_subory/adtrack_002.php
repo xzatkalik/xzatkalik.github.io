@@ -1,0 +1,3 @@
+window.AdTrack||(window.AdTrack={});AdTrack.init=function(b,d,e,f,a,c){"mafra"===f&&(a=!1);b="//"+b+"/lib/"+d+"/"+e;a?(a="AdTrack"+Math.round(1E8*Math.random()),window[a]=c,document.write("<script src='"+b+"'>\x3c/script>"),document.write("<script>window['"+a+"']();\x3c/script>")):(a=document.createElement("script"),a.src=b,a.onload=c,document.querySelector("head").appendChild(a))};
+AdTrack.init("trackad.cz", "1.19.0", "WzAsMSwyLDMzLDMsNCw1LDYsNywxMCwxMSwxMiwxMywxNCwxNSwxNiwzMl0=", "ii", false, function(){AdTrack.units["classic_root.cz_article_fixed"]=new AdTrack.Dispatcher("classic", "root.cz", "article", "fixed", null, null, "trackad.cz", null, "https://log.trackad.cz",{"timeout":10000,"gdpr":true,"cmpFallback":"normal","publisher":{"tag":"ii"}});});
+// 1.6ms

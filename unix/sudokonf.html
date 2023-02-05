@@ -1,0 +1,1179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+	<title>Linux v příkazech - sudo -Linux Software</title>
+	<meta name="description" content="Adresar software pro Linux, clanky s linuxovou tematikou, Linux v příkazech - sudo">
+	<meta name="keywords" content=" linux software, linux, Linux v příkazech - sudo"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="content-language" content="cs,czech">
+<meta name="robots" content="index,follow">
+<link rel="index" title="Linux Software" href="">
+<link rel="alternate" media="tty" href="http://text.linuxsoft.cz/" title="Textová verze" type="text/html">
+<link rel="alternate" media="tty" href="http://text.linuxsoft.cz/" title="Textová verze (ISO 8859-2)" type="text/html; charset=iso-8859-2">
+<link rel="alternate" title="RSS - članky" href="https://www.linuxsoft.cz/export/linuxsoft_article_cz.xml" type="application/rss+xml">
+<link rel="alternate" title="RSS - zprávičky" href="https://www.linuxsoft.cz/export/linuxsoft_news_cz.xml" type="application/rss+xml">
+<link rel="alternate" title="RSS - diskuze" href="https://www.linuxsoft.cz/rss/diskuze.php" type="application/rss+xml">
+<link rel="alternate" title="RSS - software" href="https://www.linuxsoft.cz/export/linuxsoft.xml" type="application/rss+xml">
+<link rel="shortcut icon" href="https://www.linuxsoft.cz/img/favicon.ico" type="image/x-icon" title="linuxsoft.cz">
+<link href="sudokonf_files/style.css" rel="stylesheet" type="text/css">
+
+<link href="sudokonf_files/article.css" rel="stylesheet" type="text/css">
+
+
+
+<link href="https://www.linuxsoft.cz/article_print.php?id_article=493" rel="alternate" media="print" title="Verze pro tisk">
+  <link href="https://www.linuxsoft.cz/article_list.php?id_kategory=193" rel="up">
+  <link href="https://www.linuxsoft.cz/article.php?id_article=1136" rel="next" title="Linux v příkazech - porovnávání souborů">
+  <link href="https://www.linuxsoft.cz/article.php?id_article=260" rel="prev" title="Linux v příkazech - práce se soubory a adresáři">
+  <link href="https://www.linuxsoft.cz/article.php?id_article=238" rel="first" title="Linux v příkazech - úvod">
+  <link href="https://www.linuxsoft.cz/article.php?id_article=1646" rel="last" title="osd volume v xfce">
+
+<style type="text/css">.vimvixen-console-frame {
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2147483647;
+  border: none;
+  background-color: unset;
+  pointer-events: none; }
+</style><style type="text/css">.vimvixen-hint {
+  background-color: yellow;
+  border: 1px solid gold;
+  font-weight: bold;
+  position: absolute;
+  text-transform: uppercase;
+  z-index: 2147483647;
+  font-size: 12px;
+  color: black;
+}
+</style></head>
+<body>
+<table class="main" cellspacing="0" cellpadding="4">
+<tbody><tr>
+<td class="top_part" valign="top">
+<a href="http://www.linuxsoft.cz/"><img src="sudokonf_files/logo.png" alt="LINUXSOFT.cz"></a>
+<a href="#left_end" title="Přeskoč levou lištu"><img src="sudokonf_files/minus.gif" alt="Přeskoč levou lištu"></a>
+</td>
+<td colspan="2" class="top_part" align="right">
+
+<h1 style="align:center;">ARCHIV</h1>
+<br><br>
+
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="top_part" style="padding:0px;margin:0px;vertical-align:middle;">
+<!--<form name="login_user" action="login.php" method="post">
+Uživatel: <input type="text" name="username" size="10" maxlength="50" />
+Heslo: <input type="password" name="password" size="10" maxlength="50" />&nbsp;
+<input type="submit" name="prihlas_tlacitko" value="Přihlásit" />-->
+</td><td class="top_part" style="padding:0px;margin:0px;vertical-align:middle;">
+<!--<form name="reg_user" action="user_edit.php" method="get">
+<input name="reg_tlacitko" type="submit" value="Registrovat"  /></form>-->
+</td><td class="top_part" style="padding:0px;margin:0px;vertical-align:middle;">&nbsp; &nbsp;<!--<a href=""><img alt="CZ" height="14" width="20" src="img/flag-cz.png" /></a><a href="en/"><img alt="UK" height="14" width="20" src="img/flag-uk.png" /></a><a href="pl/"><img alt="PL" height="14" width="20" src="img/flag-pl.png" /></a>--></td></tr></tbody></table>
+				</td>
+			</tr>
+			<tr>
+<td class="menu" style="max-width:17%" id="leva_lista" width="17%" valign="top">
+
+   <script language="Javascript" type="text/javascript" src="sudokonf_files/tree_script.js"></script>
+
+
+<!-- redakce -->
+<!-- 
+  
+            <div class="sub_title_gray" style="margin-bottom:6px;margin-top:0.3em;">
+				<img alt="&gt;" height="15" width="15" src="img/sipka2.png" />
+					<a href="index.php?part=piste_pro_ls" class="cap_title">Pište pro Linuxsoft</a>
+			</div>
+  
+            <table cellpadding="3" cellspacing="0" border="0" width="100%" style="margin-bottom:0.2em;">											
+				<tr class="bg_darker">
+					<td style="padding-left:1em;">500-1000Kč/článek<br />
+					</td>
+				</tr>
+			</table>
+-->
+
+
+ <!-- prodej reklamy -->
+			
+	<div class="sub_title_gray" style="margin-bottom:5px;">
+		<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+			<a href="https://www.linuxsoft.cz/reklama/" class="cap_title" title="Více info o reklamě">Reklama</a>
+	</div>
+
+
+<!-- reklamni plocha -->
+<!-- -->
+
+
+				
+  <!-- prodej reklamy -->
+  
+  
+    
+			<div class="sub_title_gray">
+				<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+					<a href="https://www.linuxsoft.cz/serialy/" class="cap_title">Seriály</a>
+					/<a href="https://www.linuxsoft.cz/serialy/#article_category" class="cap_title">Kategorie článků</a>
+
+			</div>
+			<div class="menu">
+
+				<a href="https://www.linuxsoft.cz/article_list.php?id_kategory=210" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">Perl</a><br>
+				<a href="https://www.linuxsoft.cz/php/" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">PHP</a><br>
+				<a href="https://www.linuxsoft.cz/gimp/" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">Gimp</a><br>
+				<a href="https://www.linuxsoft.cz/wifi/" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">Začínáme s wi-fi</a><br>
+				<a href="https://www.linuxsoft.cz/64bit/" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">64bit Linux</a><br>
+										
+			<a href="https://www.linuxsoft.cz/article_list.php?id_kategory=186" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">Programování C/C++</a><br>
+			<a href="https://www.linuxsoft.cz/article_list.php?id_kategory=193" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">Linux v příkazech</a><br>
+			<a href="https://www.linuxsoft.cz/article_list.php?id_kategory=172" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">HTML</a><br>
+			<a href="https://www.linuxsoft.cz/article_list.php?id_kategory=222" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">PostgreSQL</a><br>
+			<a href="https://www.linuxsoft.cz/article_list.php?id_kategory=166" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">Okenní managery</a><br>				
+				
+			</div>
+                   
+			
+			<div class="sub_title_gray">
+				<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15"> Software&nbsp;&nbsp;(10844)
+				<span id="splusAll" class="plus" onclick="showAll('s');" title="Rozbalit/Sbalit vše">&nbsp;</span>
+			</div>
+						
+			
+			 <script language="Javascript" type="text/javascript">
+			   var slink = '';
+			   var lang = 'cz';
+			 </script>
+			
+			
+			<div class="menu">
+								<span class="no_wrap">
+										<span id="splus13" class="plus" onclick="loadSubMenu(13)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=13">
+					AUDIO &amp; VIDEO [1204]</a>
+				</span>
+				<br>	
+				<span id="s13" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus47" class="plus" onclick="loadSubMenu(47)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=47">
+					BEZPEČNOST [524]</a>
+				</span>
+				<br>	
+				<span id="s47" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus37" class="plus" onclick="loadSubMenu(37)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=37">
+					DATABÁZE [313]</a>
+				</span>
+				<br>	
+				<span id="s37" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus43" class="plus" onclick="loadSubMenu(43)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=43">
+					EMULÁTORY [140]</a>
+				</span>
+				<br>	
+				<span id="s43" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus20" class="plus" onclick="loadSubMenu(20)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=20">
+					GRAFIKA [569]</a>
+				</span>
+				<br>	
+				<span id="s20" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus120" class="plus" onclick="loadSubMenu(120)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=120">
+					HRAČKY [10]</a>
+				</span>
+				<br>	
+				<span id="s120" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus23" class="plus" onclick="loadSubMenu(23)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=23">
+					HRY [1053]</a>
+				</span>
+				<br>	
+				<span id="s23" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus6" class="plus" onclick="loadSubMenu(6)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=6">
+					INTERNET [1037]</a>
+				</span>
+				<br>	
+				<span id="s6" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus42" class="plus" onclick="loadSubMenu(42)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=42">
+					JÁDRO [4]</a>
+				</span>
+				<br>	
+				<span id="s42" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus69" class="plus" onclick="loadSubMenu(69)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=69">
+					KNIHOVNY [638]</a>
+				</span>
+				<br>	
+				<span id="s69" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus72" class="plus" onclick="loadSubMenu(72)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=72">
+					MOBILNÍ [111]</a>
+				</span>
+				<br>	
+				<span id="s72" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus28" class="plus" onclick="loadSubMenu(28)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=28">
+					OFFICE [462]</a>
+				</span>
+				<br>	
+				<span id="s28" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus5" class="plus" onclick="loadSubMenu(5)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=5">
+					OKENNÍ MANAGERY [39]</a>
+				</span>
+				<br>	
+				<span id="s5" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus38" class="plus" onclick="loadSubMenu(38)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=38">
+					OSTATNÍ [89]</a>
+				</span>
+				<br>	
+				<span id="s38" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus64" class="plus" onclick="loadSubMenu(64)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=64">
+					SÍTĚ [596]</a>
+				</span>
+				<br>	
+				<span id="s64" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus34" class="plus" onclick="loadSubMenu(34)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=34">
+					TISK [79]</a>
+				</span>
+				<br>	
+				<span id="s34" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus58" class="plus" onclick="loadSubMenu(58)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=58">
+					UTILITY [3236]</a>
+				</span>
+				<br>	
+				<span id="s58" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus117" class="plus" onclick="loadSubMenu(117)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=117">
+					VĚDA [176]</a>
+				</span>
+				<br>	
+				<span id="s117" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus75" class="plus" onclick="loadSubMenu(75)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=75">
+					VÝUKA [81]</a>
+				</span>
+				<br>	
+				<span id="s75" class="hide">
+				
+				</span>
+				
+				<span class="no_wrap">
+										<span id="splus35" class="plus" onclick="loadSubMenu(35)">&nbsp;</span>
+					
+					
+					<a class="category" href="https://www.linuxsoft.cz/sw_list.php?id_kategory=35">
+					VÝVOJOVÉ NÁSTROJE [482]</a>
+				</span>
+				<br>	
+				<span id="s35" class="hide">
+				
+				</span>
+				
+				
+			</div>
+			<div class="sub_title_gray" style="margin-bottom: 5px;">
+				<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+				<a href="https://www.linuxsoft.cz/sw_edit.php" class="cap_title" rel="nofollow">Vlož nový SW záznam</a>
+			</div>
+			<div class="sub_title_gray">
+				<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15"> Distribuce&nbsp;(131)				
+			</div>
+			
+			<div class="menu">
+						
+			<a href="https://www.linuxsoft.cz/distro_list.php?id_kategory=4" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			bootovatelné [55]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/distro_list.php?id_kategory=187" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			BSD [7]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/distro_list.php?id_kategory=2" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			komerční [7]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/distro_list.php?id_kategory=3" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			nekomerční [42]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/distro_list.php?id_kategory=1" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			nezařazeno [20]</a>
+			<br>
+					
+			</div>			
+			
+			<div class="sub_title_gray" style="margin-bottom: 5px;">
+				<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+				<a href="https://www.linuxsoft.cz/distribuce_edit.php" class="cap_title" rel="nofollow">Vlož novou distribuci</a>
+			</div>
+			<div class="sub_title_gray" title="Přehled skriptů a kusů zdrojového kódu">
+				<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15"> Skripty&nbsp;&nbsp;(697)				
+			</div>
+			
+			<div class="menu">
+						
+			<a href="https://www.linuxsoft.cz/script_list.php?id_kategory=153" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			C++ [17]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/script_list.php?id_kategory=189" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			HTML [12]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/script_list.php?id_kategory=154" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			Java [7]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/script_list.php?id_kategory=155" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			Javascript [551]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/script_list.php?id_kategory=159" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			ostatni [21]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/script_list.php?id_kategory=156" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			Perl [4]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/script_list.php?id_kategory=157" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			PHP [82]</a>
+			<br>
+						
+			<a href="https://www.linuxsoft.cz/script_list.php?id_kategory=158" class="category">
+			<img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">
+			Python [3]</a>
+			<br>
+					
+			</div>
+			
+			<div class="sub_title_gray" style="margin-bottom: 5px;">
+				<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+				<a href="https://www.linuxsoft.cz/script_edit.php" class="cap_title" rel="nofollow">Vlož nový skript</a>
+			</div>
+			
+			
+			<div class="sub_title_gray">
+				<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+				Menu
+			</div>
+			<div class="menu">
+				<a href="https://www.linuxsoft.cz/linux_wallpapers/" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">WALLPAPERS</a><br>
+				<a href="https://www.linuxsoft.cz/screenshot_list.php" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">SCREENSHOTY</a><br>
+				<a href="https://www.linuxsoft.cz/patek/" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">LINUXOVÝ PÁTEK</a><br>
+				<a href="https://www.linuxsoft.cz/kurzy/" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">KURZY</a><br>
+				
+				<!--<a href="soutez.php" class="category"><img alt="&gt;" hspace="4" border="0" height="9" width="9" src="img/plus.png" />SOUTĚŽ - SW</a><br />-->			
+				<a href="https://www.linuxsoft.cz/index.php?part=links" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">ODKAZY</a><br>
+				<a href="https://www.linuxsoft.cz/export/" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">EXPORT DAT (RSS)</a><br>
+			</div>
+			<div class="sub_title_gray">
+				<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+				Diskuze
+			</div>
+			<div class="menu">
+				<a href="https://www.linuxsoft.cz/diskuze_list.php" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">VŠECHNY DISKUZE</a><br>
+				<a href="https://www.linuxsoft.cz/diskuze_list.php?type_item=8" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">PORADNA</a><br>
+				<a href="https://www.linuxsoft.cz/diskuze_list.php?type_item=0" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">SOFTWARE</a><br>
+				<a href="https://www.linuxsoft.cz/diskuze_list.php?type_item=1" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">DISTRIBUCE</a><br>
+				<a href="https://www.linuxsoft.cz/diskuze_list.php?type_item=7" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">ZPRÁVIČKY</a><br>
+				<a href="https://www.linuxsoft.cz/diskuze_list.php?type_item=5" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">ČLÁNKY</a><br>
+
+			</div>
+			<div class="sub_title_gray" style="margin-bottom: 5px;">
+			<a href="http://www.linuxsoft.cz/prispevek_edit.php?type_item=8" class="cap_title" rel="nofollow"><img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15"> Přidat dotaz do poradny</a></div>
+			<div class="sub_title_gray">
+				<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15"> Informace
+			</div>
+			<div class="menu">
+			    <a href="https://www.linuxsoft.cz/index.php?part=provozovatel" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">PROVOZOVATEL</a><br>
+				<a href="https://www.linuxsoft.cz/index.php?part=o_nas" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">TEAM</a><br>
+				<a href="https://www.linuxsoft.cz/index.php?part=support" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">PODPOŘTE NÁS</a><br>
+				<a href="http://www.hucek.cz/stats/linuxsoft" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">STATISTIKY</a><br>
+				<a href="https://www.linuxsoft.cz/index.php?part=top_ten" class="category"><img alt="&gt;" src="sudokonf_files/plus.png" width="9" hspace="4" height="9" border="0">TOP TEN</a><br>
+
+		    <br>
+	         <div class="sub_title_gray" style="margin-bottom: 5px;"><img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15"> <a href="https://www.linuxsoft.cz/fakta/" class="cap_title">Linux vs. Windows</a>
+
+			</div>
+	
+
+<a name="left_end" id="left_end"></a></div></td>
+
+
+
+<td class="articles" style="padding: 5px;" width="56%" valign="top">
+   
+
+<h2><img src="sudokonf_files/sipka1.png" alt="&gt;" width="15" height="15"> Linux v příkazech - sudo</h2>
+<p class="perex">V dnešním dílu se podíváme na poměrně mocný program, 
+který vám dovolí předávat všechna, nebo jenom některá superuživatelská 
+práva normálním uživatelům.<br><br>
+<b>1.11.2004 10:00 | 
+<a class="user_link" href="https://www.linuxsoft.cz/user_page.php?user_id=885" title="info o autorovi">Ondřej Čečák</a> 				
+| <a href="https://www.linuxsoft.cz/user_page.php?user_id=885&amp;part=article">Články autora</a>			
+| přečteno 74328×</b>
+</p>
+
+
+
+
+<p>
+<i>You had mail, but the super-user read it, and deleted it!</i>
+</p>
+
+<p>
+Název programu vznikl složením slov "<b>su</b>peruser <b>do</b>", a to poměrně 
+jasně vystihuje jeho funkci. S pomocí suda můžete dovolit normálnímu 
+uživateli spouštět všechny, nebo jen některé příkazy s právy superuživatele. Takto lze  
+např. pohodlně
+vyřešit situaci,  kdy je vhodné (ba přímo nutné), aby někteří uživatelé používali
+programy určené ke správě, ovládání systému a podobně.
+</p>
+
+<h2>Instalace</h2>
+
+<p>
+Program si můžete stáhnout z domovské stránky 
+<a href="http://www.sudo.ws/sudo/" target="_blank">http://www.sudo.ws/sudo/</a>
+(<a href="http://www.courtesan.com/sudo/sudo.html" target="_blank">http://www.courtesan.com/sudo/sudo.html</a>)
+a následně zkompilovat. S největší pravděpodobností bude
+ovšem zahrnut i ve vaší distribuci, takže vám doporučuji nejprve
+sáhnout po distribučním balíčku s binárkou či zdrojáky.
+</p>
+
+<p>
+<code>Sudo</code> běží jako suid s právy roota, takže už jeho samotná instalace
+skrývá bezpečnostní riziko, na které byste měli brát ohled.
+</p>
+
+<h2>Konfigurace</h2>
+
+<p>
+Veškeré nastavení se provádí v konfiguračním souboru 
+<code>/usr/sudoers</code> (nejčastěji). Ačkoli tento soubor můžete editovat ve svém
+oblíbeném editoru, <i>měli</i> byste použít program <code>visudo</code>. Tento
+má totiž dvě užitečné vlastnosti:
+</p>
+
+<ul>
+  <li>kontroluje syntax (takže vás upozorní na případnou chybu)</li>
+  <li>stará se o to, aby soubor editoval v jednu chvíli pouze jeden uživatel
+      (to je užitečné v případě, když se o systém stará více
+      lidí s právy roota)</li>
+</ul>
+
+<h3>Nejzákladnější volby</h3>
+
+<p>
+A nyní se můžeme vrhnout na vlastní konfiguraci. Po spuštění programu
+<code>visudo</code> by se vám mohl objevit implicitní konfigurační soubor
+podobný tomuto:
+</p>
+
+<div class="codes">
+<pre><span class="t"># sudoers file.
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the man page for details on how to write a sudoers file.
+#
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification</span>
+root    ALL=(ALL) ALL
+</pre>
+</div>
+
+<p>
+Řekněme tedy, že chceme přidělit uživateli <code>spravce</code> 
+a členům skupiny <code>admini</code> superuživatelská práva. Proto do
+odpovídající sekce připíšeme:
+</p>
+
+<div class="codes">
+<pre><span class="t"># User privilege specification</span>
+root    ALL=(ALL) ALL
+spravce ALL=(ALL) ALL
+%admini ALL=(ALL) NOPASSWD: ALL
+</pre>
+</div>
+
+<p>
+Tak. Nyní můžeme jako uživatel <code>spravce</code> vyzkoušet, jak to funguje.
+Obecně uživatel <code>spravce</code> použije příkaz <code>sudo</code>
+následovaný cestou k programu. Tedy např.:
+</p>
+
+<div class="codes">
+<pre><span class="t">spravce@stroj:~$</span> sudo /usr/bin/whoami
+<span class="t">
+Password:
+root</span>
+</pre>
+</div>
+
+<p>
+Co se vlastně stalo? Uživatel <code>spravce</code> spustil <code>whoami</code>
+s právy roota (pozn.: jak je zřejmé, program <code>whoami</code> vypíše
+userid; výstupem je tedy název uživatele, který příkaz zadal). Všimněte si, že
+před spuštěním příkazu musel <code>spravce</code> zadat (své) heslo. To proto, aby
+jeho shell nešel zneužít, pokud by se např. zapomněl odhlásit.
+Implicitně si <code>sudo</code> pamatuje heslo 5 minut, takže ho není nutné 
+zadávat opakovaně.
+</p>
+
+<p>
+V předchozím příkladu zbývá nevysvětlený poslední řádek – ten pomocí
+<code>%</code> dovoluje spuštění libovolného příkazu se superuživatelskými právy členům skupiny
+<code>admini</code>, a to bez nutnosti zadávání hesla (díky volbě
+<code>NOPASSWD:</code>).
+</p>
+
+<p>
+Tím jsme si předvedli úplně nejzákladnější funkci programu <code>sudo</code>. Důležité je
+ovšem zmínit, že vaším cílem by měl být spíše superuživatelský přístup minimalizovat. <code>Sudo</code> je
+ideální především na rozdělování různých práv a většinou se nehodí pouze k
+předávání všech práv superuživatele.
+</p>
+
+<h3>Omezování</h3>
+
+<p>
+Ačkoli nadpis této kapitolky zavání 
+<abbr title="Bastard Operator From Hell">BOFH</abbr>, představím vám zde
+velice užitečné možnosti, jak předat pouze určitá práva a některé další "omezující"
+volby.
+</p>
+
+<p>
+Nejdříve se ještě můžeme vrátit k zadávání hesla. Vytvořme si v konfiguračním
+souboru "novou sekci" s následujícím obsahem:
+</p>
+
+<div class="codes">
+<pre><span class="t"># Defaults specification</span>
+Defaults:spravce      timestamp_timeout=0, passwd_tries=1
+</pre>
+</div>
+
+<p>
+Tímto nastavíme, že uživatel <code>spravce</code> bude muset zadávat své heslo
+při spuštění suda neustále, protože <code>timestamp_timeout</code> je roven nule.
+Pokud zde napíšete libovolné přirozené číslo, <code>sudo</code> si bude 
+pamatovat heslo zadaný počet minut. Jestliže této volbě nastavíte hodnotu
+<code>-1</code>, bude nutné zadat heslo jenom jednou za přihlášení.
+</p><p>
+
+</p><p>
+Volba <code>passwd_tries=1</code> znamená,
+že pokud se uživatel při zadávání hesla splete, bude muset příkaz spustit
+znovu (a jeho přihlášení bude logováno jako neúspěšné; implicitně je tato
+hodnota rovna 3).
+</p>
+
+<p>
+Zajímavé je také to, jak <code>sudo</code> nakládá se systémovými proměnnými.
+Pokud si (nejlépe jako superuživatel) zadáte příkaz <code>sudo -V</code>,
+uvidíte mj. také seznamy proměnných, které <code>sudo</code> kontroluje, maže
+nebo nuluje. V případě, že byste chtěli uživateli <code>spravce</code> smazat například proměnnou
+<code>PROMENNA</code>, připište k poslednímu předcházejícímu příkladu <code>,
+  env_delete+="PROMENNA"</code>. Důležité je + před znakem =, v případě že by
++ chybělo, mazala by se pouze jedna zadaná proměnná.
+</p>
+
+<p>
+Jak už jsem poznamenal v úvodu, předání všech superuživatelských práv není
+obvykle ta správná cesta. Pojďme tedy skupinu programů omezit:
+</p>
+
+<div class="codes">
+<pre><span class="t"># User privilege specification</span>
+root     ALL=(ALL) ALL
+spravce  ALL=	   /sbin/shutdown
+%admini  stroj=	   /usr/local/sbin/admini/
+</pre>
+</div>
+
+<p>
+Tímto nastavením jsme docílili toho, že uživatel <code>spravce</code> může
+spustit se superuživatelským oprávněním pouze program <code>shutdown</code>.
+Druhý řádek dovoluje členům skupiny <code>admini</code> spouštět jako
+<code>root</code> na počítači <code>stroj</code> programy v adresáři
+<code>/usr/local/sbin/admini/</code>.
+</p>
+
+<p>
+Ovšem sudo nemusí dávat uživateli "pouze" práva superuživatele,
+programy lze spouštět pod libovolným uživatelem, např.:
+</p>
+
+<div class="codes">
+<pre><span class="t"># User privilege specification</span>
+root     ALL=(ALL) 		  ALL
+jirka	 ALL=(pepa,lenka,franta)  /bin/kill,/usr/bin/killall
+</pre>
+</div>
+
+<p>
+Tímto příkazem může uživatel <code>jirka</code> ukončovat procesy uživatelům
+<code>pepa</code>, <code>lenka</code> a <code>franta</code>. A jak že to
+udělá? Jednoduše spustí <code>sudo</code> s parametrem <code>-u</code>:
+</p>
+
+<div class="codes">
+<pre><span class="t">jirka@stroj:~$ </span>sudo -u pepa killall program
+</pre>
+</div>
+
+<p>
+Protože v minulém příkazu v posledním řádku není uvedeno <code>ALL</code>, ale
+výčet uživatelů, je uživatel oprávněn spouštět zadané příkazy pouze s vyjmenovanými
+právy. V případě že tam <code>ALL</code> uvedeno je, znamená to, že je možné
+spouštět příkazy pod libovolným uživatelem.
+</p>
+
+<p>
+Náš předchozí příklad můžeme ještě vylepšit o volbu, která zajistí, že
+<code>sudo</code> bez parametru <code>-u</code> spustí příkaz pod defaultním
+uživatelem:
+</p>
+
+<div class="codes">
+<pre>Defaults:jirka runas_default=pepa
+</pre>
+</div>
+
+<h3>Aliasy</h3>
+
+<p>
+Protože se občas některé volby opakují a protože jsou delší konfiguráky trošku
+nepřehledné a náročnější na úpravy, nabízí <code>sudo</code> zadávání aliasů. 
+Pokud už funkce není zřejmá z názvu, příklad jejich použití ujasní:
+</p>
+
+<div class="codes">
+<pre><span class="t"># Host alias specification</span>
+Host_Alias KANCELAR = 192.168.0.0/24
+
+<span class="t"># User alias specification</span>
+User_Alias SPRAVCI = spravce,jarda
+User_Alias UZIVATELE = pepa,jirka,lenka,franta
+
+<span class="t"># Runas alias specification</span>
+Runas_Alias OP = operator
+
+<span class="t"># Cmnd alias specification</span>
+Cmnd_Alias  WWW  = /bin/su www
+Cmnd_Alias  KILL = /bin/kill,/usr/bin/killall
+Cmnd_Alias  HALT = /sbin/halt
+Cmnd_Alias  SHELLS = /bin/sh, /bin/bash, /bin/ksh, \
+		     /bin/tcsh, /usr/local/bin/rsh
+</pre>
+</div>
+
+<p>
+Tímto zápisem si definujeme aliasy, které můžeme dále použít. Např.:
+</p>
+
+<div class="codes">
+<pre><span class="t"># User privilege specification</span>
+root    ALL=(ALL) 	ALL
+SPRAVCI	KANCELAR=(ALL)  ALL
+
+pepa    KANCELAR=(OP) KILL
+
+UZIVATELE ALL=(ALL) HALT
+
+spravce ALL=(ALL) /bin/, WWW, !SHELLS
+</pre>
+</div>
+
+<p>
+Všimněte si především posledního řádku. Znak <code>!</code> obrací význam
+aliasu <code>SHELLS</code>, takže správce může spustit s privilegii roota
+cokoli v adresáři <code>/bin/</code>, kromě programů vyjmenovaných v aliasu
+<code>SHELLS</code>. Zajímavé je také použití aliasu <code>WWW</code>, který
+povoluje změnu uživatele, ale pouze se zadaným parametrem.
+</p>
+
+<p>
+Podobně můžeme např. povolit uživateli <code>vojta</code>, aby mohl zasahovat do nastavení
+sítě, ovšem v příkazu se nesmí objevit <code>eth0</code>. Dále nastavíme
+ještě uživateli <code>spravce</code> libovolné použití programu <code>tcpdump</code> k odchytávání
+síťového provozu. Opět můžme použít alias:
+</p>
+
+<div class="codes">
+<pre><span class="t"># Cmnd alias specification</span>
+
+Cmnd_Alias SIT=/bin/ip *, !/bin/ip *eth0*
+Cmnd_Alias SNIFFER=/usr/sbin/tcpdump *
+
+<span class="t"># User privilege specification</span>
+root    ALL=(ALL) ALL
+spravce ALL=(ALL) SNIFFER
+vojta   ALL=(ALL) SIT
+</pre>
+</div>
+
+<h3>Kompletní ukázka</h3>
+
+<p>
+Kompletní a fungující ukázku konfiguračního souboru lze nalézt na oficiálních
+stránkách, konkrétně na adrese <a href="http://www.courtesan.com/sudo/sample.sudoers" target="_blank">
+http://www.courtesan.com/sudo/sample.sudoers</a>.
+</p>
+
+<h2>Bezpečnost</h2>
+
+<p>
+Kromě toho, že <code>sudo</code> by nemělo obsahovat známé chyby (protože to
+je root suid binárka) se u konfigurace vyplatí opravdu pořádně přemýšlet, a to
+obzvlášť, pokud udělujete uživatelům pouze částečná práva. Pozor si např. dejte
+na:
+</p>
+
+<ul>
+  <li>editory (některé totiž dokáží spouštět další příkazy, o editaci např.
+  <code>/etc/shadow</code> nemluvě)</li>
+  <li><code>chmod</code>, <code>chown</code> (defacto přístup ke všem souborům)</li>
+  <li>zdánlivě bezpečné věci jako <code>tar</code>, <code>gzip</code> (opět
+  pozor na získání souboru s hesly)</li>
+  <li><code>passwd</code> (minimálně <code>root</code> by měl být zakázan)</li>
+  <li>správce balíčků (útočník si pak případně může nainstalovat starou verzi
+  balíčku, o které ví, že je zranitelná)</li>
+</ul>
+
+<p>
+Z bezpečnostního hlediska je také velice zajímavé použít <code>sudo</code> tak, aby řídilo (a logovalo)
+přístup k ostatním seuid/segid programům (nebo alespoň k těm, které vlastní <code>root</code>).
+Takže následně <code>sudo</code> bude jedniný programu roota, který vyžaduje seuid/segid bit. Toto
+řešení má několik výhod; přímo použití suda může být vymezeno právy filesystému jenom na ty,
+kteří seuid/segid programy vyžadují (různí démoni apod.), lze kontrolovat a omezovat předávané parametry
+a případný útočník bude mít opět o něco komplikovanější postup.
+</p>
+
+<h3>Logování</h3>
+
+<p>
+Implicitní nastavení logování je u různých distribucí různé; soubor s logy si
+můžeme nastavit v úvodu konfiguračního souboru programu <code>sudo</code>:
+</p>
+
+<div class="codes">
+<pre>Defaults logfile=/var/log/sudo.log
+</pre>
+</div>
+
+<p>
+Příklad souboru s logy:
+</p>
+
+<div class="codes">
+<pre>Oct 30 19:56:28 : spravce : TTY=pts/9 ; 
+    PWD=/home/spravce ;  USER=root ;  COMMAND=/usr/bin/whoami
+Oct 30 20:00:28 : spravce : TTY=pts/5 ;  
+    PWD=/home/spravce ; USER=pepa ; COMMAND=/usr/bin/killall doom3
+Oct 30 20:01:04 : petra : user NOT in sudoers ; TTY=tty/1 ;  
+    PWD=/home/petra ; USER=root ;  COMMAND=/bin/bash      
+Oct 30 20:11:39 : franta : 3 incorrect password attempts ; TTY=pts/10 ;
+    PWD=/etc/ ; USER=root ; COMMAND=/bin/cat /etc/shadow
+</pre>
+</div>
+
+<p>
+Vysvětlovat význam jednotlivých položek asi nemá cenu, protože jsou docela
+zřejmé. Pozor si ale dávejte především na hodnotu položky
+<code>COMMAND</code>, protože tam se nezobrazují přesměrování (např.
+<code>/bin/cat /etc/shadow &gt; /tmp/session_mm_apache0</code> bude zobrazeno
+pouze po &gt;).
+</p>
+
+<p>
+Pokud se <code>sudo</code> správně nakonfiguruje, může se stát důležitým
+ a vítaným pomocníkem, a to nejenom správce systému. Doufám, že si ho 
+také oblíbíte  ...</p>
+<p>
+Za konzultace bych chtěl poděkovat Honzovi Houšťkovi.
+</p>
+<p align="right"><a href="https://www.linuxsoft.cz/article_print.php?id_article=493" class="user_link" rel="noindex,nofollow">Verze pro tisk</a></p>
+
+
+
+
+
+
+
+<!-- reklama horni -->
+<div style="padding: 5px;padding-top:10px;" align="center">
+
+</div>
+
+
+<span id="sluzba_pridej_cz">
+<!-- sluzba pridej -->
+<a href="http://pridej.cz/" rel="noindex,nofollow" id="sluzba_pridej_link" onclick="return pridej_click(this,document);" title="Přidat záložku na servery" target="_blank">
+<img src="sudokonf_files/pridej80x15.gif" alt="pridej.cz" width="80" height="15" border="0"></a><script type="text/javascript" src="sudokonf_files/pridej.js"></script>
+ <br>
+ <br>
+<!-- sluzba pridej -->
+ </span>
+  
+<div class="links">
+	<a name="souvisejici"><b>Související články</b></a><br>
+	
+		<br>
+	<a href="https://www.linuxsoft.cz/article.php?id_article=409">Předchozí</a>
+	<a href="https://www.linuxsoft.cz/article_list.php?id_kategory=193" style="margin-left:2em;margin-right:2em;">Celou kategorii (seriál)</a>
+	<a href="https://www.linuxsoft.cz/article.php?id_article=549">Další</a>
+	<br><br>
+	
+
+        <div style="max-height:200px;overflow:auto;">	
+	<a href="https://www.linuxsoft.cz/article.php?id_article=238">Linux v příkazech - úvod</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=248">Linux v příkazech - správa uživatelských účtů</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=265">Linux v příkazech - ssh, rsync</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=260">Linux v příkazech - práce se soubory a adresáři</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=300">Linux v příkazech - TCP, ftp, http</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=302">Linux v příkazech - konfigurace sítě</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=278">Linux v příkazech - diagnostika sítě</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=362">Linux v příkazech - GnuPG</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=364">Linux v příkazech - archivace a komprese</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=389">Linux v příkazech - OpenSSL</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=409">Linux v příkazech - správa procesů</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=549">Linux v příkazech - čtení a zpracování textu</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=713">Linux v příkazech - aritmetika</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=748">Linux v příkazech - vylaďte si Bash!</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=897">Linux v příkazech - správci verzí</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=1083">Linux v příkazech - manuálové stránky</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=1100">Linux v příkazech - screen</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=1110">Linux v příkazech - vypalování CD/DVD</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=1136">Linux v příkazech - porovnávání souborů</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=1178">Linux v příkazech - plánované spouštění procesů</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=1225">Linux v příkazech - hledání souborů</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=1351">Linux v příkazech – práce s Wi-Fi</a><br><a href="https://www.linuxsoft.cz/article.php?id_article=1646">osd volume v xfce</a><br>
+        </div>
+
+	<br>
+	<a href="https://www.linuxsoft.cz/article.php?id_article=409">Předchozí</a>
+	<a href="https://www.linuxsoft.cz/article_list.php?id_kategory=193" style="margin-left:2em;margin-right:2em;">Celou kategorii (seriál)</a>
+	<a href="https://www.linuxsoft.cz/article.php?id_article=549">Další</a>
+	
+	
+</div>
+
+
+<table width="100%" align="center">
+<tbody><tr><td style="height: 1px;">&nbsp;</td></tr>
+<tr>
+<td colspan="2" style="padding-left: 8px; padding-right: 8px;" align="center">
+<div align="left"><h2><a name="diskuze" class="black"></a>DISKUZE</h2></div>
+<!-- PAVOUK DISKUSNIHO FORA -->
+
+
+<p align="center">Nejsou žádné diskuzní příspěvky u dané položky.</p>
+
+<!-- </td>
+ </tr>
+</table> -->
+
+<!--<tr>
+<td colspan="2" align="center">
+<table border="0" cellpadding="5">
+<tr>-->
+
+
+<!--<td>--><!--</td>
+</tr></table>-->
+
+<!--<div align="center">-->
+<br>
+<br>
+<cite style="padding-bottom:12px;margin-top:2em;text-align:center;">Příspívat do diskuze mohou pouze registrovaní uživatelé.<br></cite>
+<!--</div>-->
+
+
+
+
+</td></tr>
+
+</tbody></table>
+
+</td>
+
+<td class="orange" style="min-width:260px;" id="prava_lista" width="22%" valign="top">
+
+<div class="sub_title_orange">
+<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+Vyhledávání software
+</div>
+<div class="menu" style="padding-top: 7px;" align="center">
+<form name="search_sw" action="sw_list.php" method="get">
+<input name="search_world" size="20" type="text">
+<input name="tlacitko" value="Hledat" type="submit"><br>
+</form>
+</div>
+<div class="sub_title_orange">
+<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+Vyhledávání článků
+</div>
+<div class="menu" style="padding-top: 7px; padding-bottom: 7px;" align="center">
+<form action="article_list.php" method="get">
+<input name="search_article" size="20" type="text">
+<input name="odesli" value="Hledat" type="submit"><br>
+</form>
+</div>
+<div class="sub_title_orange" style="margin-bottom: 0.8em;">
+<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+<a href="https://www.linuxsoft.cz/search.php" class="cap_title" title="Rozšířené vyhledávání v článcích ,software, distribucích, poradně, skriptech">Rozšířené vyhledávání</a>
+</div>
+
+
+<!-- <center>
+
+</center>-->
+
+
+<div class="sub_title_orange" longdesc="Blok zpráviček" style="margin-top:0.8em;">
+<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15">
+<a id="message_rss" href="https://www.linuxsoft.cz/message_list.php?id_message=11377" class="cap_title" title="Přehled krátkých zpráv nejen ze světa Linuxu">Linux News</a>
+<a href="https://www.linuxsoft.cz/export/linuxsoft_news_cz.rss" title="RSS zprávičky" style="border:none; margin-left:1em;">
+		 <img src="sudokonf_files/rss_icon.jpg" alt="rss icon" style="margin-bottom:-2px;">
+	  </a>
+</div>
+
+<p class="news"><b>28.11.2018 23:56</b> <strong>/</strong><a href="https://www.linuxsoft.cz/user_page.php?user_id=15903"><small>František Kučera</small></a><br>Prosincový sraz spolku <a href="https://www.openalt.org/pozvanka-na-158-sraz-openalt-praha">OpenAlt</a> se koná ve středu 5.12.2018 od 16:00 na adrese <a href="https://www.openstreetmap.org/node/2753192953">Zikova 1903/4, Praha 6</a>. Tentokrát navštívíme organizaci <a href="https://www.cesnet.cz/">CESNET</a>. Na programu jsou dvě přednášky: <strong>Distribuované úložiště Ceph</strong> (Michal Strnad) a <strong>Plně šifrovaný disk na moderním systému</strong> (Ondřej Caletka). Následně se přesuneme do některé z nedalekých restaurací, kde budeme pokračovat v diskusi.
+<br><b><a href="https://www.linuxsoft.cz/diskuze.php?id_vazba=11384&amp;type_item=7">Komentářů: 1</a></b>
+</p>
+<p class="news"><b>12.11.2018 21:28</b> <strong>/</strong><a href="https://www.linuxsoft.cz/user_page.php?user_id=1"><small>Redakce Linuxsoft.cz</small></a><br>22. listopadu 2018 se koná v Praze na Karlově náměstí již pátý ročník konference s tématem <a href="http://konference.businessit.cz/events/datova-centra-2018/" target="_new">Datová centra pro business</a>,
+ která nabídne odpovědi na aktuální a často řešené otázky: Jaké jsou 
+aktuální trendy v oblasti datových center a jak je optimálně využít pro 
+vlastní prospěch? Jak si zajistit odpovídající služby datových center? 
+Podle jakých kritérií vybírat dodavatele služeb? Jak volit vhodné 
+součásti infrastruktury při budování či rozšiřování vlastního datového 
+centra? Jak efektivně datové centrum spravovat? Jak co nejlépe 
+eliminovat možná rizika? apod. Příznivci LinuxSoftu mohou při registraci
+ uplatnit kód LIN350, který jim přinese zvýhodněné vstupné s 50% slevou.
+
+<br><a href="https://www.linuxsoft.cz/prispevek_edit.php?predek=0&amp;id_vazba=11383&amp;type_item=7" rel="nofollow">Přidat komentář</a></p>
+<p class="news"><b>6.11.2018 2:04</b> <strong>/</strong><a href="https://www.linuxsoft.cz/user_page.php?user_id=15903"><small>František Kučera</small></a><br>Říjnový <a href="https://www.openalt.org/pozvanka-na-157-sraz-openalt-praha">pražský sraz spolku OpenAlt</a> se koná v listopadu – již tento čtvrtek – 8. 11. 2018 od 18:00 v Radegastovně <a href="http://peronsmichov.cz/">Perón</a> (<a href="https://www.openstreetmap.org/node/296679487">Stroupežnického 20, Praha 5</a>).
+ Tentokrát bez oficiální přednášky, ale zato s dobrým jídlem a pivem – 
+volná diskuse na téma umění a technologie, IoT, CNC, svobodný software, 
+hardware a další hračky.
+
+<br><a href="https://www.linuxsoft.cz/prispevek_edit.php?predek=0&amp;id_vazba=11382&amp;type_item=7" rel="nofollow">Přidat komentář</a></p>
+<p class="news"><b>4.10.2018 21:30</b> <strong>/</strong><a href="https://www.linuxsoft.cz/user_page.php?user_id=885"><small>Ondřej Čečák</small></a><br>LinuxDays 2018 již tento víkend, <a href="https://www.linuxdays.cz/2018/registrace/">registrace je otevřená</a>.
+
+<br><a href="https://www.linuxsoft.cz/prispevek_edit.php?predek=0&amp;id_vazba=11381&amp;type_item=7" rel="nofollow">Přidat komentář</a></p>
+<p class="news"><b>18.9.2018 23:30</b> <strong>/</strong><a href="https://www.linuxsoft.cz/user_page.php?user_id=15903"><small>František Kučera</small></a><br>Zářijový <a href="https://www.openalt.org/pozvanka-na-156-sraz-openalt-praha">pražský sraz spolku OpenAlt</a> se koná již tento čtvrtek – 20. 9. 2018 od 18:00 v Radegastovně <a href="http://peronsmichov.cz/">Perón</a> (<a href="https://www.openstreetmap.org/node/296679487">Stroupežnického 20, Praha 5</a>).
+ Tentokrát bez oficiální přednášky, ale zato s dobrým jídlem a pivem – 
+volná diskuse na téma IoT, CNC, svobodný software, hardware a další 
+hračky.
+
+<br><a href="https://www.linuxsoft.cz/prispevek_edit.php?predek=0&amp;id_vazba=11380&amp;type_item=7" rel="nofollow">Přidat komentář</a></p>
+<p class="news"><b>9.9.2018 14:15</b> <strong>/</strong><a href="https://www.linuxsoft.cz/user_page.php?user_id=1"><small>Redakce Linuxsoft.cz</small></a><br>20.9.2018 proběhne v pražském Kongresovém centru Vavruška konference <a href="http://konference.businessit.cz/events/mobilni-reseni-2018/" target="_new">Mobilní řešení pro business</a>.
+Návštěvníci si vyslechnou mimo jiné přednášky na témata: Nejdůležitější 
+aktuální trendy v oblasti  mobilních technologií, správa a zabezpečení 
+mobilních zařízení ve firmách, jak mobilně přistupovat k informačnímu 
+systému firmy, kdy se vyplatí používat odolná mobilní zařízení nebo jak 
+zabezpečit mobilní komunikaci.
+
+<br><a href="https://www.linuxsoft.cz/prispevek_edit.php?predek=0&amp;id_vazba=11379&amp;type_item=7" rel="nofollow">Přidat komentář</a></p>
+<p class="news"><b>12.8.2018 16:58</b> <strong>/</strong><a href="https://www.linuxsoft.cz/user_page.php?user_id=15903"><small>František Kučera</small></a><br>Srpnový <a href="https://www.openalt.org/pozvanka-na-155-sraz-openalt-praha">pražský sraz spolku OpenAlt</a> se koná ve čtvrtek – 16. 8. 2018 od 19:00 v&nbsp;<a href="https://kavarna-ideal.webnode.cz/">Kavárně Ideál</a> (<a href="https://www.openstreetmap.org/node/296571222">Sázavská 30, Praha</a>),
+ kde máme rezervovaný salonek. Tentokrát jsou tématem srazu databáze 
+prezentaci svého projektu si pro nás připravil Standa Dzik. Dále bude 
+prostor, abychom probrali nápady na využití IoT a&nbsp;sítě The Things 
+Network, případně další témata.
+
+<br><a href="https://www.linuxsoft.cz/prispevek_edit.php?predek=0&amp;id_vazba=11378&amp;type_item=7" rel="nofollow">Přidat komentář</a></p>
+<p class="news"><b>16.7.2018 1:05</b> <strong>/</strong><a href="https://www.linuxsoft.cz/user_page.php?user_id=15903"><small>František Kučera</small></a><br>Červencový pražský <a href="https://www.openalt.org/pozvanka-na-154-sraz-openalt-praha">sraz spolku OpenAlt</a> se koná již tento čtvrtek – 19. 7. 2018 od 18:00 v&nbsp;<a href="https://kavarna-ideal.webnode.cz/">Kavárně Ideál</a> (<a href="https://www.openstreetmap.org/node/296571222">Sázavská 30, Praha</a>), kde máme rezervovaný salonek. Tentokrát bude přednáška na téma: automatizační nástroj <a href="https://www.ansible.com/overview/how-ansible-works">Ansible</a>, kterou si připravil Martin Vicián.
+
+<br><a href="https://www.linuxsoft.cz/prispevek_edit.php?predek=0&amp;id_vazba=11377&amp;type_item=7" rel="nofollow">Přidat komentář</a></p>
+
+<p class="news">
+&nbsp;&nbsp;&nbsp;<a href="https://www.linuxsoft.cz/message_list.php?id_message=11377"><b>Více ...</b></a>
+&nbsp;&nbsp;<a href="https://www.linuxsoft.cz/message_edit.php" rel="nofollow">Přidat zprávičku</a>
+</p>
+
+
+<!-- jobs -->
+
+<div class="sub_title_orange" id="last_discussion" title="Posledních 5 diskusních příspevků" longdesc="Posledních 5 diskusních příspevků">
+<img alt="&gt;" src="sudokonf_files/sipka2.png" width="15" height="15"> Poslední diskuze</div>
+
+<p class="news"><b>13.12.2018 10:57</b> <strong>/</strong>
+<small>Jan Mareš</small><br><a href="https://www.linuxsoft.cz/diskuze.php?id_prispevek=17464#msg17464" title="Dobrý den,
+
+typické klávesové zkratky pro znak zavináče jsou &quot;Ctrl + Alt + V&quot;, dále pak &quot;pravý Alt + V&quot;. Někdy dochází mezi uživateli ke zmatkům, protože mají přepnotou klávesnici z české na anglickou. V tom případě stačí přehodit zpět (na Win klávesová zkratka Alt+Shift) a nebo jej napsat v režimu ENG klávesnice podržením Shift + 2/@ na číselném bloku hlavní klávesnice. V případě nouze je možné samotný znak zkopírovat rovnou z http://znakynaklavesnici.cz/jak-napsat-zavinac-na-klavesnici/.">Re: zavináč</a></p>
+<p class="news"><b>2.12.2018 23:56</b> <strong>/</strong>
+<small>František Kučera</small><br><a href="https://www.linuxsoft.cz/diskuze.php?id_prispevek=17463#msg17463" title="Sejdeme ve vestibulu u&nbsp;vrátnice Zíkova 1903/4 (nemrzněte venku).
+Společně pak půjdeme do třetího patra do zasedačky.
+Kontakt na organizátory: +420 725 649 984.">Sraz</a></p>
+<p class="news"><b>5.10.2018 17:12</b> <strong>/</strong>
+<small>Jakub Kuljovsky</small><br><a href="https://www.linuxsoft.cz/diskuze.php?id_prispevek=17462#msg17462" title="https://www.w3schools.com/">Re: Jaký kurz a software by jste doporučili pro začínajcího kodéra?</a></p>
+<p class="news"><b>20.9.2018 10:04</b> <strong>/</strong>
+<small>Jan Ober</small><br><a href="https://www.linuxsoft.cz/diskuze.php?id_prispevek=17461#msg17461" title="Chci se posunou v kódování webů zatím jen HTML, CSS a JS. Jaké školení, případně online tutorialy by jste mi doporučili? Nechci se učit podle knihy ale ideálně online.
+
+Díky moc Honza">Jaký kurz a software by jste doporučili pro začínajcího kodéra?</a></p>
+<p class="news"><b>20.9.2018 10:00</b> <strong>/</strong>
+<small>Jan Ober</small><br><a href="https://www.linuxsoft.cz/diskuze.php?id_prispevek=17460#msg17460" title="Určitě bych šel do Adobe Photoshop. Pracuji v něm už řadu let a musím uznat že to je nejlepší software na úpravu fotek i grafiku.
+
+Tady malá ukázka a skvělé kurzy kterých jsem se zůčastnil i já. Základní kurz byl fajn i za ty peníze :D
+
+http://www.lightgarden.cz/academy">Re: Gimp</a></p>
+ <p class="news">
+<a href="https://www.linuxsoft.cz/diskuze_list.php">Více ...</a>
+</p>
+
+
+</td></tr><tr id="paticka_goldenfishovo"><td class="bottom_part" colspan="3" align="center">
+ISSN 1801-3805 
+ | <a href="https://www.linuxsoft.cz/index.php?part=provozovatel" class="white">Provozovatel: Pavel Kysilka, IČ: 72868490</a> (2003-2019) | 
+<span class="white">mail at linuxsoft dot cz</span> | Design: <span class="white"><a href="http://www.megadesign.cz/" rel="noindex">www.megadesign.cz</a></span> |
+<a href="http://text.linuxsoft.cz/" class="white">Textová verze</a>
+
+</td></tr></tbody></table>
+
+
+<a href="http://www.toplist.cz/stat/969049"><script language="JavaScript" type="text/javascript">
+<!--
+document.write ('<img 
+src="http://toplist.cz/dot.asp?id=969049&amp;wi='+escape(window.screen.width)+'&amp;he='+escape(window.screen.height)+'&amp;cd='+escape(window.screen.colorDepth)+'&amp;t='+escape(document.title)+'"
+ width="1" height="1" border="0" alt="TOPlist" />');
+//--></script><img src="sudokonf_files/dot.gif" alt="TOPlist" width="1" height="1" border="0"></a><noscript><img
+ src="http://toplist.cz/dot.asp?id=969049" border="0"
+alt="TOPlist" width="1" height="1" /></noscript>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="sudokonf_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-8782248-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+<iframe src="sudokonf_files/console.html" id="vimvixen-console-frame" class="vimvixen-console-frame"></iframe></body></html>

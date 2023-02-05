@@ -1,0 +1,23 @@
+@echo off
+
+SETLOCAL
+
+:: Set path to wimlib-imagex.exe
+SET WIMLIB="%~dp0wimlib-imagex.exe"
+
+:: Set path to .wim file
+SET WIMFILE="%~dp0boot.wim"
+
+:: Select with image number in .wim file
+SET IMAGE_NUMBER=1
+
+
+%WIMLIB% extract %WIMFILE% %IMAGE_NUMBER% /Windows/boot/PXE/bootmgr.exe --no-acls
+%WIMLIB% extract %WIMFILE% %IMAGE_NUMBER% /Windows/boot/PXE/pxeboot.n12 --no-acls
+
+ECHO.
+ECHO.
+ECHO.
+pause
+ENDLOCAL
+

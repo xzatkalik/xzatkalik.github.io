@@ -1,0 +1,504 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm" selected="selected">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>Tiny PXE Server Settings</u></h2>
+
+
+
+<p>
+<u><b>NOTE</b> - to apply any changes made in the UI whilst <font class="file">Tiny PXE Server</font> is running you will need to stop (<font class="file">Offline</font>) and (re)start (<font class="file">Online</font>) services</u>. 
+</p>
+
+
+
+
+<p>
+The following sections are covered in this page -
+<ul>
+<li><a class="glossary" href="pxesrv_gui.htm#daemons">daemons</a></li>
+<li><a class="glossary" href="pxesrv_gui.htm#stop_start">Start/Stop</a></li>
+<li><a class="glossary" href="pxesrv_gui.htm#log">Information/Log</a></li>
+<li><a class="glossary" href="pxesrv_gui.htm#settings">Settings</a></li>
+<li><a class="glossary" href="pxesrv_gui.htm#table1">Table 1</a> (daemons/services)</li>
+<li><a class="glossary" href="pxesrv_gui.htm#table2">Table 2</a> (DHCP/BOOTP settings)</li>
+</ul>
+</p>
+
+
+
+<a name="daemons"></a>
+<h3 class="breaktop"><u>Daemons</u></h3>
+
+<p>
+Tiny PXE Server includes support for TFTP, HTTP and DNS using built in daemons. The following can be turned on or off by selected the corresponding option in the Tiny PXE SERVER GUI (top left - see screenshot below) -  
+
+<ul>
+<li><a class="glossary" href="pxesrv_gui.htm#BINL">BINL</a></li> 
+<li><a class="glossary" href="pxesrv_gui.htm#ProxyDhcp">ProxyDhcp</a></li> 
+<li><a class="glossary" href="pxesrv_gui.htm#HTTPd">HTTPd</a></li> 
+<li><a class="glossary" href="pxesrv_gui.htm#DNSd">DNSd</a></li> 
+<li><a class="glossary" href="pxesrv_gui.htm#SMB">SMB</a></li>  
+</ul>
+Note - the TFTP daemon cannot be turned on or off in the GUI - the configuration file (<a class="glossary" href="pxesrv_config.htm">config.ini</a>) must be used. Default behaviour is for TFTPd to start automatically unless it's turned off in the configuration file. 
+<br />
+<IMG SRC="img/daemons.jpg" BORDER=2>
+</p>
+
+
+
+
+
+
+
+
+<a name="stop_start"></a>
+<h3 class="breaktop"><u>Start/Stop</u></h3>
+<p>
+Running the Tiny PXE Server executable (pxesrv.exe) will not automatically start the Server <i><u>unless</u></i> this is specified in the configuration file (<a class="glossary" href="pxesrv_config.htm">config.ini</a>). To start/stop the server use the buttons in the top right of the GUI -
+<ul>
+<li><i>About</i> - includes program version</li> 
+<li><i>Online</i> - start Tiny PXE Server</li> 
+<li><i>Offline</i> - stop Tiny PXE Server</li> 
+</ul>
+Note that in the screenshot below the server has not been started - the greyed out <i>Offline</i> button shows that the server is Offline - 
+<br />
+<IMG SRC="img/on_off.jpg" BORDER=2>
+</p>
+
+<p>
+The following keyboard shortcuts can be used for the <font class="file">Online</font> and <font class="file">Offline</font> buttons - 
+
+<ul>
+<li><font class="file">Online</font> - <font class="file">CTRL</font>+<font class="file">O</font></li> 
+<li><font class="file">Offline</font> - <font class="file">CTRL</font>+<font class="file">F</font></li> 
+</ul>
+</p>
+
+
+
+
+
+
+
+<a name="log"></a>
+<h3 class="breaktop"><u>Information/Log</u></h3>
+
+<p>
+The main windows near the top of the GUI will display any feedback as Tiny PXE Server is started/running - including file requests, etc. -
+<br />
+<a name="info_window"></a>
+<IMG SRC="img/info_window.jpg" BORDER=2>
+</p>
+
+<p>
+It's possible to save this information to a log file, or copy to the clipboard, by right-clicking within the main window and selecting the relevant option. -
+<br />
+<IMG SRC="img/right_click.jpg" BORDER=2>
+</p>
+
+<p>
+Alternatively it's possible to automatically log output by specifying the relevant setting in the configuration file (<a class="glossary" href="pxesrv_config.htm">config.ini</a>) 
+</p>
+
+
+
+
+
+
+
+
+<a name="settings"></a>
+<h3 class="breaktop"><u>Settings</u></h3>
+
+<p>
+The majority of the settings are contained in the area below (refer to <a class="glossary" href="pxesrv_gui.htm#table2">Table 2</a> for more details) - note that changing these parameters whilst <font class="file">Tiny PXE Server</font> is running may require a <a class="glossary" href="pxesrv_gui.htm#stop_start">stop/start</a> action.
+ 
+<br />
+<IMG SRC="img/gui_settings.jpg" BORDER=2>
+</p>
+
+
+
+<p>
+Some settings are hidden and can be displayed by pressing the <b>More</b> button displayed in the screenshot below.
+ 
+<br />
+<IMG SRC="img/gui_settings2.jpg" BORDER=2>
+</p>
+
+
+
+<p>
+The additional options displayed when pressing the <b>More</b> button displayed in the screenshot below.
+ 
+<br />
+<IMG SRC="img/gui_settings3.jpg" BORDER=2>
+</p>
+
+
+
+
+<p>
+On low resolution displays, or for personal preference, use the <a class="glossary" href="pxesrv_config.htm#vscroll">vscroll=1</a> setting in the configuration file (<a class="glossary" href="pxesrv_config.htm">config.ini</a>) to display a scrolling window for access to the additional options that are usually displayed only when pressing the <b>More</b> button - 
+<br />
+<IMG SRC="img/gui_settings4.jpg" BORDER=2>
+</p>
+
+
+
+
+
+
+
+
+<a name="table1"></a>
+<h3 class="breaktop"><u>Table 1</u></h3>
+
+<p>
+Table 1 lists the services/daemons supported by Tiny PXE Server. These are listed as they appear in the GUI (top left) - the second column displays the option as it appears in <a class="glossary" href="pxesrv_config.htm">config.ini</a>. 
+
+<table border="1" style="background-color:white;border:1px black;border-collapse:collapse;">
+<tr style="background-color:#E2A9F3;color:black;">
+<th style="padding:5px;" width="100">Service</th>
+<th style="padding:5px;" width="100">config.ini<br />Entry</th>
+<th style="padding:5px;" width="500">Information</th>
+</tr>
+
+<tr> 
+<td align="center" valign="center" style="padding:2px;"><a name="#BINL"></a>BINL</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#binl">binl</a></td> 
+<td align="left" valign="center" style="padding:2px;">Boot Image Negotiation Layer (BINL) is required for Remote Installation Services (RIS) and Windows Deployment Services (WDS) - for remotely deploying Windows.<br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="center" valign="center" style="padding:2px;"><a name="#DNSd"></a>DNSd</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#dnsd">dnsd</a></td> 
+<td align="left" valign="center" style="padding:2px;">Domain Name System (DNS) daemon. <br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="center" valign="center" style="padding:2px;"><a name="#HTTPd"></a>HTTPd</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#httpd">httpd</a></td> 
+<td align="left" valign="center" style="padding:2px;">Hypertext Transfer Protocol (HTTP) daemon - a web server that waits for incoming file requests. The daemon answers the request automatically and serves the files over the network using HTTP - this protocol is significantly faster than TFTP (Trivial File Transfer Protocol), however network boot programs that support using HTTP are limited (iPXE, gPXE, gpxelinux).<br /><br /></td> 
+</tr> 
+
+<tr> 
+<td align="center" valign="center" style="padding:2px;"><a name="#ProxyDhcp"></a>ProxyDhcp</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#proxydhcp">proxydhcp</a></td> 
+<td align="left" valign="center" style="padding:2px;"></a>Dynamic Host Configuration Protocol (DHCP) is a protocol that automatically provides a client PC with configuration information including an Internet Protocol (IP) address and default gateway. Tiny PXE Server includes a DHCP server - unfortunately this can cause conflicts if the network has an existing DHCP server. The Proxy DHCP service can be used if another DHCP server is running on the same network - Tiny PXE Server will then handle PXE requests whilst the existing server handles IP address assignment. <a class="glossary" href="http://etherboot.org/wiki/proxydhcp">"...Simply put proxydhcp is using a separate dhcp from the regular dhcp server to hand out boot parameters. An existing dhcp server isn't modified. Very handy for setting up a PXE environment without access to the existing dhcp infrastructure..."</a><br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="center" valign="center" style="padding:2px;"><a name="#SMB"></a>SMB</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#smb">smb</a></td> 
+<td align="left" valign="center" style="padding:2px;">Server Message Block (SMB) can be used to share access to files between computers on a network. Enabling SMB in Tiny PXE Server will share the root folder - using the sharename <i>PXE</i>. This can be useful in Remote Installation Service (RIS) installations, which require a Windows share.<br /><br /></td> 
+</tr> 
+ 
+</table>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="table2"></a>
+<h3 class="breaktop"><u>Table 2</u></h3>
+
+<p>
+The table below lists the options that are configurable in the GUI. These are listed from top to bottom as they appear in the GUI - the second column displays the option as it appears in <a class="glossary" href="pxesrv_config.htm">config.ini</a>. 
+<table border="1" style="background-color:white;border:1px black;border-collapse:collapse;">
+<tr style="background-color:#E2A9F3;color:black;">
+<th style="padding:5px;" width="200">Name</th>
+<th style="padding:5px;" width="60">config.ini<br />Entry</th>
+<th style="padding:5px;" width="440">Information</th>
+</tr>
+
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;"><a name="option54"></a>Option 54<br />(DHCP Server) *</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt54">opt54</a></td> 
+<td align="left" valign="center" style="padding:2px;">IP Address of the machine running Tiny PXE Server. This still applies if running the <a class="glossary" href="pxesrv_gui.htm#ProxyDhcp">ProxyDhcp</a> service. If multiple Network Adapters are in use on the system running Tiny PXE Server then ensure the correct adapter is selected.<br /><br /></td> 
+</tr>
+
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Bind IP</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#bind">bind</a></td> 
+<td align="left" valign="center" style="padding:2px;"><br /><br /></td> 
+</tr> 
+
+ 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">IP Pool Start *</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#poolstart">poolstart</a></td> 
+<td align="left" valign="center" style="padding:2px;">Assign IP addresses starting from the IP address specified here. I.e. if this option is set as 192.168.2.10 then the first client connecting to the server will be assigned the IP address 192.168.2.10, the next client will be assigned the IP address 192.168.2.11, etc. NOTE - this option is ignored if using the <a class="glossary" href="pxesrv_gui.htm#ProxyDhcp">ProxyDhcp</a> service. <br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">IP Pool Size *</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#poolsize">poolsize</a></td> 
+<td align="left" valign="center" style="padding:2px;">This setting will determine the number of machines that can simultaneously connect to the server. NOTE - this option is ignored if using the <a class="glossary" href="pxesrv_gui.htm#ProxyDhcp">ProxyDhcp</a> service.<br /><br /></td> 
+</tr> 
+ 
+
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Next-Server</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#next-server">Next-Server</a></td> 
+<td align="left" valign="center" style="padding:2px;">Used in <a class="glossary" href="pxesrv_gui.htm#ProxyDhcp">ProxyDhcp</a> mode to specify the IP address of the PXE Server.<br /><br />Alternatively, use <a class="glossary" href="pxesrv_config.htm#next-server">Next-Server</a> to specify another TFTP server on the network - see <a class="glossary" target="_blank" href="http://reboot.pro/topic/21413-how-to-use-tiny-pxe-server-with-another-dhcp-or-tftp-server/">here</a> for more information.<br /><br /></td> 
+</tr> 
+ 
+
+
+
+
+
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Option 51 <br />(Lease time in secs) *</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt51">opt51</a></td> 
+<td align="left" valign="center" style="padding:2px;">Specifies the length of time (in seconds) from IP address assignment until the client's lease on the address ends. Default value is 86400 seconds (1440 minutes or 24 hours).<br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Option 1 (Subnet Mask)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt1">opt1</a></td> 
+<td align="left" valign="center" style="padding:2px;">Set subnet mask. Note - this option will be configured based on Windows settings for the Network Adapter selected in <a class="glossary" href="pxesrv_gui.htm#option54">Option 54 (DHCP Server) *</a> unless its specified in the configuration file (<a class="glossary" href="pxesrv_config.htm">config.ini</a>).<br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Option 3 (Router)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt3">opt3</a></td> 
+<td align="left" valign="center" style="padding:2px;">Specifies the IP address for the default router on the client's subnet. <br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Option 6 (DNS Server)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt6">opt6</a></td> 
+<td align="left" valign="center" style="padding:2px;">Specifies the IP address for the DNS name server available to the client. Note - this option will be configured based on Windows settings for the Network Adapter selected in <a class="glossary" href="pxesrv_gui.htm#option54">Option 54 (DHCP Server) *</a> unless its specified in the configuration file (<a class="glossary" href="pxesrv_config.htm">config.ini</a>).<br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Option 28 (Broadcast)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt28">opt28</a></td> 
+<td align="left" valign="center" style="padding:2px;"><a class="glossary" target="_blank" href="https://technet.microsoft.com/en-us/library/dd145324(v=ws.10).aspx">"...This option specifies the broadcast address used on the client’s subnet..."</a><br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Option 15 <br />(DNS Domain Name)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt15">opt15</a></td> 
+<td align="left" valign="center" style="padding:2px;">Carries the domain name portion of a client’s fully qualified domain name (FQDN).<br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;"><a name="boot_file_filename"></a>Boot File - Filename</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#filename">filename</a></td> 
+<td align="left" valign="center" style="padding:2px;">Specify the Network Bootstrap Program to be loaded by the client when connecting to Tiny PXE Server. If the <i>Root Path</i> option is not defined then the directory from which this file is loaded will become the root. Note -  <u>DO NOT</u> set this option and <a class="glossary" href="pxesrv_gui.htm#option67">Option 67 (Boot File Name)</a> at the same time.<font class="file">Option 67</font> is used to specify a DHCP boot file - <font class="file">Boot File - Filename</font> is used to specify a BOOTP (Bootstrap Protocol) boot file.
+<br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Boot File - Filename if user-class=gPXE or iPXE</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a></td> 
+<td align="left" valign="center" style="padding:2px;">If the <i>Filename</i> selected in the <a class="glossary" href="pxesrv_gui.htm#boot_file_filename">Boot File - Filename</a> option is a iPXE/gPXE network bootstrap program then use this option to automatically load a iPXE/gPXE script - e.g. selecting <i>menu.ipxe</i> in this option will load the sample iPXE menu included in the Tiny PXE Server download. <br /><br /></td> 
+</tr> 
+ 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Option 17 (Root Path)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt17">opt17</a></td> 
+<td align="left" valign="center" style="padding:2px;">
+This option should not be confused with the <a class="glossary" href="pxesrv_config.htm#root">root</a> setting. 
+DHCP Option 17 (Root Path) - <a class="glossary" target="_blank" href="http://www.networksorcery.com/enp/protocol/bootp/option017.htm">"...This option specifies the pathname that contains the client's root disk..."</a>. Setting <font class="file">opt17</font> and <font class="file">root</font> should not cause any conflict.<br /><br />
+The following examples could be used with the <font class="file">iPXE</font> network bootstrap program to diskless boot an operating system without the need for an <font class="file">iPXE</font> script -
+<ul>
+<li><font class="file">iscsi:192.168.1.100:tcp:3260:0:test</font> - boot iSCSI target</li>
+<li><font class="file">aoe:e0.0</font> - boot AoE target</li>
+<br /><br />
+</td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Extra Option</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#optextra">optextra</a></td> 
+<td align="left" valign="center" style="padding:2px;">
+Instruction on usage for the <font class="file">Extra Option</font> field is limited. The following posts are from the Reboot.pro forum -<br /><br />
+<a class="glossary" target="_blank" href="http://reboot.pro/topic/18962-bug-reports-requests-howtos-about-tiny-pxe-server/page-9#entry188539">"...Tiny PXE Server has a field "extra option" where you can specify any dhcp option. I aggree that this is not obvious nor friendly...for example : 211.90 would set the pxelinux.reboottime to 90. Alphacharacters need to be translated to numeric..."</a><br /><br />
+<a class="glossary" target="_blank" href="http://reboot.pro/topic/18488-tiny-pxe-server/?p=176465">"...In the extra option field, you may want to try these ipxe options : 175.6.1.1.1.176.1.1. <br />175 means we want ipxe options, has total length =6, option 1 length 1 value 1, option 176, length 1, value 1. It will tell ipxe to use your tiny pxe server dhcp first (option 1) and also to not wait for any proxydhcp packet (option 176). <br />More details here : <a class="glossary" target="_blank" href="http://ipxe.org/howto/dhcpd">http://ipxe.org/howto/dhcpd</a>..."</a>
+<br /><br /></td> 
+</tr> 
+ 
+
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;"><a name="option67"></a>Option 67 <br />(Boot File Name)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt67">opt67</a></td> 
+<td align="left" valign="center" style="padding:2px;">The name of the file to be downloaded from the server specified in <a class="glossary" href="pxesrv_gui.htm#option66">Option 66 (Boot Server HostName)</a>. Note -  <u>DO NOT</u> set this option and <a class="glossary" href="pxesrv_gui.htm#boot_file_filename">Boot File - Filename</a> at the same time. <font class="file">Option 67</font> is used to specify a DHCP boot file - <font class="file">Boot File - Filename</font> is used to specify a BOOTP (Bootstrap Protocol) boot file.
+<br /><br />
+
+
+Note that some older PXE Clients require a null terminated string after the filename - this can be implemented in <font class="file">Tiny PXE Server</font> by ending the entry with <font class="file">\0</font> - e.g. if setting <font class="file">Option 67</font> as <font class="file">pxelinux.0</font>, enter <font class="file">pxelinux.0\0</font> in this field (see discussion <a class="glossary" target="_blank" href="http://reboot.pro/topic/18962-bug-reports-requests-howtos-about-tiny-pxe-server/page-14?p=193722#entry193722">here</a>).
+<br /><br /></td> 
+</tr> 
+
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;"><a name="option66"></a>Option 66 <br />(Boot Server HostName)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt66">opt66</a></td> 
+<td align="left" valign="center" style="padding:2px;">Specify the fully qualified domain name (FQDN) or IP address of the server hosting the file specified in <a class="glossary" href="pxesrv_gui.htm#option67">Option 67 (Boot File Name)</a>.<br /><br /></td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Option 60 (ClassID)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt60">opt60</a></td> 
+<td align="left" valign="center" style="padding:2px;">
+<a name="opt60"></a>
+<a class="glossary" target="_blank" href="https://www.incognito.com/tips-and-tutorials/dhcp-options-in-plain-english/">"...Carries some identifier from the client that may identify the client’s device class. The DHCP specification does not define what values go into this field, but other specifications do..."</a><br /><br /></td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Option 43 Subopt 1 <br />(PXE MTFTPD IP)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt43">opt43</a></td> 
+<td align="left" valign="center" style="padding:2px;">
+<a class="glossary" target="_blank" href="https://www.incognito.com/tips-and-tutorials/dhcp-options-in-plain-english/">"...Carries some configuration data that is not defined in the standard DHCP RFCs.  Individual vendors can define different pieces of data that may be found in this option...."</a><br /><br />
+
+The current release of <font class="file">Tiny PXE Server</font> uses a checkbox to enable DHCP option 43 subopt 1 - setting the value to 0.0.0.0. This may be required by some older clients along with setting <a class="glossary" href="pxesrv_gui.htm#opt60">Option 60 (ClassID)</a> to <font class="file">PXEClient</font>. See <a class="glossary" target="_blank" href="http://reboot.pro/topic/18962-bug-reports-requests-howtos-about-tiny-pxe-server/page-15?p=193840#entry193840">here</a> for more details.<br /><br /> 
+</td> 
+</tr> 
+
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">BINL/WDS - <br />Boot File Name</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#proxybootfilename">proxybootfilename</a></td> 
+<td align="left" valign="center" style="padding:2px;">Note from <font class="file">config.sample</font> included in the Tiny PXE Server package - <i>"...alternative bootp filename if request comes thru proxydhcp (udp:4011)..."</i> - e.g. specify <font class="file">pxeboot.com</font> if using Windows Deployment Service (WDS) with <font class="file">wdsnbp.com</font> specified as <a class="glossary" href="pxesrv_gui.htm#option67">Option 67 (Boot File Name)</a>.<br /><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">BINL/WDS - <br />Option 252 (Private)</td> 
+<td align="center" valign="center" style="padding:2px;"><a class="glossary" href="pxesrv_config.htm#opt252">opt252</a></td> 
+<td align="left" valign="center" style="padding:2px;">Note from <font class="file">dhcp-options.html</font> included in the Tiny PXE Server package - <i>"...Individual vendors can define different pieces of data that may be found in this option..."</i>. This option can be used to specify the path to a BCD store when using WDS to boot Windows PE - allowing the option to specify a path other than the default BOOT\BCD.<br /><br /></td> 
+</tr> 
+
+</table>
+</p>
+
+
+
+<p class="breakbottom">
+</p>
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

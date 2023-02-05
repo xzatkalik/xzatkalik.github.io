@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<title>Softicek</title>
+</head>
+<body>
+<nav>
+<ul>
+      <li><a href="#bezne">Klasicke programy</a></li>
+		    <ul>
+        	<li><a href="#net">Internet</a></li>
+				  <li><a href="#media">Mutltimedia</a></li>
+          <li><a href="#office">Kancelaria</a></li>
+		  <li><a href="#text">textove editory a repozitare</a></li>
+		
+
+        </ul>
+
+     <li><a href="#utility">Utility</a></li>   
+     <ul>
+          <li><a href="#utility-productkey">Priduct key viewers</a></li> 
+          <li><a href="#utility-ext2fsd">Ext2fsd mount ext do windowsu</a></li> 
+      </ul>
+
+    <li><a href="#spec">Specialne programy</a></li>
+			<ul>
+				<li><a href="#emulacia">Emulacia a VM</a></li>
+				<li><a href="#matematika">MATEMATICKE PROGRAMY</a></li>
+				<li><a href="#disky">Disky a sifrovanie</a></li>
+				<li><a href="#boot">Boot mangery</a></li>
+			</ul>
+			<li><a href="#prieskum">Na preskumanie nezaradene</a></li>
+			<li><a href="#Oblubene">Oblubene</a></li>
+			<li><a href="#odkazy">Odkazy</a></li>
+    
+	</ul>
+	</nav>
+<a name=bezne></a><h1>Bezne programy</h1>
+  <p>
+ <a name=media></a><h2>Multimedia</h2>
+      <p>
+            
+            	<ul>
+							<li><a href="https://www.smplayer.info/en/downloads">SM Player</a></li>
+						  <li><a href="https://www.videolan.org/vlc/">VLC Player</a></li>
+							<li><a href="">casom sa uvidi</a></li>
+				</ul>
+      </p>
+
+<a name=text></a><h2>Textove editory a repozitare</h2>
+      <p>
+            
+            	<ul>
+				<li><a href="https://notepad-plus-plus.org/download">NotePAD++</a></li>
+						  <li><a href="https://git-for-windows.github.io/">GIT bash</a></li>
+							<li><a href="https://tortoisegit.org/download/">Tortoise GIT</a></li>
+							<li><a href="https://www.mercurial-scm.org/">Mercurial HG</a></li>
+							
+							</ul>
+      </p>
+
+    <a name=net></a><h2>Internet</h2>
+      <p>
+            <br>
+			<ul>
+          <li><a href="https://www.mozilla.sk/download/">MOZZILA Firefox, Thunderbird a ine</a></li>
+		  <li><a href="http://www.putty.org/">Putty</a></li>
+           </ul>
+      <h3>Webove prehliadace</h3>
+            	<ul>
+							<li><a href="https://vivaldi.com/?lang=sk_SK">Vivaldi Browser</a></li>
+						  <li><a href="https://www.palemoon.org">Pale Moon Browser</a></li>
+							<li><a href="https://www.waterfoxproject.org/downloads">WaterFox Browser</a></li>
+							</ul>
+      </p>
+
+
+
+</p>
+  <a name=utility> <h1>Utility</h1>
+  <a name=utility-productkey><h2>Product key viewer</h2>
+<a href="../webdir/utility/productkey">Lokalne programy na servri</a><br>
+  <a href="http://www.rjlsoftware.com/software/utility/winproductkey/?fbclid=IwAR3G2t6Ug0on5sm6BZUwXzbie6FIwpfH1o5iJP70s_WxxfB9Dc6Mq6UTAFA">Windows Product Key Viewer v1.07</a> 
+
+ <a name=utility-ext2fsd><h2>Pripojenie ext to win = Ext2fsd</h2>
+ <p>
+<a href="../webdir/utility/ext2win">Lokalne programy na servri</a><br>
+  <a href="https://www.ext2fsd.com/?page_id=16">Ext2fsd homepage</a> 
+
+ </p>
+
+
+
+
+
+
+
+	<a name=spec></a><h1>Specialne programy</h1>
+	<p>
+	
+	 <a name=matematika></a><h2>MATEATICKE PROGRAMY</h2>
+      <p>
+            
+            	<ul>
+							<li><a href="http://www.sagemath.org/download.html">SageMath</a></li>
+						  <li><a href="http://gnuplot.info/">GNU Plot</a></li>
+							<li><a href="https://www.wolframalpha.com/">Wolfram Alpha</a></li>
+							</ul>
+      </p>
+		<a name=emulacia></a><h2>Emulacia a VM</h2>
+			<p>
+				<h3>ARAnyM</h3>
+				<p>
+					Virtuální stroj navržený pro běh 32bitových Atari ST/TT/Falcon operačních systémů jako TOS, FreeMiNT, MagiC nebo Linux-m68k) a TOS/GEM aplikací na různých platformách – desktop, unixový server nebo třeba grafická pracovní stanice. Nejen díky libSDL lze emulátor spouštět jak na Linuxu/x86, tak na Windows, macOS a dalších.<br>
+					<img src="https://i.iinfo.cz/images/295/aranym-1-prev.png" class="image-314063" alt="" height="270" width="347">
+					 <a href="https://aranym.github.io/index.html">https://aranym.github.io/index.html</a>
+					 <a href="https://www.root.cz/clanky/softwarova-sklizen-6-12-2017/">ORIGINAL</a>
+				</p>
+				<a name=disky></a><h2>Disky a sifrovanie</h2>
+					<p>
+					<h3>zuluCrypt</h3>
+						<p>
+							Řešení pro práci s oddíly a kontejnery šifrovanými pomocí LUKS, PLAIN, TrueCrypt a VeraCrypt. Je možné ho použít jak v příkazovém řádku, tak přes grafické rozhraní založené na Qt. Zvládá vytvářet zašifrované soubory, kontejnery a oddíly, ať už na pevném disku nebo jakémkoli jiném přepisovatelném médiu. Kromě šifrování umí i vymazat data na kterémkoli oddíle, takže je možné jej využít i jako nástroj pro bezpečné vymazání souborů.
+							<img src="https://i.iinfo.cz/images/291/zulucrypt-1-prev.png" class="image-312295" alt="" height="215" width="370">
+							<a href="https://mhogomchungu.github.io/zuluCrypt/">https://mhogomchungu.github.io/zuluCrypt/</a>
+							<a href="https://www.root.cz/clanky/softwarova-sklizen-29-11-2017/?ic=articles-related&icc=item-4">ORIGINAL</a>
+							
+						</p>
+
+					</p>
+
+			</p>
+
+	</p>
+	<a name=prieskum></a><h1>Na preskumanie nezaradene</h1>
+	<p>
+	
+	<h2>DXVK</h2>
+
+<p>Vrstva kompatibility mezi Vulkanem a Direct3D 11, která umožňuje spouštět 3D aplikace na Linuxu za pomoci Wine. Zatím je ve stádiu vývoje, takže zatím ještě nepodporuje funkce jako predication nebo streamování výstupu a jen částečně podporuje stínování, teselaci nebo UAV operace. Hráče asi nejméně potěší to, že v&nbsp;některých hrách je použití DXVK vyhodnoceno jako podvádění.</p>
+
+<div class="rs-img-center" style="width: 370px"><a href="https://www.root.cz/obrazek/324834/"><img src="https://i.iinfo.cz/images/405/dxvk-1-prev.png" class="image-324834" alt="" width="370" height="213"></a></div>
+
+<p><a href="https://github.com/doitsujin/dxvk">github.com/doitsujin/dxvk</a>, 0.40</p>
+
+<h2>Joget Workflow Community Edition</h2>
+
+<p>Otevřená verze komerční webové platformy Joget Workflow, která pomůže každému, kdo má aspoň základní znalosti programování vytvořit webovou aplikaci pro mobilní platformy nebo pro cloud. Program má přibalený Apache Tomcat a umožní vám vytvářet plnohodnotné aplikace včetně zdravotnických, personálních a CRM systémů. Také je díky zásuvným modulům snadno rozšiřitelný. Mezi jeho nejzajímavější vlastnosti patří schopnost integrace do jiných projektů a podpora mobilních platforem.</p>
+
+<div class="rs-img-center" style="width: 359px"><a href="https://www.root.cz/obrazek/324787/"><img src="https://i.iinfo.cz/images/277/joget-1-prev.png" class="image-324787" alt="" width="359" height="270"></a></div>
+
+<p><a href="http://www.joget.org/">www.joget.org</a>, 6.0.5</p>
+	
+	<h3>Tabula</h3>
+        <p>
+        Jednoduchý nástroj pro hromadné kopírování řádků z tabulek uložených uvnitř PDF dokumentu. Dokáže extrahovat tabulková data a uložit je do CSV nebo Excel souboru. V programu můžete specifikovat stránku s tabulkou, zobrazit náhled extrahovaných dat před jejich uložením a nakonec exportovat tato tabulková dat.<br>
+           <a href="http://tabula.technology/">http://tabula.technology/</a> 
+        </p>
+	<h3>
+Translate Shell</h3>
+        <p>
+       Překladač pro shell, který ve výchozím nastavení využívá služeb Google Translator. Případně jsou v nabídce i alternativní možnosti, jako Bing Translator, Yandex.Translate, DeppL Translator nebo Apertium. Translate Shell vyžaduje GNU Awk a GNU Bash nebo Zsh.<br>
+           <a href="https://www.soimort.org/translate-shell/">https://www.soimort.org/translate-shell/</a> 
+        </p>
+	
+	
+	
+	<h3>sonarwhal</h3>
+						<p>U&nbsp;Microsoftu ještě chvíli zůstaneme, jeho software se na Rootu objeví jen zřídkakdy, hlavně proto, že Microsoft jen zřídkakdy vydává otevřený software. Výjimkou je auditovací nástroj pro webmastery sonarwhal, za níž stojí vývojáři prohlížeče Edge. Stačí zadat testovanou stránku a aplikace vyhledá všechny problémy s&nbsp;bezpečností, přístupností nebo interoperabilitou. K&nbsp;dispozici je jak ve formě webové služby, tak ke stažení na <a href="https://github.com/sonarwhal/sonarwhal">GitHubu</a>.
+						<br>
+						<a href="http://www.mycli.net/">www.mycli.net</a>
+						<br>
+						<img src="https://i.iinfo.cz/images/466/sonarwhal-1-prev.png" class="image-314450" alt="" width="370" height="254">
+						</p>
+	<h3>Modoboa</h3>
+	
+	<p>Platforma pro mailhosting a správu emailových účtů. Ovládá se přes jednoduché webové rozhraní, které poskytuje užitečné nástroje jako administrační panel nebo webmail. Dobře se integruje se známými programy jako jsou Postfix nebo Dovecot. Jako ústřední bod komunikace mezi jejími jednotlivými komponentami je použita SQL databáze (MySQL, PostgreSQL nebo SQLite). Je napsaná v&nbsp;Pythonu a používá frameworky Django, jQuery a Bootstrap.
+	<br>
+	<a href="https://modoboa.org">modoboa.org</a>
+	<br>
+	<img src="https://i.iinfo.cz/images/21/modoboa-1-prev.png" class="image-314351" alt="" width="370" height="246">
+	
+	</p>
+						
+
+<h2>KBackup</h2>
+
+<p>Velice jednoduchý zálohovací program pro prostředí KDE, který zvládnou i&nbsp;naprostí začátečníci. Díky němu můžete zálohovat ty své složky a soubory, které jednoduše vyberete. Zvládá jak úplnou, tak rozdílovou zálohu a zálohovaná data zabalí do formátu bzip2 nebo gzip. Výsledná záloha pak může být uložena jak na lokálním disku, tak také (díky KDE KIO) na vzdálenou URL adresu.</p>
+
+<div class="rs-img-center" style="width: 370px"><a href="https://www.root.cz/obrazek/317073/"><img src="https://i.iinfo.cz/images/512/kbackup-1-prev.png" class="image-317073" alt="" width="370" height="218"></a></div>
+
+<p><a href="http://members.aon.at/m.koller/">members.aon.at/m.koller</a>, 1.0.1</p>
+
+<h2>Opendesktop App</h2>
+
+<p>Oficiální aplikace pro instalaci otevřených témat vzhledu ze stránek <a href="https://www.opendesktop.org/">openDesktop.org</a>. Díky ní si můžete přímo stáhnout, nainstalovat a aplikovat všechny témata vzhledu, ikony, kurzory a další položky. V&nbsp;současné době podporuje spoustu grafických prostředí založených na Qt a GTK, jako jsou KDE Plasma, Gnome, Mate, XFCE, Cinnamon, Budgie, LxQt, Elementary, Trinity a Enlightenment.</p>
+
+<div class="rs-img-center" style="width: 370px"><a href="https://www.root.cz/obrazek/317074/"><img src="https://i.iinfo.cz/images/691/opendesktop-app-1-prev.png" class="image-317074" alt="" width="370" height="223"></a></div>
+
+<p><a href="https://github.com/opendesktop/opendesktop-app">github.com/opendesktop/opendesktop-app</a>, 2.2.1</p>
+
+<h2>Dibuja</h2>
+
+<p>Kreslící program pro Linux, inspirovaný MSPaint pro Windows a Paintbrushem pro Mac. Zvládá všechno, co jeho dva vzory, takže s&nbsp;ním můžete bez problémů kreslit čáry, obdélníky, šipky, kruhy a víceúhelníky nebo vkládat text. Zvládá i&nbsp;některé pokročilejší funkce jako převod na šedou škálu, inverzi barev, úpravu jasu a spoustu dalších. Je napsaný v&nbsp;jazyce C (grafické prostředí v&nbsp;GTK) a je vyvíjen pod licencí&nbsp;GPLv3.</p>
+
+<div class="rs-img-center" style="width: 370px"><a href="https://www.root.cz/obrazek/317458/"><img src="https://i.iinfo.cz/images/226/dibuja-1-prev.png" class="image-317458" alt="" width="370" height="233"></a></div>
+
+<p><a href="https://launchpad.net/dibuja">launchpad.net/dibuja</a>, 0.6.0</p>
+
+<h2>OpenModelica</h2>
+
+<p>Svobodné prostředí pro modelovací jazyk <a href="https://www.modelica.org/">Modelica</a>, určené pro průmyslové (automobilový průmysl, energetika a vodní hospodářství) a akademické použití. Je aktivně vyvíjeno neziskovou organizací Open Source Modelica Consortium ve spolupráci s&nbsp;univerzitou ve švédském Linköpingu. Cílem jeho vývojářů je vytvořit ucelené a otevřené prostředí pro modelování a simulace.</p>
+
+<div class="rs-img-center" style="width: 370px"><a href="https://www.root.cz/obrazek/317118/"><img src="https://i.iinfo.cz/images/293/openmodelica-1-prev.png" class="image-317118" alt="" width="370" height="257"></a></div>
+
+<p><a href="https://www.openmodelica.org/">www.openmodelica.org</a>, 1.12.0</p>
+
+<h2>Blbinka</h2>
+
+<p>Nová doba a bouřlivý rozvoj moderních technologií s&nbsp;sebou přináší i&nbsp;<a href="http://www.telegraph.co.uk/science/2017/12/15/selfitis-obsessive-need-post-selfies-genuine-mental-disorder/">nové duševní choroby</a>.</p>
+			<a name=boot></a><h1>Boot managery</h1>
+	<p>
+	<h3>Programy</h3>
+            	<ul>
+							<li><a href="https://www.plop.at/en/bootmanager/download.html">Plop Boot manager (boot from usb in VM)</a></li>
+						 
+							</ul>
+
+	</p>			
+						
+	</p>
+	<a name=oblubene></a><h1>Oblubene programy</h1>
+	<p>
+
+
+	</p>
+	<a name=odkazy></a><h1>Odkazy</h1>
+  <p>
+	<ul>
+							<li><a href="https://ninite.com/"> NINITE stranka na stahovanie hromadnych instalatorov</a></li>
+						 
+							</ul>
+
+  </p>
+	
+
+   
+
+</body>
+</html>

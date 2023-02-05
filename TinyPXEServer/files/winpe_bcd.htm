@@ -1,0 +1,482 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm" selected="selected">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>Multiple WinPE</u></h2>
+
+
+
+<p>
+It's possible to setup a PXE server to boot more than one version of WinPE - one method was covered in the wimboot section of this guide (<a class="glossary" href="winpe_wimboot.htm#filenames">here</a>). It's also possible to use a BCD Store with multiple entries as an alternative to wimboot - this is covered below.  
+</p>
+
+
+
+<p>
+WinPE operating system files are contained in a <font class="file">.wim</font> file - despite most instructions specifying the use of <font class="file">boot.wim</font> the name of the <font class="file">.wim</font> file is irrelevant. One of the main reasons for using <font class="file">boot.wim</font> (in the path <font class="file">\sources\boot.wim</font>) is convenience - the <font class="file">BCD</font> Store that ships with WinPE usually uses this path and it saves building a new store. Provided that the <font class="file">BCD</font> store contains a corresponding entry for the file an alternative name (to <font class="file">boot.wim</font>) and path can be used. 
+</p>
+
+
+<p>
+The majority of rules applying to WinPE boot files and file paths on other media also apply to PXE Booting - with some exceptions -
+
+<ul>
+<li>The device type (e.g. <i>ramdisksdidevice</i>) must be set as <font class="file">boot</font> - not <font class="file">partition</font>, <font class="file">locate</font>, etc.</li> 
+</ul>
+
+<ul>
+<li>The <font class="file">boot</font> device (e.g. <i>ramdisksdidevice boot</i>) is the TFTP root directory and any paths specifed (e.g. <i>ramdisksdipath \boot\boot.sdi</i>) are relative to the TFTP root directory (e.g. <font class="file">C:\pxesrv\files\boot\boot.sdi</font> ).</li> 
+</ul>
+
+<ul>
+<li>The path to the <font class="file">BCD</font> store when booting a client system with UEFI firmware <u><i>might</i></u> be different. The default path to the <font class="file">BCD</font> store is usually <font class="file">\EFI\microsoft\boot\BCD</font> - this still applies if PXE Booting a Windows 7 based WinPE (WinPE 3.*), however a Windows 8 based WinPE (WinPE 4.0/5.*) will use the same path/file as systems with BIOS firmware (<font class="file">\boot\BCD</font>).</li> 
+</ul> 
+</p>
+
+
+<p>
+The following sections are covered in this page -
+<ul>
+<li><a class="glossary" href="winpe_bcd.htm#sdi">boot.sdi</a></li>
+<li><a class="glossary" href="winpe_bcd.htm#fonts">Fonts</a></li>
+<li><a class="glossary" href="winpe_bcd.htm#speed">Improve Loading Speeds</a></li>
+</ul>
+</p>
+
+
+<p>
+<font class="file">BCD</font> Store examples (each section includes a link to a sample batch file used to create the store and a link to download the <font class="file">BCD</font>) -
+<ul>
+<li><a class="glossary" href="winpe_bcd.htm#bios1">boot.wim (BIOS)</a></li>
+<li><a class="glossary" href="winpe_bcd.htm#uefi1">boot.wim (UEFI)</a></li>
+<li><a class="glossary" href="winpe_bcd.htm#bios_uefi1">boot.wim (BIOS & UEFI)</a></li>
+<li><a class="glossary" href="winpe_bcd.htm#bios2">x86.wim and x64.wim (BIOS)</a></li>
+<li><a class="glossary" href="winpe_bcd.htm#uefi2">x86.wim and x64.wim (UEFI)</a></li>
+<li><a class="glossary" href="winpe_bcd.htm#bios_uefi2">x86.wim and x64.wim (BIOS & UEFI)</a></li>
+</ul>
+My personal preference is to keep all WinPE files in one directory - all of the <font class="file">BCD</font> stores in this section consequently use the <font class="file">\boot</font> path for both <font class="file">.sdi</font> and <font class="file">.wim</font> files.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="fonts"></a>
+<h3 class="breaktop"><u>Fonts</u></h3>
+
+<p>
+Some font files may be required in order to display error messages. When booting WinPE via PXE the Windows boot loader <font class="file">boot.exe</font> will attempt to load <font class="file">\boot\fonts\wgl4_boot.ttf</font> - if this file is missing WinPE will still boot, however there will be an error in the <font class="file">Tiny PXE Server</font> log. E.g. -
+<textarea style="font-size:12px" cols="80" rows="10" align=left readonly>
+
+TFTPd:DoReadFile OpenError:\Boot\Fonts\wgl4_boot.ttf 
+Cannot open file "E:\pxesrv_ISO\root\pxesrv\files\Boot\Fonts\wgl4_boot.ttf". 
+The system cannot find the path specified
+</textarea>
+</p>
+
+
+<p>
+Based on information on the <font class="file">wimboot</font> website (see <a target="_blank" href="http://ipxe.org/wimboot#displaying_graphical_boot_messages">here</a>) the following font files are required -
+<ul>
+<li><font class="file">\Boot\Fonts\segmono_boot.ttf</font></li>
+<li><font class="file">\Boot\Fonts\segoe_slboot.ttf</font></li>
+<li><font class="file">\Boot\Fonts\segoen_slboot.ttf</font></li>
+<li><font class="file">\Boot\Fonts\wgl4_boot.ttf</font></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+<a name="sdi"></a>
+<h3 class="breaktop"><u>boot.sdi</u></h3>
+
+
+<p>
+As stated previously, the WinPE operating system files are contained in a <font class="file">.wim</font> file. The ramdisk used to mount the 
+<font class="file">.wim</font> file so that the filesystem is accessible once WinPE has booted is contained in an <font class="file">.sdi</font> file - usually <font class="file">\boot\boot.sdi</font>. Again, this filename and path can be changed as long as the <font class="file">BCD</font> store contains a corresponding entry. In my own tests I have been able to use the same .sdi file for booting WinPE 3.*/4.0/5.* on UEFI and BIOS systems and have consequently used the <font class="file">\boot\boot.sdi</font> file\path in the examples below out of <s>lazyness</s> convenience. 
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<a name="speed"></a>
+<h3 class="breaktop"><u>Improve Loading Speeds</u></h3>
+
+
+<p>
+It's possible to add additional settings to a <font class="file">BCD</font> store to improve file transfer speeds when booting WinPE via TFTP. The following settings need to be added to the <i>ramdisksdidevice</i> entry in the <font class="file">BCD</font> store -
+<ul>
+<li>ramdisktftpblocksize [integer]</li>
+<li>ramdisktftpwindowsize [integer]</li>
+</ul>
+</p>
+
+
+<p>
+Supported values for ramdisktftpblocksize include -
+<ul>
+<li>ramdisktftpblocksize 1024 </li>
+<li>ramdisktftpblocksize 2048</li>
+<li>ramdisktftpblocksize 4096</li>
+<li>ramdisktftpblocksize 8192</li>
+<li>ramdisktftpblocksize 16384 (? maximum recommended)</li>
+<li>ramdisktftpblocksize 32768</li>
+</ul>
+</p>
+
+
+<p>
+The following information is from the <i>Windows Deployment Services Deployment Guide</i> - <div id="quote"><i>"...The default TFTP block size value is 1432 bytes...We recommend that you go up in multiples (4096, 8192, 16384, and so on) and that you not set a value higher than 16384...."</i></div>
+</p>
+
+
+
+
+<p>
+Supported values for ramdisktftpwindowsize include -
+<ul>
+<li>ramdisktftpwindowsize 4 (? default value)</li>
+<li>ramdisktftpwindowsize 8</li>
+</ul>
+</p>
+
+
+<p>
+Changing either of these settings may cause issues - depending on the network infrastructure. There are reports of issues with PXE booting in VMware using a RamDiskTFTPBlockSize larger than 1432. 
+
+<div id="quote"><a class="glossary" target="_blank" href="http://www.bctechnet.com/vmware-pxe-limitations/">
+"...VMware does not appear to support RamDiskTFTPBlockSize above 1432 due to no support to deal with IP Fragmentation.  However, it has been found that it is much better to adjust RamDiskTFTPWindowSize instead of RamDiskTFTPBlockSize to speed up TFTP (reduces amount of ACKs required and does not cause IP Fragmentation).  VMware and other vendors all appear to handle this scenario perfectly..."
+</a></div> 
+</p>
+
+
+
+<p>
+I carried out some test to ascertain WinPE load speeds using a BCD Store containing four separate entries - for use on BIOS systems (download the <font class="file">BCD</font> store <a href="bcd_files/_boot.wim_bios_tftpblocksize/BCD">here</a> - batch file <a href="bcd_files/_boot.wim_bios_tftpblocksize/cmd.txt">here</a>). Menu options -
+<ul>
+<li>WinPE (boot.wim - BIOS) - ramdisktftpblocksize = 4096</li>
+<li>WinPE (boot.wim - BIOS) - ramdisktftpblocksize = 8192</li>
+<li>WinPE (boot.wim - BIOS) - ramdisktftpblocksize = 16384</li>
+<li>WinPE (boot.wim - BIOS) - ramdisktftpblocksize = 32768</li>
+</ul>
+<p>
+
+
+<p>
+<img src="img/bcd5.jpg">
+</p>
+
+
+<p>
+The following (approximate) boot times were recorded on a test system (time was recorded from selecting the menu entry until the <i>"Windows is loading files..."</i> screen closed) -
+<ul>
+<li>ramdisktftpblocksize 4096 = 34 seconds</li>
+<li>ramdisktftpblocksize 8192 = 24 seconds</li>
+<li>ramdisktftpblocksize 16384 = 19 seconds</li>
+<li>ramdisktftpblocksize 32768 = 16 seconds</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="bios1"></a>
+<h3 class="breaktop"><u>boot.wim (BIOS)</u></h3>
+
+
+<p>
+This BCD Store contains one entry for use on BIOS systems - download <a href="bcd_files/_boot.wim_bios/BCD">here</a> (batch file - <a href="bcd_files/_boot.wim_bios/cmd.txt">here</a>). The following files are required - 
+<ul>
+<li><font class="file">boot.sdi</font> (e.g. <font class="file">C:\pxesrv\files\boot\boot.sdi</font>)</li>
+<li><font class="file">boot.wim</font> (e.g. <font class="file">C:\pxesrv\files\boot\boot.wim</font>)</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+<a name="uefi1"></a>
+<h3 class="breaktop"><u>boot.wim (UEFI)</u></h3>
+
+<p>
+This BCD Store contains one entry for use on UEFI systems - download <a href="bcd_files/_boot.wim_uefi/BCD">here</a> (batch file - <a href="bcd_files/_boot.wim_uefi/cmd.txt">here</a>). The following files are required - 
+<ul>
+<li><font class="file">boot.sdi</font> (e.g. <font class="file">C:\pxesrv\files\boot\boot.sdi</font>)</li>
+<li><font class="file">boot.wim</font> (e.g. <font class="file">C:\pxesrv\files\boot\boot.wim</font>)</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+<a name="bios_uefi1"></a>
+<h3 class="breaktop"><u>boot.wim (BIOS & UEFI)</u></h3>
+
+
+<p>
+This BCD Store contains two entries - one entry for use on BIOS systems (menu option <i>WinPE (boot.wim - BIOS)</i>) and one entry for use on UEFI systems (menu option <i>WinPE (boot.wim - UEFI)</i>). Download <a href="bcd_files/_boot.wim_bios_and_uefi/BCD">here</a> (batch file - <a href="bcd_files/_boot.wim_bios_and_uefi/cmd.txt">here</a>). The following files are required - 
+<ul>
+<li><font class="file">boot.sdi</font> (e.g. <font class="file">C:\pxesrv\files\boot\boot.sdi</font>)</li>
+<li><font class="file">boot.wim</font> (e.g. <font class="file">C:\pxesrv\files\boot\boot.wim</font>)</li>
+</ul>
+</p>
+
+<p>
+<img src="img/bcd1.jpg">
+</p>
+
+
+
+
+
+
+
+
+
+<a name="bios2"></a>
+<h3 class="breaktop"><u>x86.wim and x64.wim (BIOS)</u></h3>
+
+
+<p>
+This BCD Store contains two entries - both for use on BIOS systems. Menu options -
+<ul>
+<li>WinPE (x86.wim - BIOS)</li>
+<li>WinPE (x64.wim - BIOS)</li>
+</ul>
+<p>
+
+<p>
+Download <a href="bcd_files/_x64.wim_and_x86.wim_bios/BCD">here</a> (batch file - <a href="bcd_files/_x64.wim_and_x86.wim_bios/cmd.txt">here</a>). The following files are required - 
+<ul>
+<li><font class="file">boot.sdi</font> (e.g. <font class="file">C:\pxesrv\files\boot\boot.sdi</font>)</li>
+<li><font class="file">x86.wim</font> (e.g. <font class="file">C:\pxesrv\files\boot\x86.wim</font>)</li>
+<li><font class="file">x64.wim</font> (e.g. <font class="file">C:\pxesrv\files\boot\x64.wim</font>)</li>
+</ul>
+</p>
+
+
+<p>
+<img src="img/bcd4.jpg">
+</p>
+
+
+
+
+
+
+
+<a name="uefi2"></a>
+<h3 class="breaktop"><u>x86.wim and x64.wim (UEFI)</u></h3>
+
+
+
+<p>
+This BCD Store contains two entries - both for use on UEFI systems. Menu options -
+<ul>
+<li>WinPE (x86.wim - UEFI)</li>
+<li>WinPE (x64.wim - UEFI)</li>
+</ul>
+<p>
+
+<p>
+Download <a href="bcd_files/_x64.wim_and_x86.wim_uefi/BCD">here</a> (batch file - <a href="bcd_files/_x64.wim_and_x86.wim_uefi/cmd.txt">here</a>). The following files are required - 
+<ul>
+<li><font class="file">boot.sdi</font> (e.g. <font class="file">C:\pxesrv\files\boot\boot.sdi</font>)</li>
+<li><font class="file">x86.wim</font> (e.g. <font class="file">C:\pxesrv\files\boot\x86.wim</font>)</li>
+<li><font class="file">x64.wim</font> (e.g. <font class="file">C:\pxesrv\files\boot\x64.wim</font>)</li>
+</ul>
+</p>
+
+
+<p>
+<img src="img/bcd3.jpg">
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="bios_uefi2"></a>
+<h3 class="breaktop"><u>x86.wim and x64.wim (BIOS & UEFI)</u></h3>
+
+
+
+<p>
+This BCD Store contains four entries - two for use on UEFI systems and two for use on BIOS systems. Menu options -
+<ul>
+<li>WinPE (x86.wim - BIOS)</li>
+<li>WinPE (x64.wim - BIOS)</li>
+<li>WinPE (x86.wim - UEFI)</li>
+<li>WinPE (x64.wim - UEFI)</li>
+</ul>
+<p>
+
+<p>
+Download <a href="bcd_files/_x64.wim_and_x86.wim_uefi/BCD">here</a> (batch file - <a href="bcd_files/_x64.wim_and_x86.wim_uefi/cmd.txt">here</a>). The following files are required - 
+<ul>
+<li><font class="file">boot.sdi</font> (e.g. <font class="file">C:\pxesrv\files\boot\boot.sdi</font>)</li>
+<li><font class="file">x86.wim</font> (e.g. <font class="file">C:\pxesrv\files\boot\x86.wim</font>)</li>
+<li><font class="file">x64.wim</font> (e.g. <font class="file">C:\pxesrv\files\boot\x64.wim</font>)</li>
+</ul>
+</p>
+
+
+<p>
+<img src="img/bcd2.jpg">
+</p>
+
+
+
+<p class="breakbottom">
+</p>
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

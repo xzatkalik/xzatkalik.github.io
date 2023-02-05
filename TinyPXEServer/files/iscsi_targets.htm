@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm" selected="selected">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>iSCSI (Windows Targets)</u></h2>
+
+
+
+<p>
+There are a number of software based Windows iSCSI <font class="file">Target</font> options available, the majority of which require a licence. Some vendors provide a free license version for personal use - which may have reduced functionally. <font class="file">Target</font> options include, but are not limited to, the following -
+<ul>
+<li><a class="glossary" target="_blank" href="http://www.kernsafe.com/">Kernsafe iSCSI SAN</a> - a free version is available for download (<a class="glossary" target="_blank" href="http://www.kernsafe.com/product/istorage-server/free.aspx">iStorage Server Free</a>) - you will need to register for an account in order to apply for a free license. Registering for an account is relatively straightforward - at the time of writing it's possible to download a 20-day trial version without registering.</li>
+</ul>
+<ul>
+<li><a class="glossary" target="_blank" href="https://www.starwindsoftware.com/starwind-virtual-san">StarWind Virtual SAN</a> - a Free license/version is available. Personally I found it very difficult to register and obtain a free license as a corporate email address is required.</li>
+</ul>
+<ul>
+<li><a class="glossary" target="_blank" href="https://www.microsoft.com/en-gb/download/details.aspx?id=19867">Microsoft iSCSI Software Target 3.3</a> - an optional Windows Server component for Windows Server 2008 R2 and Windows Server 2008 R2 SP1.</li>
+</ul>
+<ul>
+<li><a class="glossary" target="_blank" href="http://www.iscsicake.com/download.htm">iSCSI Cake</a> - 15 day trial. Not tested.</li>
+</ul>
+<ul>
+<li><a class="glossary" target="_blank" href="https://www.daemon-tools.cc/products/iscsi-target">Daemon Tools iSCSI Target</a> - 20 day trial. Not tested.</li>
+</ul>
+<ul>
+<li><a class="glossary" target="_blank" href="https://sourceforge.net/projects/pytarget/">pyTarget</a> - "<i>...Implement a powerful iSCSI target in python, easily use under most popular systems. ...</i>" - a standalone binary is available for Windows 32-bit (will run without python environment). This project does not have a GUI, however it can be configured from a web interface. Alternatively a .xml configuration file can be used. </li>
+</ul>
+<ul>
+<li><a class="glossary" target="_blank" href="http://www.sandeploy.com/SANDeploy-Boot-Server.php">SANDeploy Server</a> - 30 day trial. Two version are available - <font class="file">SANDeploy Server</font> and <font class="file">SANDeploy Boot Server</font> (which includes DHCP and TFTP server).</li>
+</ul>
+</p>
+
+
+<p>
+Installing and configuring all of the iSCSI <font class="file">Targets</font> listed above is beyond the scope of this guide - I have however included some instructions for <font class="file">Kernsafe iStorage Server</font> (see <a class="glossary" href="iscsi_kernsafe.htm">here</a>), <font class="file">Microsoft iSCSI Software Target</font> (<a class="glossary" href="iscsi_ms.htm">here</a>) and <font class="file">pyTarget</font> (<a class="glossary" href="iscsi_pytarget.htm">here</a>).
+</p>
+
+
+<p>
+<b><u><font color="red">NOTE</u></b></font> - some <font class="file">Targets</font> will only allow authenticated connections - <font class="file">Client</font>/<font class="file">Host</font> system identifiers may need to be specified for connections to be made. <a class="glossary" target="_blank" href="https://sourceforge.net/projects/pytarget/">pyTarget</a> for example will only allow connections from a <font class="file">Client</font>/<font class="file">Host</font> whose IQN has been added to a filter list. <a class="glossary" target="_blank" href="https://www.microsoft.com/en-gb/download/details.aspx?id=19867">Microsoft iSCSI Software Target 3.3</a> also requires <font class="file">Client</font>/<font class="file">Host</font> identification. 
+</p>
+
+
+
+
+
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>
+

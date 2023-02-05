@@ -1,0 +1,227 @@
+
+\Escape: Farbičky
+13.11.2007 01:02 | blackhole_matej
+
+Terminály vedia pomocou escape sekvencií všeličo. Ukážeme si, ako sa dá zo všednej *nixoidnej textovej konzoly spraviť farebná, aj ako ofarbiť rôzne ovocie a dreviny v nej.
+
+Disclaimer: Kto nemá rád farby v termináli, môže prestať hneď čítať. Rozhodne nie v diskusii vyjadrovať odpor.
+
+Escape ----
+Riadiace sekvencie ANSI terminálu umožňujú robiť všeličo s obrazovkou, kurzorom, aj textom. Vo všeobecnosti začínajú znakom Escape, t.j. 27 (dec), 0x1B (hex), alebo \033 (oct). Znak Escape môžeme v konzole vypísať jedným z týchto spôsobov (nie všetky musia všade fungovať):
+
+    echo -e "\e"
+    echo -e "\033"
+    echo x | tr 'x' '\033'
+
+Ako vypisovať farebne ----
+Atribúty textu je možné nastavovať sekvenciou esc[atribútm, prípadne viacero atribútov oddelených bodkočiarkou:
+#!/bin/bash
+# priklad c.1, escape ukazka
+echo -e "\033[1msvetly\033[0m text"
+echo -e "\033[1;31msvetlocerveny\033[0m text"
+echo -e "text \033[1;33;41ms pozadim\033[0m"
+
+Pre farby popredia slúžia čísla 30 (čierna) až 37 (biela), pre pozadie 40 až 47. Ďalej je možné použiť nasledujúce špeciálne atribúty:
+
+    0 - zruš atribúty (vrátane farby)
+    1 - svetlá (bold)
+    2 - tmavá (niekde sa zobrazuje ako podčiarknuté)
+    3 - ??
+    4 - podčiarknuté
+    5 - blikajúce (resp. svetlé pozadie)
+    7 - reverzne (niekde sa farby vymenia, niekde biele pozadie)
+    8 - skryté (niekde sa napriek tomu zobrazí)
+
+Odporúčam používať iba farby popredia, tmavé pozadia, atribút "svetlá farba", prípadne "podčiarknuté" - tie sú totiž podporované a zobrazované rovnako (okrem hnedej, resp. tmavej žltej [33m) na väčšine farebných terminálov, vrátane xterm, rxvt, PuTTY, ba dokonca aj HyperTerminal a telnet (aspoň vo Win2k). S ostatnými atribútmi je to rôzne, záleží od konkrétneho terminálu - treba vyskúšať.
+Na výber "vhodnej" farby na použitie, a tiež odskúšanie atribútov, je možné použiť nasledujúci skript `colors` (pri kopírovaní pozor na počet medzier medzi apostrofmi):
+
+#!/bin/bash
+# colors - tabulka farieb, (c) 2007 by Matej
+t='tXt'
+#extra='4;' # odkomentuj, prip. vymen cislo
+for fg in  head  '    ' '  1' '  30' '1;30' \
+  '  31' '1;31' '  32' '1;32' '  33' '1;33' \
+  '  34' '1;34' '  35' '1;35' '  36' '1;36' \
+  '  37' '1;37'; do f=${fg// /}
+  fs=$f; [ "$fs" = "" ] || fs="$fs;"
+  [ "$fg" = "head" ] && echo -en "\t  " || \
+  echo -en " ${fg}m \033[$extra${f}m$t"
+  for b in '' '5;'; do
+    [ "$fg" = "head" ] && echo -n $b || \
+    echo -n "${b//*/  }"
+    for bg in 40 41 42 43 44 45 46 47; do
+      [ "$fg" = "head" ] && echo -n "${bg}m " || \
+      echo -en " \033[$extra$b$fs${bg}m$t\033[0m"
+    done
+  done; echo
+done; echo
+
+Farebne v DOSe ----
+Windows ani DOS sám o sebe (command.com) farbiť nevie, slúži mu na to ANSI.SYS, ktorý treba načítať v CONFIG.SYS. Pre dosemu môžeme do /usr/local/share/dosemu/freedos/config.sys (alebo kde je) pridať:
+devicehigh=c:\bin\nansi.sys
+
+1. Farebný motd ----
+Ofarbený text do /etc/motd môžeme zapísať priamo, presmerovaním `echo` z príkladu č.1 > /etc/motd
+# priklad c.2, farby priamo do motd
+echo -e "\033[1m`uname -n`\033[0m \
+had been \033[1;33;41mhacked\033[0m" >> /etc/motd
+Zložitejší súbor je lepšie editovať súbor pomocou bežného textového editora. Odporúčam začať obsahom (textom, rozložením), ktorý chceme ofarbiť, až potom pridať farby. Kontrola, či to vyzerá tak ako chceme, je jednoduchá:
+
+cat /etc/motd
+Podobne môžeme nadefinovať tzv. Banner súbor pre sshd, ktorý sa zobrazí ešte pred loginom.
+
+Existujú aj ASCIIart editory podporujúce ANSI farby, nájsť sa mi však podarilo iba okienkové pre Windows platformu. Ak niekto dáky dobrý do konzoly poznáte -> šup do komentárov.
+
+2. Farebný Bash prompt ----
+Primárny prompt v shelli je určený premennou PS1, sekundárny PS2. Zo všedného "\u@\h:\w\$ " môžeme urobiť farebný napríklad takýmto skriptom (umiestniť do /etc/profile.d/prompt-colors.sh, alebo iba volať z .bash_profile, .bashrc):
+# /etc/profile.d/prompt-colors.sh
+# nastavenie farieb promptu pre Bourne shelly
+if [ "`id -u`" = "0" ]; then
+  # roota zvyraznime cervenou
+  endpart="\[\033[1;30m\]#\[\033[0m\] "
+  PS2="\[\033[1;30m\]>\[\033[0m\] "
+else
+  endpart="\[\033[0m\]\$ "
+  PS2="\[\033[0m\]> "
+fi
+PS1="\[\033[1;36m\]\u@\h\[\033[0m\]:\[\033[33m\]\w$endpart"
+unset endpart
+Nesmieme zabudnúť na uzatváranie netlačiteľných znakov (t.j. celých escape sekvencií) medzi \[ a \], inak bash nebude správne vedieť určiť šírku vypísaného riadku, a bude nesprávne zalamovať.
+
+3. Farebný C-shell prompt ----
+V C-shelli sa pre primárny a sekundárny prompt používajú premenné prompt a prompt2. Princíp ofarbenia je rovnaký ako v Bashi. C-shell používa trochu iné špeciálne znaky, escape sekvencie je nutné vkladať medzi %{ a %}. Vyššieuvedený skript má ekvivalent:
+# /etc/profile.d/prompt-colors.csh
+# nastavenie farieb promptu pre c-shelly
+if ( "$uid" == "0" ) then
+  set endpart="%{\033[1;30m%}>%{\033[0m%} "
+  set prompt2="%{\033[1;30m%}?%{\033[0m%} "
+else
+  set endpart="%{\033[0m%}> "
+  set prompt2="%{\033[0m%}? "
+endif
+set prompt="%{\033[1;36m%}%n@%m%{\033[0m%}:%{\033[33m%}%~$endpart"
+unset endpart
+
+4. Farebné ls ----
+Iste už veľa z vás videlo farebný výpis obsahu adresára pomocou ls - mnoho distribúcií Linuxu to totiž má v štandardných konfigurákoch. Nastavenie farieb program ls cucá z premennej LS_COLORS. Tú obvykle nastavujeme pomocou dircolors (v Slacku je súčasťou balíka coreutils) takto:
+
+eval `dircolors -b` # bash
+eval `dircolors -c` # csh
+Cvične si fgrepnite /etc a nájdite si, odkiaľ je to spúšťané, môže to byť napr. /etc/profile, /etc/profile.rc, /etc/csh.login, alebo aj v /etc/profile.d/* apod.
+Na to, aby ls vypisoval farebne, je navyše potrebné spustiť ho s prepínačom --color. Väčšinou sa používa:
+
+alias ls='ls --color=auto'
+Prepínač --color=auto zaistí, že farebne sa bude vypisovať iba na terminál, ktorý to podporuje. Totiž taký `/bin/ls --color | less` vypisuje do rúry aj neželané escape sekvencie.
+
+5. Farebný grep ----
+Podobne ako ls je možné ofarbiť aj grep. Štandardne dočervena, postačí nám:
+
+alias grep='grep --color=auto'
+Ak nám červený grep nechutí, môžeme ho zmeniť pomocou premennej GREP_COLOR, napríklad na horkejší žltý:
+
+export GREP_COLOR="1;33"
+
+6. Farebný less ----
+Niekedy môžeme chcieť zobrazovať farebné výstupy cez less tak, aby sa zobrazili farebne (a nie ako podivné sekvencie znakov, čo narúšajú text). Môžeme na to použiť prepínač -R, pri častej potrebe opäť spravíme alias, alebo použijeme premennú LESS, z ktorej less načítava prepínače:
+
+alias less='less -R'  # cez alias
+setenv LESS '-R'      # csh
+export LESS='-R'      # bash
+
+7. Farebný pine ----
+Da best poštový klient pine tiež podporuje farby (a vie s nimi divy). Farby zapneme a nastavíme v menu (S)etup-(K)olor, pre pravidlá sa farby nastavujú v (S)etup-(R)ules-(I)ndexcolor.
+
+Čo s xtermom ----
+Farebné pozadie textu robí problémy pri nastavenej inej štandardnej farbe pozadia terminálu. Ak používame vyslovene bielu farbu popredia (37), nebude text na bielej farbe pozadia vidno, preto je žiadané nastaviť čierne pozadie. Vypisovaný text potom ale robí zubaté čierne riadky na bielom pozadí okna. Riešením je nenastavovať farbu pozadia textu (ktorá by nám robila zuby na prípadnom background obrázku), ale zmeniť nastavenie terminálu. Pre xterm v súbore .Xresources:
+XTerm*background:      black
+XTerm*foreground:      gray
+XTerm*highlightColor:  white
+
+Netreba to preháňať ----
+Nie každý používateľ má rád farby, a nie každý má rád rovnaké farby. Preto je vhodné dať na výber. Riešiť to môžeme napríklad načítaním nejakého konfiguračného súboru s farbami zo skriptu prompt-colors.sh, ktorý si používateľ môže vo svojom homedire meniť.
+Nie každý terminál farby podporuje, systém by to mal rozpoznať a podľa TERMCAP sa správne zachovať. Ak však bežne používame staršie terminály ako napr. vt52, a robia nám farby problém so zobrazovaním, je lepšie nepoužívať ich, alebo používať iba v podmienke typu "ak je terminál vt100|xterm|..., potom použi farby".
+
+Záver ----
+Farby v termináli podporuje veľa aplikácií. Ak sú použité rozumne a s mierou, môžu veľmi spríjemniť prácu. Naznačil som nastavenie u tých, ktoré s obľubou používam farebné. Ak viete o nejakej ďalšej, ktorá vie s farbami robiť z práce v termináli radosť ešte viac ako tie, čo už boli spomenuté, ozvite sa v diskusii. Aj za ASCIIart ANSI-enabled editor do *nix terminálu by som bol vďačný :)
+Niekedy nabudúce si povieme o iných užitočných escape sekvenciách v termináli.
+Zdieľať
+
+    Facebook
+    Twitter
+    Goolge+
+
+Pridať komentár
+
+        Re: \Escape: Farbičky
+        13.11.2007 | 12:38
+        Avatar blackhole_tommyhot   Používateľ
+
+        Pekny clanok, akurat mas v casti farebne v dose chybu. Ma tam byt:
+
+        devicehigh=c:\bin\ansi.sys # v clanku mas napisane nansi.sys
+
+        podla toho co pises v clanku: Windows ani DOS sám o sebe (command.com) farbiť nevie, slúži mu na to ANSI.SYS, ktorý treba načítať v CONFIG.SYS.
+
+        Inak ja ked pisem bash scritpy, velmi rad robim farebne vystupy a jednotlive escape sekvencie pre farby si hodim do premmenych:
+
+        #!/bin/bash
+        RED='\E[31m'
+        GREEN='\E[32m'
+        echo -e -n $GREEN "Zelena farba";tput sgr0;
+        echo -e -n $RED ", teraz cervena ";tput sgr0;
+        echo -n " a hned na to zas default farba (v mojom pripade biela)"
+
+        ----------
+        tommyhot@hackingmachine:~$ microsoft &> /dev/null
+
+        Odpovedať
+            Re: \Escape: Farbičky
+            13.11.2007 | 12:53
+            Avatar blackhole_matej   Používateľ
+
+            mas v casti farebne v dose chybu
+            To nie je chyba, teda aspon v mojej verzii dosemu sa skutocne pouziva nansi.sys. Asi som to mal zdoraznit, kazdopadne komu to bude hadzat chybu tak ci onak si to snad opravi :)
+            Odpovedať
+                Re: \Escape: Farbičky
+                13.11.2007 | 13:48
+                Avatar blackhole_tommyhot   Používateľ
+
+                Aha ok, myslel som ze sa to vola ansi.sys :)
+                ----------
+                tommyhot@hackingmachine:~$ microsoft &> /dev/null
+                Odpovedať
+        Re: \Escape: Farbičky
+        13.11.2007 | 12:49
+        Avatar y   Používateľ
+
+        aj mne sa velmi pacil tento clanok
+        ==
+        program je nastroj na dosiahnutie ciela, nie ciel samotny.
+        == Don't buy drugs...Become a pop star and get them for free!
+        Odpovedať
+        Re: \Escape: Farbičky
+        13.11.2007 | 15:39
+        Avatar vid   Používateľ
+
+        inak su escape sekvencie nejako standardizovane (aspon prakticky)?
+
+        Mam pocit ze prave kvoli tomu ze su "vsade inak" existuje kniznica nCurses, ktora taketo veci umoznuje robit portabilne (pre lubovolny terminal).
+
+        Je to tak? (nemam to z vlastnej skusenosti)
+        Odpovedať
+            Re: \Escape: Farbičky
+            13.11.2007 | 17:18
+            Avatar blackhole_matej   Používateľ
+
+            Ano, su, konkretne ISO 6429. Teraz pozeram, ze na wikipedii je o tom viac, dokonca aj co sa tyka atributov textu, ktore som nespomenul (italic, double underline, ...). Hm aj linky odtial vypadaju zaujimavo :)
+
+            A co sa tyka ncurses, ten je hlavne na pracu s textovymi oknami, resizing, apod, ale umoznuje aj farbit. A ano, je urceny na portabilnu pracu s terminalom, dolezite su vsak spravne termcap/terminfo a tiez spravne urceny terminal (napr. na vt52 som musel obcas rucne nastavit set term=vdt52s).
+            Odpovedať
+        Re: \Escape: Farbičky
+        17.11.2007 | 00:33
+        Avatar blackhole_porkac   Používateľ
+
+        Dobry clanok. Aj ked ja osobne v terminaly farby moc rad nemam, hlavne v IRC. Pouzivam len cerveny background pre root konzolu a farebne ls pre lepsi prehlad suborov.
+
+        =================
+        Ucime sa aby sme veciam rozumeli a mohli ich milovat :]

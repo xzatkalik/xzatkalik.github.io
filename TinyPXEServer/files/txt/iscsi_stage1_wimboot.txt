@@ -1,0 +1,11 @@
+#!ipxe
+set boot-url http://${dhcp-server}
+set gateway 0.0.0.0
+set keep-san 1
+SANHOOK iscsi:${dhcp-server}::::iqn.iSCSI-target1
+kernel ${boot-url}/wimboot
+initrd ${boot-url}/BOOTMGR           BOOTMGR
+initrd ${boot-url}/boot/bcd          BCD
+initrd ${boot-url}/boot/boot.sdi     boot.sdi
+initrd ${boot-url}/boot/boot.wim     boot.wim
+boot

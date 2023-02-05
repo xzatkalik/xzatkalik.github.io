@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm" selected="selected">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+<h2 align="center"><u>Firewall</u></h2>
+
+
+<p>
+Problems connecting to <font class="file">Tiny PXE Server</font> may be due to incorrect firewall settings. Consider temporarily disabling your firewall during testing, then as soon as your setup is working your firewall can be re-activated and configured. 
+</p>
+
+
+<p>
+The following ports will need to be allowed for incoming connections -
+<table border="1" style="background-color:white;border:1px black;border-collapse:collapse;">
+<tr style="background-color:#E2A9F3;color:black;">
+<th style="padding:5px;" width="150">Service/Protocol</th>
+<th style="padding:5px;" width="50">Port</th>
+<th style="padding:5px;" width="150">Port Protocol</th>
+</tr>
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">DHCP</td> 
+<td align="center" valign="center" style="padding:2px;">67</td> 
+<td align="center" valign="center" style="padding:2px;">UDP</td> 
+</td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">DNS</td> 
+<td align="center" valign="center" style="padding:2px;">53</td> 
+<td align="center" valign="center" style="padding:2px;">UDP</td> 
+</td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">HTTP</td> 
+<td align="center" valign="center" style="padding:2px;">80</td> 
+<td align="center" valign="center" style="padding:2px;">TCP</td> 
+</td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">Proxy DHCP</td> 
+<td align="center" valign="center" style="padding:2px;">4011</td> 
+<td align="center" valign="center" style="padding:2px;">UDP</td> 
+</td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">TFTP</td> 
+<td align="center" valign="center" style="padding:2px;">69</td> 
+<td align="center" valign="center" style="padding:2px;">UDP</td> 
+</td> 
+</tr> 
+</table>
+</p>
+
+
+<p>
+TFTP only uses port 69 to establish a request - the response will take place over random ports. This makes it difficult to set up a firewall for TFTP using port exceptions. It is however possible to configure a firewall for TFTP connections by allowing port 69 to establish the request, then set a firewall exception for the <font class="file">Tiny PXE Server</font> executable.
+</p>
+
+
+<p>
+I have no idea which ports need to be open for NFS to function - this is required from some Linux distributions including Ubuntu. 
+</p>
+
+
+
+
+
+
+
+<h3 class="breaktop"><u>Configure the Windows 7 firewall to allow specified ports</u></h3> 
+
+
+<p>
+<ol start="1">
+<li>
+Goto <b>Start</b> > <b>Control Panel</b> and select <b>Windows Firewall</b> (<b>Note</b> - the view may need to be changed to either <b>Large icons</b> or <b>Small icons</b>).
+</li>
+</ol>
+
+
+<ol start="2">
+<li>
+Select <b>Advanced settings</b> - <br />
+<IMG BORDER=1 SRC="img/firewall_71.jpg"><br />	
+</li>
+</ol>
+
+
+
+<ol start="3">
+<li>
+Select <b>Inbound Rules</b> in the left pane and then click on <b>New rule...</b> in right pane - <br />
+<IMG BORDER=1 SRC="img/firewall_72.jpg"><br />
+</li>
+</ol>
+
+
+
+<ol start="4">
+<li>
+The <b>New Inbound Rule Wizard</b> should now be displayed. Select <b>Rule Type</b> as <b>Port</b> then click on the <b>Next</b> button.
+</li>
+</ol>
+
+
+
+<ol start="5">
+<li>
+In the <b>Protocols and Ports</b> section select <b>UDP</b> and enter <b>53, 67, 69, 4011</b> in the <b>Specific local ports:</b> box, then click on the <b>Next</b> button.
+</li>
+</ol>
+
+
+<ol start="6">
+<li>
+In the <b>Action</b> section ensure <b>Allow the connection</b> is enabled then click on the <b>Next</b> button.
+</li>
+</ol>
+
+
+<ol start="7">
+<li>
+Select whichever option applies to your own setup in the <b>Profile</b> section (or select all), then click on the <b>Next</b> button.
+</li>
+</ol>
+
+
+
+<ol start="8">
+<li>
+Enter a name in the relevant box then click on the <b>Finish</b> button.
+</li>
+</ol>
+
+
+
+Repeat this process to allow access for TCP Port 80, amending the instructions step 5 - In the <b>Protocols and Ports</b> section select <b>TCP</b> and enter <b>80</b> in the <b>Specific local ports:</b> box, then click on the <b>Next</b> button.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 class="breaktop"><u>Configure the Windows 7 firewall to allow pxesrv.exe</u></h3> 
+
+
+<p>
+<ol start="1">
+<li>
+Goto <b>Start</b> > <b>Control Panel</b> and select <b>Windows Firewall</b> (<b>Note</b> - the view may need to be changed to either <b>Large icons</b> or <b>Small icons</b>).
+</li>
+</ol>
+
+
+<ol start="2">
+<li>
+Select <b>Advanced settings</b> - <br />
+<IMG BORDER=1 SRC="img/firewall_71.jpg"><br />	
+</li>
+</ol>
+
+
+
+<ol start="3">
+<li>
+Select <b>Inbound Rules</b> in the left pane and then click on <b>New rule...</b> in right pane - <br />
+<IMG BORDER=1 SRC="img/firewall_72.jpg"><br />
+</li>
+</ol>
+
+
+
+<ol start="4">
+<li>
+The <b>New Inbound Rule Wizard</b> should now be displayed. Select <b>Rule Type</b> as <b>Program</b> then click on the <b>Next</b> button.
+</li>
+</ol>
+
+
+<ol start="5">
+<li>
+Set <b>This program path:</b> as the path to <b>pxesrv.exe</b>, then click on the <b>Next</b> button.
+</li>
+</ol>
+
+
+
+<ol start="6">
+<li>
+Select <b>Allow the connection</b>, then click on the <b>Next</b> button.
+</li>
+</ol>
+
+
+<ol start="7">
+<li>
+Select whichever option applies to your own setup in the <b>Profile</b> section (or select all), then click on the <b>Next</b> button.
+</li>
+</ol>
+
+
+
+<ol start="8">
+<li>
+Enter a name (e.g. <b>pxesrv</b>) in the relevant box then click on the <b>Finish</b> button.
+</li>
+</ol>
+The <b>Protocol</b> type and <b>Local Port</b> should have been set to <b>Any</b>.
+<p>
+
+
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

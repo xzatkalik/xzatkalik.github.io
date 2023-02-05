@@ -1,0 +1,873 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm" selected="selected">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+ 
+ 
+
+<h2 align="center"><u>iSCSI (Clone Windows to Target)</u></h2>
+
+<p>
+This section covers booting Windows from a SAN (Storage Area Network) using the iSCSI protocol (Internet Small Computer Systems Interface). 
+</p>
+
+
+
+<p>
+Unlike the AoE Protocol, it is possible to install Windows NT 6.* (including Windows 7, 2008, 8 and 8.1) directly to an iSCSI <font class="file">Target</font> without the need to clone or copy an existing system. Installing to an iSCSI <font class="file">Target</font> is covered <a class="glossary" href="iscsi_install.htm">here</a>. 
+</p>
+
+
+<p>
+This page covers cloning an existing Windows NT 6.* system - it is very similar to the process covered in the AoE section of this guide. The following sections are covered in this page - 
+<ul>
+<li><a class="glossary" href="iscsi.htm#requirements">Requirements</a></li>
+<li><a class="glossary" href="iscsi.htm#clientconfig">Client Configuration</a></li>
+<li><a class="glossary" href="iscsi.htm#firewall">Turn off firewall(s)</a></li>
+<li><a class="glossary" href="iscsi.htm#target">Server Configuration</a></li>
+<li><a class="glossary" href="iscsi.htm#authentication">Connection Authentication</a></li>
+<li><a class="glossary" href="iscsi.htm#stage1a">Stage 1 (PXE Boot the Client + Disk Preparation)</a></li>
+<li><a class="glossary" href="iscsi.htm#stage1b">Stage 1 (Copy Windows - wimlib)</a></li>
+<li><a class="glossary" href="iscsi.htm#stage1c">Stage 1 (Copy Windows - STRARC)</a></li>
+<li><a class="glossary" href="iscsi.htm#stage1d">Stage 1 (Create Boot Files)</a></li>
+<li><a class="glossary" href="iscsi.htm#stage2">Stage 2</a></li>
+<li><a class="glossary" href="iscsi.htm#iscsiuri">iSCSI URI Syntax</a></li>
+<li><a class="glossary" href="iscsi.htm#ipxe">iPXE Settings</a></li>
+<li><a class="glossary" href="iscsi.htm#ipxe_scripts">iPXE Scrips</a></li>
+</ul>
+</p>
+
+
+
+
+
+<p>
+A quick note on terminology.
+<ul>
+<li><font class="file">Target</font> - the disk image that contains (or will contain) the Windows Operating System on the iSCSI Server system. </li>
+</ul>
+<ul>
+<li><font class="file">Client</font> - the system that will boot from the iSCSI Target.</li>
+</ul>
+</p>
+</p>
+
+
+
+<p>
+<b><u><font color="red">UEFI NOTE</font></u></b> - I have not been able to test iSCSI Boot on UEFI <font class="file">Client</font> systems as I do not have the relevant hardware. These instructions are for <font class="file">Client</font> systems with BIOS firmware, however they should work on UEFI <font class="file">Client</font> systems with CSM enabled. 
+</p>
+
+
+<a name="requirements"></a>
+<h3 class="breaktop"><u>Requirements</u></h3>
+
+<p>
+<ul>
+<li><font class="file">Target System</font> - for the purpose of this guide the iSCSI <font class="file">Target</font> is assumed to be the same system as your <font class="file">Tiny PXE Server</font>.</li>
+</ul>
+<ul>
+<font class="file">iSCSI Target</font> - the unique IQN (iSCSI Qualified Name) of the <font class="file">Target</font> hosting the source disk that will be used to contain the Windows installation that will be Network Booted. </li>
+</ul>
+<ul>
+<li><font class="file">Client</font> - this system needs to be PXE boot capable. The Client will need to contain a Windows Installation that can be modified for Network Boot.</li>
+</ul>
+<ul>
+<li><font class="file">Windows Preinstallation Environment (WinPE)</font> - WinPE 3.0 (or newer) is required for configuring and capturing Windows on the client system. WinPE must be PXE booted (see <a class="glossary" href="winpe.htm">here</a>).</li>
+</ul>
+<ul>
+<li><font class="file">wimlib</font> - <i>"...wimlib is an open source, cross-platform library for creating, extracting, and modifying Windows Imaging (WIM) archives...."</i>. We will be using wimlib to image Windows on the <font class="file">Client</font> system for copying to the <font class="file">Target</font> - see <a class="glossary" target="_blank" href="https://wimlib.net/">here</a> for more information and to download.</li>
+</ul>
+
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="clientconfig"></a>
+<h3 class="breaktop"><u>Client Configuration</u></h3>
+
+
+<p>
+Prior to cloning/copying Windows to an iSCSI <font class="file">Target</font> the existing Windows Operation System will need to be configured. The steps involved are covered below -
+<ul>
+<li><font class="file">Turn off firewall(s)</font> (see <a class="glossary" href="iscsi.htm#firewall">here</a>)</li>
+</ul>
+<ul>
+<li><font class="file">Identify network adaptor service</font> (see <a class="glossary" href="service.htm">here</a>)</li>
+</ul>
+<ul>
+<li><font class="file">Set network adaptor start value to 0</font> (see <a class="glossary" href="service.htm#start0">here</a>)</li>
+</ul>
+<ul>
+<li><font class="file">Unbind the Windows Filtering Platform (WFP) Lightweight Filter (LWF)</font> (see <a class="glossary" href="wfplwf.htm">here</a>)</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+<a name="firewall"></a>
+<h3 class="breaktop"><u>Turn off firewall(s)</u></h3>
+
+<p>
+During initial setup/testing I recommend that the firewall on the server and client be turned off - the firewall settings can then be configured once your iSCSI Windows Network Boot is confirmed to be working. This will greatly assist in troubleshooting. 
+</p>
+
+<p>
+On Windows NT 6.* systems the following command can be used to turn off the Windows firewall - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left readonly>
+netsh Advfirewall set allprofiles state off
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="target"></a>
+<h3 class="breaktop"><u>Server Configuration</u></h3>
+
+<p>
+Before cloning Windows the iSCSI <font class="file">Target</font> software will need to be installed and configured (see <a class="glossary" href="iscsi_targets.htm">here</a>).
+</p>
+
+<p>
+You will need the unique identifier (the IQN) of your iSCSI <font class="file">Target</font> - E.g. <font class="file">iqn.iSCSI-target1</font>. 
+</p>
+
+
+
+<p>
+WinPE is required to start the installation process. In the example below a WinPE .ISO will be booted from the <font class="target">Server</font> using <font class="file">memdisk</font> (path to the WinPE ISO is <font class="file">\iso\WinPE.iso</font>). <font class="file">wimboot</font> can be used as an alternative to <font class="file">memdisk</font> (see <a class="glossary" href="txt/iscsi_stage1_wimboot.txt">here</a> for a sample script), as can chain-loading <font class="file">pxeboot.0</font> (see <a class="glossary" href="txt/iscsi_stage1_pxeboot0.txt">here</a> for a sample script).  
+</p>
+
+
+<p>
+Sample iPXE script for stage 1 (DHCP)
+<br />
+<textarea style="font-size:12px" cols="80" rows="10" align="left" wrap="OFF" readonly>
+#!ipxe
+set boot-url http://${dhcp-server}
+set gateway 0.0.0.0
+set keep-san 1
+SANHOOK iscsi:${dhcp-server}::::iqn.iSCSI-target1
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/WinPE.iso
+boot
+</textarea>
+</p>
+
+
+<p>
+Sample iPXE script for stage 1 (Proxy DHCP)
+<br />
+<textarea style="font-size:12px" cols="80" rows="10" align="left" wrap="OFF" readonly>
+#!ipxe
+set boot-url http://${next-server}
+set gateway 0.0.0.0
+set keep-san 1
+SANHOOK iscsi:${next-server}::::iqn.iSCSI-target1
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/WinPE.iso
+boot
+</textarea>
+</p>
+
+
+
+<p>
+Breaking down the entries in the script above -
+
+<ul>
+<li><font class="file">#!ipxe</font> - identifies the file as an iPXE script.</li>
+</ul>
+<ul>
+<li><font class="file">set boot-url http://${next-server}</font> - define environment variable <font class="file">boot-url</font> as <font class="file">http://${next-server}</font>. <font class="file">next-server</font>  is a pre-defined iPXE variable - the IP address of the Proxy DHCP server. </li>
+</ul>
+<ul>
+<li><font class="file">set gateway 0.0.0.0</font> - manually setting the gateway to 0.0.0.0 is reported to be a workaround for some issues when booting Windows via SAN. There are some reports that failing to set the gateway to 0.0.0.0 may result in "INACCESSIBLE BOOT DEVICE" (0x7b) errors during boot. There are other reports that setting the gateway to 0.0.0.0 is a workaround for long boot times - possibly due to "...a known issue that Windows routes trafic to SAN through default gateway. It may obviously cause throughput reduction when your gateway has limited bandwidth. ..." (see <a class="glossary" target="_blank" href="https://gist.github.com/Informatic/5893973">here</a>). </li>
+</ul>
+<ul>
+<li><font class="file">set keep-san 1</font> - prevent iPXE from detaching a SAN drive (reported to be for the sake of backwards compatibility (see <a class="glossary" target="_blank" href="http://ipxe.org/cmd/sanboot">here</a>)).</li>
+</ul>
+<ul>
+<li><font class="file">SANHOOK iscsi:${next-server}::::iqn.iSCSI-target1</font> - attach the specified <font class="file">Target</font> - in this case <font class="file">iscsi:${next-server}::::iqn.iSCSI-target1</font>. See <a class="glossary" href="iscsi.htm#iscsiuri">here</a> for more information about the <font class="file">Target</font> syntax.</li>
+</ul>
+<ul>
+<li><font class="file">kernel ${boot-url}/memdisk iso raw</font> - load the <font class="file">memdisk</font> kernel with <font class="file">iso raw</font> parameters/arguments. The path to <font class="file">memdisk</font> includes the environment variable <font class="file">${boot-url}</font> defined earlier in the script - this path will translate as <font class="file">http:\\192.168.1.1\memdisk</font>.</li>
+</ul>
+<ul>
+<li><font class="file">initrd ${boot-url}/iso/WinPE.iso</font> - load the initial ramdisk file <font class="file">/iso/WinPE.iso</font>.</li>
+</ul>
+</p>
+
+
+<p>
+The commands in the script above can be added to an existing iPXE menu, or saved as a file (e.g. <font class="file">iscsi1.ipxe</font>) and executed by loading the file during the PXE boot process using <font class="file">altfilename</font> in <font class="file">Tiny PXE Server</font>'s configuration file (<font class="file">config.ini</font>) or the GUI. This is covered in more detail in the <font class="file">iPXE settings</font> section below (see <a class="glossary" href="iscsi.htm#ipxe">here</a>)
+</p>
+
+
+
+
+
+<p>
+After configuring the iSCSI <font class="file">Target</font> there are two distinct stages involved in cloning Windows NT6.* to an iSCSI <font class="file">Target</font> -
+<ul>
+<li><font class="file">Stage 1</font> - boot\chainload iPXE &gt; <font class="file">SANHOOK</font> (attach) the iSCSI <font class="file">Target</font> and boot WinPE &gt; run <font class="file">Diskpart</font> and partition and mount the iSCSI <font class="file">Target</font> storage  &gt; configure <font class="file">Client</font> and copy to WIM &gt; Apply WIM to <font class="file">Target</font> &gt; create boot files &gt; reboot </li>
+</ul>
+<ul>
+<li><font class="file">Stage 2</font> - after completing Stage 1  &gt;  boot\chainload iPXE &gt; <font class="file">SANBOOT</font> the iSCSI <font class="file">Target</font>.</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="authentication"></a>
+<h3 class="breaktop"><u>Connection Authentication</u></h3>
+
+<p>
+<b><u><font color="red">NOTE</font></u></b> - as previously mentioned in the <a class="glossary" href="iscsi_targets.htm">iSCSI (Windows Targets)</a> page of this guide, some <font class="file">Targets</font> will only allow authenticated connections - <font class="file">Client</font>/<font class="file">Host</font> system identifiers may need to be specified for connections to be made. <a class="glossary" target="_blank" href="https://sourceforge.net/projects/pytarget/">pyTarget</a> for example will only allow connections from a <font class="file">Client</font>/<font class="file">Host</font> whose IQN has been added to a filter list. <a class="glossary" target="_blank" href="https://www.microsoft.com/en-gb/download/details.aspx?id=19867">Microsoft iSCSI Software Target 3.3</a> also requires <font class="file">Client</font>/<font class="file">Host</font> identification. 
+</p>
+
+<p>
+A simple workaround is to add an iPXE command to set the <font class="file">Client</font> IQN prior to the <font class="file">SANHOOK</font> or <font class="file">SANBOOT</font> command being issued. E.g. add <font class="file">Host</font> name <font class="file">iqn.client</font> to any filter list, and add the following iPXE command to the iPXE script/menu/command-line -
+<ul>
+<li><font class="file">set initiator-iqn iqn.client</font></li>
+</ul>
+</p>
+
+
+
+<p>
+E.g.
+<br />
+<textarea style="font-size:12px" cols="80" rows="11" align="left" wrap="OFF" readonly>
+#!ipxe
+set boot-url http://${next-server}
+set gateway 0.0.0.0
+set keep-san 1
+set initiator-iqn iqn.client
+SANHOOK iscsi:${next-server}::::iqn.iSCSI-target1
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/WinPE.iso
+boot
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="stage1a"></a>
+<h3 class="breaktop"><u>Stage 1 (PXE Boot the Client + Disk Preparation)</u></h3>
+
+
+
+<p>
+PXE boot the <font class="file">Client</font> system.
+</p>
+
+
+
+
+<p class="breaktop">
+The following screenshot shows the output from running the script in the <a class="glossary" href="iscsi.htm#target">Server Configuration</a> section -
+<br />
+<img src="img/iscsi1.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+Run diskpart to prepare the iSCSI <font class="file">Target</font> for setup. Run the <font class="file">List Disk</font> command to show available hard disks. On the screenshot below the iSCSI <font class="file">Target</font> was not accessible - the reason for this was due to the custom WinPE not having initialized the network....
+<br />
+<img src="img/iscsi2.jpg" border=1>
+</p>
+
+
+
+
+<p class="breaktop">
+...after running the <font class="file">wpeutil InitializeNetwork</font> command (in a command-prompt) and re-running <font class="file">List Disk</font> in DiskPart, the iSCSI <font class="file">Target</font> was visible -
+<br />
+<img src="img/iscsi3a.jpg" border=1>
+</p>
+
+
+
+<p class="breaktop">
+Having identified the iSCSI <font class="file">Target</font> by it's size as <font class="file">Disk 1</font>, run the command <font class="file">sel disk 1</font> to give the disk <font class="file">focus</font>. 
+<br />
+<img src="img/iscsi3b.jpg" border=1>
+<br />
+<u><b><font color="red">NOTE</font></b></u> - it's important to ensure that the correct disk is selected as otherwise you may end up carrying out subsequent commands on the wrong disk!
+</p>
+
+
+
+
+<p class="breaktop">
+Double check it is the correct disk by running the <font class="file">detail disk</font> command -
+<br />
+<img src="img/iscsi3c.jpg" border=1>
+</p>
+
+
+
+<p class="breaktop">
+After ensuring that the correct disk was selected, create a primary type partition spanning the whole disk by running the <font class="file">create part pri</font>
+<br />
+<img src="img/iscsi3d.jpg" border=1>
+</p>
+
+
+
+<p class="breaktop">
+Mark\set the partition as active by running the <font class="file">active</font> command -
+<br />
+<img src="img/iscsi3e.jpg" border=1>
+</p>
+
+
+
+<p class="breaktop">
+Finally (quick) format the disk using NTFS with volume label SANBOOT by running the command <font class="file">format fs=ntfs label=SANBOOT quick</font> -
+<br />
+<img src="img/iscsi3f.jpg" border=1>
+</p>
+
+
+<p class="breaktop">
+Assign a drive letter/mount point by running the <font class="file">assign</font> command -
+<ul>
+<li><font class="file">assign letter=Q</font> - mount/map the partition with focus as drive\volume <font class="file">Q:\</font> (edit as required depending on available drive letters). </li>
+</ul>
+</p>
+
+
+
+<p class="breaktop">
+Exit diskpart and, remaining in WinPE, follow the instructions in the <font class="file">Stage 1 (Apply WIM to Target)</font> section.
+</p>
+
+
+
+
+
+
+<a name="stage1b"></a>
+<h3 class="breaktop"><u>Stage 1 (Copy Windows - wimlib)</u></h3>
+
+<p>
+<b><u><font color="red">NOTE</font> - refer also to the <a class="glossary" href="iscsi.htm#stage1c">Stage 1 (Copy Windows - STRARC)</a> section for an alternative cloning method.</u></b>
+</p>
+
+
+<p>
+Using this method has the advantage of creating a backup file of the <font class="file">Client</font> Operating System that can be used to restore the <font class="file">Client</font> or create another iSCSI <font class="file">Target</font> at a later date.
+</p>
+
+
+
+<p>
+Configure the offline <font class="file">Client</font> Windows Operating System and capture to a WIM file following the instructions <a class="glossary" href="clone.htm">here</a> - capturing Windows to <font class="file">D:\Windows.Netwok.Boot.wim</font>.
+</p>
+
+
+
+<p>
+Let's assume that the instructions in this guide have been followed and the same files/paths have been used - 
+<ul>
+<li><font class="file">D:\Windows.Network.Boot.wim</font> - WIM file containing <font class="file">Client</font> configured for iSCSI Network Boot.</li>
+<li><font class="file">Q:\</font> - mount point assigned to the iSCSI <font class="file">Target</font>.</li>
+<li><font class="file">D:\wimlib\wimlib-imaxex.exe</font> - path to wimlib executable.</li>
+</ul>
+</p>
+
+
+
+<p>
+Run the following command -
+<ul>
+<li><font class="file">D:\wimlib\wimlib-imagex.exe apply D:\Windows.Network.Boot.wim 1 Q:\</font></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+<a name="stage1c"></a>
+<h3 class="breaktop"><u>Stage 1 (Copy Windows - STRARC)</u></h3>
+
+<p>
+<b><u><font color="red">NOTE</font> - refer also to the <a class="glossary" href="iscsi.htm#stage1b">Stage 1 (Copy Windows - wimlib)</a> section for an alternative cloning method.</u></b>
+</p>
+
+
+<p>
+Using this method has the advantage of copying directly from the <font class="file">Client</font> to the <font class="file">Target</font>, whilst preserving any junction or reparse points that might be present.
+</p>
+
+
+<p>
+Please refer to the <a class="glossary" href="clone_strarc.htm">Copy Windows (STRARC)</a> page for detailed instructions. 
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<a name="stage1d"></a>
+<h3 class="breaktop"><u>Stage 1 (Create Boot Files)</u></h3>
+
+<p>
+Remaining in WinPE - the command-line <a class="glossary" target="_blank" href="https://technet.microsoft.com/en-GB/library/dd744347(v=ws.10).aspx">bcdboot</a> tool can be used to create boot files for Windows NT 6.* systems. 
+</p>
+
+<p>
+Run the following command...
+<ul>
+<li><font class="file">bcdboot Q:\windows /s Q: /f BIOS</font></li>
+</ul>
+...running the command will create a new BCD store configured to boot Windows from the iSCSI <font class="file">Target</font> - the BCD store will contain information identifying the Windows installation based on the unique iSCSI <font class="file">Target</font> Disk Signature and partition offset. 
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="stage2"></a>
+<h3 class="breaktop"><u>Stage 2</u></h3>
+
+
+<p>
+Sample iPXE script for stage 2 (Proxy DHCP)
+<br />
+<textarea style="font-size:12px" cols="80" rows="7" align="left" wrap="OFF" readonly>
+#!ipxe
+set gateway 0.0.0.0
+set keep-san 1
+SANBOOT iscsi:${next-server}::::iqn.iSCSI-target1
+boot
+</textarea>
+</p>
+
+<p>
+Breaking down the entries in the script above -
+
+<ul>
+<li><font class="file">#!ipxe</font> - identifies the file as an iPXE script.</li>
+</ul>
+<ul>
+<li><font class="file">set gateway 0.0.0.0</font> - manually setting the gateway to 0.0.0.0 is reported to be a workaround for some issues when booting Windows via SAN. There are some reports that failing to set the gateway to 0.0.0.0 may result in "INACCESSIBLE BOOT DEVICE" (0x7b) errors during boot. There are other reports that setting the gateway to 0.0.0.0 is a workaround for long boot times - possibly due to "...a known issue that Windows routes traffic to SAN through default gateway. It may obviously cause throughput reduction when your gateway has limited bandwidth. ..." (see <a class="glossary" target="_blank" href="https://gist.github.com/Informatic/5893973">here</a>). </li>
+</ul>
+<ul>
+<li><font class="file">set keep-san 1</font> - prevent iPXE from detaching a SAN drive (reported to be for the sake of backwards compatibility (see <a class="glossary" target="_blank" href="http://ipxe.org/cmd/sanboot">here</a>)).</li>
+</ul>
+<ul>
+<li><font class="file">SANBOOT iscsi:${next-server}::::iqn.iSCSI-target1</font> - boot from the specified <font class="file">Target</font>. In this case <font class="file">iscsi:${next-server}::::iqn.iSCSI-target1</font>.</li>
+</ul>
+</p>
+
+
+
+<p>
+Configure <font class="file">Tiny PXE Server</font> to run stage 2 script and PXE Boot the <font class="file">Client</font> system.
+</p>
+
+
+
+
+<div class="breaktop">
+The screenshot below was taken from a running Windows 7 system booted from an iSCSI <font class="file">Target</font> - 
+<br />
+<font class="file"></font>
+<a href="img/iscsi13.jpg"><IMG SRC="img/iscsi13.jpg" float=left width=85% margin-right=1% margin-bottom=0.5em border=1></a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="iscsiuri"></a>
+<h3 class="breaktop"><u>iSCSI URI Syntax</u></h3>
+
+
+<p>
+The format for iSCSI URI's is - <font class="file">iscsi:[servername]:[protocol]:[port]:[LUN]:[targetname]</font>
+</p>
+
+<p>
+Where -
+<ul>
+<li><font class="file">servername</font> - is the IP address or DNS name of the iSCSI <font class="file">Target</font>. In iPXE scripts, environment variables including <font class="file">${next-server}</font> or <font class="file">${dhcp-server}</font> can be used.</li>
+</ul>
+<ul>
+<li><font class="file">protocol</font> - this field can be left blank. The protocol used for iSCSI is TCP.</li>
+</ul>
+<ul>
+<li><font class="file">port</font> - is the port used for connections to the iSCSI <font class="file">Target</font>. The default port for iSCSI is 3260 - this field can be left blank if the default port is in use for incoming connections to the iSCSI <font class="file">Target</font> software. </li>
+</ul>
+<ul>
+<li><font class="file">LUN</font> - leave blank and use default (0). The LUN format seems unnecessarily complex - see <a class="glossary" target="_blank" href="https://tools.ietf.org/html/rfc4173">here</a> and <a class="glossary" target="_blank" href="http://ipxe.org/sanuri">here</a>.</li>
+</ul>
+<ul>
+<li><font class="file">targetname</font> - unique IQN of the <font class="file">Target</font> being booted/attached.</li>
+</ul>
+
+
+
+<p>
+If default settings are used for the protocol, port and LUN fields then these fields can be left blank. The following entries for example will all function (assuming the <font class="file">Target</font> IP address is 192.168.1.1 and that this IP address is correctly set as the <font class="file">dhcp-server</font> variable when iPXE is booted) -
+<ul>
+<li><font class="file">iscsi:192.168.1.1:tcp:3260:0:iqn.iSCSI-target1</font></li>
+<li><font class="file">iscsi:${dhcp-server}:tcp:3260:0:iqn.iSCSI-target1</font></li>
+<li><font class="file">iscsi:192.168.1.1::::iqn.iSCSI-target1</font></li>
+<li><font class="file">iscsi:${dhcp-server}::::iqn.iSCSI-target1</font></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="ipxe"></a>
+<h3 class="breaktop"><u>iPXE settings</u></h3>
+
+<p>
+Remember to ensure that the required files are copied to your <font class="file">Tiny PXE Server</font> root directory - 
+<ul>
+<li><font class="file">C:\pxesrv\files\ipxe.pxe</font> (or <font class="file">C:\pxesrv\files\ipxe-undionly.kpxe</font>)</li>
+<li><font class="file">C:\pxesrv\files\ipxe_menu.txt</font></li> 
+</ul>
+</p>
+
+
+
+<p>
+Set  <font class="file">iscsi-target</font> environment variable in <font class="file">C:\pxesrv\files\ipxe_menu.txt</font> (create this file if required) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap=off readonly>
+set iscsi-target iscsi:${dhcp-server}::::iqn.iSCSI-target1
+</textarea>
+</p>
+
+
+
+<p>
+Add the following to the menu section of <font class="file">C:\pxesrv\files\ipxe_menu.txt</font> -
+<br />
+<textarea style="font-size:12px" cols="80" rows="4" align=left wrap=off readonly>
+item iscsi1		Stage 1 - SANHOOK iSCSI Target and boot WinPE
+item iscsi2		Stage 2 - SANBOOT iSCSI Target
+</textarea>
+</p>
+
+
+
+<p>
+Add the following to the menu options section of <font class="file">C:\pxesrv\files\ipxe_menu.txt</font> -
+<br />
+<textarea style="font-size:12px" cols="80" rows="15" align=left wrap=off readonly>
+:iscsi1
+set gateway 0.0.0.0
+set keep-san 1
+sanhook ${iscsi-target}
+kernel ${boot-url}/memdisk iso raw 
+initrd ${boot-url}/iso/WinPE.iso
+boot
+
+:iscsi2
+set gateway 0.0.0.0
+set keep-san 1
+sanboot ${iscsi-target}
+boot
+</textarea>
+</p>
+
+
+
+<p>
+E.g. - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="27" align="left" wrap="OFF" readonly>
+#!ipxe
+set boot-url http://${dhcp-server}
+set iscsi-target iscsi:${dhcp-server}::::iqn.iSCSI-target1
+
+#================ Main Menu =================
+:menu
+menu iPXE menu
+item iscsi1		Stage 1 - SANHOOK iSCSI Target and boot WinPE
+item iscsi2		Stage 2 - SANBOOT iSCSI Target
+choose target && goto ${target}
+#============== End Main Menu ===============
+
+:iscsi1
+set gateway 0.0.0.0
+set keep-san 1
+sanhook ${iscsi-target}
+kernel ${boot-url}/memdisk iso raw 
+initrd ${boot-url}/iso/WinPE.iso
+boot
+
+:iscsi2
+set gateway 0.0.0.0
+set keep-san 1
+sanboot ${iscsi-target}
+boot
+</textarea>
+<br />
+<b>NOTE</b> - remember to change any references to <font class="file">${dhcp-server}</font> to <font class="file">${next-server}</font> if using ProxyDHCP.
+</p>
+
+
+
+
+<p>
+Click on one of the following for <font class="file">config.ini</font> settings (edit to reflect your own setup) -
+<ul>
+<li><b>DHCP</b> - <a href="txt/config_dhcp_ipxe1.txt">here</a></li>
+<li><b>Proxy DHCP</b> - <a href="txt/config_proxydhcp_ipxe1.txt">here</a></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+<a name="ipxe_scripts"></a>
+<h3 class="breaktop"><u>iPXE Scripts</u></h3>
+
+
+<p>
+<font class="file">iPXE</font> menus are essentially scripts. It's also possible to specify individual scripts for each stage of the iSCSI installation process by using the <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> option in <font class="file">config.ini</font>. For example, create a script in the TFTP root directory <font class="file">C:\pxesrv\files\iscsi1.ipxe</font> &gt; add <font class="file">altfilename=iscsi1.ipxe</font> to <font class="file">config.ini</font>. <b>NOTE</b> - remember to change any references to <font class="file">${dhcp-server}</font> to <font class="file">${next-server}</font> if using ProxyDHCP.
+</p>
+
+
+
+<p>
+<u>Stage 1</u> - Sample <font class="file">iPXE</font> script for Stage 1 - <br />
+<textarea style="font-size:12px" cols="80" rows="10" align=left wrap=off readonly>
+#!ipxe
+set boot-url http://${dhcp-server}
+set gateway 0.0.0.0
+set keep-san 1
+SANHOOK iscsi:${dhcp-server}::::iqn.iSCSI-target1
+kernel ${boot-url}/memdisk iso raw
+initrd ${boot-url}/iso/WinPE.iso
+boot
+</textarea>
+</p>
+
+
+<p>
+<u>Stage 2</u> - Either enter a path to a script as in the instructions above, or set the iSCSI <font class="file">Target</font> in <font class="file">Option 17 (Root Path)</font>. Settings required for <font class="file">opt17</font> in <font class="file">config.ini</font>
+<ul>
+<li><font class="file">opt17=iscsi:192.168.1.1::::iqn.iSCSI-target1</font></li>
+</ul>
+</p>
+
+<p>
+And/or in the <font class="file">Tiny PXE Server</font> GUI -
+<br />
+<img src="img/iscsirootpath.jpg" border=1>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

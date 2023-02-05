@@ -1,0 +1,386 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm" selected="selected">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>Installing Windows NT 5.*</u></h2>
+
+
+
+<p>
+The majority of the instructions in this page are duplicated in the <a class="glossary" href="win6x.htm">Installing Windows NT 6.*</a> section.
+</p>
+
+
+<p>
+Whilst there are alternative methods for installing Windows NT 5.* (Windows 2000/XP/2003) including <a class="glossary" href="ris.htm">Remote Installation Services</a>, it's also possible to run <font class="file">WINNT32.exe</font> from WinPE - this is covered below.
+</p>
+
+
+<p>
+<ul>
+<li><a class="glossary" href="win5x.htm#server">Configuring the Server</a></li>
+<li><a class="glossary" href="win5x.htm#share">Connect to the network share</a></li>
+<li><a class="glossary" href="win5x.htm#client">Configuring the Client</a></li>
+<li><a class="glossary" href="win5x.htm#setup.exe">Run winnt32.exe</a></li>
+</ul>
+</p>
+
+
+<p>
+<img src="img/xp1.jpg" border=2>
+</p>
+
+
+<a name="server"></a>
+<h3 class="breaktop"><u>Configuring the Server</u></h3>
+
+<p>
+Setup <font class="file">Tiny PXE Server</font> to include <font class="file">MistyPE</font> (or an alternative WinPE build - including <font class="file">boot.wim</font> from Windows installation media, <font class="file">WinRE</font>, etc) using the instructions in the <a class="glossary" href="winpe.htm">WinPE<a> section of this guide (copying <font class="file">boot.wim</font>, <font class="file">boot.sdi</font>, <font class="file">boot\BCD</font>, etc - <font class="file">filename=pxeboot.n12</font> in <font class="file">config.ini</font>).
+</p>
+
+
+
+<p>
+Using Windows XP as an example, copy the contents of your Windows XP installation CD to <font class="file">C:\pxesrv\files\winxp</font> (edit paths to reflect your own setup). Now share the <font class="file">C:\pxesrv\files\winxp</font> directory as sharename <font class="file">winxp</font>. 
+</p>
+
+
+
+<p>
+Start <font class="file">pxesrv.exe</font>. 
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="share"></a>
+<h3 class="breaktop"><u>Connect to the network share</u></h3>
+
+
+<p>
+Network boot the Client PC - loading <font class="file">WinPE</font>.
+</p>
+
+
+<p>
+Start network services if they are not started automatically (<font class="file">MistyPE</font> does not run the <font class="file">Wpeutil InitializeNetwork</font> command at startup).
+</p>
+
+
+
+
+
+<p>
+<u>Server setup</u> (information required for connecting to the server share <font class="file">winxp</font>) - 
+<ul>
+<li><b>IP Address</b> - 192.168.2.1</li>
+<li><b>Computer Name</b> - SERVER</li>
+<li><b>Account</b> - Admin</li>
+<li><b>Admin Account password</b> - mypassword</li>
+</ul>
+</p>
+
+
+
+<p>
+To connect to a network share from WinPE the following command syntax is used - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left readonly>
+
+net use DRIVE: \\REMOTE_COMPUTER\SHARE /u:ACCOUNT "PASSWORD" 
+</textarea>
+
+<p>
+Where -
+<ul>
+<li><b>DRIVE:</b> - mount point to be used (e.g. Z:). Alternatively use * to allocate an available drive letter.</li>
+</ul>
+
+<ul>
+<li><b>REMOTE_COMPUTER</b> - IP (v4) address of the computer containing the share (e.g. 192.168.2.1) - or alternatively use the Computer (NetBIOS) Name.</li>
+</ul>
+
+<ul>
+<li><b>SHARE</b> - name of network share on the REMOTE_COMPUTER (e.g. winxp).</li>
+</ul>
+
+<ul>
+<li><b>ACCOUNT</b> - a valid account/username for the REMOTE_COMPUTER (e.g. Admin)</li>
+</ul>
+
+<ul>
+<li><b>PASSWORD</b> - password for connecting to the account name used above. If password has not been set then use empty quotes "".</li>
+</ul>
+</p>
+
+<p>
+E.g. 
+<ul>
+<li><font class="file">net use Z: \\192.168.2.1\winxp /u:Admin "mypassword"</font></li>
+<li><font class="file">net use * \\SERVER\winxp /u:Admin "mypassword"</font></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<a name="client"></a>
+<h3 class="breaktop"><u>Configuring the Client</u></h3>
+
+
+<p>
+You will need to prepare the hard disk on the client system before running <font class="file">winnt32.exe</font> - create an active primary partition for the Windows installation if required. <font class="file">diskpart.exe</font> in WinPE can be used to prepare the disk. We'll assume in the instructions below that the volume to be used for the Windows Operating System is mounted as <b>C:</b>
+</p>
+
+
+
+<p>
+The Windows NT 5.* boot loader <font class="file">NTLDR</font> is loaded from code in the volume boot record - this code is added when formatting the volume. If the volume was formatted in WinPE 2.* or newer then the volume boot record code will need to be edited (WinPE 2.* adds code for <font class="file">BOOTMGR</font> - the windows NT 6.* boot loader). Use the <font class="file">bootsect.exe</font> tool with the following command (edit to reflect your own setup) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left readonly>
+
+bootsect.exe /nt52 C:
+</textarea>
+
+
+
+
+<p>
+Assuming there were no issues connecting to the network share, and the share was mounted as <b>Z:</b> - copy <font class="file">Z:\I386</font> to volume <b>C:</b>.
+</p>
+
+
+<p>
+Add a configuration file to <font class="file">C:\I386</font> - e.g. <font class="file">C:\I386\winnt.sif</font>. Contents of my <font class="file">winnt.sif</font> file -
+<br />
+<textarea style="font-size:12px" cols="80" rows="20" align=left readonly>
+
+;SetupMgrTag
+[Data]
+    AutoPartition=0
+    MsDosInitiated="0"
+    UnattendedInstall="Yes"
+
+[Unattended]
+    UnattendMode=FullUnattended
+    OemSkipEula=Yes
+    OemPreinstall=No
+    TargetPath=\WINDOWS
+    FileSystem=*
+
+[GuiUnattended]
+    AdminPassword="password"
+    EncryptedAdminPassword=NO
+    OEMSkipRegional=1
+    TimeZone=85
+    OemSkipWelcome=1
+
+[UserData]
+    ProductKey=xxxxx-xxxxx-xxxxx-xxxxx-xxxxx
+    FullName="ADMIN"
+    OrgName=""
+    ComputerName="SERVER" 
+
+[RegionalSettings]
+    LanguageGroup=1
+    SystemLocale=00000809
+    UserLocale=00000809
+    InputLocale=0809:00000809
+
+[Identification]
+    JoinWorkgroup=WORKGROUP
+
+[Networking]
+    InstallDefaultComponents=Yes
+</textarea>
+</p>
+
+
+
+
+<p>
+<font class="file">winnt.sif</font> settings can be found in <font class="file">ref.chm</font> (Extract from Windows source CD/files - it's in <font class="file">\SUPPORT\TOOLS\DEPLOY.CAB</font>). Alternatively refer to - <a class="glossary" target="_blank" href="http://unattended.msfn.org/unattended.xp/view/web/19/">http://unattended.msfn.org/unattended.xp/view/web/19/</a>
+</p>
+
+
+
+
+
+
+
+<a name="setup.exe"></a>
+<h3 class="breaktop"><u>Run winnt32.exe</u></h3>
+
+
+<p>
+Run the following command from a command prompt (edit to reflect your own setup) -
+<ul>
+<li><font class="file">C:\I386\WINNT32.exe /unattend5:C:\I386\WINNT.SIF /syspart:C: /tempdrive:C: /s:C:\I386 /noreboot</font></li>
+</ul>
+</p>
+
+
+
+
+
+
+<p>
+Alternatively use the following batch file (edit to reflect your own setup) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="15" align=left wrap=off readonly>
+
+@echo off
+
+SET DRIVE=C
+
+%DRIVE%:\I386\WINNT32.exe /unattend5:%DRIVE%:\I386\WINNT.SIF /syspart:%DRIVE%: /tempdrive:%DRIVE%: /s:%DRIVE%:\I386 /noreboot
+echo.
+echo.
+echo.
+pause
+
+:_end
+endlocal 
+</textarea>
+</p>
+
+
+
+<p>
+Contents of volume <b>C:</b> after running the above command -
+<br />
+<img src="img/xp2.jpg" border=2>
+</p>
+
+
+
+
+<p>
+Reboot the client PC to complete the Windows XP installation process -
+<br />
+<img src="img/xp_ris1.jpg" border=2>
+</p>
+
+
+
+
+
+<p class="breakbottom">
+</p>
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

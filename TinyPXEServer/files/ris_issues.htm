@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm" selected="selected">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>Troubleshooting RIS</u></h2>
+
+
+
+<p>
+Issues -
+<ul>
+<li><a class="glossary" href="ris_issues.htm#inf1">Hangs at Windows Setup (Please wait...)</a></li>
+<li><a class="glossary" href="ris_issues.htm#sys1">File caused an unexpected error (21)...1</a></li>
+<li><a class="glossary" href="ris_issues.htm#sys2">File caused an unexpected error (21)...2</a></li>
+<li><a class="glossary" href="ris_issues.htm#0xbb">BSOD - 0xBB Error Code</a></li>
+<li><a class="glossary" href="ris_issues.htm#splash">Hangs at Splash Screen</a></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+<a name="inf1"></a>
+<h3 class="breaktop"><u>Hangs at Windows Setup (Please wait...)</u></h3>
+
+
+<h4>Issue</h4>
+
+
+<p>
+The installation hangs on the following screen -
+</br>
+<img src="img/ris_missing_inf.jpg" border=2>
+</p>
+
+
+<p>
+<font class="file">Tiny PXE Server</font> log - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap=off readonly>
+23:34:54 NCR:requested VID:0x1022 PID:0x2000 Subsys:0x20001022
+23:34:54 NCR:could not find driver informations 1
+</textarea>
+</p>
+
+
+<h4>Solution</h4>
+
+<p>
+Add driver <font class="file">.inf</font> file for the client's network adapter to <font class="file">C:\pxesrv\files\INF</font> directory.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="sys1"></a>
+<h3 class="breaktop"><u>File caused an unexpected error (21)...1</u></h3>
+
+
+
+<h4>Issue</h4>
+
+<p>
+File <font class="file">*.sys</font> caused an error (E.g. <font class="file">File pcntpci5.sys caused an unexpected error (21) at line 3788 in d:\xpsp\base\boot\setup\setup.c.</font>) -
+</br>
+<img src="img/ris_missing_sys.jpg" border=2>
+</p>
+
+
+
+<p>
+<font class="file">Tiny PXE Server</font> log - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap=off readonly>
+10:44:30 TFTPd:DoReadFile OpenError:\winxp\i386\pcntpci5.sy_ Cannot open file "C:\pxesrv\files\winxp\i386\pcntpci5.sy_". The system cannot find the file specified
+10:44:30 TFTPd:DoReadFile OpenError:\winxp\i386\pcntpci5.sys Cannot open file "C:\pxesrv\files\winxp\i386\pcntpci5.sys". The system cannot find the path specified
+</textarea>
+</p>
+
+
+
+<p>
+The <font class="file">*.sys</font> specified in the driver <font class="file">*.inf</font> could not be loaded.
+</p>
+
+
+
+<h4>Solution</h4>
+
+<p>
+Copy the <font class="file">.sys</font> file (E.g. <font class="file">pcntpci5.sys</font>) to you Windows source file directory (e.g. <font class="file">C:\pxesrv\files\winxp\I386</font>)
+</p>
+
+
+
+
+
+
+
+
+<a name="sys2"></a>
+<h3 class="breaktop"><u>File caused an unexpected error (21)...2</u></h3>
+
+
+
+<h4>Issue</h4>
+
+<p>
+Error message <font class="file">File&nbsp;&nbsp;caused an unexpected error (21) at line 3788 in d:\xpsp\base\boot\setup\setup.c.</font> - no filename specified -
+</br>
+<img src="img/binl_inf_error.jpg" border=2>
+</p>
+
+
+
+<p>
+<font class="file">Tiny PXE Server</font> log - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap=off readonly>
+10:44:30 TFTPd:DoReadFile OpenError:\winxp\i386\._ Cannot open file "C:\pxesrv\files\winxp\i386\._". The system cannot find the file specified
+10:44:30 TFTPd:DoReadFile OpenError:\winxp\i386\ Cannot open file "C:\pxesrv\files\winxp\i386\". The system cannot find the path specified
+</textarea>
+</p>
+
+<p>
+Note that the client is attempting to load the following files - 
+<ul>
+<li>\winxp\i386\._</li>
+<li>\winxp\i386\</li>
+</ul>
+This appears to be an error with <font class="file">Tiny PXE Server</font>'s built in <font class="file">BINL</font> service not parsing the <font class="file">.inf</font> file correctly - consequently not identifying the correct <font class="file">.sys</font> driver.
+<p>
+
+
+
+<h4>Solution</h4>
+
+<p>
+This is an issue with <font class="file">Tiny PXE Server</font>'s built in <font class="file">BINL</font> service. Try using an alternative BINL service (see <a class="glossary" href="ris.htm#alt_binl">here</a>).
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<a name="0xbb"></a>
+<h3 class="breaktop"><u>BSOD - 0xBB Error Code</u></h3>
+
+
+
+<h4>Issue</h4>
+
+<p>
+Splash screen loads successfully, but is followed by a BSOD <font class="file">*** STOP: 0x000000BB</font> error - 
+</p>
+
+
+<p>
+</br>
+<img src="img/binl_nics.txt_error.jpg" border=2>
+</p>
+
+
+<h4>Solution</h4>
+
+<p>
+This may be an issue with <font class="file">Tiny PXE Server</font>'s built in <font class="file">BINL</font> service. Try using an alternative BINL service (see <a class="glossary" href="ris.htm#alt_binl">here</a>).
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="splash"></a>
+<h3 class="breaktop"><u>Hangs at Splash Screen</u></h3>
+
+
+
+<h4>Issue</h4>
+
+
+
+<p>
+Installation hangs at the splashscreen -
+</br>
+<img src="img/xp_splash.jpg" border=2>
+</p>
+
+<p>
+Log entry - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap=off readonly>
+10:51:58 TFTPd:DoReadFile:\winxp\i386\mrxsmb.sy_ B:1432 T:218709
+10:51:58 TFTPd:TransferComplete=True (192.168.2.2:39245)
+</textarea>
+</p>
+
+<p>
+This is most likely due to a share issue.
+</p>
+
+
+
+<h4>Solution</h4>
+
+<p>
+Ensure that the share containing your source files (e.g. <font class="file">C:\pxesrv\files</font>) is setup as a Null Session Share (see <a class="glossary" href="ris.htm#null">here</a>).
+</p>
+
+
+
+
+
+
+
+<p class="breakbottom">
+</p>
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>
+

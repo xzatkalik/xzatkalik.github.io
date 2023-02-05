@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm" selected="selected">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>Test System(s)</u></h2>
+
+
+
+<p>
+Two systems were used to test the methods covered in this document -
+<ul>
+<li><a class="glossary" href="test_system.htm#dhcp">DHCP Test Setup</a></li>
+<li><a class="glossary" href="test_system.htm#proxydhcp">ProxyDHCP Test Setup</a></li>
+</ul>
+</p>
+
+
+<p>
+On both test setups <font 
+class="file">Tiny PXE Server</font> was running from the following path - <font class="file">C:\pxesrv\pxesrv.exe</font>. All Network Bootstrap Programs and Operating System files/images were located in the path/directory <font class="file">C:\pxesrv\files\</font>.
+</p>
+
+<p>
+The firewall was disabled during tests to rule out any firewall configuration issues.
+</p>
+
+
+
+
+
+
+
+<a name="dhcp"></a>
+<h3 class="breaktop"><u>DHCP Test Setup</u></h3>
+
+
+<p>
+The DHCP setup consisted of two laptops connected with a CAT 5e crossover cable. The Server laptop was configured as follows - 
+<ul>
+<li>IP Address - 192.168.2.1</li>
+<li>Subnet Mask - 255.255.255.0</li>
+<li>Default gateway - not configured</li>
+<li>DNS server addresses - not configured</li>
+</ul>
+<br />
+<IMG SRC="img/test2.jpg" BORDER="1"></IMG>
+</p>
+
+
+
+
+<p>
+The majority of the operating systems were tested with the following settings in <font class="file">config.ini</font> (<font class="file">filename=pxelinux.0</font> edited as required to test the different Network Bootstrap Programs used in this guide) -
+<br />
+<textarea style="font-size:12px;" cols="40" rows="20" align=left readonly>
+[frmDHCPServer]
+top=43
+left=736
+
+[dhcp]
+root=files
+filename=pxelinux.0
+httpd=1
+binl=1
+start=1
+dnsd=1
+proxydhcp=0
+tftpd=1
+bind=1
+opt54=192.168.2.1
+opt1=255.255.255.0
+poolstart=192.168.2.10
+poolsize=5
+opt3=0.0.0.0
+opt6=0.0.0.0
+opt28=0.0.0.0
+opt43=0.0.0.0
+opt51=86400
+log=1
+</textarea>
+<br />
+Note that a number of the above settings may not be required for all operating systems - the HTTP daemon for example is not used with <font class="file">PXELINUX</font>, <font class="file">BINL</font> is only required for RIS installations of Windows, etc. Enabling these options however does not appear to have any adverse consequences.
+</p>
+
+
+<p>
+GUI when started with the above settings in <font 
+class="file">config.ini</font> -
+<br />
+<IMG SRC="img/test_dhcp.jpg" BORDER="1"></IMG>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="proxydhcp"></a>
+<h3 class="breaktop"><u>ProxyDHCP Test Setup</u></h3>
+
+
+<p>
+The ProxyDHCP setup consisted of a client PC (a laptop) and a Server (a desktop). The Server was connected to an ADSL router with a built in DHCP Server - hence the need for a ProxyDHCP service.
+</p>
+
+
+<p>
+As the majority of settings were configured via the routers built in DHCP server, the settings in <font 
+class="file">config.ini</font> were limited to the following - 
+<br />
+<textarea style="font-size:12px;" cols="40" rows="17" align=left readonly>
+[frmDHCPServer]
+top=43
+left=736
+
+[dhcp]
+root=files
+filename=pxelinux.0
+httpd=1
+binl=1
+start=1
+proxydhcp=1
+tftpd=1
+bind=1
+poolsize=5
+opt51=86400
+log=1
+</textarea>
+<br />
+Note that a number of the above settings may not be required for all operating systems - the HTTP daemon for example is not used with <font class="file">PXELINUX</font>, <font class="file">BINL</font> is only required for RIS installations of Windows, etc. Enabling these options however does not appear to have any adverse consequences.
+</p>
+
+
+<p>
+GUI when started with the above settings in <font 
+class="file">config.ini</font> -
+<br />
+<IMG SRC="img/test_proxydhcp.jpg" BORDER="1"></IMG>
+</p>
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

@@ -1,0 +1,42 @@
+NUX - wget full website - full site download
+BEST WAY TO DOWNLOAD FULL WEBSITE WITH WGET
+I show two ways, the first way is just one command that doesnt run in the background - the second one runs in the background and in a different "shell" so you can get out of your ssh session and it will continue either way
+First make a folder to download the websites to and begin your downloading: (note if downloading www.kossboss.com, you will get a folder like this: /websitedl/www.kossboss.com/ )
+
+(STEP1)
+
+mkdir /websitedl/
+cd /websitedl/
+
+(STEP2)
+
+1st way:
+    wget --limit-rate=200k --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla http://www.kossboss.com
+
+2nd way:
+IN THE  BACKGROUND DO WITH NOHUP IN FRONT AND & IN BACK
+    nohup wget --limit-rate=200k --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla http://www.kossboss.com &
+
+THEN TO VIEW OUTPUT ( it will put a nohup.out file where you ran the command):
+
+    tail -f nohup.out
+WHAT DO ALL THE SWITCHES MEAN:
+--limit-rate=200k: Limit download to 200 Kb /sec
+--no-clobber: don't overwrite any existing files (used in case the download is interrupted and
+resumed).
+--convert-links: convert links so that they work locally, off-line, instead of pointing to a website online
+--random-wait: Random waits between download - websites dont like their websites downloaded
+-r: Recursive - downloads full website
+-p: downloads everything even pictures (same as --page-requsites, downloads the images, css stuff and so on)
+-E: gets the right extension of the file, without most html and other files have no extension
+-e robots=off: act like we are not a robot - not like a crawler - websites dont like robots/crawlers unless they are google/or other famous search engine
+-U mozilla: pretends to be just like a browser Mozilla is looking at a page instead of a crawler like wget
+
+(DIDNT INCLUDE THE FOLLOWING AND WHY)
+-o=/websitedl/wget1.txt: log everything to wget_log.txt - didnt do this because it gave me no output on the screen and I dont like that id rather use nohup and & and tail -f the output from nohup.out
+-b: because it runs it in background and cant see progress I like "nohup <commands> &" better
+--domain=kossboss.com: didnt include because this is hosted by google so it might need to step into googles domains
+--restrict-file-names=windows:  modify filenames so that they will work in Windows as well. Seems to work good without it
+
+Comments
+You do not have permission to add comments.	

@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /><title>GNU Bash: Vánoční tipy – Frantovo.cz</title><link href="https://blog.frantovo.cz/c/370/GNU%20Bash%3A%20V%C3%A1no%C4%8Dn%C3%AD%20tipy" rel="canonical" /><link rel="alternate" type="application/atom+xml" title="Blog.Frantovo.cz – články (Atom)" href="https://blog.frantovo.cz/agregace/c/" /><link rel="alternate" type="application/atom+xml" title="Blog.Frantovo.cz – komentáře (Atom)" href="https://blog.frantovo.cz/agregace/k/" /><link rel="alternate" type="application/rss+xml" title="Blog.Frantovo.cz – články (RSS)" href="https://blog.frantovo.cz/agregace/c/?f=rss" /><link rel="alternate" type="application/rss+xml" title="Blog.Frantovo.cz – komentáře (RSS)" href="https://blog.frantovo.cz/agregace/k/?f=rss" /><link rel="alternate" type="application/atom+xml" title="Blog.Frantovo.cz – komentáře k tomuto článku (Atom)" href="https://blog.frantovo.cz/agregace/k/?c=370" /><link rel="alternate" type="application/rss+xml" title="Blog.Frantovo.cz – komentáře k tomuto článku (RSS)" href="https://blog.frantovo.cz/agregace/k/?c=370&amp;f=rss" /><link rel="StyleSheet" type="text/css" href="GNU-Bash_subory/styly.css" /><script src="GNU-Bash_subory/skripty.js" type="text/javascript"></script><meta content="Bash je nejpoužívanějším shellem, přes něj nejčastěji ovládáme systém z příkazové řádky a píšeme v něm skripty. Nahromadilo se mi tu pár poznámek týkajících se Bashe, tak tady jsou. Doufám, že to přispěje k pohodě vašich Vánoc." name="description" /><meta content="GNU/Linux, XML, taháky, Bash" name="keywords" /><meta content="Ing. František Kučera &lt;xkucf03/&gt;" name="author" /><meta content="index, follow" name="robots" /><style type="text/css">.vimvixen-console-frame {
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2147483647;
+  border: none;
+  background-color: unset;
+  pointer-events: none; }
+</style><style type="text/css">.vimvixen-hint {
+  background-color: yellow;
+  border: 1px solid gold;
+  font-weight: bold;
+  position: absolute;
+  text-transform: uppercase;
+  z-index: 2147483647;
+  font-size: 12px;
+  color: black;
+}
+</style></head><body><div id="tělo"><div id="sloupec"><div class="první"><a href="https://blog.frantovo.cz/"><img alt="FK~" src="GNU-Bash_subory/logo.png" /></a></div><div><p>Moje odkazy</p><ul><li><a href="https://podnik.frantovo.cz/">Nabídka služeb</a></li><li><a href="https://relational-pipes.globalcode.info/">Relational pipes</a></li><li><a href="https://sql-vyuka.cz/">SQL-Výuka.cz</a></li><li><a href="https://sql-dk.globalcode.info/">SQL-DK</a></li><li><a href="https://nekurak.net/">Nekuřák.cz</a></li><li><a href="https://i1984.cz/">i1984.cz</a></li><li><a href="https://telco.frantovo.cz/">Telekomunikační slovník</a></li></ul></div><div><p>Ostatní odkazy</p><ul><li><a href="https://www.gnu.org/">GNU.org</a></li><li><a href="https://www.fsf.org/">FSF.org</a></li><li><a href="https://www.fsfe.org/">FSFE.org</a></li><li><a href="https://www.eff.org/">EFF.org</a></li><li><a href="https://www.monca.cz/">Monča.cz</a></li><li><a href="https://www.abclinuxu.cz/">AbcLinuxu.cz</a></li></ul></div><div class="poslední"><div id="plakáty"><div style="display: none"><a href="https://www.eff.org/bloggers/lg/"><img alt="EFF: svoboda blogování" src="GNU-Bash_subory/eff-liberty.png" /></a></div><div style="display: none"><a href="https://www.fsf.org/campaigns/windows8"><img alt="Close Windows" src="GNU-Bash_subory/close-windows.png" /></a></div><div style="display: block"><a href="https://blog.frantovo.cz/c/107/Nejsem%20na%20Facebooku%20ani%20na%20Twitteru"><img alt="Nenajdete mě na Facebooku ani Twitteru" src="GNU-Bash_subory/no-facebook.png" /></a></div><div style="display: none"><a href="https://rozpad.eu/samolepka"><img alt="Rozpad EU" src="GNU-Bash_subory/rozpad-eu.png" /></a></div><div style="display: none"><a href="http://www.fsf.org/register_form?referrer=8314"><img alt="Jsem členem FSF" src="GNU-Bash_subory/fsf-member.png" /></a></div><div style="display: none"><a href="https://www.eff.org/"><img alt="Jsem členem EFF" src="GNU-Bash_subory/eff-2017mb.png" /></a></div><div style="display: none"><a href="https://blog.frantovo.cz/c/364/There%20Is%20No%20Cloud%20"><img alt="There Is No Cloud …just other people's computers." src="GNU-Bash_subory/thereisnocloud3-200x200.png" /></a></div></div></div></div><div id="obsah"><div id="toc"><p>Obsah článku:</p><ul>
+<li>
+<a href="#toc_1">Zkratky pro poslední parametr a poslední příkaz</a>
+</li>
+<li>
+<a href="#toc_2">Domovský, aktuální a předchozí adresář</a>
+</li>
+<li>
+<a href="#toc_3">Hledání souboru v podadresářích pomocí **</a>
+</li>
+<li>
+<a href="#toc_4">mkdir + cd v jednom příkazu</a>
+</li>
+<li>
+<a href="#toc_5">Dosazení procesu místo cesty k souboru</a>
+</li>
+<li>
+<a href="#toc_8">Proměnná proměnná</a>
+</li>
+<li>
+<a href="#toc_9">Nastavení proměnné z funkce</a>
+</li>
+<li>
+<a href="#toc_10">Čtení hodnot oddělených \0 do více proměnných</a>
+</li>
+<li>
+<a href="#toc_11">Typy příkazů</a>
+</li>
+<li>
+<a href="#toc_12">Built-in: vestavěné příkazy shellu</a>
+</li>
+<li>
+<a href="#toc_13">Formátování a zvýrazňování syntaxe</a>
+</li>
+<li>
+<a href="#toc_14">Escapování XML</a>
+</li>
+<li>
+<a href="#toc_15">Vícevláknové skripty resp. více procesů</a>
+</li>
+<li>
+<a href="#toc_16">Síťová komunikace přímo z Bashe</a>
+</li>
+<li>
+<a href="#toc_17">Barevný výstup: lolcat</a>
+</li>
+<li>
+<a href="#toc_18">Závěr</a>
+</li>
+</ul>
+</div><h1>GNU Bash: Vánoční tipy</h1><p class="infoČlánku">vydáno: 24. 12. 2018 13:37,
+			aktualizováno: 28. 4. 2019 01:17</p><div>
+<p>Bash je nejpoužívanějším shellem, přes něj nejčastěji ovládáme systém
+ z příkazové řádky a píšeme v něm skripty. Nahromadilo se mi tu pár 
+poznámek týkajících se Bashe, tak tady jsou. Doufám, že to přispěje 
+k pohodě vašich Vánoc.</p>
+<p class="obrázek">
+<a href="https://blog.frantovo.cz/s/1360/IMG_0472.JPG">
+<img src="GNU-Bash_subory/IMG_0472.JPG" alt="Vánoční strom 2018" title="Vánoční strom 2018" />
+</a>
+</p>
+
+</div>
+<div>
+
+
+<h2 id="toc_1">Zkratky pro poslední parametr a poslední příkaz</h2>
+<p>
+Často provádíme více operací s jedním souborem, např. mu nastavujeme 
+práva a upravujeme ho. Abychom nemuseli opakovaně psát jeho název, hodí 
+se znát zkratku <em>Alt+.</em> – ta nám vloží poslední parametr předchozího příkazu, což bývá typicky ten název souboru. Podobnou funkci má <code>!$</code>:
+</p>
+
+<pre>$ echo ahoj
+ahoj
+$ echo !$
+echo ahoj
+ahoj</pre>
+
+<p>Bash nám nejprve vypíše doplněný příkaz (v tomto případě <code>echo ahoj</code>) a následně příkaz spustí (zde výstup: <code>ahoj</code>). Oproti <em>Alt+.</em> ale nemůžeme parametr upravit, což se někdy hodí (např. chceme změnit příponu). Navíc opakovaným stiskem <em>Alt+.</em> dostaneme i starší parametry z historie.</p>
+
+<p>Pomocí <code>!!</code> můžeme dosadit celý předešlý příkaz se všemi jeho parametry:</p>
+
+<div class="highlight"><pre>apt install gimp <span class="c"># tohle selže, protože nejsme root</span>
+sudo !!          <span class="c"># zeptá se na heslo a spustí pod rootem apt install gimp</span>
+</pre></div>
+
+
+<p>Někdy se to hodí, i když častěji používám šipku nahoru (a Ctr+R) pro hledání v historii a <em>Alt+.</em> pro doplnění parametru předchozího příkazu.</p>
+
+<h2 id="toc_2">Domovský, aktuální a předchozí adresář</h2>
+
+<p>Asi všichni víme, že <code>~</code> znamená náš domovský adresář. Kromě toho ale existuje ještě <code>~+</code>, <code>~-</code> a <code>~uživatel</code>.</p>
+
+<div class="highlight"><pre><span class="nb">echo</span> ~+    <span class="c"># dosadí aktuální adresář</span>
+<span class="nb">echo</span> <span class="nv">$PWD</span>  <span class="c"># totéž ale s proměnnou, kterou lze používat v uvozovkách</span>
+<span class="nb">echo</span> ~-    <span class="c"># dosadí předchozí adresář</span>
+<span class="nb">echo</span> ~root <span class="c"># dosadí domovský adresář jiného uživatele</span>
+</pre></div>
+
+
+<p>Tyto zkratky můžeme použít např. při přesunech souborů nebo kopírování</p>
+
+<h2 id="toc_3">Hledání souboru v podadresářích pomocí **</h2>
+
+<p>Kromě známého otazníku (jeden libovolný znak) a hvězdičky (libovolný 
+počet libovolných znaků) podporuje Bash i dvě hvězdičky. Tato možnost 
+ale bývá většinou vypnutá a lze ji povolit pomocí <code>shopt</code>:</p>
+
+<div class="highlight"><pre>ll */soubor.txt    <span class="c"># vypíše soubory s tímto názvem v přímých podadresářích</span>
+ll **/soubor.txt   <span class="c"># vypíše totéž</span>
+<span class="nb">shopt</span> -s globstar
+ll **/soubor.txt   <span class="c"># tentokrát vypíše i soubory libovolně hluboko</span>
+</pre></div>
+
+
+<p>Tímto způsobem lze nahradit jednodušší vyhledávání, která bychom jinak dělali pomocí příkazů <code>find</code> a <code>xargs</code>.</p>
+
+<h2 id="toc_4">mkdir + cd v jednom příkazu</h2>
+
+<p>Velmi častou operací je vytvoření adresáře a následné přepnutí se do 
+něj. Proč ale zadávat dva příkazy, když stačí jeden? Můžeme si napsat 
+funkci, která vytvoří adresář a hned do něj vstoupí:</p>
+
+<div class="highlight"><pre>mkcdir<span class="o">()</span> <span class="o">{</span> mkdir <span class="s2">"$1"</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="s2">"$1"</span>; <span class="o">}</span>
+</pre></div>
+
+
+<p>Na rozdíl od <code>mkdir</code> ale podporuje jen jeden adresář a nelze jich vytvořit víc. Přidáním <code>for</code> cyklu by šlo funkci rozšířit tak, aby vytvořila všechny a vstoupila např. do toho posledního.</p>
+
+<h2 id="toc_5">Dosazení procesu místo cesty k souboru</h2>
+
+<p>Většina slušných nástrojů umí pracovat jako filtr tzn. číst ze 
+standardního vstupu a zapisovat na standardní výstup, a lze je tak 
+řetězit pomocí | rour. Některé programy to ale neumí a pracují pouze se 
+soubory. Někdy to ani jinak nejde, když má mít program víc 
+vstupů/výstupů. I v takovém případě existuje šance vyhnout se dočasným 
+souborům a poslat výstup jednoho programu na vstup druhého. Bash 
+podporuje tzv. <em>process substitution</em>. Díky tomu můžeme na místo 
+parametru, kde měla být cesta k souboru, dosadit program nebo i několik 
+dalších programů spojených rourami.</p>
+
+<p>Např. příkaz <code>paste</code> slouží k vypsání dvou souborů ve sloupcích vedle sebe. A díky <em>process substitution</em> to nemusí být jen soubory:</p>
+
+
+<div class="highlight"><pre>paste &lt;<span class="o">(</span><span class="nb">echo</span> -e <span class="s2">"A\nB\nC"</span><span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span> -e <span class="s2">"a\nb\nc"</span><span class="o">)</span>
+<span class="c"># nám vypíše:</span>
+<span class="c"># A       a</span>
+<span class="c"># B       b</span>
+<span class="c"># C       c</span>
+</pre></div>
+
+
+<p>Téhož výsledku dosáhneme pomocí:</p>
+
+<div class="highlight"><pre><span class="nb">echo</span> -e <span class="s2">"A\nB\nC"</span> | paste - &lt;<span class="o">(</span><span class="nb">echo</span> -e <span class="s2">"a\nb\nc"</span><span class="o">)</span>
+</pre></div>
+
+
+<p>Konvence, kterou mnoho programů dodržuje, je, že pokud jako název souboru uvedeme <code>-</code> bere se to jako standardní vstup nebo výstup. Pokud bychom chtěli pracovat se souborem, který se jmenuje <code>-</code>, zadáme ho jako <code>./-</code>
+</p>
+
+<p>Že <em>process substitution</em> není žádná magie, si ověříme takto:</p>
+
+<div class="highlight"><pre><span class="nb">echo</span> &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">"a"</span><span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">"b"</span><span class="o">)</span>
+<span class="c"># vypíše něco jako:</span>
+<span class="c"># /dev/fd/63 /dev/fd/62</span>
+</pre></div>
+
+
+<p>Vidíme, že příkaz <code>echo</code> dostal jako dva parametry cesty 
+k souborovým popisovačům, přes které mu Bash napojil vstupy či výstupy 
+jednotlivých příkazů uvedených v závorkách.</p>
+
+<p>Příkladem praktického využití je porovnání dvou adresářů:</p>
+
+<div class="highlight"><pre>diff &lt;<span class="o">(</span>ls <span class="s2">"adresář_1"</span><span class="o">)</span> &lt;<span class="o">(</span>ls <span class="s2">"adresář_2"</span><span class="o">)</span>
+</pre></div>
+
+
+<p>Tím zjistíme, zda se v adresářích nacházejí soubory se stejnými 
+názvy, případně jaké soubory kde přebývají. Neřešíme zde velikosti nebo 
+obsah souborů. Složitější porovnání můžeme dělat pomocí <code>find</code>, <code>sort</code>, <code>xargs</code> atd.</p>
+
+<p>
+Výstup (zápis do virtuálního souboru) funguje obdobně.
+Např. příkaz <code>strace</code> vypisuje systémová volání buď na 
+standardní chybový výstup
+nebo do souboru a umožňuje různým způsobem filtrovat a formátovat svůj 
+výstup.
+Co když ale potřebujeme filtrovat jinak nebo se jedná o program, který 
+žádné filtrování neumožňuje a chce zapisovat jen do nějakého souboru? 
+Díky Bashi můžeme programu podstrčit virtuální soubor, který ve 
+skutečnosti vede na vstup nějakého procesu a dále se nějak zpracovává, 
+aniž by se data ukládala na disk:
+</p>
+
+<div class="highlight"><pre>strace -o &gt;<span class="o">(</span>grep ahoj &gt;&amp;2<span class="o">)</span> <span class="nb">echo </span>ahoj
+<span class="c"># vypíše:</span>
+<span class="c"># execve("/bin/echo", ["echo", "ahoj"], 0x7fff71d98d98 /* 60 vars */) = 0</span>
+<span class="c"># ahoj</span>
+<span class="c"># write(1, "ahoj\n", 5)                   = 5</span>
+</pre></div>
+
+
+<p>První a třetí řádek procházejí od příkazu <code>strace</code>
+a do našeho terminálu se dostaly přes STDERR.
+Druhý řádek pochází z příkazu <code>echo</code> a do terminálu přišel normálně přes STDOUT.</p>
+
+<h3 id="toc_6">Rozdíl oproti rouře</h3>
+
+<p>
+Pro řetězení programů používáme obvykle rouru, což je mj. čitelnější protože čteme zleva doprava:
+</p>
+
+<div class="highlight"><pre><span class="nb">echo</span> -e <span class="s2">"a\nb\nc"</span> | <span class="k">while </span><span class="nb">read </span>x; <span class="k">do </span><span class="nb">echo</span> <span class="s2">"&gt;$x&lt;"</span>; <span class="nv">XXX</span><span class="o">=</span><span class="nv">$x</span>; <span class="k">done</span>
+<span class="c"># vypíše:</span>
+<span class="c"># &gt;a&lt;</span>
+<span class="c"># &gt;b&lt;</span>
+<span class="c"># &gt;c&lt;</span>
+</pre></div>
+
+
+<p>Téhož výstupu dosáhneme i tímto zápisem:</p>
+
+<div class="highlight"><pre><span class="k">while </span><span class="nb">read </span>x; <span class="k">do </span><span class="nb">echo</span> <span class="s2">"&gt;$x&lt;"</span>; <span class="nv">XXX</span><span class="o">=</span><span class="nv">$x</span>; <span class="k">done</span> &lt; &lt;<span class="o">(</span><span class="nb">echo</span> -e <span class="s2">"a\nb\nc"</span><span class="o">)</span>
+</pre></div>
+
+
+<p>Ovšem rozdíl je v tom, že <code>while</code> cyklus se teď spustil v rámci našeho původního shellu, a po dokončení tohoto cyklu tak máme k dispozici proměnnou <code>XXX</code>, ze které si můžeme přečíst hodnotu <code>c</code>.</p>
+
+<h3 id="toc_7">Složitější příklad</h3>
+
+<p>Tímto způsobem lze stavět i poměrně složitá potrubí (<em>pipeline</em>, česky také nazývané <em>kolony</em>),
+ ve kterých máme několik vstupů, data tečou nejdřív část cesty 
+samostatně a různě se transformují, pak se v jednom bodě spojí 
+a následně se mohou zase rozdvojit, projít dvěma různými transformacemi,
+ aby se nakonec zase cesty spojily v našem terminálu. Hypotetický 
+příklad:</p>
+
+<div class="highlight"><pre><span class="nb">echo </span>a b c | tr <span class="s1">' '</span> <span class="s1">'\n'</span> | paste - &lt;<span class="o">(</span><span class="nb">echo</span> -e <span class="s2">"x\ny\nz"</span><span class="o">)</span> <span class="se">\</span>
+    | tee &gt;<span class="o">(</span>tr <span class="s1">'[:lower:]'</span> <span class="s1">'[:upper:]'</span> &gt;&amp;2<span class="o">)</span> | sort -r
+</pre></div>
+
+
+<p>nám vypíše:</p>
+
+<div class="highlight"><pre>  A       X <span class="c"># ─╮</span>
+  B       Y <span class="c"># ─┼─ data zpracovaná první výstupní transformací</span>
+  C       Z <span class="c"># ─╯</span>
+  c       z <span class="c"># ─╮</span>
+  b       y <span class="c"># ─┼─ data zpracovaná druhou výstupní transformací</span>
+  a       x <span class="c"># ─╯</span>
+<span class="c"># │       │ </span>
+<span class="c"># │       ╰─ data z druhého vstupu</span>
+<span class="c"># ╰─ data z prvního vstupu</span>
+</pre></div>
+
+
+<p>Graficky znázorněno:</p>
+
+<pre>echo ─── tr ───╮           ╭─── tr ───── STDERR ───╮
+               ├── paste ──┤                       ├── terminál
+echo ──────────╯           ╰─── sort ─── STDOUT ───╯</pre>
+
+
+<p>Nicméně poskládat data z více vstupů dohromady není tak jednoduché, 
+jak to tady vypadá. A každopádně, pokud se do něčeho podobného pustíte, 
+doporučuji kód patřičně okomentovat a členit ho na menší funkce nebo 
+skripty.</p>
+
+
+<h2 id="toc_8">Proměnná proměnná</h2>
+
+<p>
+Bash dokáže být i hodně dynamický, což se mj. projevuje tím, že název 
+proměnné v kódu může být proměnná.
+Takže máme proměnnou proměnnou.
+Dá se to použít jako ukazatele nebo reference v jiných programovacích 
+jazycích,
+ale na rozdíl od nich neukazují proměnné proměnné na nějaké místo 
+v paměti nebo objekt, ale jedná se o obyčejný text, který se až nakonec 
+interpretuje jako název proměnné.
+To znamená, že s proměnnou proměnnou můžeme jako s textem pracovat 
+(prohledávat, nahrazovat, porovnávat atd.).
+</p>
+
+<div class="highlight"><pre><span class="nv">zzz</span><span class="o">=</span>PWD
+<span class="nb">echo</span> <span class="k">${</span><span class="p">!zzz</span><span class="k">}</span>   <span class="c"># vypíše aktuální adresář</span>
+<span class="nb">echo</span> <span class="nv">$PWD</span>      <span class="c"># vypíše totéž</span>
+<span class="nv">zzz</span><span class="o">=</span>HOME
+<span class="nb">echo</span> <span class="k">${</span><span class="p">!zzz</span><span class="k">}</span>   <span class="c"># vypíše domovský adresář</span>
+<span class="nb">echo</span> <span class="nv">$HOME</span>     <span class="c"># vypíše totéž</span>
+</pre></div>
+
+
+<p>
+Pokud tuhle vlastnost použijeme neuváženě, je to zaručený způsob jak 
+znepřehlednit naše skripty, tak abychom se v nich nevyznali ani my sami.
+Delší skript prolezlý proměnnými proměnnými bude často lepší smazat 
+a napsat znovu než se ho pokoušet upravit.
+</p>
+
+<p>Smysluplné použití existuje (ukážeme si níže), ale v takovém případě 
+je vhodné proměnné proměnné uzavřít do nějaké malé funkce nebo skriptu 
+a schovat tuto magii za nějaké srozumitelné rozhraní.</p>
+
+<h2 id="toc_9">Nastavení proměnné z funkce</h2>
+
+<p>Výhodou funkcí je to, že se kvůli nim nespouští nový proces, a kód se
+ vykoná v rámci stávajícího shellu. Což má mj. za následek to, že 
+z funkce můžeme měnit hodnoty proměnných v shellu, ze kterého jsme 
+funkci zavolali.</p>
+
+<div class="highlight"><pre>generuj_uuid<span class="o">()</span> <span class="o">{</span> <span class="nb">export </span><span class="nv">uuid</span><span class="o">=</span><span class="sb">`</span>uuidgen<span class="sb">`</span>; <span class="o">}</span>
+generuj_uuid   <span class="c"># zavoláme funkci definovanou výše</span>
+<span class="nb">echo</span> <span class="nv">$uuid</span>     <span class="c"># vypíšeme si proměnnou nastavenou při volání funkce</span>
+</pre></div>
+
+
+<p>Když to spojíme s proměnnými proměnnými, získáme:</p>
+
+<div class="highlight"><pre>generuj_uuid<span class="o">()</span> <span class="o">{</span> <span class="nb">export</span> <span class="nv">$1</span><span class="o">=</span><span class="sb">`</span>uuidgen<span class="sb">`</span>; <span class="o">}</span>
+generuj_uuid xxx
+<span class="nb">echo</span> <span class="nv">$xxx</span>
+</pre></div>
+
+
+<p>Pořád je to ale poněkud neužitečné, protože místo abychom funkci 
+říkali, jakou proměnnou nám má naplnit, stačí, když jednoduše návratovou
+ hodnotu funkce (resp. výstup příkazu) přiřadíme do dané proměnné:</p>
+
+<div class="highlight"><pre><span class="nv">xxx</span><span class="o">=</span><span class="sb">`</span>uuidgen<span class="sb">`</span>
+<span class="nb">echo</span> <span class="nv">$xxx</span>
+</pre></div>
+
+
+<p>Smysl to začne mít ve chvíli, kdy potřebujeme naplnit více proměnných najednou, což si ukážeme hned v následujícím příkladu.</p>
+
+<h2 id="toc_10">Čtení hodnot oddělených \0 do více proměnných</h2>
+
+<p>Nedávno jsem řešil úkol, jak číst proud hodnot oddělených nulovým 
+bajtem, kde hodnoty jsou členěné do záznamů tak, že známe počet atributů
+ záznamu (sloupců) a záznamy následují hned za sebou (není mezi nimi 
+jiný oddělovač než mezi samotnými hodnotami). Vhodným oddělovačem je 
+nulový bajt <code>\0</code>, protože ten se v textových datech 
+nevskytuje (kdybychom potřebovali přenášet binární data, která nulové 
+bajty obsahovat mohou, už bychom si s takto jednoduchým formátem 
+nevystačili a museli bychom hodnoty buď <em>escapovat</em> nebo na začátku vždy uvádět jejich délky). Data vypadají např. takto:</p>
+
+<div class="highlight"><pre><span class="nb">printf</span> <span class="s1">'a\0aa\0aaa\0b\0bb\0bbb\0'</span> | xargs -0 -n1 <span class="nb">echo</span>
+</pre></div>
+
+
+<p>Záznamy mají vždy tři atributy, první záznam je <code>a,aa,aaa</code> a druhý <code>b,bb,bbb</code>.
+Tohle je mimochodem asi nejjednodušší způsob, jak zapsat dvourozměrnou 
+strukturu (tabulku) ve formě jednorozměrné struktury (pole). Akorát si 
+musíme někde bokem předat informaci, kolik atributů záznam má (např. si 
+dohodnout, že před hodnotami bude uveden počet atributů oddělený zase 
+tím samým oddělovačem).
+Podobným způsobem lze zapisovat mapy – v poli budou liché prvky klíče 
+a sudé hodnoty.</p>
+
+<p>
+Ke čtení ze standardního vstupu do proměnné slouží příkaz <code>read</code>.
+Používá se např. když chceme, aby uživatel zadal nějakou hodnotu (pak lze nastavit i <em>prompt</em> a předvyplněný text), nebo když zpracováváme data ze vstupního proudu.
+Tento příkaz umí naplnit i více proměnných. Ovšem předpokládá jiný oddělovač hodnot a jiný oddělovač záznamů.
+Nepodařilo se mi ho (čistě pomocí parametrů) přimět, aby četl formát popsaný výše.
+</p>
+
+<p>
+Úlohu lze ale řešit tím, že si definujeme pomocnou funkci a využijeme 
+v ní znalosti z předchozích příkladů: proměnné proměnné a plnění 
+proměnných z funkce.
+Funkci jsem pojmenoval <code>read_nullbyte()</code> a vypadá takto:
+</p>
+
+<div class="highlight"><pre>read_nullbyte<span class="o">()</span> <span class="o">{</span> <span class="k">for </span>v in <span class="s2">"$@"</span>; <span class="k">do </span><span class="nb">export</span> <span class="s2">"$v"</span>; <span class="nb">read</span> -r -d <span class="s1">''</span> <span class="s2">"$v"</span>; <span class="k">done</span> <span class="o">}</span>
+</pre></div>
+
+
+<p>A používá se následujícím způsobem:</p>
+
+<div class="highlight"><pre><span class="nb">printf</span> <span class="s1">'a\0aa\0aaa\0b\0bb\0bbb\0'</span> <span class="se">\</span>
+    | <span class="k">while </span>read_nullbyte p1 p2 p3; <span class="k">do </span><span class="nb">echo</span> <span class="s2">"záznam: p1=$p1 p2=$p2 p3=$p3"</span>; <span class="k">done</span>
+
+<span class="c"># vypíše nám:</span>
+<span class="c"># záznam: p1=a p2=aa p3=aaa</span>
+<span class="c"># záznam: p1=b p2=bb p3=bbb</span>
+</pre></div>
+
+
+<p>Je tedy podobná původnímu příkazu <code>read</code>, kde jsme rovněž 
+zadávali jako parametry názvy proměnných, které chceme naplnit, akorát 
+zde nemusíme definvoat oddělovač, protože ten je vždy <code>\0</code>.</p>
+
+<p>V diskusi na AbcLinuxu přišel Andrej s alternativním řešením pomocí <a href="https://www.abclinuxu.cz/poradna/linux/show/442570#9">readarray</a>:</p>
+
+<div class="highlight"><pre><span class="nb">printf</span> <span class="s1">'a\0b\0c\0d'</span> | <span class="k">for</span> <span class="o">((</span>;;<span class="o">))</span>; <span class="k">do</span>
+<span class="k">    </span>readarray -d <span class="s1">$'\0'</span> -n 2 -t array
+    <span class="o">((</span>! <span class="k">${#</span><span class="nv">array</span><span class="p">[@]</span><span class="k">}</span><span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nb">break</span>
+<span class="nb">    echo</span> <span class="s2">"${array[@]@A}"</span>
+<span class="k">done</span>
+</pre></div>
+
+
+<p>Výhodou je, že nepotřebujeme definovat pomocnou funkci, ale na druhou
+ stranu musíme pracovat s pozicemi atributů v poli a nemáme je naplněné 
+v pojmenovaných proměnných.</p>
+
+<h2 id="toc_11">Typy příkazů</h2>
+
+<p>
+V shellu zadáváme příkazy a pracujeme s nimi jednotným způsobem – zadáme
+ název příkazu a pak volitelně jeho parametry oddělené mezerami (pokud 
+parametr obsahuje mezery, dáme ho do uvozovek nebo apostrofů). Funguje 
+u nich napovídání tabulátorem, historie, lze je používat v rourách atd.
+Ovšem tyto příkazy – přestože se navenek chovají stejně – mohou být 
+různých typů:
+</p>
+
+<ul>
+<li>
+<strong>programy</strong> – jsou uložené v souboru na disku, mohou to být <a href="https://blog.frantovo.cz/c/349/binfmt_misc%3A%20spou%C5%A1t%C3%ADme%20javovsk%C3%A9%20programy%20podobn%C4%9B%20jako%20nativn%C3%AD%20bin%C3%A1rky">binárky</a> nebo skripty, případně symbolické odkazy na ně; hledají se v tzv. cestě – proměnná <code>$PATH</code>
+</li>
+<li>
+<strong>aliasy</strong> – zkratky pro jiné příkazy a jejich parametry; jsou definované typicky v <code>~/.bashrc</code>, nějakém z něj načítaném souboru nebo ad-hoc v rámci aktuálního shellu; příklad: <code>alias ll='ls -alF'</code>
+</li>
+<li>
+<strong>funkce</strong> – definují se na stejných místech jako aliasy; ukázky jsou výše, např. <code>read_nullbyte()</code>
+</li>
+<li>
+<strong>vestavěné příkazy shellu</strong> – tzv. <em>built-in</em> – jsou buď zakompilované v Bashi nebo se načítají z dynamických knihoven; můžeme si psát i vlastní (viz níže)</li>
+<li>
+<strong>klíčová slova shellu</strong> – v některých případech se používají podobně jako příkazy (např. <code>time</code>), ale většinou se chovají dost odlišně – je to součást jazyka a Bash je <em>parsuje</em>/interpretuje dříve</li>
+</ul>
+
+<p>
+Někdy si ani nemusíme všimnout, že nepracujeme s programem, ale s vestavěným příkazem.
+Např. <code>echo</code> je jak binárka v souboru <code>/bin/echo</code>,
+ tak vestavěný příkaz.
+Ostatně řada často používaných příkazů byla postupně přepsána 
+z původních externích programů na vestavěné příkazy Bashe. Jejich 
+spouštění je pak výrazně efektivnější, protože se nevytváří nový proces,
+ ale pouze se zavolá nějaká céčkovská funkce.
+</p>
+
+<p>Typ příkazu zjistíme takto:</p>
+
+<div class="highlight"><pre><span class="nb">builtin type</span> -type ll       <span class="c"># alias</span>
+<span class="nb">builtin type</span> -type uname    <span class="c"># file</span>
+<span class="nb">builtin type</span> -type <span class="nb">time</span>     <span class="c"># keyword</span>
+<span class="nb">builtin type</span> -type ls       <span class="c"># alias</span>
+<span class="nb">builtin type</span> -type sleep    <span class="c"># file</span>
+<span class="nb">builtin type</span> -type <span class="nb">echo</span>     <span class="c"># builtin</span>
+<span class="nb">builtin type</span> -type <span class="nb">kill</span>     <span class="c"># builtin</span>
+<span class="nb">builtin type</span> -type <span class="k">for</span>      <span class="c"># keyword</span>
+<span class="nb">builtin type</span> -type <span class="s1">'[['</span>     <span class="c"># keyword</span>
+<span class="nb">builtin type</span> -type <span class="s1">'['</span>      <span class="c"># builtin</span>
+</pre></div>
+
+
+<p>případně:</p>
+
+<div class="highlight"><pre><span class="nb">type </span>uname                  <span class="c"># uname je /bin/uname</span>
+<span class="nb">type time</span>                   <span class="c"># time je klíčové slovo shellu</span>
+</pre></div>
+
+
+<p>
+Pokud chceme spustit binárku místo vestavěného příkazu, uvedeme celou její absolutní nebo relativní cestu:
+</p>
+
+<div class="highlight"><pre><span class="nb">echo</span> --version
+/bin/echo --version
+</pre></div>
+
+
+<p>Výstup je v tomto případě odlišný, i když se jinak obě implementace chovají celkem podobně.</p>
+
+<p>
+Zatímco dokumentaci k programům hledáme obvykle v manuálových stránkách (např. <code>man echo</code>),
+nápovědu k vestavěným příkazům získáme pomocí příkazu help např. <code>help echo</code>.
+</p>
+
+<p>
+Všechny příkazy určitého typu si můžeme vypsat pomocí <code>compgen</code> (používá se pro napovídání tabulátorem, <em>Bash completion</em>):
+</p>
+
+<div class="highlight"><pre><span class="nb">compgen</span> -c                  <span class="c"># binárky</span>
+<span class="nb">compgen</span> -a                  <span class="c"># aliasy</span>
+<span class="nb">compgen</span> -k                  <span class="c"># klíčová slova</span>
+<span class="nb">compgen</span> -A <span class="k">function</span>         <span class="c"># funkce</span>
+<span class="nb">compgen</span> -A <span class="k">function</span> -abck   <span class="c"># všechno dohromady</span>
+</pre></div>
+
+
+<h2 id="toc_12">Built-in: vestavěné příkazy shellu</h2>
+
+<p>
+Aby vestavěné příkazy nebyly taková magie, zkusíme si nějaký zkompilovat a načíst.
+Odrazit se můžeme od příkladů, které jsou součástí zdrojových kódů Bashe.
+</p>
+
+
+<div class="highlight"><pre>tar xvzf bash-4.4.18.tar.gz
+<span class="nb">cd </span>bash-4.4.18/
+./configure
+make -j8
+<span class="nb">cd </span>examples/loadables/
+make -j8 all others
+find -type f -executable | xargs file
+</pre></div>
+
+
+<p>
+Poslední příkaz nám vypíše seznam příkladů, které se nám zkompilovaly, a z výpisu vidíme, že se jedná o sdílené knihovny (<em>ELF ... shared object ... dynamically linked</em>).
+Jeden příklad si načteme, prozkoumáme, spustíme a zase dáme pryč:
+</p>
+
+
+<div class="highlight"><pre><span class="nb">type </span>hello                 <span class="c"># -bash: type: hello: nenalezeno</span>
+<span class="nb">enable</span> -f ./hello hello    <span class="c"># hello builtin loaded</span>
+<span class="nb">type </span>hello                 <span class="c"># hello je součást shellu</span>
+hello                      <span class="c"># hello world</span>
+<span class="nb">enable</span> -d hello            <span class="c"># hello builtin unloaded</span>
+<span class="nb">type </span>hello                 <span class="c"># -bash: type: hello: nenalezeno</span>
+</pre></div>
+
+
+<p>Pro opakované ladění a různé experimentování je lepší pouštět příkaz v novém shellu:</p>
+
+<div class="highlight"><pre>bash -c <span class="s2">"enable -f ./hello hello; help hello; hello"</span>
+</pre></div>
+
+
+<p>
+Na příkladu <code>hello.c</code> vidíme i to, že dokumentace k příkazu je jeho součástí a načte se automaticky s ním. Pak je dostupná přes <code>help hello</code> a dokonce je i lokalizovaná.
+Viz <code>../../po/cs.po</code> (pokud překlad neexistuje, zobrazí se původní text uvedený ve zdrojáku).
+</p>
+
+
+
+<p>Pro programátory v jazyce C bude triviální napsat si vlastní 
+vestavěný příkaz, a rozšířit si tak možnosti Bashe. Výhodou oproti 
+programům psaným v C je vyšší efektivita (nemusí se spouštět nový 
+proces) a to, že jsme uvnitř dané instance Bashe a můžeme s ní pracovat 
+lépe, než kdyby to byl náš rodičovský proces. Nicméně jak se <a href="http://www.catb.org/~esr/writings/unix-koans/ten-thousand.html">říká</a>:</p>
+
+<blockquote>
+<p>There is more Unix-nature in one line of shell script than there is in ten thousand lines of C.</p>
+</blockquote>
+
+<p>Nevýhodou je také to, že když uděláme chybu v programu, tak nám sletí
+ celý Bash a ne jen jeden příkaz (z čehož by se šlo ve skriptu zotavit 
+a nějak na to zareagovat, zatímco v případě vestavěné funkce nám skript 
+okamžitě skončí).</p>
+
+<p>
+Většinou k rozšiřování Bashe bohatě stačí napsat si vlastní funkci nebo 
+vytvořit alias. A ani spouštění externích binárek nebo skriptů není 
+problém, pokud je nevoláme v cyklu pořád dokola.
+Zajímavá by možná byla implementace ovládání <a href="https://blog.frantovo.cz/c/355/GPIO%20v%C2%A0Raspberry%20Pi%20jako%20soubory">GPIO</a>,
+ která by takto byla efektivnější než zápisy do virtuálních souborů nebo
+ spouštění externích binárek.
+Případně nějaké hackování Bashe, kde bychom mohli využít toho, že náš 
+céčkový kód běží jako součást daného shellu a může s ním komunikovat 
+zevnitř pomocí céčkových funkcí.
+</p>
+
+<h2 id="toc_13">Formátování a zvýrazňování syntaxe</h2>
+
+<p>
+Když stáhneme nějaká strukturovaná data přes <code>wget</code> nebo <code>curl</code>,
+často dnes bývají ve formátech XML nebo JSON, ale protože jsou určena pro strojové zpracování,
+bývají dost nečitelná.
+To můžeme snadno napravit vhodným odsazením a obarvením syntaxe.
+K tomu si definujeme pomocné funkce nebo skripty:
+</p>
+
+<div class="highlight"><pre>formátuj-xml<span class="o">()</span>  <span class="o">{</span> xmllint --format --encode utf8 - | pygmentize -l xml;  <span class="o">}</span>
+formátuj-json<span class="o">()</span> <span class="o">{</span> python3 -mjson.tool              | pygmentize -l json; <span class="o">}</span>
+</pre></div>
+
+
+<p>Příkazy pak používáme v rouře jako filtr. Delší texty je lepší číst pomocí <code>less</code>:</p>
+
+<div class="highlight"><pre>curl https://blog.frantovo.cz/agregace/c/ | formátuj-xml | less -RSi
+</pre></div>
+
+
+<h2 id="toc_14">Escapování XML</h2>
+
+<p>Přestože Bash (nebo obecně shell) není zrovna prostředí, ve kterém 
+bychom chtěli konstruovat XML, můžeme se někdy do takové situace dostat.
+Pokud jde jen o generování (nikoli čtení), je to jednoduchý úkol, který 
+se dá snadno zvládnout.
+Akorát je třeba správně ošetřit všechny vkládané hodnoty, aby nám 
+nenarušily strukturu XML dokumentu.
+Toho dosáhneme tímto příkazem:
+</p>
+
+<div class="highlight"><pre>sed -e <span class="s1">'s/&amp;/\&amp;amp;/g'</span> -e <span class="s1">'s/&lt;/\&amp;lt;/g'</span> <span class="se">\</span>
+    -e <span class="s1">'s/&gt;/\&amp;gt;/g'</span>  -e <span class="s1">'s/"/\&amp;quot;/g'</span> -e <span class="s2">"s/'/\&amp;apos;/g"</span>
+</pre></div>
+
+
+<p>
+Příkaz funguje jako filtr a je vhodné si ho uložit do nějakého skriptu 
+nebo funkce pro opakované použití.
+Případně tento nástroj můžeme udělat obojetný, aby uměl pracovat jak se 
+standardním vstupem, tak s daty zadanými ve formě argumentů na příkazové
+ řádce:
+</p>
+
+<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span><span class="o">=</span> 0 <span class="o">]</span>; <span class="k">then</span>
+<span class="k">    </span>sed -e <span class="s1">'s/&amp;/\&amp;amp;/g'</span> -e <span class="s1">'s/&lt;/\&amp;lt;/g'</span> <span class="se">\</span>
+        -e <span class="s1">'s/&gt;/\&amp;gt;/g'</span>  -e <span class="s1">'s/"/\&amp;quot;/g'</span> -e <span class="s2">"s/'/\&amp;apos;/g"</span>
+<span class="k">else</span>
+<span class="k">    </span><span class="nb">echo</span> -n <span class="s2">"${@}"</span> | <span class="nv">$0</span>;
+<span class="k">fi</span>
+</pre></div>
+
+
+<p>Pak nám budou fungovat obě varianty:</p>
+
+<div class="highlight"><pre><span class="nv">XXX</span><span class="o">=</span><span class="s1">'nějaká &lt;ošklivá&gt; hodnot&amp; obsahující speciální &lt;&lt;&lt;znaky&gt;&gt;&gt;'</span>
+<span class="nb">echo</span> <span class="s2">"&lt;moje-xml&gt;$(escapuj-xml $XXX)&lt;/moje-xml&gt;"</span>              | xmllint -
+<span class="nb">echo</span> <span class="nv">$XXX</span> | escapuj-xml | <span class="nb">echo</span> <span class="s2">"&lt;moje-xml&gt;$(cat)&lt;/moje-xml&gt;"</span> | xmllint -
+</pre></div>
+
+
+<p>Validitu XML dokumentu si zkontrolujeme nástrojem <code>xmllint</code>.
+ Příkaz ošetřuje i apostrofy a uvozovky, takže jde použít i pro hodnoty 
+atributů a to bez ohledu na to, zda je atribut v uvozovkách nebo 
+apostrofech.</p>
+
+<h2 id="toc_15">Vícevláknové skripty resp. více procesů</h2>
+
+<p>
+Běžný skript se provádí jako posloupnost příkazů v jednom vlákně.
+V Bashi ale můžeme psát i vícevláknové programy pro paralelní 
+zpracování. Resp. nejsou to vlákna, ale procesy, kterých můžeme spustit 
+víc.
+</p>
+
+<p>Příkaz/proces spustíme na pozadí jednoduše tak, že na jeho konec místo <code>;</code> napíšeme <code>&amp;</code>.
+ Takto můžeme spustit libovolné množství paralelně běžících procesů 
+a pokud nás nezajímá, jak a kdy doběhnou, máme hotovo. Pokud nás to 
+zajímá, tak si zjistíme PID procesu spuštěného na pozadí a později si 
+počkáme na jeho dokončení. Příklad:</p>
+
+<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+
+<span class="o">(</span>sleep 1; <span class="nb">echo</span> <span class="s2">"ahoj"</span> | <span class="k">while </span><span class="nb">read </span>x; <span class="k">do </span><span class="nb">echo</span> <span class="s2">"přijato: $x"</span>; <span class="nb">exit </span>123; <span class="k">done</span><span class="o">)</span>&amp;
+
+<span class="nv">pid</span><span class="o">=</span><span class="nv">$!</span>
+
+<span class="c"># Tady budeme něco dělat a druhý proces zatím běží na pozadí…</span>
+
+<span class="c"># sleep 2;</span>
+<span class="nb">echo</span> <span class="s2">"1: čekám na PID $pid"</span>;
+<span class="nb">wait</span> <span class="nv">$pid</span>;
+<span class="nb">echo</span> <span class="s2">"2: proces $pid doběhl s výsledkem $?"</span>;
+</pre></div>
+
+
+<p>
+Proces běžící na pozadí nemusí být jen externí program, může to být 
+i část našeho skriptu (viz obsah závorky na prvním řádku). Nemůžeme 
+z něj nastavovat proměnné, ale můžeme s rodičovským procesem komunikovat
+ pomocí návratového kódu – v příkladu: 123 – ten se k nám totiž dostane 
+jako návratový kód příkazu <code>wait</code> a přečteme si ho z proměnné <code>$?</code>.
+ Tím si můžeme zpátky předat informaci, zda proces doběhl v pořádku (0),
+ nebo zda a k jakému výjimečnému stavu došlo (různé nenulové hodnoty). 
+Pokud bychom potřebovali předat více dat nebo nějaká strukturovaná data,
+ tak bychom je museli uložit do souboru nebo použít nějakou formu IPC 
+(meziprocesové komunikace).
+</p>
+
+<p>Operační systém poskytuje řadu možností, jak IPC řešit – System V Message Queues (MQ), Semafory, Sdílená paměť, <a href="https://blog.frantovo.cz/c/42/Pos%C3%ADl%C3%A1n%C3%AD%20zpr%C3%A1v%20pomoc%C3%AD%20fronty%20(POSIX%20MQ)">POSIX MQ</a>,
+ POSIX Semafory, POSIX Sdílená paměť a různé formy soketů (jako TCP, 
+UDP, SCTP nebo unixové doménové sokety). Dobrý přehled poskytuje kniha <a href="http://man7.org/tlpi/index.html">The Linux Programming Interface</a>
+ (Michael Kerrisk). Kromě toho existuje spousta nadstaveb/abstrakcí 
+a příslušných knihoven postavených nad těmito základními formami IPC.</p>
+
+<p>Zde už se dostáváme poněkud nad rámec <em>běžného skriptování v shellu</em>
+ – pokud řešená úloha vyžaduje paralelizaci a koordinaci více 
+vláken/procesů, pravděpodobně sáhneme po nějakém programovacím jazyku. 
+Nicméně tyto věci lze řešit i v Bashi. Můžeme např. napsat <a href="https://blog.frantovo.cz/c/371/Z%C3%A1lohujeme%20internet%3A%20Zdrojov%C3%A9%20k%C3%B3dy">asynchronní skript založený na posílání zpráv mezi více procesy</a>.
+ K jejich koordinaci se dají použít unixové doménové sokety (UDS) 
+konkrétně jejich datagramová varianta. Pro vytváření těchto soketů 
+a posílání zpráv použijeme příkaz <code>socat</code>:</p>
+
+<div class="highlight"><pre><span class="c"># V jednom procesu budeme čekat na zprávu:</span>
+<span class="nv">zprava</span><span class="o">=</span><span class="k">$(</span>socat -u unix-recvfrom:./můj-soket -<span class="k">)</span>;
+<span class="nb">echo</span> <span class="s2">"Přijata zpráva: $zprava"</span>;
+
+<span class="c"># A z druhého ji odešleme:</span>
+<span class="nb">echo</span> <span class="s2">"Ahoj, jak se máš?"</span> | socat -u - unix-send:./můj-soket
+</pre></div>
+
+
+<p>
+Program <code>socat</code> při použití <code>recvfrom</code> skončí po přijetí prvního datagramu.
+To se hodí např. v případech, kdy nám stačí notifikace o tom, že něco doběhlo (a jak), a pak pokračujeme dál.
+Pokud ale chceme zpracovávat více událostí/zpráv stejného typu, použijeme volbu <code>recv</code>:
+</p>
+
+<div class="highlight"><pre><span class="c"># Přijímáme a průběžně zpracováváme události:</span>
+socat -u unix-recv:./můj-soket - | <span class="k">while </span>read_nullbyte zprava; <span class="k">do</span>
+<span class="k">    </span><span class="nb">echo</span> <span class="k">$(</span>date --iso-8601<span class="o">=</span>s<span class="k">)</span> <span class="s2">"Přijata zpráva: $zprava"</span>;
+<span class="k">done</span>
+
+<span class="c"># A z jiného vlákna posíláme zprávy:</span>
+<span class="nb">printf</span> <span class="s2">"ahoj\0"</span> | socat -u - unix-send:./můj-soket
+</pre></div>
+
+
+<p>Nulový bajt <code>\0</code> použijeme k vyznačení hranic mezi zprávami. Ty jsou u datagramů sice dané, ale při následném zpracování (výstup příkazu <code>socat</code>
+ předáváme rourou dál) by se nám mohly ztratit a nevěděli bychom, kde 
+jedna zpráva končí a kde začíná druhá. Zpráva se může skládat i z více 
+částí, které si načteme do více proměnných – viz kapitola o funkci <code>read_nullbyte()</code>.</p>
+
+<p>Místo UDS bychom také mohli použít některý druh síťových soketů (TCP,
+ UDP, SCTP…) a distribuovat běh našeho skriptu napříč několika počítači.
+ Ovšem tam už je většinou potřeba řešit bezpečnost a šifrování… ale 
+hlavně při takto složitém návrhu už budeme pravděpodobně narážet na 
+hranice možností Bashe při ošetřování různých výjimečných stavů a ten 
+kód nemusí být už moc hezký a přehledný.</p>
+
+
+
+<h2 id="toc_16">Síťová komunikace přímo z Bashe</h2>
+
+<p>
+Ano, můžeme použít <code>wget</code>, <code>curl</code> nebo <code>socat</code>, ale věděli jste, že lze navázat síťové spojení přímo z Bashe bez použití dalších programů?
+Podle hesla „vše je soubor“ nám Bash zpřístupňuje tato rozhraní ve formě virtuálních souborů v <code>/dev/tcp/</code> a <code>/dev/udp/</code>. 
+Následujícím příkazem např. pošleme datagram protokolem UDP na <em>localhost</em> a port 9999:
+</p>
+
+<div class="highlight"><pre><span class="nb">echo</span> <span class="s2">"ahoj, jak se máš?"</span> &gt; /dev/udp/localhost/9999
+</pre></div>
+
+
+<p>Aby to k něčemu bylo, je potřeba, aby na druhé straně někdo naslouchal. Např. socat:</p>
+
+<div class="highlight"><pre>socat UDP-LISTEN:9999,fork STDOUT
+</pre></div>
+
+
+<p>Soubory, do kterých zapisujeme, ve skutečnosti neexistují a v jiném shellu nebo programu to fungovat nebude:</p>
+
+<div class="highlight"><pre>bash -c <span class="s1">'echo ahoj &gt; /dev/udp/localhost/9999'</span> <span class="c"># odešle datagram</span>
+sh   -c <span class="s1">'echo ahoj &gt; /dev/udp/localhost/9999'</span> <span class="c"># vypíše chybu:</span>
+<span class="c"># sh: 1: cannot create /dev/udp/localhost/9999: Directory nonexistent</span>
+</pre></div>
+
+
+<p>Komunikace přes TCP je trochu složitější, protože je stavová:</p>
+
+<div class="highlight"><pre><span class="c"># navážeme TCP spojení</span>
+<span class="c"># a napojíme ho na souborový popisovač (vybereme si nějaké číslo vyšší než 2):</span>
+<span class="nb">exec </span>3&lt;&gt;/dev/tcp/frantovo.cz/80
+
+<span class="c"># odešleme požadavek</span>
+<span class="c"># (v tomto případě HTTP, ale bude to fungovat pro libovolný protokol):</span>
+<span class="nb">echo</span> -e <span class="s2">"GET / HTTP/1.0\nHost: frantovo.cz\n"</span> &gt;&amp;3
+
+<span class="c"># vyzvedneme si odpověď:</span>
+cat &lt;&amp;3
+</pre></div>
+
+
+<p>
+Pokud jsme masochisti, můžeme jen pomocí Bashe implementovat celkem jakýkoli (i binární) protokol nad TCP nebo UDP.
+</p>
+
+
+<h2 id="toc_17">Barevný výstup: lolcat</h2>
+
+<p>
+Pokud by nám výstup nějakého příkazu připadal moc nudný, můžeme si ho obarvit pomocí nástroje <code>lolcat</code>.
+Funguje podobně jako klasický <code>cat</code>, ale přidává barvy a umí dokonce i animace :-)
+</p>
+
+<div class="highlight"><pre>ls -l /bin/ | head | lolcat -a
+</pre></div>
+
+
+
+<h2 id="toc_18">Závěr</h2>
+
+<p>Dnes to byl takový trochu náhodný výběr, ale snad tam najdete aspoň 
+něco zajímavého. A budu rád, když se v komentářích podělíte o svoje tipy
+ pro Bash (případně jiný shell).</p>
+
+</div>
+<div class="odkazy"><h2>Odkazy a zdroje:</h2><ul><li><a id="odkaz467" href="https://www.gnu.org/software/bash/">GNU Bash</a>
+									–
+									oficiální stránky</li><li><a id="odkaz468" href="http://wiki.bash-hackers.org/syntax/expansion/proc_subst">Process substitution</a>
+									–
+									dosazení procesu místo cesty k souboru</li><li><a id="odkaz469" href="https://askubuntu.com/questions/445749/whats-the-difference-between-shell-builtin-and-shell-keyword">What's the difference between shell builtin and shell keyword?</a>
+									–
+									vysvětlení rozdílů mezi příkazy a klíčovými slovy</li><li><a id="odkaz470" href="https://www.gnu.org/software/bash/manual/html_node/Redirections.html">GNU Bash: Redirections</a>
+									–
+									manuál k přesměrovávání vstupu a výstupu</li><li><a id="odkaz471" href="http://www.catb.org/~esr/writings/unix-koans/ten-thousand.html">Master Foo and the Ten Thousand Lines</a>
+									–
+									sbírka posvátných textů od ESR</li></ul></div><p class="témata">Témata: 
+						[<a title="svobodný operační systém tvořený kombinací jádra Linux a nástrojů GNU" href="https://blog.frantovo.cz/a/5/GNU%2FLinux">GNU/Linux</a>] 
+					
+						[<a title="eXtensible Markup Language" href="https://blog.frantovo.cz/a/20/XML">XML</a>] 
+					
+						[<a title="tipy a triky" href="https://blog.frantovo.cz/a/25/tah%C3%A1ky">taháky</a>] 
+					
+						[<a title="skriptovací jazyk" href="https://blog.frantovo.cz/a/47/Bash">Bash</a>] 
+					</p><div style="display: none;" class="metadataČlánku"><span class="id">370</span><span class="verze">239</span></div></div><div class="patička"><h2>Komentáře čtenářů</h2><div id="komentář-2136" class="komentář"><hr /><div><span class="jméno">Franta</span>, <span class="čas">22. 4. 2019 16:55</span>, 
+				<span class="předmět">Vícevláknové skripty resp. více procesů</span><span class="tlačítka"> [<a href="javascript:bF.odpov%C4%9Bd%C4%9BtNaKoment%C3%A1%C5%99(2136)">odpovědět</a>]</span></div><div>
+<p>
+Doplnil jsem kapitolu „Vícevláknové skripty resp. více procesů“.
+</p>
+</div>
+<div class="reakce"></div></div><div id="komentář-2141" class="komentář"><hr /><div><span class="jméno">jiwopene</span>, <span class="čas">28. 4. 2019 19:14</span>, 
+				<span class="předmět">Zjednodušení zápisu sedu</span><span class="tlačítka"> [<a href="javascript:bF.odpov%C4%9Bd%C4%9BtNaKoment%C3%A1%C5%99(2141)">odpovědět</a>]</span></div><div>
+<p>
+Místo <code>sed -e příkaz1 -e příkaz2 …</code> stačí <code>sed -e příkaz1;příkaz2;…</code>.
+</p>
+<p>
+Nevím jak moc přenositelné to je, ale GNU sed to umí.
+</p>
+</div>
+<div class="reakce"></div></div><h2>Přidat komentář</h2><form name="formulářKomentáře" id="formulářKomentáře" method="post" action="/odeslání-komentáře"><div style="display: none"><input value="370" name="clanek" /></div><table><tr style="display: none;"><th><label for="reakceNa">reakce na:</label></th><td class="input"><input disabled="disabled" type="text" name="reakceNa" id="reakceNa" /></td><td class="popis">reagujete na jiný komentář
+						(<a href="javascript:bF.zru%C5%A1itReakciNaKoment%C3%A1%C5%99();">zrušit</a>)
+					</td></tr><tr><th><label for="jmeno">jméno:</label></th><td class="input"><input type="text" name="jmeno" id="jmeno" /></td><td class="popis">jméno nebo přezdívka</td></tr><tr><th><label for="predmet">předmět:</label></th><td class="input"><input type="text" name="predmet" id="predmet" /></td><td class="popis">název příspěvku</td></tr><tr><th><label for="www">www:</label></th><td class="input"><input type="text" name="www" id="www" /></td><td class="popis">webová stránka, blog</td></tr><tr><th><label for="email">e-mail:</label></th><td class="input"><input type="text" name="email" id="email" /></td><td class="popis">e-mailová adresa</td></tr><tr class="textarea"><th><label for="komentar">komentář:</label></th><td colspan="2"><textarea rows="8" cols="100" name="komentar" id="komentar"></textarea></td></tr><tr><th><label for="format">formát:</label></th><td class="input"><select name="format" id="format"><option value="x" selected="selected">XHTML</option><option value="e">à la e-mail</option><option value="m">Markdown</option></select></td><td class="popis">nápověda: <a href="https://blog.frantovo.cz/c/303/Mo%C5%BEnosti%20form%C3%A1tov%C3%A1n%C3%AD%20koment%C3%A1%C5%99%C5%AF">možnosti formátování</a></td></tr><tr><td colspan="3"><label id="kontrolniOtazkaLabel" for="kontrolniOtazka">Studenti v ČR získávají po absolvování magisterského studia titul Mgr. nebo …</label><input value="NvU4MPXU" type="hidden" name="kontrolniOtazkaId_6VYam7uU_kozy" id="kontrolniOtazkaId" /></td></tr><tr><th></th><td class="input"><input type="text" name="kontrolniOtazka" id="kontrolniOtazka" /></td><td class="popis">ochrana proti spamu a trollům</td></tr><tr class="tlačítka"><td colspan="3"><button onclick="javascript: return bF.odešliKomentář('náhled');" value="náhled" name="akce-neajax" type="submit">Náhled</button><button onclick="javascript: return bF.odešliKomentář('uložit');" value="uložit" name="akce-neajax" type="submit">Vložit komentář</button></td></tr></table><div id="náhledKomentáře"><h2>Náhled komentáře</h2><div id="prostorNáhleduKomentáře">…</div></div><div style="display: none"><input value="2m2pQUfmyflQDXik" name="csrf_token" /></div></form></div><div class="patička"><div class="sloupec-3"><p><a title="Verzovací systémy jsou jedním z nejdůležitějších vývojářských nástrojů a užitečné mohou být i jinde.  V současné době jsou v módě distribuované verzovací systémy –  dnes se na ně tedy podíváme teoreticky a v dalších dílech se budeme věnovat prakticky jednotlivým implementacím." href="https://blog.frantovo.cz/c/321/Distribuovan%C3%A9%20verzovac%C3%AD%20syst%C3%A9my%3A%20%C3%BAvod">Distribuované verzovací systémy: úvod</a></p><p><a title="Dnes se opět budeme věnovat praktickým ukázkám a naší aplikaci.    Po předchozím díle o vlastních JSP značkách a servletech    se dnes podíváme na to, jak z Javy na serveru posílat e-maily    a jak chránit aplikaci proti spamu pomocí tzv. CAPTCHA." href="https://blog.frantovo.cz/c/335/Java%20na%20serveru%3A%20pos%C3%ADl%C3%A1n%C3%AD%20e-mail%C5%AF%20a%C2%A0CAPTCHA">Java na serveru: posílání e-mailů a CAPTCHA</a></p><p><a title="Podobně jako v minulých letech (2008, 2009) jsem se byl podívat na předávání Cen velkého bratra: Big Brother Awards za rok 2012. Jde o udílení anticen pro největší slídily, tedy osoby, firmy, organizace či státy, kteří nejvíce narušují naše soukromí." href="https://blog.frantovo.cz/c/126/Ceny%20velk%C3%A9ho%20bratra%202012">Ceny velkého bratra 2012</a></p><p><a title="SQL je skvělý jazyk, který slouží k psaní databázových dotazů a obecně k práci s relačními databázemi. Naučit se ho není těžké, naopak, SQL příkazy jsou přirozené a logické. Zvládnout to může téměř každý. Bohužel většinu lidí odradí nutnost instalovat a konfigorovat databázový systém nebo jiný software, a tak SQL zůstává převážně doménou informatiků. To je škoda. Proto jsem napsal program SQL Výuka – teď stačí otevřít webový prohlížeč a můžete s SQL začít hned." href="https://blog.frantovo.cz/c/57/SQL%20V%C3%BDuka">SQL Výuka</a></p><p><a title="Ternární operátor většinou bereme jako stručnější, ale obsahově totožný, zápis if-else bloku, v jehož větvích jen nastavujeme proměnnou nebo vracíme hodnotu. Jsou ale vždy tyto zápisy ekvivalentní? Můžeme automaticky nahrazovat stávající kód ternárními operátory?" href="https://blog.frantovo.cz/c/359/Java%20a%C2%A0z%C3%A1ludnost%20tern%C3%A1rn%C3%ADho%20oper%C3%A1toru">Java a záludnost ternárního operátoru</a></p></div><div class="sloupec-3"><p><a href="https://blog.frantovo.cz/agregace/c/">RSS/Atom</a></p><p><a href="https://blog.frantovo.cz/a/">Archiv</a></p><p><a href="https://blog.frantovo.cz/t/">Témata</a></p><p><a title="tento blog v letech 2007-2013" href="https://frantovo.cz/blog/">Museum</a></p></div><div class="sloupec-3"><p><a href="https://blog.frantovo.cz/c/201/Autor">Autor</a></p><p><a href="https://blog.frantovo.cz/c/202/Kontakt">Kontakt</a></p><p><a href="https://blog.frantovo.cz/c/6/Podm%C3%ADnky%20pou%C5%BEit%C3%AD">Podmínky užití</a></p></div><div style="clear: both;"></div></div></div><iframe src="GNU-Bash_subory/console.html" id="vimvixen-console-frame" class="vimvixen-console-frame"></iframe></body></html>

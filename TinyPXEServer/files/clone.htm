@@ -1,0 +1,388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm" selected="selected">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+ 
+ 
+
+<h2 align="center"><u>Capture Windows to WIM</u></h2>
+
+<p>
+<b><u><font color="red">NOTE</font></u></b> - <B><u>THIS PAGE FORMS PART OF THE INSTRUCTIONS FOR SETTING UP WINDOWS TO BOOT FROM A STORAGE AREA NETWORK (SAN) USING EITHER THE AoE OR iSCSI PROTOCOLS</B></u>.
+</p>
+
+<p>
+This page covers a file copy method to clone an existing Windows installation on the <font class="file">Client</font> system to a disk image hosted on a <font class="file">Server</font> - utilising <a class="glossary" target="_blank" href="https://wimlib.net/">wimlib</a>. 
+</p>
+
+<p>
+Assuming that the source (the <font class="file">Client</font> system) has already been configured for Network Booting, the instructions apply to iSCSI and/or AoE.
+</p>
+
+
+<p>
+A range of methods can be used to clone Windows - including DD (which is covered on the <a class="glossary" target="_blank" href="http://www.etherboot.org/wiki/sanboot">etherboot</a> wiki pages). Traditional cloning methods will produce an exact copy of the source - a sector by sector copy. This may well require significant storage space on the server - depending on the size of the source disk. Another disadvantage of traditional cloning methods is the risk of disk signature collision (see <a class="glossary" target="_blank" href="https://blogs.technet.microsoft.com/markrussinovich/2011/11/06/fixing-disk-signature-collisions/">here</a>) - no two disks (including disk images) can be mounted on the same Windows NT system if they share the same disk signature. Using file based backups and copying to a new VHD image will mitigate against disk signature collision. 
+</p>
+
+
+<p>
+Using file based backups and copying to a VHD <u><i>can</i></u> have the following advantages over traditional cloning methods -
+<ul>
+<li>Speed. Only files are copied - any content not in the file system table is skipped. </li>
+</ul>
+<ul>
+<li>Reduced footprint. Files can be copied to a smaller (than original source) disk image providing that it contains enough space for the file content. </li>
+</ul>
+<ul>
+<li>Mitigates against disk signature collision. </li>
+</ul>
+<ul>
+<li>The disk on the <font class="file">Client</font> system does not need to be removed - this often needs to done when disks are cloned to avoid disk signature collision.</li>
+</ul>
+<ul>
+<li>The <font class="file">Client</font> system can still be booted as required as its internal disk does not need to be removed.</li>
+</ul>
+</p>
+
+<p>
+<b><u><font color="red">NOTE</font></u></b> - all of the steps in this section should be completed in WinPE - <b><u>not</u></b> the <font class="file">Client</font> Operating System.
+</p>
+
+
+<p>
+Page contents -
+<ul>
+<li><a class="glossary" href="clone.htm#required">Requirements</a></li>
+<li><a class="glossary" href="clone.htm#paths">Paths</a></li>
+<li><a class="glossary" href="clone.htm#prep1">Preparation (Boot Files)</a></li>
+<li><a class="glossary" href="clone.htm#prep2">Preparation (MountedDevices)</a></li>
+<li><a class="glossary" href="clone.htm#prep3">Preparation (Pagefile)</a> - optional</li>
+<li><a class="glossary" href="clone.htm#wim">Capture to WIM</a></li>
+<li><a class="glossary" href="clone.htm#cleanup">Cleaning Up</a></li>
+</ul>
+</p>
+
+
+
+
+<a name="requirements"></a>
+<h3 class="breaktop"><u>Requirements</u></h3>
+
+<p>
+<ul>
+<li><font class="file">Client</font> - <font class="file">Client</font> System configured for AoE/iSCSI booting.</li>
+</ul>
+<ul>
+<li><font class="file">Windows Preinstallation Environment (WinPE)</font> - WinPE 3.0 (or newer) is required for capturing the offline Windows Installation on the client system. WinPE can be PXE booted (see <a class="glossary" href="winpe.htm">here</a>).</li>
+</ul>
+<ul>
+<li><font class="file">wimlib</font> - <i>"...wimlib is an open source, cross-platform library for creating, extracting, and modifying Windows Imaging (WIM) archives...."</i>. We will be using wimlib to image Windows on the <font class="file">Client</font> system for copying to the <font class="file">Target</font> - see <a class="glossary" target="_blank" href="https://wimlib.net/">here</a> for more information and to download.</li>
+</ul>
+</p>
+
+
+
+
+
+<a name="paths"></a>
+<h3 class="breaktop"><u>Paths</u></h3>
+
+<p>
+The following file paths are used in this section (amend as required for your own setup) -
+<ul>
+<li><font class="file">C:\</font> - offline Windows Installation on the <font class="file">Client</font> system as seen/mounted in WinPE.</li>
+<li><font class="file">D:\</font> - volume to store the WIM backup(s) and any other required files.</li>
+<li><font class="file">D:\Windows.Netwok.Boot.wim</font> - file/path for the backup of C:\</li>
+<li><font class="file">D:\wimlib\</font> - path to <a class="glossary" target="_blank" href="https://wimlib.net/">wimlib</a> executable and dependencies.</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+<a name="prep1"></a>
+<h3 class="breaktop"><u>Preparation (Boot Files)</u></h3>
+
+
+<p>
+<b><u>Windows NT 5.*</u></b>
+</p>
+
+<p>
+If your <font class="file">Client</font> Operating System files are on the same volume as its boot files, then no action needs to be taken. If the boot files are located elsewhere, then they will need to be copied to <font class="file">C:\</font> before the image is captured. Required files are <font class="file">ntldr</font>, <font class="file">ntdetect.com</font> and <font class="file">boot.ini</font>
+</p>
+
+
+<p>
+<b><u>Windows NT 6.*</u></b>
+</p>
+
+<p>
+This step may not be required - it depends on whether the <font class="file">Client</font> Operating System files are on the same volume as its boot files. From WinPE, check for the existence of a <font class="file">C:\boot\</font> directory (note - it may be hidden - run <font class="file">dir C: /AS</font> from a command-line). If this directory exists then we will temporarily rename it - to <font class="file">C:\boot.backup\</font>. 
+</p>
+
+<p>
+As we will be running the <font class="file">bcdboot</font> command at a later stage the <font class="file">\boot\</font> directory is not required. Copying an existing <font class="file">\boot\</font> directory to the AoE or iSCSI <font class="file">Target</font> will result in multiple menu entries after running <font class="file">bcdboot</font> - this may result in booting the wrong system - the one on the <font class="file">Client</font> system's internal disk.
+</p>
+
+
+
+
+<a name="prep2"></a>
+<h3 class="breaktop"><u>Preparation (MountedDevices)</u></h3>
+
+
+<p>
+The <font class="file">MountedDevices</font> key stores drive letter allocations (mount points) for any existing volumes. If you want your iSCSI/AoE system to be mounted as volume <font class="file">C:\</font> when booted, then this key will need to be edited and any <font class="file">\DosDevices\C:</font> Value will need to be either renamed or deleted to avoid conflicts when the AoE or iSCSI <font class="file">Target</font> is booted.  
+</p>
+
+
+<p>
+Run the following command in WinPE -
+<ul>
+<li><font class="file">reg load HKLM\_SYSTEM C:\windows\system32\config\system</font></li>
+</ul>
+</p>
+
+
+
+<p>
+The following screenshot shows the entries in the MountedDevices key (this is the <font class="file">Client</font> systems registry hive mounted Offline in WinPE - note the path <font class="file">HKLM\_SYSTEM\MountedDevices</font>) - 
+<br />
+<img src="img/mounteddevices1.jpg" border=1>
+</p>
+
+
+<p>
+The <font class="file">\DosDevices\C:</font> entry in the panel on the right specifies the mount point for the Partition identified in its Data entry (the first four byte pairs (highlighted) are the hard disk signature, followed by offset (LBA)).
+</p>
+
+<p>
+Delete any entries using the <font class="file">\DosDevices\#:</font> format to force Windows to reallocate drive letters/mount points. 
+</p>
+
+<p>
+Alternatively, rename any entries using the <font class="file">\DosDevices\#:</font> format to manually allocate mount points. Renaming <font class="file">\DosDevices\C:</font> to <font class="file">\DosDevices\R:</font> for example will change the mount point for this partition to <font class="file">R:\</font> when Windows is booted. 
+</p>
+
+
+
+<p>
+In the screenshot below you can see that <font class="file">\DosDevices\C:</font> (disk 0, partition 2) has been renamed to <font class="file">\DosDevices\R:</font> and <font class="file">\DosDevices\D:</font> (disk 0, Partition 3) has been renamed to <font class="file">\DosDevices\S:</font>... 
+<br />
+<img src="img/mounteddevices2.jpg" border=1>
+</p>
+
+
+<p>
+...when this system is copied to and booted from an AoE or iSCSI <font class="file">Target</font>, the <font class="file">Client</font> systems disk 0 partition 2 will be mounted as <font class="file">R:</font> and disk 0 partition 3 will be mounted as <font class="file">S:</font>. The AoE/iSCSI <font class="file">Target</font> (a VHD containing one partition entry) will be mounted as <font class="file">C:</font> as this drive letter is now available.
+</p>
+
+
+<p>
+After editing the <font class="file">MountedDevices</font> key, run the following command to unmount the registry hive -
+<ul>
+<li><font class="file">reg unload HKLM\_SYSTEM</font></li>
+</ul>
+</p>
+
+
+<p>
+<b><u><font color="red">NOTE</font></u></b> - if you choose to rename these keys then we will need to change them back <u><b>after</b></u> capturing/copying Windows to a WIM archive to ensure that any hardcoded paths on the <font class="file">Client</font> Operating System function if the <font class="file">Client</font> is booted from the internal drive.   
+</p>
+
+
+
+
+
+<a name="prep3"></a>
+<h3 class="breaktop"><u>Preparation (Pagefile)</u></h3>
+
+<p>
+<b><u><font color="red">This step is optional</font></u></b>. As we might be copying Windows to a VHD with less storage space than the original system, it is worth considering reducing the size of any pagefile.  
+</p>
+
+<p>
+This can easily be done from WinPE by editing the offline registry. See below for commands syntax - 
+
+<ul>
+<li><font class="file">reg load HKLM\_SYSTEM C:\windows\system32\config\system</font></li>
+<li><font class="file">reg.exe add "HKLM\_SYSTEM\ControlSet001\Control\Session Manager\Memory Management" /v PagingFiles /t REG_MULTI_SZ /d "c:\pagefile.sys SIZE_MB MAX_SIZE_MB" /f
+</font></li>
+<li><font class="file">reg unload HKLM\_SYSTEM</font></li>
+</ul>
+</p>
+
+<p>
+These commands can be scripted. In the example below the pagefile is set to a fixed size of 1024 MB -
+<br />
+<textarea style="font-size:12px" cols="80" rows="6" align="left" wrap="OFF" readonly>
+@echo off
+reg load HKLM\_SYSTEM C:\windows\system32\config\system
+reg.exe add "HKLM\_SYSTEM\ControlSet001\Control\Session Manager\Memory Management" /v PagingFiles /t REG_MULTI_SZ /d "c:\pagefile.sys 1024 1024" /f
+reg unload HKLM\_SYSTEM
+</textarea>
+
+
+
+
+
+
+
+
+<a name="wim"></a>
+<h3 class="breaktop"><u>Capture to WIM</u></h3>
+
+<p>
+wimlib uses the following syntax when capturing files -
+<ul>
+<li><font class="file">wimlib-imagex.exe capture SOURCE TARGET IMAGE_NAME</font></li>
+</ul>
+</p>
+
+<p>
+Where - 
+<ul>
+<li><font class="file">wimlib-imagex.exe</font> - wimlib executable with path.</li>
+<li><font class="file">capture</font> - capture switch/command.</li>
+<li><font class="file">SOURCE</font> - source files to backup to a .wim archive.</li>
+<li><font class="file">TARGET</font> - .wim file to use for the backup - with path.</li>
+<li><font class="file">IMAGE_NAME</font> - description/label used for the image being captured.</li>
+</ul>
+</p>
+
+<p>
+Run the following command to capture/copy <font class="file">C:\</font> as <font class="file">D:\Windows.Netwok.Boot.wim</font> - 
+<ul>
+<li><font class="file">wimlib-imagex.exe /capture C: D:\Windows.Netwok.Boot.wim "Windows 7 SP1 - Network Boot"</font></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+<a name="cleanup"></a>
+<h3 class="breaktop"><u>Cleaning Up</u></h3>
+
+<p>
+If you plan to boot the internal disk on the <font class="file">Client</font> system then the following steps may need to be taken after capturing the <font class="file">Client</font> Operating System -
+</p>
+
+<ul>
+<li>
+If boot files on the client systems were renamed prior to capture (if <font class="file">C:\boot</font> was present and was renamed to <font class="file">C:\boot.backup</font> as per the instructions <a class="glossary" href="clone.htm#prep1">here</a>), then change the folder\directory name back to <font class="file">C:\boot</font>.
+</li>
+</ul>
+<ul>
+<li>
+If any MountedDevices key registry entries were renamed (see <a class="glossary" href="clone.htm#prep2">here</a>) then change the names back again! Repeat the instructions in the <a class="glossary" href="clone.htm#prep2">Preparation (MountedDevices)</a> section.
+</li>
+</ul>
+</p> 
+
+
+
+
+
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<HTML>
+<HEAD>
+	
+	<TITLE>LaTeX v kostce - Různé běžně potřebné příkazy</TITLE>
+	<META NAME="GENERATOR" CONTENT="By Hand">
+	<META NAME="AUTHOR" CONTENT="Pavel Sopuch">
+	<META NAME="DESCRIPTION" CONTENT="Pomocný text pro vytváření dokumentů v LaTeXu">
+	
+</HEAD>
+
+
+<BODY TEXT="#000000" BGCOLOR="#ffffff">
+
+
+<!-- ***** TOP navigation menu ***** -->
+<A NAME="top">
+<TABLE WIDTH="100%" BORDER=0 CELLSPACING=3 CELLPADDING=2>
+<TR><TD BGCOLOR="#DDDDDD"><FONT SIZE="+1" FACE="tahoma,arial,helvetica"
+><B>&nbsp;<A HREF="c.html">Předchozí</A>&nbsp;</B></FONT></TD>
+<TD BGCOLOR="#DDDDDD"><FONT SIZE="+1" FACE="tahoma,arial,helvetica"
+><B>&nbsp;<A HREF="e.html">Další</A>&nbsp;</B></FONT></TD>
+<TD BGCOLOR="#DDDDDD"><FONT SIZE="+1" FACE="tahoma,arial,helvetica"
+><B>&nbsp;<A HREF="#bottom">Dolů</A>&nbsp;</B></FONT></TD>
+<TD WIDTH="90%"></TD>
+<TD BGCOLOR="#DDDDDD"><FONT SIZE="+1" FACE="tahoma,arial,helvetica"
+><B>&nbsp;<A HREF="index.html#OBSAH">Obsah</A>&nbsp;</B></FONT></TD>
+</TR></TABLE>
+<HR SIZE=4 NOSHADE><P>
+
+<!-- ******************** Begin of Document ******************** -->
+
+
+<FONT SIZE="+2"><B>D) Různé běžně potřebné příkazy</B></FONT>
+
+<DL>
+<DD><TABLE BORDER="0" cellpadding="0" cellspacing="0">
+<TR VALIGN="TOP"><TD><TT>$^\circ$</TT> </TD><TD> - Stupeň</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\@.</TT> </TD><TD> - zdůrazňuje LaTeXu, že za tečkou začíná nová věta - že má tedy volit větší
+      mezeru. Pokud by věta nekončila malým písmenem nebo číslovkou, nezvolil
+by LaTeX větší mezeru. Pokud ovšem je zapnuto <TT>\frenchspacing</TT>, je za
+      tečkou vždy pouhá mezislovní mezera (dá se vypnout pomocí 
+<TT>\nonfrenchspacing</TT>).</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\dag</TT> resp. <TT>\dagdag</TT> </TD><TD> - odkazovací jednoduchý nebo dvojitý křížek.</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\copyright</TT> </TD><TD> - znak copyright.</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\S</TT> </TD><TD> - znak paragraf</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\$</TT> </TD><TD> - znak dolar</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\pounds</TT> </TD><TD> - znak libra</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\textbullet</TT> </TD><TD> - kulička v nematematickém režimu.</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\uv{text}</TT> </TD><TD> - uvozovky (při použití balíku czech)</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\dotfill</TT> </TD><TD> - roztažitelna čára z teček (velikost je maximální dovolená okolím)</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\hrulefill</TT> </TD><TD> - jako dotfill, ale čára je plná</TD></TR>
+</TABLE></DD></DL>
+<DL>
+<DT>explicitní určení rozdělování (uvádí se mimo preambuli):</DT>    
+<DD><TT>\hyphenation{orga-ni-zace při-bliž-ně vznik}</TT> - slovo vznik se tedy
+            od tohoto místa nemá dělit vůbec (do případné další změny dalším
+příkazem <TT>\hyphenation).</TT> Mezi slovama mají být mezery nebo (jeden)
+            znak nový řádek. Platnost není omezena hranicemi skupiny nebo 
+            prostředí - tzv. globální deklarace.</DD>
+</DL>	    
+<DL>
+<DT>přechod na nový řádek bez nového odstavce a bez automatického zarovnání
+takto ukončeného řádku:</DT>
+<DD><TT>\\[vzdálennost]</TT><BR>
+<TT>\\*[vzdálennost]</TT><BR>
+parametr vzdálenost určuje oč bude vzdálenost následujícího řádku větší, 
+než je standartní meziřádková vzdálenost.
+</DD>
+</DL>
+<DL>
+<DD><TABLE BORDER="0" cellpadding="0" cellspacing="0">
+<TR VALIGN="TOP"><TD><TT>\parindent=1cm</TT> </TD><TD> je nastavení odstavcové zarážky na 1cm</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\noindent</TT> </TD><TD> znamená, že odstavec na jehož začátku je příkaz uveden bude mít
+          nulovou zarážku (první řádek nebude odsazen)</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\indent</TT> </TD><TD> znamená, že odstavec na jehož začátku je tento příkaz bude mít
+        odsazení (pokud by třeba jinak neměl)</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\pagenumbering{arabic}</TT> </TD><TD> znamená, že se stránky budou číslovat arabskými číslicemi</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\pagenumbering{roman}</TT> </TD><TD> znamená, že se stránky budou číslovat římskými číslicemi<BR>
+                      další možné argumenty jsou Roman, alph, Alph</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\pagenumbering</TT> </TD><TD> - nastaví číslo stránky na 1.</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\setcounter{page}{4}</TT> </TD><TD> - nastaví číslo aktuální stránky (čítače stránek) na 4</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\addtocounter{page}{1}</TT> </TD><TD> - zvýší číslo aktuální stránky (a všech následujících)
+                         o 1</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\refstepcounter{čítač}</TT> </TD><TD> - zvýší čítač <TT>čítač</TT> o jedničku, 
+přičemž se postará i o správné fungování příkazů <TT>\label</TT> a <TT>\ref</TT> při této 
+modifikaci.</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\pagestyle{styl},</TT> </TD><TD> kde styl je buď:<BR>
+                  plain - hlavička je prázdná, číslo je uprostřed paty stránky 
+                          (implicitní u article a report)<BR>
+                  empty - hlavička i pata je prázdná <BR>
+                  headings - pata je prázdná, v hlavičce je číslo stránky a
+                             název kapitoly nebo sekce<BR>
+                  myheadings - podobně jako u headings, avšak s jinou informací
+                               v hlavičce; informace se předepíše příkazy<BR>
+			       <TT>\markright{righthead}</TT> nebo<BR>
+				<TT>\markboth{lefthead}{righthead}</TT> - v případě volby
+                               twoside třídy dokumentu. </TD></TR>
+<TR VALIGN="TOP"><TD><TT>\thispagestyle{style}</TT> </TD><TD> - nastavení stylu aktuální stránky</TD></TR>
+
+<TR VALIGN="TOP"><TD><TT>\footnote[číslo]{}</TT> </TD><TD> - poznámka pod čarou (má-li se čísílko napsat těsně za
+                      slovo, musí se i příkaz uvést přesně za slovo). 
+                      Nepovinný parametr číslo slouží ke vnucení vlastního 
+                      čísla. Jinak se používá automaticky zvyšovaná hodnota
+                      čítače footnote. Poznámky se umisťují do textového
+                      těla stránky.</TD></TR>
+</TABLE></DD>
+</DL>
+V boxech a prostředí tabular <TT>\footnote</TT> nevygeneruje poznámku pod čarou.
+V tomto případě však lze použít dvojici příkazů:<BR>
+<TT>\footnotemark[číslo]</TT> a <TT>\footnotetext[číslo]{text}.</TT> První příkaz se použije
+v boxu nebo prostředí tabular (to je ovšem také box), čímž se vygeneruje 
+čísílko v místě uvedení a inkrementuje se čítač poznámek o jedničku (v případě
+bez volitelného parametru) tak jak má. Druhý příkaz umístěný za boxem pak 
+generuje poznámku pod čarou s čísílkem podle aktuální hodnoty čítače poznámek 
+nebo podle volitelného parametru. Protože se však jedná o box jsou vlastní 
+poznámky vygenerovány až po "výrobě boxu". V důsledku toho, pokud máme v boxu 
+více poznámek, příkaz <TT>\footnotetext</TT> zná vždy jen číslo poslední poznámky a
+vygeneruje všechny takovéto poznámky se stejným číslem! Proto je v tomto 
+případě potřeba kolem jednotlivých příkazů <TT>\footnotetext</TT> trochu manipulovat s
+čítačem poznámek pod čarou (footnote) - např. pomocí příkazu <TT>\addtocounter.</TT>
+
+<P><TT>\footnotesep</TT> - velikost vertikální mezery mezi různými poznámkami pod čarou.
+Čára pro poznámky pod čarou je generována příkazem <TT>\footnoterule.</TT> Pokud
+uživatel chce něco na této čáře změnit nebo ji vynechat, musí použít 
+předefinování tohoto příkazu  pomocí renewcommand.
+
+<P>Pozn.: Poznámky pod čarou nefungují v plovoucím prostředí.
+
+<DL>
+<DD><TABLE BORDER="0" cellpadding="0" cellspacing="0">
+<TR VALIGN="TOP"><TD><TT>\underline{}</TT> </TD><TD> - podtržení objektu (v matematickém i textovém režimu)</TD></TR>
+
+<TR VALIGN="TOP"><TD><TT>\today</TT> </TD><TD> - produkuje aktuální datum</TD></TR>
+
+<TR VALIGN="TOP"><TD><TT>\enlargethispage{velikost}</TT><BR>
+<TT>\enlargethispage*{velikost}</TT> </TD><TD>
+zvětšení stránky o velikost<BR>
+(varianta s hvězdičkou zmenší i vertikální mezery).</TD></TR>
+
+<TR VALIGN="TOP"><TD><TT>\pagebreak[]</TT> </TD><TD> - bez argumentu přikáže LaTeXu zlom stránky v tomto místě textu;
+               pokud je argument uveden, jedná se jen o naši žádost - 0 je
+               nejslabší požadavek, 4 je nejsilnější a je to ekvivalentní 
+               tvrdému příkazu. Stránka nebude geometricky kratší.</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\linebreak[]</TT> </TD><TD> - analogie předchozího příkazu pro řádek</TD></TR>
+</TABLE>
+<P>Příkazy enlargethispage, pagebreak a linebreak by se měly užívat jen v 
+závěrečné fázi úpravy dokumentu v situaci, kdy jsme v nouzi.
+<TABLE BORDER="0" cellpadding="0" cellspacing="0">
+<TR VALIGN="TOP"><TD><TT>\newpage</TT> </TD><TD> (nebo <TT>\clearpage</TT> nebo <TT>\cleardoublepage</TT>) - přechod na novou stránku;
+                         stránka bude i geometricky kratší</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\clearpage</TT> </TD><TD> navíc způsobí, že všechy plovoucí objekty, které byly uvedeny před
+tímto příkazem, se za touto stranou umístí na samostatné stránce (nebo 
+stránkách)</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\cleardoublepage</TT> </TD><TD> funguje jako <TT>\clearpage</TT> s tím rozdílem, že při dvoustarnném
+režimu bude textová stránka následující za <TT>\cleardoublepage</TT> lichá (v případě
+potřeby se automaticky vloží prázdná stránka).</TD></TR>
+       
+<TR VALIGN="TOP"><TD><TT>\marginpar[poznámka&nbsp;nalevo]{poznámka}</TT> </TD><TD> - vytvoří poznámku na vnějším okraji;
+                       poznámku lze vnořit dovnitř textového těla stránky 
+                       zvolením záporné hodnoty <TT>marginparsep</TT>, překrytí s 
+                       textem se zabrání posunutím okraje odstavce, vedle 
+nějž je poznámka - např. pomocí <TT>\leftskip</TT> nebo <TT>\rightskip.</TT>
+                       Volitelný parametr má ten význam, že je užit místo 
+                       povinného parametru, pokud poznámka vychází na levém 
+                       okraji stránky (to se můze stát při dvoustraném režimu).</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\reversemarginpar</TT> </TD><TD> - způsobí umisťování poznámek na okraji na opačné straně
+                    stránky než normálně</TD></TR>
+<TR VALIGN="TOP"><TD><TT>\normalmarginpar</TT> </TD><TD> - návrat k normálnímu umisťování poznámek na okraji</TD></TR>
+
+<TR VALIGN="TOP"><TD COLSPAN="2"><TT>\parshape n zvětšení_odsazení_prvního
+            šířka_prvního ... zvětšení_odsazení_n-tého šířka_n-tého</TT> </TD>
+<TR VALIGN="TOP"><TD></TD><TD>	     
+          Toto je TeXovský příkaz (paramery nejsou uvedeny ve složených 
+          závorkách). Platí pro odstavec, ve kterém je uveden a způsobí, že prvních
+          n řádků bude mít zvětšené odsazení (posunutí levého okraje) a délku 
+          podle předpisu (skutečné odsazení bude součtem hodnoty předepsané
+          v parametru a hodnoty platné před tímto příkazem). Lze jím tedy 
+          podrobněji specifikovat vzhled odstavce. Tímto příkazem lze zařídit 
+          "vkousnutí" poznámnky na okraji do textu (zprava i zleva)- viz 
+          příklad v souboru <A HREF="/Zdroje/art.tex">art.tex</A> na konci odstavce 3. Řádky za n-tým řádkem mají parametry 
+          n-tého.<P>
+Př.: <TT>\parshape 4 0cm 8cm 0cm 8cm 1cm 7cm 0cm 8cm</TT> - nastaví parametry
+          odstavce tak, že první bude mít posunutí odsazení o 0cm (tedy 
+          nezměněné odsazení) a délku 8 cm, druhý to samé, třetí bude mít délku
+          7cm, ale bude o 1cm zleva odsazen (takže bude končit ve stejné poloze,
+          jako předchozí řádek), čtvrtý zase nebude mít zvětšené odsazení a 
+          další řádky to samé.</TD></TR>
+</TABLE></DD>
+</DL>
+<DL> 
+<DT>Některé příkazy z balíku czech.sty:</DT>
+<DD><TT>\dateczech{}</TT><BR>
+<TT>\dateenglish{}</TT><BR>
+<TT>\dateUSenglish{}</TT><BR>
+<TT>\captionsczech{}</TT><BR>
+<TT>\captionsenglish{}</TT>
+</DD>
+</DL>
+
+<DL>
+<DD><TABLE BORDER="0" cellpadding="0" cellspacing="0">
+<TR VALIGN="TOP"><TD><TT>\label{balbla1}</TT> </TD><TD> - nastavení značky v prostředí (funguje specificky v prostředí
+equation, eqnarray, enumerate, figure a table - v prostředí figure a table se 
+ <TT>\label</TT> musí vyskytovat až za <TT>\caption{popis}</TT> nebo
+musí být uvnitř argumentu příkazu caption).</TD></TR> 
+<TR VALIGN="TOP"><TD><TT>\ref{blablax}</TT> </TD><TD> - vyprodukování odkazu (čísla) na label - vyprodukuje např. číslo
+rovnice, obrázku nebo tabulky (odkaz na label mimo výše uvedená prostředí 
+vygeneruje hodnotu aktuálního čísla oddílu - pro vygenerování čísla stránky je 
+nutno použít příkaz
+<TT>\pageref{návěští}</TT>)</TD></TR> 
+<TR VALIGN="TOP"><TD COLSPAN=2><P>Příkazy <TT>\label</TT> a <TT>\ref</TT> tvoří pár. Pokud je odkaz v dokumentu uveden dříve než
+samotný odkazovaný objekt (tzv. křížový odkaz), je třeba překlad spustit 
+dvakrát.</TD></TR> 
+
+<TR VALIGN="TOP"><TD><TT>\input{cesta}</TT> </TD><TD> - vložení obsahu souboru v místě uvedení. Pokud je jméno uvedeno
+bez přípony, hledá se nejprve soubor s příponou tex. Pokud se takový nenalezne,
+hledá se přesně odpovídající jméno.</TD></TR> 
+<TR VALIGN="TOP"><TD><TT>\include{cesta}</TT> </TD><TD> - až na výjimky funguje jako sekvenece 
+<TT>\clearpage</TT> <TT>\input{cesta_bez_přípony_tex}</TT> <TT>\clearpage.</TT> Jméno souboru se musí
+uvést bez přípony tex (tímto příkazem je možno natáhnout jen soubor s příponou 
+tex). </TD></TR> 
+
+<TR VALIGN="TOP"><TD><TT>\tolerance</TT> </TD><TD> - registr udávající o kolik může slovo přesahovat hranici textového
+              těla. LaTeX se snaží slova umisťovat tak, aby se okraj textu 
+              příliš nevlnil a mezery nebyly příliš velké. Parametr, který 
+tyto věci ovlivňuje je <TT>\tolerance.</TT> Může být předepsán v
+              rozsahu 0 až 10000 a implicitně je roven 200. Pokud se LaTeXu
+              nepodaří slovo umístit tak, aby příliš nepřesahovalo běžnou
+              šířku textu - slovo umístí jak to jde a oznámí nám to. Pokud
+              je tento parametr příliš malý - tady LaTeX je v tomto velmi 
+              přísný, má zároveň menší manévrovací schopnosti a ve snaze 
+              umisťovat slova co nejestetičněji může narazit a některé slovo
+              bude velmi přesahovat a LaTeX nám tedy prokáže medvědí službu.
+              V tom případě zdánlivě paradoxně může pomoci zvětšení parameru 
+tolerance (v preambuli) - např. <TT>\tolerance=1000.</TT></TD></TR> 
+
+<TR VALIGN="TOP"><TD><TT>\columnsep</TT> </TD><TD> - registr udávající mezeru mezi sloupci ve dvousloupcovém režimu
+             (specifikuje se v preambuli)</TD></TR> 
+
+<TR VALIGN="TOP"><TD><TT>\columnseprule</TT> </TD><TD> - registr udávající šířku vertikální čáry mezi sloupci ve
+                  dvousloupcovém režimu (implicitně je nula). Nastavení
+                  začíná platit od místa uvedení.</TD></TR> 
+</TABLE></DD>
+</DL>		  
+             
+Seznam jmen čítačů (pro příkazy jako je <TT>\setcounter</TT>, <TT>\addtocounter)</TT> nebo 
+<TT>\refstepcounter)</TT>:
+<P>
+enumi enumii enumiii enumiv figure table footnote mpfootnote page
+equation subparagraph paragraph subsubsection subsection section
+chapter part
+
+
+
+<!-- ******************** End of Document ************************* -->
+
+<!-- ***** BOTTOM navigation menu ***** -->
+<P><A NAME="bottom">
+<HR SIZE=4 NOSHADE>
+<TABLE WIDTH="100%" BORDER=0 CELLSPACING=3 CELLPADDING=2>
+<TR><TD BGCOLOR="#DDDDDD"><FONT SIZE="+1" FACE="tahoma,arial,helvetica"
+><B>&nbsp;<A HREF="c.html">Předchozí</A>&nbsp;</B></FONT></TD>
+<TD BGCOLOR="#DDDDDD"><FONT SIZE="+1" FACE="tahoma,arial,helvetica"
+><B>&nbsp;<A HREF="e.html">Další</A>&nbsp;</B></FONT></TD>
+<TD BGCOLOR="#DDDDDD"><FONT SIZE="+1" FACE="tahoma,arial,helvetica"
+><B>&nbsp;<A HREF="#top">Nahoru</A>&nbsp;</B></FONT></TD>
+<TD WIDTH="90%"></TD>
+<TD BGCOLOR="#DDDDDD"><FONT SIZE="+1" FACE="tahoma,arial,helvetica"
+><B>&nbsp;<A HREF="index.html#OBSAH">Obsah</A>&nbsp;</B></FONT></TD>
+</TR></TABLE>
+
+</BODY>
+</HTML>

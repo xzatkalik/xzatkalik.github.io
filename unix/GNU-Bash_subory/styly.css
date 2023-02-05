@@ -1,0 +1,658 @@
+/** kompiluj-css.sh: automaticky generováno → neupravujte ručně: */
+
+/** styl.css – začátek */
+
+body {
+	background-color: #345678;
+	text-align: center;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+#csrfToken {
+	display: none;	
+}
+
+#tělo {
+	max-width: 1200px;
+	margin: 32px auto;
+	text-align: left;
+}
+
+#obsah {
+	background-color: white;
+	color: black;
+	border-radius: 8px 0px 8px 8px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 2px;
+	padding-bottom: 8px;
+	margin-left: 20px;
+	margin-right: 254px;
+	min-height: 1000px;
+}
+
+div.patička {
+	background-color: black;
+	background-color: rgba(0, 0, 0, 0.2);
+	color: silver;
+	border-radius: 8px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-top: 14px;
+	margin-left: 20px;
+	margin-right: 254px;
+}
+
+div.patička div.sloupec-3 {
+	font-size: 80%;
+	float: left;
+	width: 31.33%;
+	padding-right: 2%;
+}
+
+div.patička div.sloupec-3 p {
+	text-align: left;
+}
+
+div.patička div.sloupec-3 a {
+	color: silver;
+}
+
+#sloupec {
+	float: right;
+	font-size: 80%;
+}
+
+#sloupec ul a {
+	color: black;	
+}
+
+#sloupec div {
+	background-color: white;
+	color: black;
+	width: 200px;
+	padding: 20px;
+	margin-bottom: 14px;
+}
+
+#sloupec div.první {
+	border-radius: 0px 8px 0px 0px;
+	text-align: center;
+}
+
+#sloupec div.poslední {
+	border-radius: 0px 0px 8px 0px;
+	text-align: center;
+}
+
+#sloupec div.poslední div {
+	margin: 0px;
+	padding: 0px;
+}
+
+#sloupec ul {
+	list-style-position: inside;
+	padding-left: 8px;
+}
+
+@media (max-width: 800px) {
+	#sloupec {
+		float: none;
+	}
+
+	#sloupec div {
+		width: auto;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+	#sloupec div.první {
+		border-radius: 8px 8px 0px 0px;
+	}
+
+	#sloupec div.poslední {
+		border-radius: 0px;
+	}
+
+	#obsah {
+		margin-left: 20px;
+		margin-right: 20px;
+		border-radius: 0px 0px 8px 8px;
+	}
+
+	div.patička {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+	/** TODO: další sloupce dát dolů */
+	#sloupec div { display: none; }
+	#sloupec div.první { display: block; }
+}
+
+#toc {
+	width: 200px;
+	margin-left: -240px;
+	margin-top: 80px;
+	float: left;
+	overflow: hidden;
+	color: #99b;
+	color: rgba(255,255,255,0.25);
+	position: fixed;
+}
+
+#toc:hover, #toc:hover a {
+	color: white;
+}
+
+#toc a {
+	color: #99b;
+	color: rgba(255,255,255,0.25);
+}
+
+@media (max-width: 1600px) {
+	#toc {
+		margin-left: 20px;
+		margin-top: 20px;
+		float: right;
+		overflow: auto;
+
+		color: #666;
+		background-color: #efefef;
+		border-radius: 0px 0px 0px 8px;
+		font-size: 80%;
+		padding-left: 8px;
+		padding-right: 8px;
+
+		position: static;
+	}
+
+	#toc:hover, #toc:hover a {
+		color: #666;
+	}
+
+	#toc a {
+		color: #666;
+	}
+
+	img {
+		max-width: 98%;
+	}
+}
+
+@media (max-width: 800px) {
+	#toc {
+		float: none;
+		width: auto;
+		border-radius: 0px;
+		margin-left: 0px;
+	}
+}
+
+li {
+	text-align: justify;
+}
+
+#toc li {
+	text-align: left;
+}
+
+p {
+	text-align: justify;
+}
+
+p.infoČlánku {
+	font-size: 80%;
+	color: gray;
+	text-align: left;
+}
+
+p.témata {
+	font-size: 80%;
+	color: gray;
+	text-align: left;
+}
+
+p.obrázek {
+	text-align: center;
+	background-color: #efefef;
+	padding: 10px;
+	border-radius: 4px;
+	max-width: 100%;
+	overflow: auto;
+}
+
+blockquote {
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	padding-left: 24px;
+	padding-right: 24px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 4px;
+	font-style: italic;
+}
+
+pre {
+	margin: 0px;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 4px;
+	max-width: 100%;
+	overflow: auto;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+}
+
+pre span.xmlChybaZnak {
+	color: white;
+	background-color: #c00;
+}
+
+pre span.xmlChybaŘádek {
+	color: white;
+}
+
+abbr {
+	border-bottom: 1px dotted #aaa;
+}
+
+a {
+	text-decoration: none;
+	color: #b0a;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.kotva, a.kotva:hover {
+	color: #ddd;
+	padding-left: 8px;
+}
+
+a.kotva:hover {
+	color: silver;
+	text-decoration: none;
+}
+
+div.soubory {
+	font-size: 80%;
+	color: gray;
+}
+
+div.soubory h2 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+div.odkazy {
+	font-size: 80%;
+	color: gray;
+}
+
+div.odkazy h2 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+div.komentář hr {
+	border: none;
+	background: black;
+	background: rgba(0,0,0,0.2);
+	height: 1px;
+	width: 50%;
+	text-align: left;
+	margin: auto auto 8px 0px;
+}
+
+div.komentář {
+	/**
+	border-top: 1px solid grey;
+	border-top: 1px solid rgba(255,255,255,0.3);
+	border-top: 1px solid rgba(0,0,0,0.2);
+	*/
+
+	padding-top: 8px;
+	padding-left: 8px;
+
+	border-left: 4px solid transparent;
+}
+
+div.komentář:hover {
+	/**
+	border-left: 4px solid black;
+	border-left: 4px solid rgba(0,0,0,0.2);
+	*/
+}
+
+div.komentář span.jméno {
+	font-weight: bold;
+}
+
+div.komentář span.čas {
+	color: grey;
+	color: rgba(255,255,255,0.3);
+}
+
+div.komentář span.předmět {
+	font-weight: bold;
+}
+
+div.komentář div.podpis {
+	color: grey;
+	color: rgba(255,255,255,0.3);
+	font-family: monospace;
+}
+
+div.komentář div.reakce {
+	padding-left: 20px;
+}
+
+div#náhledKomentáře {
+	display: none;	
+}
+
+div#náhledKomentáře span.tlačítka {
+	display: none;	
+}
+
+#titulka h1 a, #titulka h1 a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+#titulka p.archiv {
+	text-align: right;
+}
+
+div#archiv div.článek p {
+	margin-bottom: 0px;
+}
+
+div#archiv div.článek p.infoČlánku {
+	margin-top: 4px;
+}
+
+div#archiv p.metaPopis {
+	margin-top: 4px;
+}
+
+h1 {
+	font-size: 160%;
+	font-weight: bolder;
+	margin-bottom: 0px;
+}
+
+h2 {
+	font-size: 130%;
+	font-weight: bolder;
+}
+
+h3 {
+	font-size: 110%;
+	font-weight: bolder;
+}
+
+table {
+	border-collapse:collapse;
+	box-shadow: 3px 3px 3px grey;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+td, th {
+	border: 1px solid black;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 6px;
+	padding-right: 6px;
+	font-weight: normal;
+}
+td.číslo {
+	text-align: right;
+}
+thead tr {
+	background: #aaa;
+	color:black;
+}
+tbody tr:hover {
+	background-color: silver;
+	color:black;
+}
+
+.doplnit .značka {
+	color: red;
+	font-weight: bold;
+
+}
+
+/** styl.css – konec */
+
+
+/** formulář.css – začátek */
+
+form h3 {
+	padding-top: 20px;
+}
+
+form table {
+	box-shadow: none;
+}
+
+form table tr:hover {
+	background-color: transparent;
+}
+
+form table tr.textarea {
+	vertical-align: top;
+}
+
+form table th {
+	border: none;
+	font-weight: normal;
+	text-align: right;
+}
+
+form table td {
+	border: none;
+}
+
+
+form table td.popis {
+	color: grey;
+	color: rgba(255,255,255,0.3);
+	padding-left: 8px;
+}
+
+fieldset {
+	border: none;
+}
+
+td label {
+	margin-right: 5px;
+}
+
+button {
+	background-color: #eee;
+	border: 1px solid silver;
+	border-radius: 3px;
+	margin-left: 4px;
+	font-size: 16px;
+}
+
+button:hover {
+	background-color: #ddd;
+}
+
+td.input {
+	width: 240px;
+}
+
+input, textarea, select	{
+	width: 240px;
+	margin-left: 2px;
+	padding-left: 2px;
+	background-color: #eee;
+	border: 1px solid grey;
+	font-size: 16px;
+	background-color: rgba(255,255,255,0.5);
+}
+
+input, select, textarea {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+textarea {
+	width: 100%;
+}
+
+input[readonly], input[disabled] {
+	color: #666;
+}
+
+input[type=checkbox], input[type=radio] {
+	width: 16px;
+}
+
+tr.tlačítka td {
+	text-align: right;
+	padding-top: 10px;
+}
+
+form table h3 {
+	font-weight: bold;
+	font-size: medium;
+	margin: 0px;
+}
+
+/** formulář.css – konec */
+
+
+/** tisk.css – začátek */
+
+@media print {
+	#sloupec { display: none; }
+	#formulářKomentáře { display: none; }
+	.soubory { display: none; }	
+	.odkazy { display: none; }	
+	.patička { display: none; }
+	#obsah { margin: 0px; }
+}
+
+/** tisk.css – konec */
+
+
+/** správa.css – začátek */
+
+div#editaceČlánku {
+	
+}
+
+div#panelEditace {
+	width: 50%;
+	float: left;
+}
+
+div#panelNáhledu {
+	float: left;
+	width: 50%;
+}
+
+div.panel div.vnitřek {
+	background-color: white;
+	color: black;
+	border-radius: 8px;
+	padding: 16px;
+	margin: 16px;
+	height: 866px;
+	overflow: auto;
+}
+
+div#panelNáhledu #obsah {
+	text-align: left;
+	min-height: 0px;
+	margin: 0px;
+}
+/** správa.css – konec */
+
+
+/** syntaxe.css – začátek */
+
+div.highlight .hll { background-color: #ffffcc }
+div.highlight .c { color: #408080; font-style: italic } /* Comment */
+div.highlight .err { border: 1px solid #FF0000 } /* Error */
+div.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+div.highlight .o { color: #666666 } /* Operator */
+div.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+div.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+div.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+div.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+div.highlight .gd { color: #A00000 } /* Generic.Deleted */
+div.highlight .ge { font-style: italic } /* Generic.Emph */
+div.highlight .gr { color: #FF0000 } /* Generic.Error */
+div.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+div.highlight .gi { color: #00A000 } /* Generic.Inserted */
+div.highlight .go { color: #888888 } /* Generic.Output */
+div.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+div.highlight .gs { font-weight: bold } /* Generic.Strong */
+div.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+div.highlight .gt { color: #0044DD } /* Generic.Traceback */
+div.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+div.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+div.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+div.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+div.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+div.highlight .kt { color: #B00040 } /* Keyword.Type */
+div.highlight .m { color: #666666 } /* Literal.Number */
+div.highlight .s { color: #BA2121 } /* Literal.String */
+div.highlight .na { color: #7D9029 } /* Name.Attribute */
+div.highlight .nb { color: #008000 } /* Name.Builtin */
+div.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+div.highlight .no { color: #880000 } /* Name.Constant */
+div.highlight .nd { color: #AA22FF } /* Name.Decorator */
+div.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+div.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+div.highlight .nf { color: #0000FF } /* Name.Function */
+div.highlight .nl { color: #A0A000 } /* Name.Label */
+div.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+div.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+div.highlight .nv { color: #19177C } /* Name.Variable */
+div.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+div.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+div.highlight .mf { color: #666666 } /* Literal.Number.Float */
+div.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+div.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+div.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+div.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+div.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+div.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+div.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+div.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+div.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+div.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+div.highlight .sx { color: #008000 } /* Literal.String.Other */
+div.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+div.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+div.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+div.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+div.highlight .vc { color: #19177C } /* Name.Variable.Class */
+div.highlight .vg { color: #19177C } /* Name.Variable.Global */
+div.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+div.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+div.highlight .err { border: none; }
+
+/** syntaxe.css – konec */
+

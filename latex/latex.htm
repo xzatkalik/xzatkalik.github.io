@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<title>Latex_prikazy</title>
+</head>
+<body>
+	<a name=menu><h1>Menu LATEXu</h1>
+	<ul>
+			<li><a href="#Prikazy">Prikazy</a></li>
+			<ul>
+				<li><a href="#pisma">Nastevanie pisiem</a></li>
+			</ul>
+			<li><a href="#odkazy_software_pomocny">Software na pomoc s pracou v Texu</a></li>
+			<li><a href="#templaty">Templaty</a></li>
+			<li><a href="#slovniky">Slovniky</a></li>
+			<li><a href="#odkazy">Odkazy</a></li>
+			<li><a href="#odkazy_software">Odkazy na sowtware</a></li>
+	</ul>
+	
+	<div class="navrat" style="position: fixed; right: 1em; top: 1em; background: silver; padding: 1em">
+    <a href="#menu">
+        <!-- <img src="logo.gif" style="width: 96px; height: 64px"></a> -->
+		<b>MENU LATEX</b>
+	</div>
+	
+	
+	<a name=Prikazy></a><h1>Prikazy</h1>
+	<p>
+		<h2>Automaticke zarovnanie textu na spodok strany</h2>
+		<p>
+		\vspace*{\fill}
+		</p>
+		<h2>Vkladanie PDF do texu</h2>
+		<p>
+		\usepackage{pdfpages}<br><br>
+		\includepdf[landscape=false]{./subor1.pdf}<br>
+		\includepdf[pages=1]{./subor2.pdf}<br>
+		\includepdf[pages=2]{./subor2.pdf}<br>
+		</p>
+		<h2>Cislovanie tabuliek, obrazkov, vzorcov</h2>
+		<p>
+		\usepackage{chngcntr} &nbsp&nbsp <b>% - balicek ktory nastavuje cislovania objektov </b><br>
+		\counterwithin{objekt}{typ_urovne} &nbsp&nbsp <b>% - zmeni cislovania objektu podla typu_urovne (section, chapter, subsection, susussubsection ...) </b>Priklad prvy obrazok v sekcii 3 bude mat cislo 31<br>
+		\renewcommand{\theOBJEKT}{\arabic{typ_urovne}.\arabic{objekt}} <b>% &nbsp&nbsp - ovlyvnuje nastavenie cize v tomto pripade prida bodku medzi cilo urovne a cislo obketu.</b> Priklad prvy obrazok v sekcii 3 bude mat cislo 3.1<br>
+		</p>
+		<h3>Zmena cislovania obrazkov</h3>
+		<p>
+		\usepackage{chngcntr}   <br><br>
+		%\counterwithout{figure}{section} &nbsp&nbsp&nbsp&nbsp <b>- neviem naco je zatial</b><br>
+		\counterwithin{figure}{section}<br>
+		\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}<br>
+		</p>
+		<h3>Zmena cislovania rovnic</h3>
+		<p>
+		\usepackage{chngcntr} <br><br>
+		\counterwithin{equation}{section}<br>
+		\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+		</p>
+		<h3>Zmena cislovania Tabuliek</h3>
+		<p>
+		\usepackage{chngcntr} <br><br>
+		\counterwithin{table}{section}<br>
+		\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+		</p>
+		
+		<a name=pisma></a><h3>Nastevanie pisiem</h3>
+		<p>
+		<img src="latex-fonts.png" alt="latex-font-styles" width="300">
+		<img src="latex-font-styles.png" alt="latex-font-styles" width="500">
+		<img src="latex-font-size.png" alt="latex-font-size" width="500">
+		<img src="latex-font-math.png" alt="latex-font-math" width="500">
+		</p>
+	
+	
+	
+
+	</p>
+	<h1>Potrebne balicky podla marie (zatial som nepotreboval)</h1>
+	<p>
+kniznice co treba doinstalovat do texu:</br></br>
+texlive-generic-extra</br>
+texlive-math-extra</br>
+texlive-plain-extra</br>
+texlive-latex-extra</br>
+texlive-fonts-extra</br>
+texlive-lang-czechslovak</br>
+texlive-bibtex-extra</br>
+texlive-science</br>
+
+	</p>
+	
+	<a name=odkazy></a><h1>Odkazy</h1>
+	<ul>
+
+		<li><a href="LATEX_prirucka.pdf"> Rychlokurz Latexu</a></li>
+		<li> <a href="LATEX_lshort_slovak.pdf">Latex lshort</a></li>
+		<li> <a href="latexppt.pdf">Latex prirucka_prezentaci</a></li>
+		<li><a href="slovencina_v_LaTeXu.pdf"> Slovencina v  Latexu</a></li>
+		<li><a href="Latex-help.pdf">Knizka Latex VS SAV</a></li>
+
+
+		<li> <a href="obrazky.pdf">Spracovanie obrazkov</a></li>
+		<li> <a href="tabulky.pdf">Spracovanie Tabuliek</a></li>
+		<li> <a href="page_numbers.htm">Cislovanie stran v LATEXu</a></li>
+		<li> <a href="uzitocne_prikazy.htm">Uzitocne prikazy LATEX</a></li>
+		<li> <a href="http://www.texample.net/tikz/examples/tag/diagrams/">Latex diagrams examples</a></li>
+		<li> <a href="http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html">Beamer theme gallery - Zozonam sablon</a></li>
+
+	</ul>
+	<a name=odkazy_software></a><h2>Odkazy na software</h2>
+	<ul>
+		<li> Prostredia
+			<ul>
+				<li><a href="http://www.texniccenter.org/download/">TexNic Center (win)</a></li>
+				<li><a href="https://www.lyx.org/Download">Lyx</a></li>
+				<li><a href="http://www.xm1math.net/texmaker/download.html">Texmaker</a></li>
+				<li><a href="http://www.latexeditor.org/">LEd Latex editor</a></li>
+        <li><a href="https://www.texstudio.org/">TexStudio</a></li>
+			</ul>
+		</li>	
+		<li>Distribucie latexu
+				<ul>
+					<li><a href="https://miktex.org/download">MikTEX</a></li>
+
+				</ul>
+			</li>
+	</ul>
+  <a name=odkazy_software_pomocny></a><h2>Softwara na pomoc s pracou v Texu</h2>
+  <ul>
+    	<li>Kontrola pravopisu
+				<ul>
+					<li><a href="http://aspell.net/">Aspell</a></li>
+					<li><a href="http://aspell.net/win32/">Aspell windows</a></li>
+				</ul>
+			</li>
+      <li> Obrazky
+        <ul>
+              <li><a href="https://texcad.sourceforge.io/">TexCAD</a> --- kreslenie obrazkov</li>
+              <li> GIMP --- uprava obrazkov rastrove</li>
+              <li> Inkscape --- uprava obrazkov vektorove</li>
+        </ul>
+      </li>
+
+  </ul>
+
+	<a name=templaty></a><h2>Templaty</h2>
+	<ul>
+		<li> Templaty
+			<ul>
+				<li><a href="template_slovak.tex">zakladna ukazka</a></li>
+				<li><a href="beamer-madrid-sample.tex">beamer madrid sample</a></li>
+
+				<li><a href=""></a></li>
+					<li><a href=""></a></li>
+			</ul>
+		</li>	
+</ul>
+
+<a name=slovniky></a><h2>Slovniky</h2>
+	<ul>
+		<li> Templaty
+			<ul>
+				<li><a href="latex-sk-z-openoffice.zip">Slovnecina z Openoffice</a></li>
+				<li><a href="myspell-sk_SK-0.5.6.zip">Slovnecina z myspell</a></li>
+
+			</ul>
+		</li>	
+</ul>
+
+</body>
+</html>

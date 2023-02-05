@@ -1,0 +1,771 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm" selected="selected">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>Remote Installation Services (RIS)</u></h2>
+
+
+
+<p>
+This page is a work in progress. I have included a walkthrough that can hopefully be adapted and used as a guide to implement this feature. The following paths are used throughout this section - 
+<ul>
+<li><font class="file">C:\pxesrv\pxesrv.exe</font> - the <font class="file">Tiny PXE Server executable</font></li>
+
+<li><font class="file">C:\pxesrv\config.ini</font> - the <font class="file">Tiny PXE Server executable</font> configuration file.</li>
+
+<li><font class="file">C:\pxesrv\files</font> - root directory containing Network Bootstrap Programs, operating system files, etc.</li> 
+</ul>
+Edit these paths as required to reflect your own setup - avoid using spaces in paths and keep the path simple if possible. 
+</p>
+
+
+<p>
+Sections in this page -
+<ul>
+<li><a class="glossary" href="ris.htm#ris">About RIS</a></li>
+<li><a class="glossary" href="ris.htm#quick">Quick Start Guide</a></li>
+<li><a class="glossary" href="ris.htm#files">Required Files</a></li>
+<li><a class="glossary" href="ris.htm#winnt.sif">winnt.sif (Configuration File)</a></li>
+<li><a class="glossary" href="ris.htm#drivers">Adding Network Adapter Drivers</a></li>
+<li><a class="glossary" href="ris.htm#null">Null Session Shares</a></li>
+<li><a class="glossary" href="ris.htm#settings">Tiny PXE Server Settings</a></li>
+<li><a class="glossary" href="ris.htm#alt_binl">Alternative BINL Service</a></li>
+</ul>
+</p>
+
+
+<p>
+<img src="img/xp_splash.jpg" border=2>
+</p>
+
+
+<a name="ris"></a>
+<h3 class="breaktop"><u>About RIS</u></h3>
+
+
+<p>
+Remote Installation Services (RIS) is a Windows 2000/XP/2003 network deployment solution. A Boot Image Negotiation Layer (BINL) service is required - the <font class="file">Tiny PXE Server</font> executable includes native support for this service. 
+</p>
+
+<p>
+Installing Windows XP is covered below - the process for installing Windows 2000/2003 is very similar. Setting up <font class="files">Tiny PXE Server</font> to have options for installing more that one Windows NT 5.* Operating System is not so straightforward and requires hex editing Windows boot files to replace text strings for file searches - this is beyond the current scope of this guide, but is covered here - <a target="_blank" href="http://diddy.boot-land.net/pxe/files/ris_files.htm">http://diddy.boot-land.net/pxe/files/ris_files.htm</a>
+</p>
+
+<p>
+Windows 2000 boot files may require a name change as in some circumstances the file names may need to be pre-appended with the filename of the network bootstrap program used to load them (e.g. rename <font class="file">ntdetect.com</font> to <font class="file">pxelinux.0ntdetect.com</font>) - refer to the guide referenced in the preceding paragraph. 
+</p>
+
+
+
+<p>
+Screenshot of RIS installation - 
+</br>
+<img src="img/xp_ris1.jpg" border=2>
+</p>
+
+
+
+<a name="quick"></a>
+<h3 class="breaktop"><u>Quick Start Guide</u></h3>
+
+
+<p>
+<ul>
+<li>
+Copy windows source files to <font class="file">C:\pxesrv\files\winxp\I386</font> - see <a class="glossary" href="ris.htm#files">here</a>.
+</li>
+</ul>
+
+
+<ul>
+<li>
+Copy Windows PXE boot files (copy/extract from  windows source files in <font class="file">C:\pxesrv\files\winxp\I386</font>) to the following paths (see <a class="glossary" href="ris.htm#files">here</a>) - 
+	<ul>
+	<li><font class="file">C:\pxesrv\files\startrom.0</font> (renamed <font class="file">startrom.n12</font></li>
+	<li><font class="file">C:\pxesrv\files\ntldr</font> (renamed <font class="file">setupldr.exe</font>)</li>
+	<li><font class="file">C:\pxesrv\files\ntdetect.com</font></li>
+	</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>
+Create configuration file <font class="file">C:\pxesrv\files\winnt.sif</font> (copy existing file or create a new one). See <a class="glossary" href="ris.htm#winnt.sif">here</a>.
+</li>
+</ul>
+
+
+<ul>
+<li>
+Add driver <font class="file">.inf</font> files to <font class="file">C:\pxesrv\files\INF</font> directory - See <a class="glossary" href="ris.htm#drivers">here</a>.
+</li>
+</ul>
+
+
+<ul>
+<li>
+Add driver <font class="file">.sys</font> files to <font class="file">C:\pxesrv\files\winxp\I386</font> directory - See <a class="glossary" href="ris.htm#drivers">here</a>.
+</li>
+</ul>
+
+
+
+
+<ul>
+<li>
+Create Null Session Share for <font class="file">C:\pxesrv\files</font> directory - see <a class="glossary" href="ris.htm#null">here</a>.
+</li>
+</ul>
+
+
+
+<ul>
+<li>
+Set <font class="file">filename=startrom.0</font> (or alternatively use <font class="file">opt67=startrom.0</font>) in <font class="file">C:\pxesrv\config.ini</font> and start <font class="file">C:\pxesrv\pxesrv.exe</font>. 
+</li>
+</ul>
+
+
+
+<ul>
+<li>
+Boot the client PC and complete the network installation. 
+</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="files"></a>
+<h3 class="breaktop"><u>Required Files</u></h3>
+
+
+<p>
+Create the directory <font class="file">winxp</font> in the root directory (<font class="file">C:\pxesrv\files\winxp</font>)
+</p>
+
+<p>
+Copy the <font class="file">I386</font> directory (and contents) from your Windows XP source to <font class="file">C:\pxesrv\files\winxp</font> (you should now have <font class="file">C:\pxesrv\files\winxp\I386\</font>). 
+</p>
+
+<p>
+Having copied Windows installation files to the <font class="file">C:\pxesrv\files\winxp</font> directory - 
+<ul>
+<li>Extract <font class="file">startrom.n12</font> from <font class="file">C:\pxesrv\files\winxp\I386\STARTROM.N1_</font> (it's a <font class="file">.cab</font> compressed archive - use 7-zip), rename as <font class="file">startrom.0</font>, then copy to <font class="file">C:\pxesrv\files\startrom.0</font>.</li>
+</ul>
+
+<ul>
+<li>Extract <font class="file">setupldr.exe</font> from <font class="file">C:\pxesrv\files\winxp\I386\SETUPLDR.EX_</font>(it's a <font class="file">.cab</font> compressed archive - use 7-zip), rename to <font class="file">ntldr</font>, then copy to <font class="file">C:\pxesrv\files\ntldr</font>.</li>
+</ul>
+
+<ul>
+<li>Copy <font class="file">C:\pxesrv\files\winxp\I386\NTDETECT.COM</font> to <font class="file">C:\pxesrv\files\ntdetect.com</font>.</li>
+</ul>
+
+
+<ul>
+<li>You will also need to add a text based configuration file <a class="glossary" href="ris.htm#winnt.sif">winnt.sif</a> containing setup instructions to <font class="file">C:\pxesrv\files\winnt.sif</font> - syntax is covered below.</li>
+</ul>
+</p>
+
+
+<p>
+<font class="file">Tiny PXE Server</font> directory structure - 
+<ul>
+<li><font class="file">C:\pxesrv\files\ntdetect.com</font></li>
+<li><font class="file">C:\pxesrv\files\ntldr</font> (renamed <font class="file">setupldr.exe</font>)</li>
+<li><font class="file">C:\pxesrv\files\startrom.0</font> (renamed <font class="file">startrom.n12</font>)</li>
+<li><font class="file">C:\pxesrv\files\winnt.sif</font></li>
+<li><font class="file">C:\pxesrv\files\winxp</font></li>
+<li><font class="file">C:\pxesrv\files\winxp\I386</font></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="winnt.sif"></a>
+<h3 class="breaktop"><u>winnt.sif (Configuration File)</u></h3>
+
+
+<p>
+A configuration file is required for RIS installations. The filename is hardcoded as <font class="file">winnt.sif</font> - we will be using <font class="file">C:\pxesrv\files\winnt.sif</font>. This file <u>MUST</u> contain the following information (edit paths to reflect your own setup) -
+<br />
+<textarea style="font-size:12px" cols="90" rows="15" align=left readonly wrap="OFF">
+
+[SetupData]
+    OsLoadOptions = "/fastdetect"
+    SetupSourceDevice = "\Device\LanmanRedirector\192.168.2.1\files\winxp"
+    ; 
+    ; SetupSourceDevice is required for first stage
+    ; For SetupSourceDevice = use syntax "\Device\LanmanRedirector\SERVER\SHARE\SOURCE"
+    ;    * Where SERVER = IP address of the server (e.g. 192.168.2.2) or server (NetBIOS) name (e.g. SERVER-PC)
+    ;    * Where SHARE = sharename used for the tftp root directory (e.g. files)
+    ;    * Where SOURCE = directory containing Windows source files (e.g. winxp)
+    ;    
+    ; E.g. 
+    ;    "\Device\LanmanRedirector\192.168.2.1\files\winxp"
+    ;    or
+    ;    "\Device\LanmanRedirector\SERVER-PC\files\winxp"
+    
+
+[data]
+    floppyless = "1"
+    msdosinitiated = "1"
+    OriSrc = "\\192.168.2.1\files\winxp"
+    ; 
+    ; OriSrc is required for second stage
+    ; For SetupSourceDevice = use syntax "\\\SERVER\SHARE\SOURCE"
+    ;    * Where SERVER = IP address of the server (e.g. 192.168.2.2) or server (NetBIOS) name (e.g. SERVER-PC)
+    ;    * Where SHARE = sharename used for the tftp root directory (e.g. files)
+    ;    * Where SOURCE = directory containing Windows source files (e.g. winxp)
+    ;    
+    ; E.g. 
+    ;    "\\192.168.2.1\files\winxp"
+    ;    or
+    ;    "\\SERVER-PC\files\winxp"
+    ;
+    OriTyp = "4"
+    LocalSourceOnCD = 1
+    DisableAdminAccountOnDomainJoin = 1
+    AutoPartition=0
+    UnattendedInstall="Yes"
+</textarea>
+</p>
+
+
+
+<p>
+To ensure that the Client PC's hard disk is not repartitioned/formatted automatically then add the following -
+<br />
+<textarea style="font-size:12px" cols="90" rows="5" align=left readonly>
+
+[RemoteInstall]
+   Repartition=NO
+   UseWholeDisk=NO
+</textarea>
+</p>
+
+
+
+<p>
+Various other entries can be added to fully automate the installation. A Sample <font class="file">winnt.sif</font> is included in the <font class="file">Tiny PXE Server</font> download. My own sample file -  
+<br />
+<textarea style="font-size:12px" cols="90" rows="15" align=left readonly wrap="off">
+
+[SetupData]
+    OsLoadOptions = "/fastdetect"
+    SetupSourceDevice = "\Device\LanmanRedirector\192.168.2.1\files\winxp"
+    ; 
+    ; SetupSourceDevice is required for first stage
+    ; For SetupSourceDevice = use syntax "\Device\LanmanRedirector\SERVER\SHARE\SOURCE"
+    ;    * Where SERVER = IP address of the server (e.g. 192.168.2.2) or server (NetBIOS) name (e.g. SERVER-PC)
+    ;    * Where SHARE = sharename used for the tftp root directory (e.g. files)
+    ;    * Where SOURCE = directory containing Windows source files (e.g. winxp)
+    ;    
+    ; E.g. 
+    ;    "\Device\LanmanRedirector\192.168.2.1\files\winxp"
+    ;    or
+    ;    "\Device\LanmanRedirector\SERVER-PC\files\winxp"
+    
+
+[data]
+    floppyless = "1"
+    msdosinitiated = "1"
+    OriSrc = "\\192.168.2.1\files\winxp"
+    ; 
+    ; OriSrc is required for second stage
+    ; For SetupSourceDevice = use syntax "\\\SERVER\SHARE\SOURCE"
+    ;    * Where SERVER = IP address of the server (e.g. 192.168.2.2) or server (NetBIOS) name (e.g. SERVER-PC)
+    ;    * Where SHARE = sharename used for the tftp root directory (e.g. files)
+    ;    * Where SOURCE = directory containing Windows source files (e.g. winxp)
+    ;    
+    ; E.g. 
+    ;    "\\192.168.2.1\files\winxp"
+    ;    or
+    ;    "\\SERVER-PC\files\winxp"
+    ;
+    OriTyp = "4"
+    LocalSourceOnCD = 1
+    DisableAdminAccountOnDomainJoin = 1
+    AutoPartition=0
+    UnattendedInstall="Yes"
+
+[RemoteInstall]
+   Repartition=NO
+   UseWholeDisk=NO
+
+
+[UserData]
+    ProductID=xxxxx-xxxxx-xxxxx-xxxxx-xxxxx
+    FullName="User"
+    OrgName=""
+    ComputerName="*" 
+
+[GuiUnattended]
+    AdminPassword=*
+    EncryptedAdminPassword=NO
+    OEMSkipRegional=1
+    TimeZone=85
+    OemSkipWelcome=1
+
+[Unattended]
+   UnattendMode=FullUnattended
+   OemSkipEula=Yes
+   OemPreinstall=No
+   TargetPath=\WINDOWS
+   UnattendSwitch="yes"
+
+[RegionalSettings]
+    LanguageGroup=1
+    SystemLocale=00000809
+    UserLocale=00000809
+    InputLocale=0809:00000809
+
+[Identification]
+    JoinWorkgroup=WORKGROUP
+
+[Networking]
+    InstallDefaultComponents=Yes
+
+</textarea>
+</p>
+
+
+<p>
+<font class="file">winnt.sif</font> settings can be found in <font class="file">ref.chm</font> (Extract from Windows source CD/files - it's in <font class="file">\SUPPORT\TOOLS\DEPLOY.CAB</font>). Alternatively refer to - <a class="glossary" target="_blank" href="http://unattended.msfn.org/unattended.xp/view/web/19/">http://unattended.msfn.org/unattended.xp/view/web/19/</a>
+</p>
+
+
+
+
+
+
+<a name="drivers"></a>
+<h3 class="breaktop"><u>Adding Network Adapter Drivers</u></h3>
+
+<p>
+To complete a network installation of Windows 5.* (XP/2000/2003) a driver is required for the client PC's network adapter - the driver <font class="file">.inf</font> files can be used by the BINL service built into <font class="file">Tiny PXE Server</font> to identify the name of the driver <font class="file">.sys</font> file so that the correct driver is loaded - this information is requested in the form of the network adapters VID and PID numbers. 
+</p>
+
+
+<p>
+The driver <font class="file">.inf</font> file should be copied to the <font class="file">C:\pxesrv\files\INF</font> directory. Multiple <font class="file">.inf</font> files can be copied to this path to support a range of adapters. 
+</p>
+
+
+<p> 
+As an alternative to using the driver <font class="file">.inf</font> file it's possible to use <font class="file">nics.txt</font> - this file should be copied to the same directory as the network bootstrap program <font class="file">startrom.0</font>. A sample <font class="file">nics.txt</font> is included in the <font class="file">Tiny PXE Server</font> download. My own (created from <a target="_blank" href="http://driverpacks.net/driverpacks/windows/xp/x86/lan/12.05">DriverPack LAN 12.05 for Windows 2000/XP/2003 (x86)</a>) is available <a target="_blank" href="txt/nics.txt">here</a>.
+</p>
+
+
+
+<p>
+In addition to the driver <font class="file">.inf</font> files (or <font class="file">nics.txt</font>) the corresponding driver <font class="file">.sys</font> are also required. These should be copied to your Windows source file directory - <font class="file">C:\pxesrv\files\winxp\I386</font>.
+</p>
+
+
+
+<p>
+To support a wide range of network adapters, download <a target="_blank" href="http://driverpacks.net/driverpacks/windows/xp/x86/lan/12.05">DriverPack LAN 12.05 for Windows 2000/XP/2003 (x86)</a> and extract all <font class="file">.inf</font> and <font class="file">.sys</font> files from the download. The following batch file can be used to extract these files (<a target="_blank" href="http:\\www.mistyrebootfiles.altervista.org\downloads\7za.exe">7za.exe</a> required) - 
+<br />
+<textarea style="font-size:12px" cols="90" rows="15" align=left readonly>
+
+@echo off
+
+set LANPack=%~dp0DP_LAN_wnt5_x86-32_1205.7z
+::__________
+
+IF EXIST %~dp0INF RD /s /q %~dp0INF
+IF EXIST %~dp0DRIVERS RD /s /q %~dp0DRIVERS
+IF EXIST %~dp0TEMP RD /s /q %~dp0TEMP
+
+MD %~dp0INF
+MD %~dp0DRIVERS
+MD %~dp0TEMP
+
+
+ECHO Extract all .inf files from driver pack and auto-rename any duplicates
+ECHO.
+%~dp07za.exe e "%LANPack%" -o"%~dp0INF" *.inf -aour
+ECHO.
+ECHO.
+ECHO.
+PAUSE
+
+ECHO Extract all .sys files from driver pack and overwrite any duplicates
+ECHO.
+%~dp07za.exe e "%LANPack%" -o"%~dp0DRIVERS" *.sys -aoar
+ECHO.
+ECHO.
+ECHO.
+PAUSE
+EXIT
+
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="null"></a>
+<h3 class="breaktop"><u>Null Session Shares</u></h3>
+
+<p>
+The Server must be set up to share the TFTP root folder (<font class="file">C:\pxesrv\files</font>) in order for the RIS installation to complete - this <u>must</u> be configured as a null session share (a network share with no password protection required for connections with anonymous connections allowed (e.g. guest account)). 
+</p>
+
+
+
+<h4>Windows XP</h4>
+
+<p>
+To Share the <font class="file">C:\pxesrv\files</font> directory as sharename <font class="file">files</font> - 
+
+<ul>
+<li>
+Open Explorer &gt; right click on <font class="file">C:\pxesrv\files</font> &gt; select <font class="file">Sharing and Security...</font>
+</li>
+</ul>
+
+<ul>
+<li>
+Click on <font class="file">If you understand the security risks but want to share files without running the wizard, click here</font>
+</li>
+</ul>
+
+<ul>
+<li>
+A warning message will appear - select the option <font class="file">Just enable file sharing</font> &gt; then click on <font class="file">OK</font>
+</li>
+</ul>
+
+<ul>
+<li>
+Tick the <font class="file">Share this folder on the network</font> box and enter <font class="file">files</font> in the <font class="file">Share name:</font> box &gt; click on <font class="file">OK</font>.
+</li>
+</ul>
+</p>
+
+
+
+<h4>Windows 7/8/8.1</h4>
+
+<p>
+Tested in Windows 7 - should apply to Windows 8/8.1. 
+</p>
+
+
+
+<p>
+To Share the <font class="file">C:\pxesrv\files</font> directory as sharename <font class="file">files</font> - 
+
+<ul>
+<li>
+Open Explorer &gt; right click on <font class="file">C:\pxesrv\files</font> &gt; select <font class="file">Properties</font> &gt; select the <font class="file">Sharing</font> tab &gt; click on <font class="file">Advanced Sharing...</font>
+</li>
+</ul>
+
+
+
+
+<ul>
+<li>
+In the <font class="file">Advanced Sharing</font> window &gt; tick the <font class="file">Share this folder</font> box &gt; click on <font class="file">Permissions</font> &gt; click on <font class="file">Add...</font> &gt; type <font class="file">Guest</font> (in the <font class="file"><u>E</u>nter the object names to select (<u>examples</u>):</font> field) &gt; click on <font class="file">OK</font>.
+</li>
+</ul>
+
+
+
+
+<ul>
+<li>
+In the <font class="file">Permissions for files</font> window &gt; select <font class="file">Guest</font> (in the <font class="file">Group or user names:</font> field) and check that <font class="file">Read</font> is allowed in the <font class="file">Permissions for Guest</font> section &gt; click on <font class="file">Apply</font> &gt; click on <font class="file">OK</font>
+</li>
+</ul>
+
+
+
+
+<ul>
+<li>
+You should return to the <font class="file">files Properties</font> window. Now select the <font class="file">Security</font> tab &gt; <font class="file">Edit...</font> &gt; <font class="file">Add...</font> 
+</li>
+</ul>
+
+
+
+
+<ul>
+<li>
+The preceding step should open the <font class="file">Select Users or Groups</font> window &gt; type <font class="file">Guest</font> (in the <font class="file"><u>E</u>nter the object names to select (<u>examples</u>):</font> field) &gt; click on <font class="file">OK</font>.
+</li>
+</ul>
+
+
+
+<ul>
+<li>
+In the <font class="file">Permissions for files</font> window &gt; select <font class="file">Guest</font> (in the <font class="file">Group or user names:</font> field) and check that the following <font class="file">Permissions for Guest</font> are allowed -
+	<ul>
+	<li>Read & execute</li>
+	<li>List folder contents</li>
+	<li>Read</li>
+	</ul>
+click on <font class="file">Apply</font> &gt; click on <font class="file">OK</font>.
+</li>
+</ul>
+
+
+<ul>
+<li>
+On returning to the <font class="file">files Properties</font> window &gt; click on <font class="file">Close</font>.
+</li>
+</ul>
+<p>
+
+
+
+<p>
+Now open the <font class="file">Network and Sharing Centre</font> (<font class="file">Control Panel</font> &gt; <font class="file">All Control Panel Items</font> &gt; <font class="file">Network and Sharing Centre</font>) &gt; select <font class="file">Change advanced sharing settings</font> &gt; select <font class="file">Turn off password protected sharing</font> &gt; click on <font class="file">Save changes</font>.
+</p>
+
+
+
+
+
+
+
+
+<a name="settings"></a>
+<h3 class="breaktop"><u>Tiny PXE Server Settings</u></h3>
+
+
+<p>
+The most basic configuration requires setting <font class="file">startrom.0</font> as either the <font class="file">Boot File - Filename</font> option (<font class="file">filename=startrom.0</font> in <font class="file">config.ini</font>) <u>or</u> 
+the <font class="file">Option 67 (Boot File Name)</font> option (<font class="file">opt67=startrom.0</font> in <font class="file">config.ini</font>).
+</p>
+
+
+<p>
+Ensure that the <font class="file">BINL</font> daemon is enabled - tick the <font class="file">BINL</font> checkbox in the GUI <u>or</u> add <font class="file">binl=1</font> to <font class="file">config.ini</font>.
+</p>
+
+
+<p>
+It's also possible to chainload <font class="file">startrom.0</font> from another network bootstrap program - including <font class="file">grub4dos</font>, <font class="file">iPXE</font> and <font class="file">PXELINUX</font>.
+</p>
+
+
+<p>
+Sample <font class="file">PXELINUX</font> menu entry (add to <font class="file">C:\pxesrv\files\pxelinux.cfg\default</font>) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="5" align=left readonly>
+
+label ris
+MENU LABEL RIS
+KERNEL startrom.0
+</textarea>
+</p>
+
+
+
+<p>
+Sample <font class="file">Grub4dos</font> menu entry (add to <font class="file">C:\pxesrv\files\menu.lst\default</font>) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="5" align=left readonly>
+
+title RIS
+pxe keep
+chainloader --raw (pd)/startrom.0 
+</textarea>
+</p>
+
+
+
+<p>
+Sample <font class="file">iPXE</font> menu entry (add to <font class="file">C:\pxesrv\files\ipxe_menu.txt </font>) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="8" align=left readonly>
+
+#menu section
+item ris
+
+#menu options section
+:ris
+chain ${boot-url}/startrom.0
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<a name="alt_binl"></a>
+<h3 class="breaktop"><u>Alternative BINL Service</u></h3>
+
+
+<p>
+If you experience any errors with the built in BINL service then try an alternative. A py2exe converted executable of Gianluigi Tiesi's BINL service (see <a target="_blank" href="http://oss.netfarm.it/guides/">here</a>) is available <a target="_blank" href="http:\\www.mistyrebootfiles.altervista.org\downloads\binl.zip">here</a>. This can be used in conjunction with <font class="file">Tiny PXE Server</font> - ensure that the <font class="file">Tiny PXE Server</font> BINL service is not running at the same time!
+</p>
+
+
+<p>
+Copy the driver <font class="file">.inf</font> and <font class="file">.sys</font> files as per the instruction in the 
+<a class="glossary" href="ris.htm#drivers">Adding Network Adapter Drivers</a> section. 
+</p>
+
+
+<p>
+Extract the contents of <font class="file">binl.zip</font>. Run the command <font class="file">infparser.exe C:\pxesrv\files\INF</font> (changing the path to your <font class="file">.inf</font> files as required). This will create two files - <font class="file">nics.txt</font> and <font class="file">devlist.cache</font>
+</p>
+
+
+<p>
+Now run <font class="file">binlsrv.exe</font> - leaving the window open.
+</p>
+
+
+<p class="breakbottom">
+</p>
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

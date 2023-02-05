@@ -1,0 +1,185 @@
+
+
+
+.design-box--jobs {
+	position: relative;
+	max-width: 540px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
+	padding: 1px;
+	background-color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.design-box--jobs--theme-default.design-box--jobs--active-tab-1 {
+	background-color: #19325a;
+}
+.design-box--jobs--theme-default.design-box--jobs--active-tab-2 {
+	background-color: #48265b;
+}
+.design-box--jobs--mobile {
+	margin-top: 1.5em;
+}
+.detail__article .design-box--jobs--mobile {
+	margin-bottom: 1.5em;
+}
+
+.design-box--jobs .design-box__header:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.design-box--jobs .design-box__logo {
+	display: none;
+}
+.design-box--jobs--active-tab-1 .design-box__logo--1,
+.design-box--jobs--active-tab-2 .design-box__logo--2 {
+	display: block;
+}
+.design-box--jobs--theme-default .design-box__logo {
+	float: left;
+	width: 25%;
+	margin-top: 14px;
+	margin-left: 5%;
+	margin-bottom: 8px;
+}
+.design-box--jobs--theme-default .design-box__logo--1 {
+	min-width: 60px;
+}
+.design-box--jobs--theme-default .design-box__logo--2 {
+	min-width: 80px;
+}
+
+.design-box--jobs .design-list--tabs {
+	float: right;
+	max-width: 250px;
+	width: 65%;
+	margin-top: 22px;
+}
+
+.design-box--jobs .design-list--tabs > .design-list__item {
+	float: left;
+	min-width: 80px;
+	max-width: 120px;
+	width: 46%;
+	margin-right: 1%;
+	margin-left: 1%;
+	font-size: 14px;
+	text-align: center;
+}
+
+.design-box--jobs .design-list--tabs .design-list__link {
+	display: block;
+	height: 31px;
+	padding-bottom: 1px;
+	background-color: #ff9900;
+	background-clip: content-box;
+	color: #fff;
+	line-height: 31px;
+}
+.design-box--jobs--active-tab-1 .design-list--tabs .design-list__item-1 .design-list__link,
+.design-box--jobs--active-tab-2 .design-list--tabs .design-list__item-2 .design-list__link {
+	background-color: #fff;
+	background-clip: border-box;
+	color: #19325a;
+}
+
+.design-box--jobs .design-list--tabs .design-list__icon--play {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin-top: -1px;
+	margin-right: 3px;
+	background: url(https://i.iinfo.cz/sh/jobs/seduo-play-icon.png) no-repeat 0 0;
+	vertical-align: middle;
+}
+.design-box--jobs--active-tab-2 .design-list--tabs .design-list__item-2 .design-list__icon--play {
+	background-position: 0 -15px;
+}
+
+.design-box--jobs .design-box__content {
+	background-color: #fff;
+	font-size: 12px;
+}
+
+.design-box--jobs .design-list--offers-wrapper > .design-list__item {
+	display: none;
+}
+.design-box--jobs--active-tab-1 .design-list--offers-wrapper > .design-list__item--1,
+.design-box--jobs--active-tab-2 .design-list--offers-wrapper > .design-list__item--2 {
+	display: block;
+}
+
+.design-box--jobs .design-list--offers-wrapper .design-list--offers {
+	padding-top: 12px;
+	padding-right: 5px;
+	padding-bottom: 7px;
+}
+
+.design-box--jobs .design-list--offers > .design-list__item {
+	position: relative;
+	padding-left: 13px;
+	line-height: 1.3em;
+}
+.design-box--jobs .design-list--offers > .design-list__item:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: calc(1.3em / 2);
+}
+.design-box--jobs--theme-default .design-list--offers > .design-list__item:before {
+	width: 3px;
+	height: 3px;
+	margin-top: 1.5px;
+	background-color: currentColor;
+}
+
+.design-box--jobs .design-list--offers-wrapper .design-list__link {
+	display: inline-block;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	text-decoration: underline;
+}
+.design-box--jobs--theme-default .design-list--offers-wrapper .design-list__link:hover {
+	text-decoration: none;
+}
+.design-box--jobs--theme-default .design-list--offers-wrapper .design-list__link {
+	color: #000;
+}
+
+.design-box--jobs .design-list--offers-wrapper .design-list__see-more {
+	display: inline-block;
+	margin: 8px 0 19px 33px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.design-box--jobs .design-list--offers-wrapper .design-list__see-more:hover {
+	text-decoration: none;
+}
+.design-box--jobs--theme-default .design-list--offers-wrapper .design-list__see-more {
+	color: #000;
+}
+
+.design-box--jobs--theme-default .design-box__footer {
+	height: 28px;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: center;
+}
+
+.design-box--jobs--theme-default .design-box__footer .design-box__see-more {
+	color: #fff;
+	line-height: 28px;
+	text-decoration: none;
+}
+
+.design-box--jobs--theme-default .design-box__footer .design-box__see-more-text {
+	text-decoration: underline;
+}
+.design-box--jobs--theme-default .design-box__footer .design-box__see-more-text--highlighted {
+	color: #ff9900;
+}
+.design-box--jobs--theme-default .design-box__footer .design-box__see-more:hover .design-box__see-more-text {
+	text-decoration: none;
+}

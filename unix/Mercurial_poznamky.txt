@@ -1,0 +1,18 @@
+mkdir /path/to/your/project
+cd /path/to/your/project
+hg clone https://donino@bitbucket.org/donino/aa
+
+echo "Donino Forwoven" >> contributors.txt
+hg add contributors.txt
+hg commit -m "Initial commit with contributors"
+hg push https://donino@bitbucket.org/donino/aa
+
+
+PRE ZMENY V PC
+hg diff
+hg commit -m "komentar"
+hg push adresa_repozitara
+
+
+PO ZMENACH ONLINE
+hg pull && hg update default

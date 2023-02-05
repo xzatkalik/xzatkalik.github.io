@@ -1,0 +1,26 @@
+Options +Indexes
+# ak das -Indexes nepojdu subfoldre
+#coments
+
+#zmena fontu 
+IndexOptions FancyIndexing
+
+
+#zmeni predvolenu nacitaciu stranku webu z index na 1.txt
+#DirectoryIndex 1.txt
+
+#ignorovanie fileov
+#IndexIgnore subor.sufix *.sufix
+
+#ignorvanie filow s popretim pristupu na tvrdo
+#<files subor.suffix>
+#	order allow, deny
+#	deny from all
+#</files>
+#<FilesMatch "regxp">
+#	order allow, deny
+#	deny from all
+#</FilesMatch>
+
+
+

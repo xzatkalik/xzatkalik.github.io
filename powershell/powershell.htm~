@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Windows PowerShell</title>
+</head>
+<body>
+	<ul>
+			<li><a href="#prikazy">Zakladne prikazy</a></li>
+			<li><a href="#odkazy">Odkazy</a></li>
+			<li><a href="#poznamky"></a>Poznamky</li>
+			<li><a href="#dialkovasprava"></a>PS Ovladanie na dialku</li>
+
+	</ul>
+	
+	
+		<a name=poznamky></a><h1>Poznamky</h1>
+	<p>
+	Moznost pouzivat .NET kniznice funkcie!!!
+	<br>
+	Pretypovanie alebo tvrde nastavenie typu premennej je v tvare napr: [int] $vek = 34 alebo [string] $meno = 'meno'
+	<br>
+	$procesy = Get-Process ulozi do premnej objekt pole procesov system.object[]
+<pre>
+  spustenie pomocou explorera staci stlacit shift + prave tlacidlo mysi
+
+
+
+</pre>
+	
+<table>
+	<caption><h3></h3></caption>
+	<tr> <th>prikaz</th> <th> vyznam</th></tr>
+	<tr><td></td><td></td></tr>
+	<tr><td>e</td><td></td></tr>
+	<tr><td></td><td></td></tr>
+	<tr><td></td><td></td></tr>
+</table>
+
+
+	
+
+
+	</p>
+	
+
+	<a name=prikazy></a><h1>Prikazy</h1>
+	<p>
+	<table>
+	<caption><h3>shell prikazy</h3></caption>
+	<tr> <th>prikaz</th> <th> vyznam</th></tr>
+	<tr><td>Get-Date</td><td> aktualny datum</td></tr>
+	<tr><td>Get-Location</td><td> vpise aktualne umiestnenie</td></tr>
+	<tr><td>Get-Culture</td><td> jazykove nastavnie windows</td></tr>
+	<tr><td>Get-BingWeb 'technet powershell site:cz' | Format-Table Url</td><td> spracovanie vyhladavania s bingu</td></tr>
+    <tr><td>Set-ExecutionPolicy RemoteSigned</td><td>{Restricted, AllSigned, RemoteSigned, Unrestricted} jedno s mnoziny zmeni politiku spustamnia skriptov</td></tr>
+    <tr><td>./skript.ps1</td><td>spusti skript</td></tr>
+    <tr><td>Get-Help about_signing</td><td>napoveda k politikam</td></tr>
+	<tr><td>Get-Help Get-Process [-full]</td><td>napoveda k prikzu Get-Process [ prepinac -full zobrazi celu napovedu]</td></tr>
+	<tr><td>Get-Command</td><td>vypis vsetkych dostupnych prikazov</td></tr>
+	<tr><td>Get-Command *-Process </td><td>najde prikazy konciace -Process</td></tr>
+	<tr><td>$premenna = hodnota</td><td>ulozenie do premennej</td></tr>
+	<tr><td>$premenna</td><td>vypise hodnrtu premennej</td></tr>
+	<tr><td>get-help Get-Member -examples [gm -i] $premenna</td><td> malo by hodit typ premennej mne nejde</td></tr>
+	<tr><td>get-Alias</td><td> vypise vsetky dostupne aliasy aj s priakzmi</td></tr>
+	<tr><td>netstat</td><td> vypise otvorene porty</td></tr>
+<<<<<<< HEAD
+	<tr><td>ahoj {0} dnes mas {1} rokov -f $meno, $vek</td><td> doplni do retazca hodnoty s premennej</td></tr>
+=======
+	<tr><td>function tempik { set-location "$Home\tmps" }</td><td> nastavi alias tempik</td></tr>
+	<tr><td>Remove-item</td><td> command to reset the alias that have been set.</td></tr>
+	<tr><td>$Profile</td><td> adresa config filu, sem nakopcis funkcie napriklad function tempik ... a nastavis prava excution policy na unrestrictes a funguje ako v linuxe</td></tr>
+	
+>>>>>>> 8c6675b13da582bd0fa7a83f867e3c0f3b063646
+
+</table>
+    
+
+	</p>
+
+	
+	
+
+
+
+			<a name=dialkovasprava></a><h1>PS dialkova sprava</h1>
+	<pre>
+  -"legacy" remonting === cmdlety na pripojenie
+
+
+  </pre>
+	<h2>Nastavenie pripojenia</h2>
+  <pre>
+  Enable-PSRemonting === nastavenie pripojenie na PC, pouzivatelia v skupine Administrators
+
+  Test-WSMan === testuje protokol pre PSRemoting
+             === WSMan je protokol, na pc musi bezat remote conecting
+  </pre>
+<h2>Pripojenie na vzdialeny PC<h2>
+<pre>
+*Cmdtety podporujuce - ComputerName
+  GetCommand -ParameterName ComputerName -ComandType Cmdlet
+
+*Enter-PSSeassion
+  1:1 (vyuziva HTTP alebo HTTPs) porty: 58?? 5896
+  telnet
+
+***Pripojenie na PC
+  Enter-PSSeassion -ComputerName menokompu.domena -Credential (Get-Credential)
+  {zada sa heslo}
+  $end:COMPUTERNAME === vrati meno pocitaca
+
+***Tip: Ulozenie opravneni do premennej $cred=Get-Credential
+
+***Vytvorenie sesion ktory sa nemaze
+  $s = New-PSSession -ComputerName menopc.domena -Credential $cred (v premennej je ulozene pripojenie)
+  Enter-PSSession -Session $s (pripojenie na dane sedenie)
+// Toto riesenie je rychlajsie ako to nad
+  Remove-PSSession -Session $s //odpoji sedenie $s
+
+***Pripojenie na viac PC naraz
+  Invoke-Command //paralelny beh
+  $s1 = New-PSSession -ComputerName menopc.domena -Credential $cred 
+  $s2 = New-PSSession -ComputerName menopc.domena -Credential $cred 
+  Invoke-Command -Session $s1, $s2 -ScriptBlock { $pid } //vypise vysledky podseba
+   Invoke-Command -Session $s1, $s2 -ScriptBlock { $pid } | Format-List * -Force //Zobrazi aj z ktoreho PC je ktore
+</pre>
+
+
+	<a name=odkazy></a><h1>Odkazy</h1>
+	<ul>	
+		
+		
+		<li><a href="https://blogs.technet.microsoft.com/technetczsk/2009/07/22/seril-windows-powershell-vod-st-1/"> Microsoft blog</a></li>
+	<li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=54616"> Download windows managment framework</a></li>
+	<li><a href="cmd_zive.pdf"> ZIVE SK CMD TUTORIAL</a></li>
+	<li><a href="remote_powershell.pdf">Powershell na vzdialenom PC</a></li>
+			
+		
+</ul>
+
+
+</body>
+</html>

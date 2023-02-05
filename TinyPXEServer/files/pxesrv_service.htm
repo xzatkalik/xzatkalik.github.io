@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm" selected="selected">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+ 
+<h2 align="center"><u>Run as a Service</u></h2>
+
+<p>
+Once <font class="file">Tiny PXE Server</font> has been configured correctly, you may want to consider running it at startup as a service. <a class="glossary" target="_blank" href="https://nssm.cc/">nssm</a> (the Non-Sucking Service Manager) can be used to install and run <font class="file">Tiny PXE Server</font> as a Service. 
+</p>
+
+
+<p>
+Download <font class="file">nssm</font> from <a class="glossary" target="_blank" href="https://nssm.cc/download">here</a>. Extract the <font class="file">nssm</font> executable from the download (selecting either 32-bit or 64-bit as required) and copy it to a location in the <font class="file">PATH</font> (e.g. <font class="file">C:\Windows\</font>, <font class="file">C:\Windows\System32\</font>, etc).
+</p>
+
+
+<p>
+See <a class="glossary" target="_blank" href="https://nssm.cc/commands">here</a> for a full list of <font class="file">nssm</font> commands. 
+</p>
+
+
+<p>
+This page includes the following topics -
+<ul>
+<li><a class="glossary" href="pxesrv_service.htm#cmd">nssm Command-line</a></li>
+<li><a class="glossary" href="pxesrv_service.htm#gui">nssm GUI</a></li>
+<li><a class="glossary" href="pxesrv_service.htm#syslog">Syslog daemon</a></li>
+</ul>
+</p>
+
+
+
+
+<a name="cmd"></a>
+<h3 class="breaktop"><u>nssm Command-line</u></h3>
+
+
+
+<p>
+To install <font class="file">Tiny PXE Server</font> as a service (with servicename <font class="file">pxesrv</font>) using the <font class="file">nssm</font> command-line, use the following syntax -
+<ul>
+<li><font class="file">nssm install &lt;servicename&gt; &lt;program&gt;</font></li>
+</ul>
+</p>
+
+
+<p>
+E.g. 
+<ul>
+<li><font class="file">nssm install pxesrv C:\pxesrv\pxesrv.exe</font></li>
+</ul>
+</p>
+
+
+
+<p>
+And start the newly created <font class="file">pxesrv</font> service by restarting the system or running the following command -
+<ul>
+<li><font class="file">nssm start pxesrv</font></li>
+</ul>
+</p>
+
+
+<p>
+<font class="file">Tiny PXE Server</font> should now run as a service at startup. As the <font class="file">Tiny PXE Server</font> GUI will no longer be visible, running the <a class="glossary" href="pxesrv_service.htm#syslog">Syslog daemon</a> is recommended for logging (see <a class="glossary" href="pxesrv_service.htm#syslog">here</a>).
+</p>
+
+
+
+<p>
+<b><u><font color="red">NOTE</font></u></b> - any changes made to the <font class="file">Tiny PXE Server</font> configuration file (<a class="glossary" href="pxesrv_config.htm">config.ini</a>) will not be applied until the system is rebooted, or the <font class="file">pxesrv</font> service is stopped and restarted. To restart the <font class="file">pxesrv</font> service, run the following command -
+<ul>
+<li><font class="file">nssm restart pxesrv</font></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+<a name="gui"></a>
+<h3 class="breaktop"><u>nssm GUI</u></h3>
+
+
+<p>
+To install <font class="file">Tiny PXE Server</font> as a service using the <font class="file">nssm</font> GUI, run the following command -
+<ul>
+<li><font class="file">nssm install</font></li>
+</ul>
+</p>
+
+
+
+
+<p>
+The <font class="file">NSSM service installer</font> should open after running the <font class="file">install</font> command - 
+<br />
+<img src="img/nssm1.jpg" border=1>
+</p>
+
+
+
+
+<p>
+Click on the <font class="file">...</font> button (see below) and browse/select <font class="file">pxesrv.exe</font>. Alternatively type the path(s) in manually - 
+<br />
+<img src="img/nssm1b.jpg" border=1>
+</p>
+
+
+<p>
+The <font class="file">Path:</font> field should display <font class="file">C:\pxesrv\pxesrv.exe</font> and the <font class="file">Startup directory:</font> field should display <font class="file">C:\pxesrv</font> - 
+<br />
+<img src="img/nssm2.jpg" border=1>
+</p>
+
+
+
+
+<p>
+Now add a name for the service in the <font class="file">Service name:</font> field (e.g. <font class="file">pxesrv</font>) and click on the <font class="file">Install service</font> button -
+<br />
+<img src="img/nssm3.jpg" border=1>
+</p>
+
+
+
+
+<p>
+A message simlar to the screenshot below should be displayed - click on the <font class="file">OK</font> button - 
+<br />
+<img src="img/nssm4.jpg" border=1>
+</p>
+
+
+
+
+<p>
+And start the newly created <font class="file">pxesrv</font> service by restarting the system or running the following command -
+<ul>
+<li><font class="file">nssm start pxesrv</font></li>
+</ul>
+</p>
+
+
+<p>
+<font class="file">Tiny PXE Server</font> should now run as a service at startup. As the <font class="file">Tiny PXE Server</font> GUI will no longer be visible, running the <a class="glossary" href="pxesrv_service.htm#syslog">Syslog daemon</a> is recommended for logging (see <a class="glossary" href="pxesrv_service.htm#syslog">here</a>).
+</p>
+
+
+
+<p>
+<b><u><font color="red">NOTE</font></u></b> - any changes made to the <font class="file">Tiny PXE Server</font> configuration file (<a class="glossary" href="pxesrv_config.htm">config.ini</a>) will not be applied until the system is rebooted, or the <font class="file">pxesrv</font> service is stopped and restarted. To restart the <font class="file">pxesrv</font> service, run the following command -
+<ul>
+<li><font class="file">nssm restart pxesrv</font></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+<a name="syslog"></a>
+<h3 class="breaktop"><u>Syslog daemon</u></h3>
+
+<p>
+The <font class="file">Tiny PXE Server</font> logging function was removed in build 1.0.0.20 (Feb 12, 2017 - 19:29). A <font class="file">syslog daemon</font> (<font class="file">syslogd.exe</font>) is now included in the <font class="file">Tiny PXE Server</font> download. If running <font class="file">Tiny PXE Server</font> as a service, also running <font class="file">syslogd.exe</font> as a service is recommended. Simply run the following command (editing any paths as required) -
+<ul>
+<li><font class="file">nssm install syslog C:\pxesrv\syslogd.exe</font></li>
+</ul>
+</p>
+
+
+<p>
+And add the following to <font class="file">C:\pxesrv\config.ini</font> -
+<ul>
+<li><font class="file">syslog=127.0.0.1</font></li>
+</ul>
+</p>
+
+
+<p>
+The <font class="file">syslog daemon</font> will now log to <font class="file">C:\pxesrv\log.txt</font> - review this file as required for troubleshooting, etc. 
+</p>
+
+
+
+<p>
+Screenshot of the <font class="file">syslog daemon</font> GUI (this will not be visible if running <font class="file">syslogd.exe</font> as a service) - 
+<br />
+<img src="img/syslogd.jpg" border=1>
+</p>
+
+
+<p>
+And sample output to <font class="file">C:\pxesrv\log.txt</font> -
+<br />
+<textarea style="font-size:12px" cols="80" rows="7" align=left wrap=off readonly>
+16/02/2017 15:53:17:812;127.0.0.1;ROOT=C:\pxesrv\files\
+16/02/2017 15:53:17:812;127.0.0.1;DHCPd:67 started...
+16/02/2017 15:53:17:812;127.0.0.1;DHCPd:4011 started...
+16/02/2017 15:53:17:812;127.0.0.1;TFPTd started...
+16/02/2017 15:53:17:875;127.0.0.1;HTTPd started...
+</textarea>
+</p>
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

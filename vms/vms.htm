@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<title>Virtualne OS a okolo nich</title>
+</head>
+<body>
+	<ul>
+		<li><a href="#virtualbox">virtualbox</a></li>
+		<li><a href="#vmware">vmWare</a></li>
+		<li><a href="#qemu">QEMU</a></li>
+		<li><a href="#vagrant">Vagrant</a></li>
+		<li><a href="#virt-manager">Virt-manager</a></li>
+
+
+		</ul>
+
+
+	<a name=virtualbox></a><h1>VirtualBox</h1>
+	<p>
+
+	
+	</p>
+		<h2>Otimalizacia velkosti .vdi</h2>
+		<p>   
+                        
+                        
+                        <li><a href="virtualbox_reduce_vdi.pdf">navod pdf</a></li>
+			NEFUNKCNE!!!!!! KUKNI PDF!!!<br>
+			Now run VBoxManage's modifyhd command with the --compact option:
+		
+			<br>With a Linux Host run this:
+
+			<br>vboxmanage modifyhd /path/to/thedisk.vdi --compact
+
+			<br><br>With a Windows Host run this:
+
+			<br>VBoxManage.exe modifyhd c:\path\to\thedisk.vdi --compact
+
+			<br><br>With a Mac Host run this:
+
+			<br>VBoxManage modifyhd /path/to/thedisk.vdi --compact
+                
+			
+		</p>
+    <h2>Nejde pripojit USB</h2>
+    <p>
+        12.8.7. USB not working
+
+If USB is not working on your Linux host, make sure that the current user is a member of the vboxusers group. Please keep in mind that group membership does not take effect immediately but rather at the next login. If available, the newgrp command may avoid the need for logout/login.    </p>
+		<h2>Odkazy</h2>
+		<ul>
+			<li><a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox Stiahni</a></li>
+      <li><a href="https://www.virtualbox.org/manual/ch12.html#ts_usb-linux">Virtualbox manual riesenie problemov</a></li>
+                
+		</ul>
+
+		<a name=vmware></a><h1>VMWARE</h1>
+	<p>
+		<h2>LINUX INSTALL PROBLEMS</h2>
+		<p>
+			<h3>Fedora</h3>
+			<p>
+				<b>Headers problem:</b> riesenie pre novsie fedory: dnf install kernel-devel-$(uname -r)
+				<br>
+				<b>vmmon problem:</b> sudo vmware-modconfig --console --install-all
+				<br>
+				<a href="not_memory.txt"><b>Not enought memory</b></a>
+
+			</p>
+		</p>
+	
+	
+	</p>
+
+		<a name=virt-manager></a><h1>Virt-manager</h1>
+    <h2>Arch linux INSTALL</h2>
+    <pre>
+          sudo pacman -S qemu ovmf libvirt virt-manager ebtables dnsmasq dmidecode
+          sudo systemctl enable --now libvirtd.service virtlogd.socket ebtables.service dnsmasq.service
+          sudo gpasswd -a username libvirt
+          sudo vim /etc/default/grub  
+                => intel_iommu=on             //nieco na PCI passthrought
+
+    </pre>
+
+
+	<h2>Odkazy</h2>
+	<ul>
+		<li><a href="">prazdne</a></li>
+			</ul>
+
+
+			<a name=qemu><h1>QEMU</h1></a>
+
+		<p>
+		
+		<p>
+QEMU je softvér určený najmä pre tých, čo potrebujú emulovať rôzne hardvérové platformy - konkrétne x86, x86_64, ISA PC, PowerPC, Sparc, MIPS a ARM. Ponúka bohaté možnosti pre profesionálov - virtualizáciu USB, sieťové nastavenia, rôzne VGA BIOSy a pod.
+Prehľad
+oftvér určený najmä pre tých, čo potrebujú emulovať rôzne hardvérové platformy - konkrétne x86, x86_64, ISA PC, PowerPC, Sparc, MIPS a ARM. Ponúka bohaté možnosti pre profesionálov - virtualizáciu USB, sieťové nastavenia, rôzne VGA BIOSy a pod.</p>
+		<h2>Prehľad</h2>
+		<p>QEMU nie je aplikácia vhodná pre začínajúcich užívateľov. Ovládanie je možné len cez príkazový riadok - žiadnych sprievodcov ani dialógové okná nečakajte.</p>
+
+		<p>Tento program nie je taký rýchly ako napr. <a href="ms-virtual-pc/">MS VirtualPC</a> alebo <a href="vmware/">VMware</a>. Emuluje totiž aj procesor, čo je hlavnou výhodou a zároveň aj nevýhodou. Na bežnom x86 počítači takto môžeme spustiť aj 64-bitový OS za cenu spomalenia.</p>
+
+		<h2>Download</h2>
+		<p>Program sa dá stiahnuť napr. na jeho <a href="http://www.qemu.org" target="_blank">domovskej stránke</a>. Spadá pod licenciu GNU GPL, takže žiadne platby nie sú nutné.</p>
+		<p>Existujú verzie pre viaceré hostiteľské OS, medzi ktoré patrí Windows, Linux i MacOS.</p>
+
+		<h2>Vytvorenie virtuálneho disku</h2>
+		<p>Na vytvorenie virtuálnych diskov sa používa program qemu-img. Tu je najjednoduchší spôsob:</p>
+
+		<pre>
+qemu-img create nazov.img veľkosť_v_kB
+		</pre>
+
+		<p>Na výber máme aj iné formáty diskových súborov. Všeobecný zápis príkazu je v tomto prípade:</p>
+
+		<pre>
+qemu-img -f formát názov_súboru
+		</pre>
+
+		<p>Ako formát sa dá použiť <code>raw</code>, <code>qcow</code> (QEMU image), <code>vmdk</code> (VMware) alebo <code>cloop</code>.</p>
+
+		<h2>Spustenie</h2>
+		<p>Ak chcete spustiť nejaký OS a máte obraz jeho pevného disku, stačí použiť príkaz</p>
+
+		<pre>
+qemu -L . pevný_disk.img
+		</pre>
+
+		<p>kde pevný_disk.img je názov nekomprimovaného súboru s obsahom pevného disku a parameter -L určuje umiestnenie súborov s BIOSom.</p>
+		<p>Ak ešte nemáte virtuálny OS nainštalovaný, môžete nabootovať z diskety alebo z CD:</p>
+
+		<pre>
+qemu -L . -fda disketa.img -boot a
+qemu -L . -cdrom cd.iso -boot d
+		</pre>
+
+		<h2>Nastavenia</h2>
+		<p>Nastavenia sa zadávajú pomocou parametrov v príkazovom riadku. Tu je všeobecný zápis (parametre v hranatých zátvorkách sú nepovinné):</p>
+
+		<pre>
+qemu [nastavenia] [obraz_disku]
+		</pre>
+
+		<p>Ponúkam vám zopár parametrov približujúcich niektoré dôležité možností QEMU.</p>
+
+		<ul>
+			 <li><code>-M typ_počítača</code></li>
+			  <li><code>-fda disketa_A</code></li>
+			   <li><code>-hda prvý_harddisk</code></li>
+			    <li><code>-cdrom obraz_CD</code></li>
+			     <li><code>-boot [a|c|d]</code> - výber bootovacieho zariadenia</li>
+			      <li><code>-snapshot</code> - miesto virtuálneho harddisku sa zapisuje do dočasných priečinkov</li>
+			       <li><code>-m počet_MB_RAM</code></li>
+		</ul>
+
+		<p>Existuje ešte obrovské množstvo parametrov, tie by však bolo zbytočné vypisovať - nájdete ich napísaním príkazu</p>
+
+		<pre>
+qemu
+		</pre>
+
+		<p>a v manuále (qemu-doc.html).</p>
+		</p>
+
+
+<a name=vagrant></a><h1>Vagrant</h1>
+	<p>
+<a href="https://www.vagrantup.com/">Vagrant</a>
+</p>
+
+
+<a name=vseobecne></a><h1>Vseobecne info</h1>
+	<p>
+<a href="fyzicka_na_virtual.txt">Konvertovanie fyzickeho stroja na virtualny</a>
+</p>
+
+
+
+
+</body>
+</html>

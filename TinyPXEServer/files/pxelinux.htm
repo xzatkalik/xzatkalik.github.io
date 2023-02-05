@@ -1,0 +1,592 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm" selected="selected">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+<h2 align="center"><u>PXELINUX</u></h2>
+
+<p>
+<font class="file">PXELINUX</font> version 4.06 (2012-10-23) is included in the Tiny PXE Download. The most recent <font class="file">PXELINUX</font> release at the time of writing is 6.03, however an older version has been included in the download as newer versions have issues when chainloading other Network Bootstrap Programs. 
+</p>
+
+
+
+<p>
+<ul>
+<li><a class="glossary" href="pxelinux.htm#update">Updating PXELINUX</a></li>
+<li><a class="glossary" href="pxelinux.htm#config_path">Configuration File Path</a></li>
+<li><a class="glossary" href="pxelinux.htm#menu">PXELINUX Menu System</a></li>
+<li><a class="glossary" href="pxelinux.htm#menu_extra">Additional Menu Settings</a></li>
+<li><a class="glossary" href="pxelinux.htm#ipxe">Chainloading iPXE Scripts</a></li>
+</ul>
+</p>
+
+
+
+
+
+<a name="update"></a>
+<h3 class="breaktop"><u>Updating PXELINUX</u></h3>
+
+<p>
+<font class="file">PXELINUX</font> can be downloaded from <a target="_blank" href="https://www.kernel.org/pub/linux/utils/boot/syslinux/">https://www.kernel.org/.../syslinux/</a>. If replacing the <font class="file">PXELINUX</font> files included in the download then please note that as of <font class="file">PXELINUX</font> version 5.00, file dependencies were introduced for the Network Bootstrap Program (<font class="file">pxelinux.0</font>) and c32 modules. Previous versions (including <font class="file">PXELINUX</font> version 4.06 in the download) do not have any file dependencies - the <font class="file">pxelinux.0</font> loader and c32 modules are all standalone files. The table below lists file dependencies for these files if version 5.00 (or newer) are used (information is from <a class="glossary" target="_blank" href="http://www.syslinux.org/wiki/index.php/Library_modules">here</a>) -
+<br />
+<table border="1" style="background-color:white;border:1px black;border-collapse:collapse;">
+<tr style="background-color:#E2A9F3;color:black;">
+<th style="padding:5px;" width="120">File</th>
+<th style="padding:5px;" width="120">Dependencies</th>
+<th style="padding:5px;" width="300">Notes</th>
+</tr>
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">chain.c32</td> 
+<td align="left" valign="center" style="padding:2px;">libutil.c32<br />libcom32.c32</td> 
+<td align="left" valign="center" style="padding:2px;"><a class="glossary" target="_blank" href="http://www.syslinux.org/wiki/index.php/Comboot/chain.c32">"...can chainload MBRs, partition boot sectors, Windows bootloaders (ntldr, setupldr.bin and bootmgr), MS-DOS and PC-DOS io.sys, Freedos kernel.sys, isolinux.bin (only from ISOLINUX), grldr of grub4dos or a bootsector saved to a file. It can also swap BIOS drive numbers or hide partitions..."</a><br/><br /></td> 
+</tr> 
+ 
+<tr> 
+<td align="left" valign="center" style="padding:2px;">hdt.c32</td> 
+<td align="left" valign="center" style="padding:2px;">libutil.c32<br />libgpl.c32<br />libcom32.c32<br />libmenu.c32</td> 
+<td align="left" valign="center" style="padding:2px;"><a class="glossary" target="_blank" href="http://www.syslinux.org/wiki/index.php/Hdt_(Hardware_Detection_Tool)">"...HDT (for "Hardware Detection Tool") is a Syslinux com32 module designed to display low-level information for any x86 compatible system..."</a><br/><br /></td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">mboot.c32</td> 
+<td align="left" valign="center" style="padding:2px;">libcom32.c32</td> 
+<td align="left" valign="center" style="padding:2px;"><a class="glossary" target="_blank" href="http://www.syslinux.org/wiki/index.php/Mboot.c32">"...mboot.c32 is a Syslinux module that loads images using the Multiboot specification. A really good use case for this is booting Xen, or any other hypervisor-based virtualization pieces that also require an initrd/initramfs. If your Xen boot doesn't require an initrd, then it is possible to utilize the existing kernel/append method. Another use case for mboot.c32 is to boot FreeBSD ELF kernels with rootfs....."</a><br/><br /></td> 
+</tr>  
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">menu.c32</td> 
+<td align="left" valign="center" style="padding:2px;">libutil.c32</td> 
+<td align="left" valign="center" style="padding:2px;"><a class="glossary" target="_blank" href="pxelinux.htm">"...<font class="file">menu.c32</font> is a comboot module for Syslinux that renders a menu on the screen...."</a><br/><br /></td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">pxelinux.0</td> 
+<td align="left" valign="center" style="padding:2px;">ldlinux.c32</td> 
+<td align="left" valign="center" style="padding:2px;">The PXELINUX Network Bootstrap Program<br/><br /></td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">reboot.c32</td> 
+<td align="left" valign="center" style="padding:2px;">libcom32.c32</td> 
+<td align="left" valign="center" style="padding:2px;"><a class="glossary" target="_blank" href="http://www.syslinux.org/wiki/index.php/Reboot.c32">"...reboot.c32 is a COM32 module for Syslinux that is able to reboot the PC. It supports cold and warm rebooting....."</a><br/><br /></td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">sanboot.c32</td> 
+<td align="left" valign="center" style="padding:2px;">libcom32.c32</td> 
+<td align="left" valign="center" style="padding:2px;"><a class="glossary" target="_blank" href="http://www.syslinux.org/wiki/index.php/Sanboot.c32">"...sanboot.c32 is a comboot module for <font class="file">gpxelinux.0</font> that enables gPXE's SAN booting options (iSCSI and AoE currently). This is only available in >=syslinux-3.71 for <font class="file">gpxelinux.0</font>..."</a><br/><br /></td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">sdi.c32</td> 
+<td align="left" valign="center" style="padding:2px;">libcom32.c32</td> 
+<td align="left" valign="center" style="padding:2px;">Can be used to boot Microsoft System Deployment Images (.SDI type files) - SDI files are often used in Windows Embedded and can be used to boot WinPE 1.*<br/><br /></td> 
+</tr> 
+
+<tr> 
+<td align="left" valign="center" style="padding:2px;">vesamenu.c32</td> 
+<td align="left" valign="center" style="padding:2px;">libutil.c32<br />libcom32.c32</td> 
+<td align="left" valign="center" style="padding:2px;">Graphical version of <font class="file">menu.c32</font> (see above) - supports the use of .jpg wallpaper in boot menus.<br/><br />Note that <font class="file">vesamenu.c32</font> is not included in the Tiny PXE Server download.<br /><br/></td> 
+</tr> 
+</table>
+</p>
+
+
+<p>
+Please note that <font class="file">gpxelinux.0</font>, a hybrid bootloader containing gPXE/iPXE, has been deprecated and replaced with <font class="file">lpxelinux.0</font> since <font class="file">PXELINUX</font> version 5.10.
+</p>
+
+
+
+<p>
+Since version 6.00 .c32 files are platform specific and the <font class="file">PXELINUX</font> download now includes separate directories for BIOS (\bios), 32-bit UEFI (\efi32) and 64-bit UEFI (\efi64) binary files. The <font class="file">menu.c32</font> module for example has three separate binary files in the following locations -
+<ul>
+<li>\bios\com32\menu\menu.c32</li>
+<li>\efi32\com32\menu\menu.c32</li>
+<li>\efi64\com32\menu\menu.c32</li>
+</ul>
+</p>
+
+
+
+
+<p>
+Dependencies can be found in the following paths (where * is either bios, efi32 or efi64) -
+<ul>
+<li>\*\com32\libutil\<b>libutil.c32</b></li>
+<li>\*\com32\gpllib\<b>libgpl.c32</b></li>
+<li>\*\com32\lib\<b>libcom32.c32</b></li>
+<li>\*\com32\cmenu\libmenu\<b>libmenu.c32</b></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="config_path"></a>
+<h3 class="breaktop"><u>Configuration File Path</u></h3>
+
+<p>
+The default path for the <font class="file">PXELINUX</font> configuration file is the \pxelinux.cfg\ directory - the path is relative to the <font class="file">PXELINUX</font> Network Bootstrap Program - <font class="file">pxelinux.0</font>. It's possible to use separate configuration files for each client PC by using a filename based upon information unique to each client. Configuration file names are parsed in the following order - 
+<ul>
+<li>UUID - the UUID should be specified using the xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx format where xx are lowercase hexadecimal digits. E.g. 656635c7-d786-4912-9797-d66d2da61652</li>
+</ul>
+
+<ul>
+<li>MAC Address - lowercase hexadecimal with - separators. The MAC address needs to be preceded with its ARP type. E.g. for MAC address 08 00 27 7A 13 19 on a card with ARP type 1, use filename 01-08-00-27-7a-13-19.</li>
+</ul>
+
+
+<ul>
+<li>Clients IP (v4) address in a hexadecimal format. E.g. IP address 192.168.2.3 resolves to C0A80203 - therefore use filename C0A80203. </li>
+</ul>
+
+
+<ul>
+<li>Clients IP (v4) address in a hexadecimal format minus last digit from previous attempt. E.g. if C0A80203 was just attempted, try C0A8020, then try C0A802, etc. </li>
+</ul>
+
+
+<ul>
+<li>default</li>
+</ul>
+</p>
+
+
+
+
+<p>
+On a test system with the following setup... 
+<ul>
+<li>UUID = 656635c7-d786-4912-9797-d66d2da61652</li>
+<li>MAC = 01-08-00-27-7a-13-19</li>
+<li>IP Address = C0A80202</li>
+</ul>
+...the attempted load order will be as follows - 
+
+<ul>
+<li>\pxelinux.cfg\d786-4912-9797-d66d2da61652</li>
+<li>\pxelinux.cfg\01-08-00-27-7a-13-19</li>
+<li>\pxelinux.cfg\C0A80202</li>
+<li>\pxelinux.cfg\C0A8020</li>
+<li>\pxelinux.cfg\C0A802</li>
+<li>\pxelinux.cfg\C0A80</li>
+<li>\pxelinux.cfg\C0A8</li>
+<li>\pxelinux.cfg\C0A</li>
+<li>\pxelinux.cfg\C0</li>
+<li>\pxelinux.cfg\C</li>
+<li>\pxelinux.cfg\default</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="menu"></a>
+<h3 class="breaktop"><u>PXELINUX Menu System</u></h3>
+
+
+<p>
+<font class="file">PXELINUX</font> can be configured to display a menu when the Network Bootstrap Program <font class="file">pxelinux.0</font> is loaded. The <a target="_blank" href="http://www.syslinux.org/wiki/index.php/Comboot/menu.c32">SysLinux</a> website lists a comprehensive range of options that can be used for a basic menu system. The Tiny PXE Server package includes a COM32 module for displaying a text based menu - <font class="file">menu.c32</font>. It's possible to replace this with <font class="file">vesamenu.c32</font> if you want to add support for graphics - i.e. a splash screen. 
+</p>
+
+<p>
+A quick note on the graphics mode supported in <font class="file">vesamenu.32</font> - the default is a resolution of 640x480 pixels. It's possible to change this using the <b>MENU RESOLUTION</b> command (e.g. "MENU RESOLUTION 1024 768") - if the selected resolution is not supported then a text mode menu will be displayed. Image files in <font class="file">.PNG</font>, <font class="file">.JPG</font> and <font class="file">LSS16</font> formats are supported. 
+</p>
+
+
+<p>
+Although the focus here is on using <font class="file">menu.c32</font>, the syntax for <font class="file">vesamenu.c32</font> is almost identical. <font class="file">Notepad.exe</font> can be used to create a menu configuration file - all entries are text based. A basic menu using <font class="file">menu.c32</font> (note that all paths are relative to the directory containing <font class="file">pxelinux.0</font> - in the example below <font class="file">menu.c32</font> is located in the same directory as <font class="file">pxelinux.0</font>) -
+<br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>DEFAULT menu.c32</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>MENU TITLE PXELinux Boot Options</b>
+</p>
+
+
+<p>
+A vesamenu alternative (note the addition of the MENU BACKGROUND line with a path to a .jpg file) -
+<br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>DEFAULT vesamenu.c32</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>MENU BACKGROUND /pxelinux.cfg/splash.jpg</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>MENU TITLE PXELinux Boot Options</b>
+</p> 
+
+
+
+
+
+<p>
+The <font class="file">PXELINUX</font> menu entries in this guide have been kempt as simple as possible. The majority of options here use the format -
+<br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>LABEL ipxe</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>MENU LABEL iPXE</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>KERNEL ipxe.lkrn</b><br />
+<br />
+or
+<br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>LABEL ipxe_menu</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>MENU LABEL iPXE (Load menu.ipxe)</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>KERNEL ipxe.lkrn</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>APPEND initrd=menu.ipxe</b><br />
+</p>
+
+
+<p>
+It's also possible to load submenus - 
+<br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>LABEL submenu1</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>MENU LABEL Floppy Disk Image Submenu</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>KERNEL menu.c32</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>APPEND pxelinux.cfg/submenu1.txt</b><br />
+</p>
+
+
+
+
+
+<p>
+Putting all this together - 
+<br />
+<textarea cols="45" rows="18" align=left readonly>
+DEFAULT menu.c32
+MENU TITLE PXELinux Boot Options
+
+LABEL ipxe
+MENU LABEL iPXE
+KERNEL ipxe.lkrn
+
+LABEL ipxe_menu
+MENU LABEL iPXE (Load menu.ipxe)
+KERNEL ipxe.lkrn
+APPEND initrd=menu.ipxe
+
+label submenu1
+MENU LABEL Floppy Disk Image Submenu
+KERNEL menu.c32
+APPEND pxelinux.cfg/submenu1.txt
+</textarea>
+</p>
+
+
+<p>
+Screenshot of the above menu as displayed on the client system -
+<br />
+<IMG SRC="img/pxelinux_menu1.jpg" BORDER=2>
+</p>
+
+
+
+
+<p>
+Now let's take a closer look at the menu entry syntax -
+<ul>
+<li><b>MENU TITLE</b> - display a title ("PXELinux Boot Options" in the example above) for the menu/submenu.</li> 
+</ul>
+
+
+<ul>
+<li><b>LABEL</b> - this is a place marker - each menu entry should use a unique name in it's LABEL line.</li> 
+</ul>
+
+
+
+<ul>
+<li><b>MENU LABEL</b> - text that will be displayed on the screen for this menu entry. MENU LABEL statements do not have to be unique.</li> 
+</ul>
+
+<ul>
+<li><b>KERNEL</b> - the file to be loaded if the menu entry is selected. Supported files include linux kernel files, *.c32 modules, Network Boot Programs, etc.</li> 
+</ul>
+
+<ul>
+<li><b>APPEND</b> - parameter(s) to pass to the file loaded by the KERNEL statement in the same menu entry. </li> 
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="menu_extra"></a>
+<h3 class="breaktop"><u>Additional Menu Settings</u></h3>
+
+
+<p>
+The previous section lists some basic menu options - for more comprehensive range of settings refer to <a target="_blank" href="http://www.syslinux.org/wiki/index.php/Comboot/menu.c32">http://www.syslinux.org/.../menu.c32</a> and <a target="_blank" href="http://www.syslinux.org/wiki/index.php/SYSLINUX">http://www.syslinux.org/.../SYSLINUX</a>.
+</p>
+
+
+
+<p class="breaktop">
+<b>Hotkeys</b> - 
+<div id="quote">
+"<i>...The ^ symbol in a MENU LABEL statement defines a hotkey. The hotkey will be highlighted in the menu and will move the menu cursor immediately to that entry. Reusing hotkeys is disallowed, subsequent entries will not be highlighted, and will not work...</i>" 
+</div>
+</p>
+
+
+<p>
+In the following example the hotkey <b>i</b> is assigned to this entry - 
+<br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>LABEL ipxe</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>MENU LABEL <font color="red">^</font>iPXE</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>KERNEL ipxe.lkrn</b><br />
+</p>
+
+
+<p class="breaktop">
+<b>TIMEOUT</b> - used to boot the first (or default) menu entry after the time period specified (in 1/10's of a second - e.g. TIMOUT 100 is equal to 10 seconds) -
+
+<div id=quote><a class="glossary" target="_blank" href="http://www.syslinux.org/wiki/index.php/Comboot/menu.c32">
+"...If more than one label entry is available, this directive indicates how long to pause at the boot: prompt until booting automatically, in units of 1/10 s. The timeout is cancelled when any key is pressed, the assumption being the user will complete the command line. A timeout of zero will disable the timeout completely. The default is 0...."
+</a></div>
+</p>
+
+
+<p class="breaktop">
+<b>MENU DEFAULT </b> - 
+<div id=quote><a class="glossary" target="_blank" href="http://www.syslinux.org/wiki/index.php/Comboot/menu.c32">
+"...(Only valid after a LABEL statement.) Indicates that this entry should be the default for the particular (sub)menu. See also the DEFAULT directive. If no default is specified, use the first one...."
+</a></div>
+</p>
+
+
+<p class="breaktop">
+<b>TEXT HELP</b> - 
+<div id=quote><a class="glossary" target="_blank" href="http://www.syslinux.org/wiki/index.php/Comboot/menu.c32">
+"...(Only valid after a LABEL statement.) Specifies a help text that should be displayed when a particular selection is highlighted...."
+</a></div>
+<br />Needs to end with ENDTEXT argument. E.g. -
+<br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>TEXT HELP</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>text to display when option is highlighted</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<b>ENDTEXT</b><br />
+<br />
+</p>
+
+
+
+
+ 
+
+
+<p class="breaktop">
+<b>MENU BEGIN</b> - create a submenu within the menu file. This command must be followed by a tag (e.g. MENU BEGIN floppies) -
+<div id=quote><a class="glossary" target="_blank" href="http://www.syslinux.org/wiki/index.php/Comboot/menu.c32">
+"...Begin/end a submenu. The entries between MENU BEGIN and MENU END form a submenu, which is marked with a > mark on the right hand of the screen. Submenus inherit the properties of their parent menus, but can override them, and can thus have their own backgrounds, master passwords, titles, timeouts, messages and so forth. ...."
+</a></div>
+</p>
+
+
+
+<p class="breaktop">
+Check the following sample menu for examples of the additional commands listed above - 
+<br />
+<textarea cols="45" rows="18" align=left readonly>
+DEFAULT menu.c32
+TIMEOUT 100
+MENU TITLE PXELinux Boot Options
+
+MENU BEGIN ipxe_menu
+ LABEL ipxe
+ MENU LABEL ^iPXE
+ KERNEL ipxe.lkrn
+
+ LABEL ipxe_menu
+ MENU LABEL i^PXE (Load menu.ipxe)
+ KERNEL ipxe.lkrn
+ APPEND initrd=menu.ipxe
+MENU END
+
+LABEL win98
+MENU LABEL ^Windows 98 Boot Disk
+MENU DEFAULT
+TEXT HELP
+Windows 98 based DOS boot disk - use for BIOS flashing, etc. 
+ENDTEXT
+KERNEL memdisk
+APPEND initrd=images/win98.ima
+</textarea>
+</p>
+
+
+<p>
+Screenshot of the above sample menu when loaded on the client system -
+<br />
+<IMG SRC="img/pxelinux_menu3.jpg" BORDER=2>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<a name="ipxe"></a>
+<h3 class="breaktop"><u>Chainloading iPXE Scripts</u></h3>
+
+
+<p>
+<font class="file">iPXE</font> supports HTTP and SANBOOT - consequently there are times when it might be useful to chainload <font class="file">ipxe.lkrn</font> from <font class="file">PXELINUX</font>. The following menu entry shows the syntax for loading <font class="file">ipxe.lkrn</font> (kernel) with a script (initrd) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="6" align="left" readonly>
+
+label ipxe
+  menu label iPXE loading menu.ipxe
+  kernel ipxe.lkrn
+  append initrd=menu.ipxe
+</textarea>
+</p>
+
+<p>
+If chainloading <font class="file">ipxe.lkrn</font> the iPXE scripts used in this guide may need to be edited to add commands for configuring the Client PCs network interface. This is not required when using iPXE as the network bootstrap program with a script set as <a class="glossary" href="pxesrv_config.htm#altfilename">altfilename</a> in <font class="file">config.ini</font> as the network interface is automatically configured. To configure the first network adapter, simply add the following code at the start of any scripts to run the <font class="file">dhcp</font> command -
+<br />
+<textarea style="font-size:12px" cols="80" rows="4" align="left" readonly>
+
+#!ipxe
+dhcp net0 && echo IP address: ${net0/ip} ; echo Subnet mask: ${net0/netmask}
+</textarea>
+</p>
+
+<p>
+E.g. -
+<br >
+<textarea style="font-size:12px" cols="80" rows="5" align="left" readonly>
+
+#!ipxe
+dhcp net0 && echo IP address: ${net0/ip} ; echo Subnet mask: ${net0/netmask}
+chain ${boot-url}/pxeboot.0
+</textarea>
+</p>
+
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

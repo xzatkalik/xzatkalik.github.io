@@ -1,0 +1,582 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm" selected="selected">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>Unbinding The Lightweight Filter (LWF)</u></h2>
+
+
+<p>
+<b><u><font color="red">NOTE</font></u></b> - <B><u>THIS PAGE FORMS PART OF THE INSTRUCTIONS FOR SETTING UP WINDOWS TO BOOT FROM A STORAGE AREA NETWORK (SAN) USING EITHER THE AoE OR iSCSI PROTOCOLS</B></u>.
+</p>
+
+<p>
+<b>Note</b> - This section does not apply if installing Windows directly to an iSCSI target or diskless booting Windows NT 5.*.
+</p>
+
+
+<p>
+The Windows Filtering Platform (WFP) Lightweight Filter (LWF) enables packet filtering, connection monitoring, etc. A <font class="file">wfplwf</font> binding is automatically applied to any network adapters present on the Client system - unfortunately this will cause issues if attempting to diskless boot a cloned operating system using either the iSCSI or AoE protocols. 
+</p>
+
+<p>
+This information in this section has been adapted from Microsoft Knowledgebase article 976042 (see <a target="_blank" href="https://support.microsoft.com/en-gb/kb/976042#/en-gb/kb/976042">here</a>). KB976042 refers to iSCSI network boot failures following changes of hardware, however it can be applied to iSCSI and AoE diskless booting of Windows NT 6.* systems cloned from existing installations. 
+</p>
+
+<p>
+Without applying the fix detailed below you are likely to experience either of the following issues when diskless booting iSCSI/AoE from a cloned Operating System - 
+<ul>
+<li>0x0000007B (Inaccessible Boot Device) Stop Error (aka BSOD).</li>
+<li>Windows hangs on the splash screen and fails to load.</li>
+</ul>
+</p>
+
+
+<p>
+The following has been copied from the <a target="_blank" href="https://support.microsoft.com/en-gb/kb/976042#/en-gb/kb/976042">KB976042</a> article - which refers to Windows Server 2008 R2. It also applies to other Windows NT 6.* Operating Systems (including Windows 7 (SP1) and Windows 8.1) when diskless booting iSCSI <u><i>and</i></u> AoE -
+
+<div id="quote">
+<i>"...In Windows Server 2008 R2, a new NDIS Light Weight Filter (LWF) driver is introduced called “WFP Lightweight Filter”. When Windows is installed on a local disk, this filter driver is installed and bound to all network adapters, including the network adapter to be used for iSCSI boot. If Windows is installed directly on an iSCSI disk, Windows Setup makes sure that the LWF driver does not get installed on the network adapter used with iSCSI boot. If, however, there are secondary iSCSI boot adapters (like in a fail-over environment) in the machine that are not configured for such roles during the Windows installation (e.g. an iSCSI Bios Firmware Table (iBFT) is not presented at install time or such devices are added later), the LWF driver is installed and bound on all such secondary or fail-over devices. 
+<br /><br />
+The NDIS LWF driver is neither a boot-start driver nor is it compatible with paging I/O. When any of the above systems, where NDIS LWF driver is bound to an iSCSI boot adapter, are started, Windows may fail to boot and/or causes a bugcheck 0x7B (INACCESSIBLE_BOOT_DEVICE)..."</i>
+</div>
+</p>
+
+
+
+<p>
+The <a target="_blank" href="https://support.microsoft.com/en-gb/kb/976042#/en-gb/kb/976042">KB976042</a> article suggests applying a hotfix to resolve this issue, however the hotfix only applies to Windows Server 2008 R2. Fortunately a workaround is also provided -
+
+<div id="quote">
+<i>"...To work around this issue without applying the hotfix, before creating an iSCSI bootable Windows image to be deployed on an iSCSI target or after configuring the secondary/fail-over boot-adapters, unbind NDIS LWF driver from any network adapters being used for iSCSI boot. 
+<br /><br />
+NDIS LWF driver can be unbound from the target miniport via BindView or NvspBind (among other tools).
+..."</i>
+</div>
+<br />
+</p>
+
+
+
+
+
+
+
+
+<a name="nvspbind"></a>
+<h3 class="breaktop"><u>Applying the Fix</u></h3>
+
+<p>
+The instructions in the following section apply to unbinding the NDIS Light Weight Filter (LWF) driver using the command-line <font class="file">nvspbind.exe</font> tool. The process is slightly different for Windows 7 and Windows 8.1 - the differences are covered below. Download <font class="file">nvspbind.exe</font> from <a target="_blank" href="https://gallery.technet.microsoft.com/Hyper-V-Network-VSP-Bind-cf937850">here</a> (direct downloads - <a class="glossary" target="_blank" href="https://gallery.technet.microsoft.com/Hyper-V-Network-VSP-Bind-cf937850/file/117119/1/32bit_Nvspbind_package.EXE">32-bit</a> / <a class="glossary" target="_blank" href="https://gallery.technet.microsoft.com/Hyper-V-Network-VSP-Bind-cf937850/file/117120/1/Microsoft_Nvspbind_package.EXE">64-bit</a>).
+</p>
+
+
+
+
+
+<p>
+Now follow the instructions below <u>before</u> cloning the disk!
+
+<ul>
+<li><a class="glossary" href="wfplwf.htm#step1">Step 1</a> - identify the Network Adapter's GUID</li>
+<li><a class="glossary" href="wfplwf.htm#step2">Step 2</a> - check bindings</li>
+<li><a class="glossary" href="wfplwf.htm#step3">Step 3</a> - disable bindings</li>
+<li><a class="glossary" href="wfplwf.htm#step4">Step 4</a> - recheck bindings</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+<a name="step1"></a>
+<h3 class="breaktop"><u>Step 1</u></h3>
+
+
+<p>
+Run the following command to obtain a list of all network adapters with corresponding GUID values -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left readonly>
+
+nvspbind.exe /n
+</textarea>
+</p>
+
+
+<p>
+Sample output from running the <font class="file">nvspbind.exe /n</font> command -
+<br />
+<textarea style="font-size:12px" cols="80" rows="15" align=left readonly>
+
+Hyper-V Network VSP Bind Application 6.1.7725.0.
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Adapters:
+
+{39EF1952-703C-42EB-8DB3-EC38F7203786}
+"*isatap"
+"Microsoft ISATAP Adapter #2"
+"isatap.{1A81A481-1441-4551-A278-09783572F70C}":
+
+{E4D24B97-BC76-4A35-AB2E-3B730959351A}
+"*isatap"
+"Microsoft ISATAP Adapter"
+"isatap.lan":
+
+{BBCC4FFB-30AF-41BF-9ECF-532F4D5D95B4}
+"*teredo"
+"Teredo Tunneling Pseudo-Interface"
+"Teredo Tunneling Pseudo-Interface":
+
+{E3BDDCC0-46DA-4E2E-8EAC-A75A659FD565}
+"pci\ven_8086&dev_4227&subsys_10118086"
+"Intel(R) PRO/Wireless 3945ABG Network Connection"
+"Wireless Network Connection":
+
+{1A81A481-1441-4551-A278-09783572F70C}
+"pci\ven_8086&dev_1049"
+"Intel(R) 82566MM Gigabit Network Connection"
+"Local Area Connection":
+
+{DCB14C61-690D-46F7-8A89-150432FA5C44}
+"ms_agilevpnminiport"
+"WAN Miniport (IKEv2)"
+"Local Area Connection* 2":
+
+{E2F8A220-AF88-446C-9A55-453E58DD3A33}
+"sw\{eeab7790-c514-11d1-b42b-00805fc1270e}"
+"RAS Async Adapter"
+"Local Area Connection* 10":
+
+{7C5653F0-144A-4534-9E34-28AC99CBA85E}
+"ms_ndiswanip"
+"WAN Miniport (IP)"
+"Local Area Connection* 8":
+
+{72DD97A9-E544-4915-88D8-44E829C34F68}
+"ms_ndiswanbh"
+"WAN Miniport (Network Monitor)"
+"Local Area Connection* 7":
+
+{F3229805-869E-479E-BA76-DD643F1D1B80}
+"ms_ndiswanipv6"
+"WAN Miniport (IPv6)"
+"Local Area Connection* 6":
+
+{DB2B4279-B5CF-4626-9DBA-32D0ECE44C87}
+"ms_pppoeminiport"
+"WAN Miniport (PPPOE)"
+"Local Area Connection* 5":
+
+{C0DE3E38-8BA7-479F-8B75-833F294C5AA8}
+"ms_pptpminiport"
+"WAN Miniport (PPTP)"
+"Local Area Connection* 4":
+
+{483C9FF8-503D-414B-B402-E4C1F1F568CB}
+"ms_l2tpminiport"
+"WAN Miniport (L2TP)"
+"Local Area Connection* 3":
+
+{E28D896F-9EA8-433A-9C10-66C97C19A921}
+"ms_sstpminiport"
+"WAN Miniport (SSTP)"
+"Local Area Connection*":
+
+cleaning up...finished (0)
+
+</textarea>
+
+
+<p>
+Isolate the entry for the network adapter you plan to use to connect to the server. E.g. -
+<br />
+<textarea style="font-size:12px" cols="80" rows="7" align=left readonly>
+
+{1A81A481-1441-4551-A278-09783572F70C}
+"pci\ven_8086&dev_1049"
+"Intel(R) 82566MM Gigabit Network Connection"
+"Local Area Connection":
+
+</textarea>
+</p>
+
+
+<p>
+The adapter's GUID is listed in the first line of the network adapter entry - in this example it's <font class="file">{1A81A481-1441-4551-A278-09783572F70C}</font>.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="step2"></a>
+<h3 class="breaktop"><u>Step 2</u></h3>
+
+<p>
+Having identified the network adapter's GUID in the proceeding step (<font class="file">{1A81A481-1441-4551-A278-09783572F70C}</font>) we can use this to list any bindings by running the following command (editing the GUID value to reflect your own setup) - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left readonly>
+
+nvspbind.exe {1A81A481-1441-4551-A278-09783572F70C}
+</textarea>
+</p>
+
+
+
+<p>
+Sample output from running the <font class="file">nvspbind.exe {1A81A481-1441-4551-A278-09783572F70C}</font> command -
+<br />
+<textarea style="font-size:12px" cols="80" rows="15" align=left readonly>
+
+Hyper-V Network VSP Bind Application 6.1.7725.0.
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Adapters:
+
+{1A81A481-1441-4551-A278-09783572F70C}
+"pci\ven_8086&dev_1049"
+"Intel(R) 82566MM Gigabit Network Connection"
+"Local Area Connection":
+   enabled:  ms_netbios       (NetBIOS Interface)
+   enabled:  ms_server        (File and Printer Sharing for Microsoft Networks)
+   enabled:  ms_pacer         (QoS Packet Scheduler)
+   disabled: ms_ndiscap       (NDIS Capture LightWeight Filter)
+   enabled:  ms_wfplwf        (WFP Lightweight Filter)
+   enabled:  ms_msclient      (Client for Microsoft Networks)
+   enabled:  ms_tcpip6        (Internet Protocol Version 6 (TCP/IPv6))
+   enabled:  ms_netbt         (WINS Client(TCP/IP) Protocol)
+   enabled:  ms_smb           (Microsoft NetbiosSmb)
+   enabled:  ms_tcpip         (Internet Protocol Version 4 (TCP/IPv4))
+   enabled:  ms_lltdio        (Link-Layer Topology Discovery Mapper I/O Driver)
+   enabled:  ms_rspndr        (Link-Layer Topology Discovery Responder)
+   enabled:  ms_pppoe         (Point to Point Protocol Over Ethernet)
+   enabled:  ms_ndisuio       (NDIS Usermode I/O Protocol)
+
+cleaning up...finished (0)
+
+</textarea>
+</p>
+
+
+<p>
+As we can see from this output, there's an entry for the WFP Lightweight Filter Driver currently enabled on this adapter -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left readonly>
+
+   enabled:  ms_wfplwf
+</textarea>
+</p>
+
+
+<p>
+<b>NOTE</b> - on Windows 8 and newer systems the <font class="file">ms_wfplwf</font> entry has  been replaced with <font class="file">ms_wfplwf_lower</font> and/or <font class="file">ms_wfplwf_upper</font>. E.g. -
+<br />
+<textarea style="font-size:12px" cols="80" rows="4" align=left readonly>
+
+   enabled:  ms_wfplwf_lower  (WFP Native MAC Layer LightWeight Filter)
+   enabled:  ms_wfplwf_upper  (WFP 802.3 MAC Layer LightWeight Filter)
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="step3"></a>
+<h3 class="breaktop"><u>Step 3</u></h3>
+
+<p>
+Having discovered in the proceeding step that the WFP Lightweight Filter Driver is attached to the system we need to disable the binding. Run the following commands (editing the GUID value to reflect your own setup) - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="4" align=left readonly>
+
+nvspbind.exe /d {1A81A481-1441-4551-A278-09783572F70C} ms_wfplwf
+</textarea>
+</p>
+
+
+<p>
+Or on Windows 8 and newer systems, with <font class="file">ms_wfplwf_lower</font> and/or <font class="file">ms_wfplwf_upper</font> bindings - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="4" align=left readonly>
+
+nvspbind.exe /d {1A81A481-1441-4551-A278-09783572F70C} ms_wfplwf_lower  
+nvspbind.exe /d {1A81A481-1441-4551-A278-09783572F70C} ms_wfplwf_upper
+</textarea>
+</p>
+
+<p>
+Output from running the above commands (<font class="file">ms_wfplwf</font>)-
+<br />
+<textarea style="font-size:12px" cols="80" rows="15" align=left readonly>
+
+
+Hyper-V Network VSP Bind Application 6.1.7725.0.
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+acquiring write lock...success
+
+
+Adapters:
+
+{1A81A481-1441-4551-A278-09783572F70C}
+"pci\ven_8086&dev_1049"
+"Intel(R) 82566MM Gigabit Network Connection"
+"Local Area Connection":
+    unbinding ms_wfplwf from Intel(R) 82566MM Gigabit Network Connection
+
+applying changes...
+
+cleaning up...releasing write lock...success
+finished (0)
+
+</textarea>
+</p>
+
+
+
+<p>
+Output from running the above commands (<font class="file">ms_wfplwf_lower</font> and <font class="file">ms_wfplwf_upper</font>) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="15" align=left readonly>
+
+Hyper-V Network VSP Bind Application 6.1.7725.0.
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+acquiring write lock...success
+
+
+Adapters:
+
+{1A81A481-1441-4551-A278-09783572F70C}
+"pci\ven_8086&dev_10f5"
+"Intel(R) 82567LM Gigabit Network Connection"
+"Ethernet":
+    unbinding ms_wfplwf_lower from Intel(R) 82567LM Gigabit Network Connection
+
+applying changes...
+
+cleaning up...releasing write lock...success
+finished (0)
+
+Hyper-V Network VSP Bind Application 6.1.7725.0.
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+acquiring write lock...success
+
+
+Adapters:
+
+{1A81A481-1441-4551-A278-09783572F70C}
+"pci\ven_8086&dev_10f5"
+"Intel(R) 82567LM Gigabit Network Connection"
+"Ethernet":
+    unbinding ms_wfplwf_upper from Intel(R) 82567LM Gigabit Network Connection
+
+applying changes...
+
+cleaning up...releasing write lock...success
+finished (0)
+
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="step4"></a>
+<h3 class="breaktop"><u>Step 4</u></h3>
+
+<p>
+Rerun the command in <a class="glossary" href="wfplwf.htm#step2">step 2</a> to recheck bindings (e.g. <font class="file">nvspbind.exe {1A81A481-1441-4551-A278-09783572F70C}</font>) - 
+</p>
+
+
+<p>
+Sample output from (re)running the <font class="file">nvspbind.exe {1A81A481-1441-4551-A278-09783572F70C}
+</font> command -
+<br />
+<textarea style="font-size:12px" cols="80" rows="15" align=left readonly>
+
+Hyper-V Network VSP Bind Application 6.1.7725.0.
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Adapters:
+
+{1A81A481-1441-4551-A278-09783572F70C}
+"pci\ven_8086&dev_1049"
+"Intel(R) 82566MM Gigabit Network Connection"
+"Local Area Connection":
+   enabled:  ms_netbios       (NetBIOS Interface)
+   enabled:  ms_server        (File and Printer Sharing for Microsoft Networks)
+   enabled:  ms_pacer         (QoS Packet Scheduler)
+   disabled: ms_ndiscap       (NDIS Capture LightWeight Filter)
+   disabled: ms_wfplwf        (WFP Lightweight Filter)
+   enabled:  ms_msclient      (Client for Microsoft Networks)
+   enabled:  ms_tcpip6        (Internet Protocol Version 6 (TCP/IPv6))
+   enabled:  ms_netbt         (WINS Client(TCP/IP) Protocol)
+   enabled:  ms_smb           (Microsoft NetbiosSmb)
+   enabled:  ms_tcpip         (Internet Protocol Version 4 (TCP/IPv4))
+   enabled:  ms_lltdio        (Link-Layer Topology Discovery Mapper I/O Driver)
+   enabled:  ms_rspndr        (Link-Layer Topology Discovery Responder)
+   enabled:  ms_pppoe         (Point to Point Protocol Over Ethernet)
+   enabled:  ms_ndisuio       (NDIS Usermode I/O Protocol)
+
+cleaning up...finished (0)
+
+
+</textarea>
+</p>
+
+
+<p>
+As you can see from the above output the <font class="file">ms_wfplwf</font> binding has been successfully disabled. 
+</p>
+
+<p>
+On a Windows 8.1 system the <font class="file">ms_wfplwf_upper</font> binding was displayed as been successfully disabled. The <font class="file">ms_wfplwf_lower</font> binding remained enabled, however this did not appear to impact on successfully booting Windows 8.1 using a diskless AoE boot.
+</p>
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

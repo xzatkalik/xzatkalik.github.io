@@ -1,0 +1,392 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm" selected="selected">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>Digital Forensic Acquisition</u></h2>
+
+
+
+<p>
+Whilst using a hardware write blocker appears to be the recommended method for taking an exact (sector by sector) copy of a hard disk for evidence gathering and investigation, software based write blockers can also be used and have some advantages - 
+<ul>
+<li>Hardware write blockers can be expensive.</li>
+</ul>
+
+
+<ul>
+<li>It's not always practical (or easy) to remove a hard disk - required in order to physically attach it to a hardware write blocker.</li>
+</ul>
+</p>
+
+
+
+<p>
+<font class="file">Tiny PXE Server</font> can be used as a digital forensic acquisition platform - PXE booting an operating system on a client PC in order to image it. Software write blockers are often booted from external media including USB drives and CD/DVD discs. Advantages of network booting a software based write blocker (e.g. WinFE) include -
+<ul>
+<li>PXE boot support is widely implemented - having been developed in the late 1990's.</li>
+</ul>
+
+
+<ul>
+<li>Potential boot speed advantages - WinFE can be loaded in seconds with Gigabit Ethernet adapters (and infrastructure).</li>
+</ul>
+
+
+<ul>
+<li>USB boot support, particularly on older hardware, can be poorly implemented - some hardware may only boot using USB 1.1 speeds (if it boots at all)</li>
+</ul>
+
+
+<ul>
+<li>Booting from a network adapter is often left enabled (in BIOS settings).</li>
+</ul>
+
+
+<ul>
+<li>It's possible to take advantage of imaging to network storage.</li>
+</ul>
+
+
+
+<ul>
+<li>In a lab environment multiple connections can be made to <font class="file">Tiny PXE Server</font> - enabling multiple concurrent captures from different Evidence PCs</li>
+</ul>
+
+</p>
+
+
+
+<p>
+Network booting WinFE (or alternative software write blockers) can be as simple as attaching the Evidence (Client) PC to a laptop via an Ethernet crossover cable - using the laptop as a Server. This allows for a high degree of portability and may be useful in digital forensic triage. 
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="fau"></a>
+<h3 class="breaktop"><u>Imaging to Network Storage via (FAU) dd</u></h3>
+
+
+<p>
+This is a simple example - booting <a class="glossary" target="_blank" href="http://reboot.pro/files/file/375-mini-winfe/">Mini-WinFE<a> (a WinPE based Windows Forensic Environment built using Winbuilder) from <font class="file">Tiny PXE Server</font> configured on a laptop - attached to the Client PC via an Ethernet crossover cable.
+</p>
+
+
+<p>
+<a target="_blank" href="http://gmgsystemsinc.com/fau/">Forensic Acquisition Utilities</a> - 
+
+<div id="quote"><i>"...is a collection of utilities and libraries intended for forensic or forensic-related investigative use in a modern Microsoft Windows environment.  The components in this collection are intended to permit the investigator to sterilize media for forensic duplication, discover where logical volume information is located and to collect the evidence from a running computer system while at the same time ensuring data integrity (e.g. with a cryptographic checksums) and while minimizing distortive alterations to the subject system..."</i>.</div> 
+</p>
+
+<p>
+FAU includes <font class="file">nc.exe</font> - a <font class="file">Netcat</font> utility used on the Server to capture data over the network. On the Client side, <font class="file">dd.exe</font> is then used to send data to <font class="file">nc.exe</font> - imaging a hard disk. 
+</p>
+
+
+<p>
+Setup <font class="file">Tiny PXE Server</font> to include <font class="file">Mini-WinFE</font> using the instructions in the <a class="glossary" href="winpe.htm">WinPE<a> section of this guide (copying <font class="file">boot.wim</font>, <font class="file">boot.sdi</font>, <font class="file">boot\BCD</font>, etc - <font class="file">filename=pxeboot.n12</font> in <font class="file">config.ini</font>).
+</p>
+
+
+<h4><u>Server setup</u></h4>
+<p>
+<ul>
+<li><b>IP Address</b> - 192.168.2.1</li>
+<li><b>Computer Name</b> - SERVER</li>
+<li><b>Account</b> - Admin</li>
+<li><b>Admin Account password</b> - mypassword</li>
+</ul>
+</p>
+
+
+<p>
+Start <font class="file">pxesrv.exe</font>. Start <font class="file">nc.exe</font> on the Server using the following command -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left readonly>
+
+nc.exe -v -n -L -p 3000 -s 192.168.2.1 -O d:\image.ima --localwrt
+</textarea>
+</p>
+
+
+<p>
+Where
+<ul>
+<li><b>-v</b> - output verbose information.</li>
+<li><b>-n</b> - numeric-only IP addresses, no DNS.</li>
+<li><b>-L</b> - Listen for inbound connections.</li>
+<li><b>-p</b> - listen on tcpip port (3000).</li>
+<li><b>-s</b> - listen on local interface (Server IP Address - 192.168.2.1).</li>
+<li><b>-O</b> - output file (d:\image.ima).</li>
+<li><b>--localwrt</b> - Enables writing output to a local fixed drive.</li>
+</ul>
+</p>
+
+
+
+<p>
+Screenshot of Netcat running on the server -
+<br />
+<img src="img/nc.jpg">
+</p>
+
+
+
+<h4><u>Client</u></h4>
+
+<p>
+Network boot the Client PC - loading <font class="file">Mini-WinFE</font>
+</p>
+
+
+<p>
+Start network services if they are not started automatically (<font class="file">Mini-WinFE</font> does not run the <font class="file">Wpeutil InitializeNetwork</font> command at start-up).
+</p>
+
+
+<p>
+Run <font class="file">dd.exe</font> using the following command -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap="off" readonly>
+
+dd.exe -v bs=1048576 if=\\.\PhysicalDrive0 of=192.168.2.1 conv=noerror --iport 3000
+</textarea>
+</p>
+
+
+
+<p>
+Where
+<ul>
+<li><b>-v</b> - output verbose information.</li>
+<li><b>bs</b> - blocksize (1048576 - 1 MiB).</li>
+<li><b>if</b> - input source (\\.\PhysicalDrive0 = hard disk 0)</li>
+<li><b>of</b> - destination for output (192.168.2.1 - Server IP Address).</li>
+<li><b>conv=noerror</b> - continue reading after errors.</li>
+<li><b>--iport</b> - send output to the specified tcpip PORT (3000).</li>
+</ul>
+</p>
+
+
+
+<h4><u>On the Fly Compression</u></h4>
+
+<p>
+It's also possible to use on the fly compression during imaging - <font class="file">dd.exe</font> and <font class="file">nc.exe</font> support the following compression algorithms - 
+<ul>
+<li>zlib</li>
+<li>zlib+</li>
+<li>gzip</li>
+<li>gzip+</li>
+<li>bzip</li>
+<li>bzip+</li>
+<li>lznt1 (reported to be the most efficient)</li>
+<li>lznt1+</li>
+</ul>
+</p>
+
+
+
+<p>
+Server side -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap="off" readonly>
+
+nc.exe -v -n -L -p 3000 -s 192.168.2.1 --decomp lznt1 -O d:\image.ima --localwrt
+</textarea>
+</p>
+
+
+
+<p>
+Client side - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left wrap="off" readonly>
+
+dd.exe -v bs=1048576 if=\\.\PhysicalDrive0 of=192.168.2.1 conv=noerror --iport 3000 --comp lznt1
+</textarea>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="other"></a>
+<h3 class="breaktop"><u>Other Imaging Solutions (WinFE)</u></h3>
+
+<p>
+Using <font class="file">dd.exe</font> as described in the preceding <font class="file">Imaging to Network Storage via (FAU) dd</font> section requires access to the server to run <font class="file">Netcat</font> - there are a range of other imaging alternatives available in WinFE that can write directly to a network share. These programs include - 
+<ul>
+<li><a target="_blank" href="http://www.x-ways.net/winhex/">WinHex</a> (and probably <a target="_blank" href="http://www.x-ways.net/forensics/">X-Ways Forensics</a>)</li>
+<li><a target="_blank" href="http://www.symantec.com/en/uk/ghost-solution-suite/">Ghost</a></li>
+</ul>
+</p>
+
+<p>
+To connect to a network share from WinPE the following command syntax is used - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align=left readonly>
+
+net use DRIVE: \\REMOTE_COMPUTER\SHARE /u:ACCOUNT "PASSWORD" 
+</textarea>
+
+<p>
+Where -
+<ul>
+<li><b>DRIVE:</b> - mount point to be used (e.g. Z:). Alternatively use * to allocate an available drive letter.</li>
+</ul>
+
+<ul>
+<li><b>REMOTE_COMPUTER</b> - IP (v4) address of the computer containing the share (e.g. 192.168.2.1) - or alternatively use the Computer (NetBIOS) Name.</li>
+</ul>
+
+<ul>
+<li><b>SHARE</b> - name of network share on the REMOTE_COMPUTER (e.g. files).</li>
+</ul>
+
+<ul>
+<li><b>ACCOUNT</b> - a valid account/username for the REMOTE_COMPUTER (e.g. Admin)</li>
+</ul>
+
+<ul>
+<li><b>PASSWORD</b> - password for connecting to the account name used above. If password has not been set then use empty quotes "".</li>
+</ul>
+</p>
+
+<p>
+E.g. 
+<ul>
+<li><font class="file">net use Z: \\192.168.2.1\files /u:Admin "mypassword"</font></li>
+<li><font class="file">net use * \\SERVER\files /u:Admin "mypassword"</font></li>
+</ul>
+</p>
+
+
+
+
+
+
+
+<p class="breakbottom">
+</p>
+
+
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

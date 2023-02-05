@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+	<title>Linux a unix</title>
+
+</head>
+<body>
+	<ul>
+			<li><a href="#mc">Midnight commander</a></li>
+			<li><a href="#bash">BASH</a></li>
+			<ul>
+				<li><a href="#bash_skratky">Bash Skratky</a></li>
+        <li><a href="#bash_prikazy">Bash Prikazy</a></li>
+        <li><a href="#webservre">WEB servre</a></li>
+        <li><a href="#instalacia_programov">Instalacia programov Linux</a></li>
+        <li><a href="pacman-cz.html">Pacman CZ navod</a></li>
+				<li><a href="#nastavenie_klavesnice">Nastavenie klavesnice</a></li>
+        <li><a href="#xserver">X Server</a></li>
+				<li><a href="#sluzby">Sluzby Daemoni</a></li>
+				
+    		<li><a href="#konvertovanie">Konvertovania suborov</a></li>
+    		<li><a href="#konvertovanie">Konvertovania suborov</a></li>
+    		<li><a href="#tlaciarne">Tlaciarne</a></li>
+			</ul>
+		<li><a href="#fs">FS suborovy system</a></li>
+    <ul>
+        <li><a href="#fs-disky_mount">Pripojenie diskov, cd, iso a pod</a></li>
+        <li><a href="#fs-tmpfs">tmpfs a tak</a></li>
+        <li><a href="#fs-fstab">FSTAB</a></li>
+         <li><a href="#fs-swap">Add swap to FSTAB</a></li>
+     
+				<li><a href="#fs-iden">Identifikacia zariadeni</a></li>
+        <li><a href="#fs-usbformat">usb formatovanie</a></li>
+			</ul>
+
+		<li><a href="#odkazy">Odkazy</a></li>
+			<ul>
+		
+				<li><a href="desktop-environments/de.html">DESKTOP ENVIRONMENTS</a></li
+				<li><a href="#wget">Wget download webu</a></li>
+				<li><a href="#siete">Siete</a></li>
+				<li><a href="#olinuxe">Linky na stranky okolo linuxu</a></li>
+				<li><a href="#odkazy_prikazy">Linuxove prikazy</a></li>
+				<li><a href="#nahravmezvuk">Nahravame zvuk v linuxe</a></li>
+				<li><a href="#netriedene">Netriedene dokumenty</a></li>
+				<li><a href="#pdfka">PDFka</a></li>
+
+				
+				
+			</ul>
+	</ul>
+	<h1>Prikazy</h1>
+	<p>
+	
+			<ul>
+				<li>lsblk === vypise zname sariadenia diskov</li>
+				<li>dmesg === vypise aktualne dianiie na hw</li>			
+				<li></li>
+			</ul>
+
+
+
+	</p>
+	<p>
+	<table>
+	<caption><a name=webservre></a><h3> WEB servre</h3></caption>
+	<tr> <th>skratka / prikaz</th> <th> vyznam</th></tr>
+	<tr><td>php -S localhost:8000 </td><td> spusti php lokalne</td></tr>
+	<tr><td></td><td></td></tr>
+	<tr><td></td><td></td></tr>
+
+</table>
+	
+	
+	
+	<table>
+	<caption><a name=bash_prikazy></a><h3>bash prikazy</h3></caption>
+	<tr> <th>prikaz</th> <th> vyznam</th></tr>
+	<tr><td>source ~/.bashrc</td><td>natiahne bashrc bez nutnosti odhlasit sa</td></tr>
+	<tr><td>alias</td><td>zobrazi alias nastavene v bashrc, pre rpiadnie noveho pridaj riadok: alias meno='prikaz argumenty'</td></tr>
+	<tr><td>tar -zxvf data.tar.gz</td><td>extrahuje tar.gz</td></tr>
+	<tr><td>sudo fsck /dev/sdc1</td><td>KONTROLA disku</td></tr>
+  <tr><td>which</td><td>najde umiestnenie spustitelneho suboru priklad which firefox</td></tr>
+  <tr><td>wavemon</td><td>program na scan wifin v okol</td></tr>
+  <tr><td>dolphin .</td><td>spusti dolphin v aktualnom adresare</td></tr>
+ <tr><td>setxkbmap -option caps:backspace</td><td>premapuje capslock na backspace SKUS ctrl</td></tr>
+<tr><td>snap list</td><td>zoznam nainstalovanych snap balikov</td></tr>
+<tr><td>apt list --installed</td><td>zozbnam nainstovanytch apt balikov</td></tr>
+
+
+</table>
+
+	<table>
+	<caption><a name=nastavenie_klavesnice></a><h3>Nastavenie klavesnice </h3></caption>
+	<tr> <th>prikaz</th> <th> vyznam</th></tr>
+	<tr><td>loadkeys us</td><td>nastavi US pre aktualnu konzou</td></tr>
+	<tr><td>setxkbmap us</td><td>nastavi US nutne mat Xka'</td></tr>
+  <tr><td>setxkbmap -option caps:backspace</td><td>premapuje capslock na backspace SKUS ctrl</td></tr>
+</table>
+
+	<a namoe=webservre></a><h1>WEB servre</h1>
+	<p>
+	<table>
+	<caption<a name=bash_skratky></a>><h3>bash SKRATKY</h3></caption>
+	<tr> <th>skratka / prikaz</th> <th> vyznam</th></tr>
+	<tr><td>ctrl + z </td><td> ZASTAVI ULOHU v terminale</td></tr>
+	<tr><td>jobs</td><td>vypise ulohy aktualneho terminalu s cislami</td></tr>
+	<tr><td>bg [cislo ulohy z prikazu jobs]</td><td>presunie proces na pozadie [prompt je k dispozicii a je mozne vykonavat ine ulohy]</td></tr>
+	<tr><td>fg [cislo ulohy]</td><td>presunie proces na popredie [promt je zablokovany]</td></tr>
+
+</table>
+
+
+<table>
+	<caption><a name=instalacia_programov></a><h3>Instalacia programov</h3></caption>
+	<tr> <th>prikaz</th> <th> vyznam</th></tr>
+	<tr> <td>sudp dpkg -i PACKAGE_NAME.deb</td> <td> instalacia deb balickov</td></tr>
+	<tr> <td>sudp dpkg -r PACKAGE_NAME</td> <td> remove deb balickov</td></tr>
+	<tr> <td>sudo dpkg-reconfigure PACKAGE_NAME</td> <td> This is useful when you need to reconfigure something related to said package. Some useful examples it the keyboard-configuration when you want to enable the Ctrl+Alt+Backspace in order to reset the X server, so you would the following: sudo dpkg-reconfigure keyboard-configuration</td></tr>
+	 <tr> <td>dpkg -l | less</td> <td> zoznam nainstalovanych balickov</td></tr>
+	 <tr> <td>dpkg -l PACKAGE_NAME</td> <td> zisti ci je PACKAGE_NAME nainstalovany</td></tr>
+	 <tr> <td>sudo dpkg -S PACKAGE_NAME</td> <td> najde adresu kde je PACKAGE_NAME nainstalovany</td></tr>	
+	 <tr> <td>sudo dpkg -R --install /home/sysadmin/soft</td> <td> instalacia deb balickov s adresy /home/sysadmin/soft</td></tr>
+	 <tr> <td>dpkg -p {package_name}</td> <td> Show package details</td></tr>
+	 <tr> <td>sudo dpkg -c {package_name}</td> <td> View the content of a package</td></tr>
+		<tr> <td>dpkg -x {package_name} {location_were_to_extract}</td> <td> Extract the *.deb package file</td></tr>
+	<tr> <td>dpkg -X {package_name} {location_were_to_extract}</td> <td> Extract and display the filenames contained in a package</td></tr>
+	<tr> <td> dpkg -I {package_name}</td> <td> Display information about a package</td></tr>
+	<tr> <td> sudo dpkg -i *.deb</td> <td> instalacia vsetkych deb balikov v adresary</td></tr>
+	
+	<tr> <td> GDebi</td> <td> GUI instalacia deb balickov</td></tr>
+
+</table>
+
+<table>
+	<caption><a name=sluzby></a><h3>Sluzby Daemoni</h3></caption>
+	<tr> <th>prikaz</th> <th> vyznam</th></tr>
+	<tr><td>systemctl --type=service</td><td> zobrazi spustene sluzby</td></tr>
+	<tr><td>systemctl enable NetworkManager.service</td><td>nastavi automaticky start sluzby</td></tr>
+</table>
+
+<table>
+	<caption><a name=xserver></a><h3>X server</h3></caption>
+	<tr> <th>prikaz</th> <th> vyznam</th></tr>
+	<tr><td>ls /etc/X11/xinit/</td><td>vypise DE ktore su nainstalovane</td></tr>
+	<tr><td>startx /etc/X11/xinit/xinitrc.xfce</td><td>Spusti xfce DE</td></tr>
+	<tr><td>xorgsetup</td><td>Nakonfiguruje X server nanovo</td></tr>
+	<tr><td></td><td></td></tr>
+</table>
+
+
+	<table>
+	<caption><h3>grafika server</h3></caption>
+	<tr> <th>prikaz</th> <th> vyznam</th></tr>
+	<tr><td>lspci |grep VGA</td><td>vypise grafiky</td></tr>
+	<tr><td>dmesg |grep NVIDIA</td><td> najde driver</td></tr>
+	<tr><td>cat /etc/X11/xorg.conf</td><td>vypise xorg nastavenia</td></tr>
+	<tr><td>sudo service lightdm stop</td><td>zostreli GUI</td></tr>
+	<tr><td></td><td></td></tr>
+</table>
+
+	<table>
+		<caption><h3>Internet DHCPcD </h3></caption>
+		<tr> <th>prikaz</th> <th> vyznam</th></tr>
+		<tr><td>ls /sys/class/net</td><td> vypise sietove zariadenia interfaces </td></tr>
+		<tr><td>dhcpcd interface</td><td>zapne sietovu kartu</td></tr>
+		<tr><td>ip link interface</td><td> info o zariadeni ip link dokaze rozne nastavenia sietovky</td></tr>
+		<tr><td>systemctl enabled dhcpcd</td><td>zapne dhcp automaticky so startom</td></tr>
+		<tr><td>systemctl start dhcpcd</td><td>zapne dhcpcd hned, ak je enabled tak staci restartovat</td></tr>
+		<tr><td>ip addr</td><td>skontrolujeme ip adresy</td></tr>
+		<tr><td></td><td></td></tr>
+		
+
+	</table>
+
+	<table>
+		<caption><h3>zapis na Floppy </h3></caption>
+		<tr> <th>prikaz</th> <th> vyznam</th></tr>
+		<tr><td>sudo blkid</td><td> zistenie ktore zariadenie je ktore </td></tr>
+		<tr><td>sudo dd if=image.img of=/dev/sdX</td><td>zapise na /dev/sdX image.img</td></tr>
+		<tr><td></td><td></td></tr>
+		
+
+	</table>
+
+
+
+	<table>
+		<caption><h3>Arch linux </h3></caption>
+		<tr> <th>prikaz</th> <th> vyznam</th></tr>
+		<tr><td>pacman -S balicek</td><td> nainstaluje balickek </td></tr>
+		<tr><td>pacman -Syu</td><td>nieco ako apt update</td></tr>
+		<tr><td>pacman -S multilib-devel fakeroot git jshon wget make pkg-config autoconf automake patch</td><td></td></tr>
+		<tr><td></td><td></td></tr>
+	<tr><td>pacman -S alsa-utils</td><td>alsamixer</td></tr>
+	<tr><td>speaker-test -c 2</td><td></td></tr>
+	<tr><td></td><td></td></tr>
+	<tr>pacman -S xorg-server xorg-xinit xorg-server-utils mesa<td></td><td></td></tr>
+	<tr><td>pacman -S virtualbox-guest-utils</td><td>pre virtualbox</td></tr>
+	<tr><td>pacman -Ss xf86-video</td><td>najde vsetky balicky zacinajuce na xf86..</td></tr>
+	<tr><td>pacman -Ss xf86-video | less</td><td>najde vsetky balicky zacinajuce na xf86..</td></tr>
+	<tr><td>pacman =S xorg-twm xorg-xclock xterm</td><td></td></tr>
+	<tr><td>pacman -Dkk</td><td>nejaka diagnostika</td></tr>
+	<tr><td></td><td></td></tr>
+	<tr><td></td><td></td></tr>
+		<tr><td></td><td></td></tr>
+    	<tr><td>PACMAN Uninstall</td></tr>
+      <tr><td>pacman -R</td><td>To remove a single package, leaving all of its dependencies installed</td></tr>
+      <tr><td>pacman -Rs</td><td>To remove a package and its dependencies which are not required by any other installed package</td></tr>
+      <tr><td>pacman -Rn</td><td>Pacman saves important configuration files when removing certain applications and names them with the extension: .pacsave. To prevent the creation of these backup files use the -n option: </td></tr>
+
+	</table>
+  
+	<table>
+		<caption><h3>Arch linux Xka </h3></caption>
+		<tr> <th>prikaz</th> <th> vyznam</th></tr>
+		<tr><td>pacman -S xorg</td><td> nainstaluje balickek </td></tr>
+		<tr><td>pacman -S xterm xorg-xclock xorg-twm xorg-xinit xorg-server-utils</td><td>nejake xbalicky</td></tr>
+		<tr><td>pacman -S plasma kdebase</td><td> KDE a zaklad systemu</td></tr>
+		<tr><td>pacman -S ttf-freefont</td><td>pisma mono sans atd</td></tr>
+		<tr><td>systemctl enable sddm</td><td> povoli sddm </td></tr>
+		<tr><td></td><td></td></tr>
+		<tr><td></td><td></td></tr>
+	</table>
+<table>
+		<caption><h3>Arch linux PKGBUILDS </h3></caption>
+		<tr> <th>prikaz</th> <th> vyznam</th></tr>
+		<tr><td>tar -xf balicek.tar.gz</td><td> rozpakuje balicek </td></tr>
+		<tr><td>cd balicek</td><td>vojde do adresara</td></tr>
+		<tr><td>makepkg -s</td><td> vyrobi blalicek v pripade nutnosti doinstalovat FAKEROOT</td></tr>
+		<tr><td>pacman -U *xz</td><td>instalacia balicka</td></tr>
+		<tr><td></td><td></td></tr>
+		<tr><td></td><td></td></tr>
+	</table>
+
+
+<ul>
+<li><a href="grafika_info.pdf">Informacie o grafike</a></li>
+</ul>
+
+	</p>
+	<p>
+	<caption><a name=konvertovanie></a><h2>Konvertovania suborov</h2>
+	<h3>Konvertovanie jpgeciak na PDF</h3>
+	
+	convert *.jpg pictures.pdf
+
+	
+	</p>
+	<caption><a name=tlaciarne></a><h2>TlaciarneKonvertovania suborov</h2>
+  <h3>Installing PPD File From the Command Line</h3>
+      Notes: <br>
+      Before proceeding with the installation, be sure to exit all running applications.
+      Root privileges are required in order to install ppd file.
+      <ol>
+      <li> Copy the ppd file from the Printer Driver and Documentations CD to the “/usr/share/cups/model” on the computer. <br> Note: 	A ppd file for each language is available in the corresponding “Drivers/LinuxPPD/<language>” folder on the CD.</li>
+
+     	<li>Use the appropriate ppd file for the language.</li>
+
+    <li>From the Main Menu, select Applications, then Accessories, then Terminal.</li>
+
+    <li>Enter the command “/etc/init.d/cups restart”.</li>
+
+    <li>Quit Terminal.</li>
+    </ol>
+	
+	</p>
+
+<a name=fs><h1>Suborove systemy a veci okolo<h1>
+<h2>Zakladne prikazy pre pracu z FS</h2>
+<pre>
+  lsblk === zoznam diskov a particii
+
+  df -h === aktualne pripojene FS a ich aktualne kapacity
+
+</pre>
+
+
+	<caption><a name=fs-disky_mount></a><h2>Pripojenia diskov, cd, vhd a podobne</h2>
+		<h3>pripojenie adresara ako pripojeneho bodu</h3>
+	<p>
+	mount --bind /mnt/adresar /kde/adresar/bude/pripojeny<br>
+	pre fstab: /mnt/adresar /kde/adresar/bude/pripojeny none bind 0 0 <br>
+	<h3>pripojenie ISO ako pripojeneho bodu</h3>
+	<p>
+		mount -o loop /kde/je.iso /kde/iso/bude/pripojeny<br>
+	 <br>
+
+
+	
+	</p>
+  <a name=fs-tmpfs><h2>TmpFS</h2>
+
+		<h3>tmpfs zvacsenie kapacity /tmp</h3>
+	<pre>
+
+		sudo mount -o remount,size=10G,noatime /tmp
+
+   </pre>
+
+<a name=fs-fstab><h2>FSTAB</h2>
+<pre>
+lsblk -f === informacie o particiach a diskoch UUID
+blkid === alternativa na zistenie UUID
+
+/etc/fstab
+
+***STRUKTURA SUBORU***
+Sloupec	                          Význam
+&lt;file system&gt;               Identifikace disku (diskového oddílu) buď pomocí „klasického“ značení (tedy /dev/sdxY), nebo pomocí UUID (v novějších vydáních Ubuntu jako výchozí).
+&lt;mount point&gt;	              Přípojný bod - tedy místo ve struktuře adresářů, kde se bude nacházet obsah disku.
+&lt;type&gt;	                    Typ souborového systému na disku. Parametr auto slouží k automatickému rozpoznání. Pro linuxové souborové systémy nejspíše ext2 nebo ext3, pro souborové systémy MS Windows ntfs a vfat (=FAT16/32) pro výměnná média udf (DVD) a iso9660 (CD).
+&lt;options&gt;	                  Další volby pro připojení disku, některé nejčastěji používané naleznete níže.
+&lt;dump&gt;                      Slouží k určení zda se bude daný oddíl při startu systému zálohovat pomocí dump, 0 slouží k vypnutí, což je vhodné pro většinu běžných použití.
+&lt;pass&gt;	                    Určuje zda a kdy bude probíhat kontrola oddílu při startu systému. 1 je vyhrazeno pro kořenový adresář („/“), 2 pro všechny ostatní vyjma oddílů se souborovými systémy FAT a NTFS, které by tímto způsobem kontrolovány být neměly a náleží jim tedy hodnota 0.
+***KONIEC***
+
+Napoveda
+man fstab
+
+<h3>Testovanie Fstab konfigurcie</h3>
+mount -a
+</pre>
+
+<a name=fs-swap><h2>Add Swap to FSTAB</h2>
+<pre>
+Zistenie informacie UUID o particii, nech /dev/sda3 je formatovany ako swap
+
+  sudo blkid /dev/sda3
+
+Potom v tabulke diskov pridaj riadok: (tabulka diskov /etc/fstab)
+
+  UUID=735b3be3-779c-4d21-a944-b033225f3ab4 none   swap    sw      0       0
+
+.o
+</pre>
+
+
+<a name=fs-iden><h3>Identifikacia zariadenia</h3>
+# "hned" po zasunuti do USB portu, zobrazi primo nazev pripojeneho zarizeni (resp. posledni zaznam "cehokoliv")
+dmesg | tail
+# pripadne zobrazit cely zaznam
+dmesg
+
+# kdykoliv, zobrazi se vsechny disky sata/usb/atd... okem vybrat to spravne dle velikosti a/nebo dalsih   infa
+lsblk
+sudo parted -l
+	
+<a name=fs-usbformat><h3>Vyprazdnenie USB -  formatovanie</h3>
+# prepis celeho zarizeni nulama
+sudo dd if=/dev/zero of=/dev/sdX status=progress
+
+# vytvoreni mbr/msdos tabulky oddilu
+sudo parted /dev/sdX mklabel msdos
+
+# vytvoreni 1 oddilu pres "cele" zarizeni
+sudo parted /dev/sdX mkpart primary 0% 100%
+
+# zformatovani prvniho oddilu na FAT32
+# parametr -c je pro kontroly vadnych bloku pred zformatovanim
+sudo mkfs.vfat -c -v -F 32 -n NAZEV /dev/sdX1 
+
+
+	</p>	
+	
+	<a name=mc></a><h1>MIDNIGHT COMMANDER</h1>
+	<p>
+	<table>
+	<caption><h3>vyber mojich klavesovych skratiek</h3></caption>
+	<tr> <th>klavesova skratka</th> <th> vyznam</th></tr>
+	<tr><td>alt + enter</td><td>doplni do prikazu menu suboru ktore je zvyraznene</td></tr>
+	<tr><td>ctrl + o</td><td>prepne rezim na prikazovy </td></tr>
+	<tr><td>ctrl + space</td><td>zobrazy velkost adresara </td></tr>
+	<tr><td>ctrl + x o </td><td>zmeni vlastnika alebo skupinu </td></tr>
+	<tr><td>ctrl/alt + s</td><td>rychle hladanie </td></tr>
+	<tr><td>alt + p alebo + n</td><td>predchadzajuci alebo nasledujci prikaz historie </td></tr>
+											</table>
+											<a href ="http://www.abclinuxu.cz/blog/iwtu/2010/11/useful-mc-keyboard-shorcuts-midnight-commander">dalsie skratky</a>	
+                      <a href ="midnighitcmd.txt">poznamky mc</a>	
+	</p>
+
+
+	<a name=odkazy></a><h1>Odkazy</h1>
+	<ul>	
+		
+		<a name=wget></a><h2>Wget</h2>
+		<li><a href="wget_web_download.txt">wget download webu</a></li>
+
+  	<a name=samba></a><h2>Samba</h2>
+		<li><a href="samba_poznamky.txt">Samba poznamky</a></li>
+
+		
+		<a name=siete></a><h2>Siete</h2>		
+		<li><a href="siete.pdf"> Prikazy na spravu ip sietovani a podobne</a></li>
+		
+		<a name=sudo></a><h2>Sudo</h2>		
+		<li><a href="sudokonf.html"> Sudo konfiguracia</a></li>
+
+		<a name=pdfka></a><h2>PDFka</h2>		
+		<li><a href="pdfka.html"> PDF ka uprava a spojenie a tak</a></li>
+
+		<a name=odkazy_prikazy></a><h2>Linuxove prikazy</h2>
+		<li><a href="Linux-prikazy.pdf"> Linux prikazy</a></li>
+    <li><a href="mapka_linux.jpg">Linux mapka prikazy funkcie</a></li>
+
+		<li><a href="rychlokurz.pdf"> Linux prikazy RYCHLOKURZ</a> --- <a href="https://linuxos.sk/clanok/intenzivny-rychlokurz-prikazov-linuxu/">Clanok</a></li>
+		<li><a href="linux_commands.png"> Obrazok prikazy</a></li>
+		
+		<a name=nahravmezvuk></a><h2>Nahravame zvuk v linuxe</h2>
+		<li><a href="nahravame_audio.pdf">Nahravame audio</a></li>
+		
+		
+		<a name=netriedene></a><h2>netriedene</h2>		
+		<li><a href="porovnania_textov.pdf"> Porovnanie textov</a> original clanku <a href="https://www.root.cz/clanky/nastroje-pro-porovnani-obsahu-dvou-textovych-souboru/">TU</a></li>
+		<li><a href="Mercurial_poznamky.txt"> Mercurial_poznamky</a></li>
+		<li><a href="farebny_bash.txt"> farebny_bash.txt</a></li>
+		<li><a href="monitory.pdf">Nastavenie monitorov</a></li>
+		<li><a href="heslo_windows.pdf">Heslo Windows RESET</a></li>
+		<li><a href="klavesa_sysrq.pdf">klavesa sysrq</a></li>
+    <li><a href="synergy.pdf">SYNERGY</a></li>
+    <li><a href="multipleusersadd.odt">pridat viac userov naraz</a></li>
+    <li><a href="GNU-Bash.xhtml"> GNU Bash tutorial</a></li>
+
+
+    	<li><a href="serverove-operacne-systemy-unix.pdf">SERVEROVE OS UNIX</a></li>
+
+      <li><a href="soperacne-systemy-gnu-linux.pdf">OS LINUX</a></li>
+	  <li><a href="KonfiguraciaSieteFwLinux.pdf">Konfiguracia siete</a></li>
+	  
+	  <a name=olinuxe></a><h2><a href="https://people.ksp.sk/~nanka/school/linux/">O linuxe = linky zo stranky (people.ksp.sk/~nanka/school/linux)</a></h2>
+	  <li><a href="http://www.linux.org">www.linux.org</a></li>
+	  <li> <a href="http://www.sklug.sk">www.sklug.sk</a></li>
+	  <li> <a href="http://www.cslug.cz">www.cslug.cz</a></li>
+	  <li> <a href="http://www.debian.org">www.debian.org</a></li>
+	  <li> <a href="http://www.kernel.org">www.kernel.org</a></li>
+	  
+</ul>
+	<img src="command_cheat.jpg" alt="command cheat" style="width:330px;">
+	<img src="command_reference.jpg" alt="command cheat" style="width:700px;">
+
+</body>
+</html>
+

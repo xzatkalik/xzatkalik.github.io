@@ -1,0 +1,16 @@
+[frmDHCPServer]
+top=43
+left=736
+
+[dhcp]
+root=files
+filename=grldr
+httpd=1
+binl=1
+start=1
+proxydhcp=1
+tftpd=1
+bind=1
+poolsize=5
+opt51=86400
+log=1

@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html class="js" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/reactive_library.js"></script><script src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/osd.js"></script><script src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/ca-pub-2601749019656699.js"></script><script src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/show_ads_impl.js" id="google_shimpl"></script><script async="" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/count.json"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="alexaVerifyID" content="qqxQUyWSeUfqZOencfEoRM9vrVk">
+<meta name="msvalidate.01" content="E8C9208AD2F47ED874ED18E35FC370CE">
+<meta name="google-translate-customization" content="c567e5d7624a883b-609bf053fa02c58b-g01de0b1961de0feb-f">
+<meta property="article:publisher" content="https://facebook.com/tecmint">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.tecmint.com/xmlrpc.php">
+<title>A Linux Sysadmin's Guide to Network Management, Troubleshooting and Debugging</title>
+<script async="" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/analytics.js"></script><script type="text/javascript">document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+
+<link rel="author" href="https://plus.google.com/u/0/107665449243972690526">
+<meta name="description" content="In this article, we will review some of the most used command-line tools and utilities for network management, troubleshooting and debugging in Linux.">
+<meta name="keywords" content="linux network debugging commands,linux network troubleshooting commands,linux network management commands,linux networking commands,linux network monitoring,linux networking tools">
+<link rel="canonical" href="https://www.tecmint.com/linux-networking-commands/">
+
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Tecmint: Linux Howtos, Tutorials &amp; Guides » Feed" href="https://feeds.feedburner.com/tecmint">
+<link rel="alternate" type="application/rss+xml" title="Tecmint: Linux Howtos, Tutorials &amp; Guides » Comments Feed" href="https://www.tecmint.com/comments/feed/">
+<link href="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/css_002.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="Tecmint: Linux Howtos, Tutorials &amp; Guides » A Linux Sysadmin’s Guide to Network Management, Troubleshooting and Debugging Comments Feed" href="https://www.tecmint.com/linux-networking-commands/feed/">
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/5u2qw.css" media="all">
+<script src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/5u2qw.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var ajaxurl = "https:\/\/www.tecmint.com\/wp-admin\/admin-ajax.php";
+var QBP_PUBLIC_GLOBALS = {"QBP_PUBLIC_NONCE":"cff599fadf","USER_TYPE":"public","VISIBILITY_DATA":{"is_page":false,"is_post":true,"is_homepage":false,"is_archive":false,"is_custom_post_type":false,"id":30055}};
+/* ]]> */
+</script>
+<script src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/5u2qw_002.js" type="text/javascript"></script>
+
+<link rel="https://api.w.org/" href="https://www.tecmint.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.tecmint.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.tecmint.com/wp-includes/wlwmanifest.xml">
+<link rel="prev" title="Teleconsole – Share Your Linux Terminal with Your Friends" href="https://www.tecmint.com/teleconsole-share-linux-terminal-session-with-friends/">
+<link rel="next" title="Alacritty – A Fastest Terminal Emulator for Linux" href="https://www.tecmint.com/alacritty-fastest-terminal-emulator-for-linux/">
+<meta name="generator" content="WordPress 4.9.9">
+<link rel="shortlink" href="https://www.tecmint.com/?p=30055">
+<link rel="alternate" type="application/json+oembed" href="https://www.tecmint.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.tecmint.com%2Flinux-networking-commands%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.tecmint.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.tecmint.com%2Flinux-networking-commands%2F&amp;format=xml">
+
+<meta property="og:image" content="https://www.tecmint.com/wp-content/uploads/2018/07/Linux-Networking-Commands.png">
+
+
+<link rel="shortcut icon" href="https://www.tecmint.com/wp-content/themes/tecmint/images/favicon.ico">
+<!--[if lt IE 9]>
+<script src="https://www.tecmint.com/wp-content/themes/tecmint/js/ie/html5.js"></script>
+<script src="https://www.tecmint.com/wp-content/themes/tecmint/js/ie/selectivizr.js"></script>
+<![endif]-->
+<link rel="amphtml" href="https://www.tecmint.com/linux-networking-commands/amp/"><link rel="icon" href="https://www.tecmint.com/wp-content/uploads/2015/01/tecmint_square_logo.png" sizes="32x32">
+<link rel="icon" href="https://www.tecmint.com/wp-content/uploads/2015/01/tecmint_square_logo.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://www.tecmint.com/wp-content/uploads/2015/01/tecmint_square_logo.png">
+<meta name="msapplication-TileImage" content="https://www.tecmint.com/wp-content/uploads/2015/01/tecmint_square_logo.png">
+<style type="text/css">
+/* Dynamic CSS: For no styles in head, copy and put the css below in your custom.css or child theme's style.css, disable dynamic styles */
+body { font-family: "Roboto Condensed", Arial, sans-serif; }
+.boxed #wrapper, .container-inner { max-width: 1280px; }
+.sidebar .widget { padding-left: 20px; padding-right: 20px; padding-top: 20px; }
+.search-expand,
+#nav-topbar.nav-container { background-color: #23588c; }
+@media only screen and (min-width: 720px) {
+#nav-topbar .nav ul { background-color: #23588c; }
+}			
+#header { background-color: #075b88; }
+@media only screen and (min-width: 720px) {
+#nav-header .nav ul { background-color: #075b88; }
+}			
+#nav-header.nav-container { background-color: #2f6dab; }
+@media only screen and (min-width: 720px) {
+#nav-header .nav ul { background-color: #2f6dab; }
+}			
+#footer-bottom { background-color: #2f6dab; }
+.site-title a img { max-height: 90px; }
+img { -webkit-border-radius: 2px; border-radius: 2px; }
+</style>
+<link rel="author" href="https://plus.google.com/107665449243972690526/posts">
+<script async="" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/adsbygoogle.js" type="text/javascript"></script>
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "WebSite",
+"url": "https://www.tecmint.com/",
+"potentialAction": {
+"@type": "SearchAction",
+"target": "https://www.tecmint.com/?s={search_term}",
+"query-input": "required name=search_term"
+}
+}
+</script>
+<script type="text/javascript">
+this.randomtip=function(){var e=jQuery("#tips li").length,t=Math.floor(Math.random()*e)+1;jQuery("#tips li:nth-child("+t+")").show()},jQuery(document).ready(function($){randomtip()});</script>
+<script data-cfasync="false" type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-33207530-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async="" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/adsbygoogle.js" type="text/javascript"></script>
+<script type="text/javascript">
+(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-2601749019656699",
+enable_page_level_ads: true
+});
+</script>
+<style type="text/css">.vimvixen-console-frame {
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2147483647;
+  border: none;
+  background-color: unset;
+  pointer-events: none; }
+</style><style type="text/css">.vimvixen-hint {
+  background-color: yellow;
+  border: 1px solid gold;
+  font-weight: bold;
+  position: absolute;
+  text-transform: uppercase;
+  z-index: 2147483647;
+  font-size: 12px;
+  color: black;
+}
+</style><link rel="preload" href="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/integrator_002.js" as="script"><script type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/integrator_002.js"></script><link rel="preload" href="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/integrator.js" as="script"><script type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/integrator.js"></script><link rel="preload" href="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/show_ads_impl.js" as="script"></head>
+<link id="qbp-fonts" href="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/css.css" rel="stylesheet" type="text/css"><div id="quickiebarpro-show-button" class="show-button-sticky-enabled show-button-placement-top" style="color: rgb(255, 255, 255); background: rgb(241, 90, 41) none repeat scroll 0% 0%; z-index: 100; display: none;"><div class="show-button" style="color:#FFFFFF;background:#F15A29;"><i class="fa fa-chevron-down"></i><i class="fa fa-chevron-up"></i></div></div><div id="quickiebarpro" class="qbp-560b7eb56ce08 qbp-2 qbp qbp-bar_height-skinny qbp-sticky-enabled qbp-placement-top qbp-attribution-hidden qbp-alignment-centered qbp-button_style-rounded qbp-close_button_visibility-onhover qbp-bar_type-basic " style="background: rgb(241, 90, 41) none repeat scroll 0% 0%; z-index: 100; display: block;"><div class="hover-background-overlay"></div><div class="wrap"><div class="qbp-wrap"><span id="qbp-bar-text" class="bar-text" style="color:#FFFFFF;font-family:Roboto Slab;font-weight:700;">RedHat RHCSA and RHCE Certification Exam Study Ebook ($39.99)</span><span id="qbp-bar-button" class="bar-button" style="color:#FFFFFF;background:#062332;border-color:#FFFFFF;font-family:Roboto Slab;font-weight:700;">Get This Book &nbsp;<i class="fa fa-book"></i>&nbsp;</span><div id="qbp-bar-html" class="bar-html"></div><form id="qbp-subscribe-form" class="subscribe-form" onsubmit="return false;"><input id="qbp-subscribe-input" placeholder="Email" autocomplete="off" type="email"><div id="qbp-subscribe-button" style="color:#FFFFFF;background:#062332;border-color:#FFFFFF;"><i class="fa fa-long-arrow-right"></i></div></form></div></div><div class="qbp-close-button"><i class="fa fa-times-circle-o"></i></div><a href="https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/" target="_blank" class="link-overlay" style=""></a><div class="qbp-close-bar"><i class="fa fa-chevron-up"></i></div></div><body data-rsssl="1" class="post-template-default single single-post postid-30055 single-format-standard col-1c full-width topbar-enabled unknown s1-collapse s2-collapse" style="padding-top: 40px;">
+<div id="wrapper">
+<header id="header">
+<nav class="nav-container group" id="nav-topbar">
+<div class="nav-toggle"><i class="fa fa-bars"></i></div>
+<div class="nav-text"></div>
+<div class="nav-wrap container"><ul id="menu-home" class="nav container-inner group"><li id="menu-item-334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-334"><a href="https://www.tecmint.com/">Home</a></li>
+<li id="menu-item-10774" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10774"><a target="_blank" href="https://www.tecmint.com/who-we-are/">About</a></li>
+<li id="menu-item-3912" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3912"><a title="Free Linux eBooks" target="_blank" href="http://tecmint.tradepub.com/category/information-technology-servers-and-linux-server-os/806/">Free eBooks</a></li>
+<li id="menu-item-17151" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17151"><a title="Discover and save on the best gear, gadgets, and software" target="_blank" href="https://deals.tecmint.com/">Deals</a></li>
+<li id="menu-item-18575" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18575"><a title="Support Us" href="https://www.tecmint.com/donate-to-tecmint/">Donate</a></li>
+<li id="menu-item-10775" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10775"><a target="_blank" href="https://www.tecmint.com/submit-articles/">Join TecMint</a></li>
+<li id="menu-item-11736" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11736"><a target="_blank" href="https://www.tecmint.com/linux-online-training-courses/">Linux Online Courses</a></li>
+<li id="menu-item-11907" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11907"><a title="Subscribe to Daily Updates" target="_blank" href="https://www.tecmint.com/subscribe-to-blog/">Subscribe</a></li>
+<li id="menu-item-13338" class="hosting menu-item menu-item-type-custom menu-item-object-custom menu-item-13338"><a title="Best Web Hosting Companies" target="_blank" href="https://www.tecmint.com/best-web-hosting-for-linux/">Linux Hosting</a></li>
+<li id="menu-item-24734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24734"><a title="Linux Commands – A Beginners Cheat Sheet" target="_blank" href="https://www.tecmint.com/linux-commands-cheat-sheet/">A-Z Linux Commands</a></li>
+</ul></div>
+<div class="container">
+<div class="container-inner">
+<div class="toggle-search"><i class="fa fa-search"></i></div>
+<div class="search-expand">
+<div class="search-expand-inner">
+<form action="https://www.tecmint.com/search/" id="cse-search-box">
+<div>
+<input name="cx" value="partner-pub-2601749019656699:2173448976" type="hidden">
+<input name="cof" value="FORID:10" type="hidden">
+<input name="ie" value="UTF-8" type="hidden">
+<input class="search" name="q" size="20" style="background: rgb(255, 255, 255) url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) no-repeat scroll left center; text-indent: 48px;" placeholder="Custom Search" type="text">
+<input name="sa" value="Search" type="submit">
+</div>
+<input name="siteurl" value="www.tecmint.com/linux-networking-commands/?fbclid=IwAR1YAXC_R2gSv1B0ON-gnqi00mC2NQCHX7kM19yjCBmPqF0shiuaNkxu1k4" type="hidden"><input name="ref" value="l.facebook.com/" type="hidden"><input name="ss" type="hidden"></form>
+<script type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/brand"></script>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<div class="container group">
+<div class="container-inner">
+<div class="group pad">
+<p class="site-title"><a href="https://www.tecmint.com/" rel="home"><img src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/logo.png" alt="Tecmint: Linux Howtos, Tutorials &amp; Guides"></a></p>
+<div id="header-ads">
+<div id="text-17" class="widget widget_text"> <div class="textwidget">
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-2601749019656699" data-ad-slot="8210224606" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:728px;height:90px;" height="90" width="728" frameborder="0"></iframe></ins></ins></ins>
+<script type="text/javascript">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div> </div>
+</div>
+<nav class="nav-container group" id="nav-header">
+<div class="nav-toggle"><i class="fa fa-bars"></i></div>
+<div class="nav-text"></div>
+<div class="nav-wrap container"><ul id="menu-header" class="nav container-inner group"><li id="menu-item-20410" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20410"><a target="_blank" href="https://www.fossmint.com/">Linux News</a></li>
+<li id="menu-item-10770" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10770"><a href="https://www.tecmint.com/best-linux-distributions/">Linux Distro’s</a></li>
+<li id="menu-item-10771" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10771"><a href="https://www.tecmint.com/category/interview-questions/">Interview Questions</a></li>
+<li id="menu-item-20869" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-20869"><a href="https://www.tecmint.com/#">Programming</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-10772" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10772"><a title="Learn Linux Shell Scripting" href="https://www.tecmint.com/category/bash-shell/">Shell Scripting</a></li>
+<li id="menu-item-20870" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20870"><a href="https://www.tecmint.com/category/python/">Learn Python</a></li>
+<li id="menu-item-20871" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20871"><a href="https://www.tecmint.com/category/awk-command/">Learn Awk</a></li>
+</ul>
+</li>
+<li id="menu-item-10773" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-10773"><a href="https://www.tecmint.com/category/linux-commands/">Linux Commands</a></li>
+<li id="menu-item-14795" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14795"><a href="https://www.tecmint.com/tag/linux-tricks/">Linux Tricks</a></li>
+<li id="menu-item-19684" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19684"><a href="https://www.tecmint.com/category/top-tools/">Best Linux Tools</a></li>
+<li id="menu-item-10443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-10443"><a target="_blank" href="https://www.tecmint.com/#">Certifications</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-14880" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14880"><a href="https://www.tecmint.com/how-to-setup-and-configure-static-network-routing-in-rhel/">RHCE Exam</a></li>
+<li id="menu-item-11906" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11906"><a target="_blank" href="https://www.tecmint.com/rhcsa-exam-reviewing-essential-commands-system-documentation/">RHCSA Exam</a></li>
+<li id="menu-item-10444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10444"><a target="_blank" href="https://www.tecmint.com/installing-network-services-and-configuring-services-at-system-boot/">LFCE Exam</a></li>
+<li id="menu-item-14793" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14793"><a href="https://www.tecmint.com/sed-command-to-create-edit-and-manipulate-files-in-linux/">LFCS Exam</a></li>
+</ul>
+</li>
+<li id="menu-item-12399" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-12399"><a href="https://www.tecmint.com/#">Guides</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-18564" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18564"><a target="_blank" href="https://www.tecmint.com/install-docker-and-learn-containers-in-centos-rhel-7-6/">Docker Series</a></li>
+<li id="menu-item-17150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17150"><a href="https://www.tecmint.com/setup-postfix-mail-server-and-dovecot-with-mariadb-in-centos/">Postfix Mail</a></li>
+<li id="menu-item-15041" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15041"><a href="https://www.tecmint.com/citrix-xenserver-installation-and-network-configuration-in-linux/">XenServer Series</a></li>
+<li id="menu-item-14794" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14794"><a href="https://www.tecmint.com/install-redhat-virtualization-rhev/">RHEV Series</a></li>
+<li id="menu-item-14805" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14805"><a href="https://www.tecmint.com/what-is-clustering-and-advantages-disadvantages-of-clustering-in-linux/">Clustering Series</a></li>
+<li id="menu-item-12400" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12400"><a href="https://www.tecmint.com/create-lvm-storage-in-linux/">LVM Series</a></li>
+<li id="menu-item-12402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12402"><a href="https://www.tecmint.com/understanding-raid-setup-in-linux/">RAID Series</a></li>
+<li id="menu-item-12403" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12403"><a href="https://www.tecmint.com/install-and-configure-kvm-in-linux/">KVM Series</a></li>
+<li id="menu-item-12401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12401"><a href="https://www.tecmint.com/create-centralized-secure-storage-using-iscsi-targetin-linux/">iSCSI Series</a></li>
+<li id="menu-item-12406" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12406"><a href="https://www.tecmint.com/install-zentyal-as-primary-domain-controller-and-integrate-windows-system/">Zentyal Series</a></li>
+<li id="menu-item-16084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16084"><a href="https://www.tecmint.com/install-and-configure-ansible-automation-tool-in-linux/">Ansible Series</a></li>
+<li id="menu-item-16395" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16395"><a href="https://www.tecmint.com/install-and-configure-django-web-framework-in-centos-debian-ubuntu/">Django Series</a></li>
+<li id="menu-item-14603" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14603"><a href="https://www.tecmint.com/create-gui-applications-in-linux/">Create GUI Apps</a></li>
+</ul>
+</li>
+<li id="menu-item-14796" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14796"><a href="https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/">Monitoring Tools</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-14797" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14797"><a href="https://www.tecmint.com/install-nagios-in-linux/">Nagios</a></li>
+<li id="menu-item-14798" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14798"><a href="https://www.tecmint.com/install-and-configure-zabbix-monitoring-on-debian-centos-rhel/">Zabbix</a></li>
+<li id="menu-item-14799" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14799"><a href="https://www.tecmint.com/install-cacti-network-monitoring-on-rhel-centos-6-3-5-8-and-fedora-17-12/">Cacti</a></li>
+<li id="menu-item-14800" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14800"><a href="https://www.tecmint.com/install-observium-in-centos/">Observium</a></li>
+<li id="menu-item-14801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14801"><a href="https://www.tecmint.com/monitorix-a-lightweight-system-and-network-monitoring-tool-for-linux/">Monitorix</a></li>
+<li id="menu-item-14802" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14802"><a href="https://www.tecmint.com/install-collectd-and-collectd-web-to-monitor-server-resources-in-linux/">Collectd</a></li>
+<li id="menu-item-14803" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14803"><a href="https://www.tecmint.com/linux-performance-monitoring-with-collectl-tool/">Collectl</a></li>
+<li id="menu-item-14804" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14804"><a href="https://www.tecmint.com/mysql-performance-monitoring/">MySQL Monitoring</a></li>
+</ul>
+</li>
+</ul></div>
+</nav>
+</div>
+</div>
+</header>
+<div class="container" id="page">
+<div class="container-inner">
+<div class="main">
+<div class="main-inner group">
+<section class="content">
+<div class="page-title pad group">
+<ul class="meta-single group">
+<li class="category"><a href="https://www.tecmint.com/category/linux-commands/" rel="category tag">Linux Commands</a> <span>/</span> <a href="https://www.tecmint.com/category/networking-commands/" rel="category tag">Networking Commands</a></li>
+<li class="comments"><a href="https://www.tecmint.com/linux-networking-commands/#comments"><i class="fa fa-comments-o"></i>1</a></li>
+</ul>
+</div>
+<div class="pad group">
+<article class="post-30055 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands category-networking-commands tag-linux-network-monitoring tag-linux-networking-tools">
+<div class="post-inner group">
+<h1 class="post-title">A Linux Sysadmin’s Guide to Network Management, Troubleshooting and Debugging</h1>
+<p class="post-byline">by <a href="https://www.tecmint.com/author/aaronkili/" title="Posts by Aaron Kili" rel="author">Aaron Kili</a> | Published: July 13, 2018 | 
+Last Updated: July 13, 2018 </p>
+<div class="add-box">
+
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-2601749019656699" data-ad-slot="2902592253" data-ad-format="link" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0px;width:1200px;height:90px;" height="90" width="1200" frameborder="0"></iframe></ins></ins></ins>
+<script type="text/javascript">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div class="clear"></div>
+<div id="exam_announcement">
+<i style="color:#28557a; font-size:20px;" class="fa fa-book"></i>
+<b>Download Your Free eBooks NOW</b> - <a target="_blank" style="text-decoration:underline;" href="https://www.tecmint.com/10-useful-free-linux-ebooks-for-newbies-and-administrators/">10 Free Linux eBooks for Administrators</a> | <a style="text-decoration:underline;" target="_blank" href="https://www.tecmint.com/free-linux-shell-scripting-books/">4 Free Shell Scripting eBooks</a>
+</div>
+<div class="clear"></div>
+<div class="ads-inner-mobile">
+<center>
+
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 0px;" data-ad-client="ca-pub-2601749019656699" data-ad-slot="9946480174" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display: inline-table; border: medium none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 300px; background-color: transparent;"><ins id="aswift_3_anchor" style="display: block; border: medium none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 300px; background-color: transparent; overflow: hidden; opacity: 0;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0px;width:300px;height:250px;" height="250" width="300" frameborder="0"></iframe></ins></ins></ins>
+<script type="text/javascript">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>
+</div>
+<div class="clear"></div>
+<div class="entry share">
+<div class="entry-inner">
+<p>A system administrator’s routine tasks include configuring, 
+maintaining, troubleshooting, and managing servers and networks within 
+data centers. There are numerous tools and utilities in Linux designed 
+for the administrative purposes.</p>
+<p>In this article, we will review some of the most used command-line 
+tools and utilities for network management in Linux, under different 
+categories. We will explain some common usage examples, which will make 
+network management much easier in Linux.</p>
+<table cellspacing="0" border="0">
+<tbody>
+<tr>
+<td style="text-align: center; font-size: 25px; font-weight: bold;" colspan="5" height="19">Table of Contents</td>
+</tr>
+<tr class="alt">
+<td height="19" align="center"><a title="ifconfig Command Examples" href="#ifconfig">ifconfig Command</a></td>
+<td align="center"><a title="ip Command Examples" href="#ip">ip Command</a></td>
+<td align="center"><a title="ifup Command Examples" href="#ifup">ifup Command</a></td>
+<td align="center"><a title="ethool Command Examples" href="#ethtool">ethtool Command</a></td>
+<td align="center"><a title="ping Command Examples" href="#ping">ping Command</a></td>
+</tr>
+<tr>
+<td height="19" align="center"><a title="traceroute Command Examples" href="#traceroute">traceroute Command</a></td>
+<td align="center"><a title="mtr Command Examples" href="#mtr">mtr Command</a></td>
+<td align="center"><a title="route Command Examples" href="#route">route Command</a></td>
+<td align="center"><a title="nmcli Command Examples" href="#nmcli">nmcli Command</a></td>
+<td align="center"><a title="netstat Command Examples" href="#netstat">netstat Command</a></td>
+</tr>
+<tr class="alt">
+<td height="19" align="center"><a title="ss Command Examples" href="#ss">ss Command</a></td>
+<td align="center"><a title="nc Command Examples" href="#nc">nc Command</a></td>
+<td align="center"><a title="nmap Command Examples" href="#nmap">nmap Command</a></td>
+<td align="center"><a title="host Command Examples" href="#host">host Command</a></td>
+<td align="center"><a title="dig Command Examples" href="#dig">dig Command</a></td>
+</tr>
+<tr>
+<td height="19" align="center"><a title="nslookup Command Examples" href="#nslookup">nslookup Command</a></td>
+<td align="center"><a title="tcpdump Command Examples" href="#tcpdump">tcpdump Command</a></td>
+<td align="center"><a title="wireshark Command Examples" href="#wireshark">Wireshark Utility</a></td>
+<td align="center"><a title="bmon Command Examples" href="#bmon">bmon Tool</a></td>
+<td align="center"><a title="iptables Command Examples" href="#iptables">iptables Firewall</a></td>
+</tr>
+<tr class="alt">
+<td height="19" align="center"><a title="firewalld Command Examples" href="#firewalld">firewalld</a></td>
+<td align="center"><a title="ufw Command Examples" href="#ufw">UFW Firewall</a></td>
+</tr>
+</tbody>
+</table>
+<p>This list is equally useful to full-time network engineers.</p>
+<h3>Network Configuration, Troubleshooting and Debugging Tools</h3>
+<h4 id="ifconfig">1. ifconfig Command</h4>
+<p><a href="https://www.tecmint.com/ifconfig-command-examples/" target="_blank" rel="noopener">ifconfig</a>
+ is a command line interface tool for network interface configuration 
+and also used to initialize an interfaces at system boot time. Once a 
+server is up and running, it can be used to assign an IP Address to an 
+interface and enable or disable the interface on demand.</p>
+<center style="padding-bottom: 20px;padding-top: 10px;"><ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-2601749019656699" data-ad-slot="5590002574" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1120px;background-color:transparent;"><ins id="aswift_4_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1120px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;border:0px;width:1120px;height:90px;" height="90" width="1120" frameborder="0"></iframe></ins></ins></ins><script type="application/ld+json">(adsbygoogle = window.adsbygoogle || []).push({});</script></center><p>It
+ is also used to view the status IP Address, Hardware / MAC address, as 
+well as MTU (Maximum Transmission Unit) size of the currently active 
+interfaces. ifconfig is thus useful for debugging or performing system 
+tuning.</p>
+<p>Here is an example to display status of all active network interfaces.</p>
+<pre><strong>$ ifconfig</strong>
+
+enp1s0    Link encap:Ethernet  HWaddr 28:d2:44:eb:bd:98  
+          inet addr:192.168.0.103  Bcast:192.168.0.255  Mask:255.255.255.0
+          inet6 addr: fe80::8f0c:7825:8057:5eec/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:169854 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:125995 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:174146270 (174.1 MB)  TX bytes:21062129 (21.0 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:15793 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:15793 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1 
+          RX bytes:2898946 (2.8 MB)  TX bytes:2898946 (2.8 MB)
+</pre>
+<p>To list all interfaces which are currently available, whether <strong>up</strong> or <strong>down</strong>, use the <code>-a</code> flag.</p>
+<pre>$ ifconfig -a 	
+</pre>
+<p>To assign an IP address to an interface, use the following command.</p>
+<pre>$ sudo ifconfig eth0 192.168.56.5 netmask 255.255.255.0
+</pre>
+<p>To activate an network interface, type.</p>
+<pre>$ sudo ifconfig up eth0
+</pre>
+<p>To deactivate or shut down an network interface, type.</p>
+<pre>$ sudo ifconfig down eth0
+</pre>
+<p><strong style="color: red;">Note</strong>: Although <strong>ifconfig</strong> is a great tool, it is now obsolete (deprecated), its replacement is <strong>ip command</strong> which is explained below.</p>
+<h4 id="ip">2. IP Command</h4>
+<p><a href="https://www.tecmint.com/ip-command-examples/" target="_blank" rel="noopener">ip command</a>
+ is another useful command line utility for displaying and manipulating 
+routing, network devices, interfaces. It is a replacement for <strong>ifconfig</strong> and many other networking commands. (Read our article “<a href="https://www.tecmint.com/ifconfig-vs-ip-command-comparing-network-configuration/" target="_blank" rel="noopener">What’s Difference Between ifconfig and ip Command</a>” to learn more about it.)</p>
+<p>The following command will show the IP address and other information about an network interface.</p>
+<pre><strong>$ ip addr show</strong>
+
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp1s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 28:d2:44:eb:bd:98 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.103/24 brd 192.168.0.255 scope global dynamic enp1s0
+       valid_lft 5772sec preferred_lft 5772sec
+    inet6 fe80::8f0c:7825:8057:5eec/64 scope link 
+       valid_lft forever preferred_lft forever
+3: wlp2s0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 38:b1:db:7c:78:c7 brd ff:ff:ff:ff:ff:ff
+...
+</pre>
+<p>To temporarily assign IP Address to a specific network interface (<strong>eth0</strong>), type.</p>
+<pre>$ sudo ip addr add 192.168.56.1 dev eth0
+</pre>
+<p>To remove an assigned IP address from an network interface (<strong>eth0</strong>), type.</p>
+<pre>$ sudo ip addr del 192.168.56.15/24 dev eth0
+</pre>
+<p>To show the current neighbour table in kernel, type.</p>
+<pre><strong>$ ip neigh</strong>
+
+192.168.0.1 dev enp1s0 lladdr 10:fe:ed:3d:f3:82 REACHABLE
+</pre>
+<h4 id="ifup">3. ifup, ifdown, and ifquery command</h4>
+<p><strong>ifup</strong> command actives a network interface, making it available to transfer and receive data.</p>
+<pre>$ sudo ifup eth0
+</pre>
+<p><strong>ifdown</strong> command disables a network interface, keeping it in a state where it cannot transfer or receive data.</p>
+<pre>$ sudo ifdown eth0
+</pre>
+<p><strong>ifquery</strong> command used to parse the network interface 
+configuration, enabling you to receive answers to query about how it is 
+currently configured.</p>
+<pre>$ sudo ifquery eth0
+</pre>
+<h4 id="ethtool">4. Ethtool Command</h4>
+<p><strong>ethtool</strong> is a command line utility for querying and 
+modifying network interface controller parameters and device drivers. 
+The example below shows the usage of <strong>ethtool</strong> and a command to view the parameters for the network interface.</p>
+<pre><strong>$ sudo ethtool enp0s3</strong>
+
+Settings for enp0s3:
+	Supported ports: [ TP ]
+	Supported link modes:   10baseT/Half 10baseT/Full 
+	                        100baseT/Half 100baseT/Full 
+	                        1000baseT/Full 
+	Supported pause frame use: No
+	Supports auto-negotiation: Yes
+	Advertised link modes:  10baseT/Half 10baseT/Full 
+	                        100baseT/Half 100baseT/Full 
+	                        1000baseT/Full 
+	Advertised pause frame use: No
+	Advertised auto-negotiation: Yes
+	Speed: 1000Mb/s
+	Duplex: Full
+	Port: Twisted Pair
+	PHYAD: 0
+	Transceiver: internal
+	Auto-negotiation: on
+	MDI-X: off (auto)
+	Supports Wake-on: umbg
+	Wake-on: d
+	Current message level: 0x00000007 (7)
+			       drv probe link
+	Link detected: yes
+</pre>
+<h4 id="ping">5. Ping Command</h4>
+<p><a href="https://www.tecmint.com/block-ping-icmp-requests-to-linux/" target="_blank" rel="noopener">ping</a> (<strong>Packet INternet Groper</strong>) is a utility normally used for testing connectivity between two systems on a network (<strong>Local Area Network</strong> (<strong>LAN</strong>) or <strong>Wide Area Network</strong> (<strong>WAN</strong>)). It use <strong>ICMP</strong> (<strong>Internet Control Message Protocol</strong>) to communicate to nodes on a network.</p>
+<p>To test connectivity to another node, simply provide its IP or host name, for example.</p>
+<pre><strong>$ ping 192.168.0.103</strong>
+
+PING 192.168.0.103 (192.168.0.103) 56(84) bytes of data.
+64 bytes from 192.168.0.103: icmp_seq=1 ttl=64 time=0.191 ms
+64 bytes from 192.168.0.103: icmp_seq=2 ttl=64 time=0.156 ms
+64 bytes from 192.168.0.103: icmp_seq=3 ttl=64 time=0.179 ms
+64 bytes from 192.168.0.103: icmp_seq=4 ttl=64 time=0.182 ms
+64 bytes from 192.168.0.103: icmp_seq=5 ttl=64 time=0.207 ms
+64 bytes from 192.168.0.103: icmp_seq=6 ttl=64 time=0.157 ms
+^C
+--- 192.168.0.103 ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 5099ms
+rtt min/avg/max/mdev = 0.156/0.178/0.207/0.023 ms
+</pre>
+<p>You can also tell ping to exit after a specified number of <strong>ECHO_REQUEST</strong> packets, using the <strong>-c</strong> flag as shown.</p>
+<pre><strong>$ ping -c 4 192.168.0.103</strong>
+
+PING 192.168.0.103 (192.168.0.103) 56(84) bytes of data.
+64 bytes from 192.168.0.103: icmp_seq=1 ttl=64 time=1.09 ms
+64 bytes from 192.168.0.103: icmp_seq=2 ttl=64 time=0.157 ms
+64 bytes from 192.168.0.103: icmp_seq=3 ttl=64 time=0.163 ms
+64 bytes from 192.168.0.103: icmp_seq=4 ttl=64 time=0.190 ms
+
+--- 192.168.0.103 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3029ms
+rtt min/avg/max/mdev = 0.157/0.402/1.098/0.402 ms
+</pre>
+<h4 id="traceroute">6. Traceroute Command</h4>
+<p><strong>Traceroute</strong> is a command line utility for tracing the
+ full path from your local system to another network system. It prints 
+number of hops (router IP’s) in that path you travel to reach the end 
+server. It is an easy-to-use network troubleshooting utility after ping 
+command.</p>
+<p>In this example, we are tracing the route packets take from the local system to one of Google’s servers with IP address <strong>216.58.204.46</strong>.</p>
+<pre><strong>$ traceroute 216.58.204.46</strong>
+
+traceroute to 216.58.204.46 (216.58.204.46), 30 hops max, 60 byte 
+packets
+ 1  gateway (192.168.0.1)  0.487 ms  0.277 ms  0.269 ms
+ 2  5.5.5.215 (5.5.5.215)  1.846 ms  1.631 ms  1.553 ms
+ 3  * * *
+ 4  72.14.194.226 (72.14.194.226)  3.762 ms  3.683 ms  3.577 ms
+ 5  108.170.248.179 (108.170.248.179)  4.666 ms 108.170.248.162 
+(108.170.248.162)  4.869 ms 108.170.248.194 (108.170.248.194)  4.245 ms
+ 6  72.14.235.133 (72.14.235.133)  72.443 ms 209.85.241.175 
+(209.85.241.175)  62.738 ms 72.14.235.133 (72.14.235.133)  65.809 ms
+ 7  66.249.94.140 (66.249.94.140)  128.726 ms  127.506 ms 209.85.248.5 
+(209.85.248.5)  127.330 ms
+ 8  74.125.251.181 (74.125.251.181)  127.219 ms 108.170.236.124 
+(108.170.236.124)  212.544 ms 74.125.251.181 (74.125.251.181)  127.249 
+ms
+ 9  216.239.49.134 (216.239.49.134)  236.906 ms 209.85.242.80 
+(209.85.242.80)  254.810 ms  254.735 ms
+10  209.85.251.138 (209.85.251.138)  252.002 ms 216.239.43.227 
+(216.239.43.227)  251.975 ms 209.85.242.80 (209.85.242.80)  236.343 ms
+11  216.239.43.227 (216.239.43.227)  251.452 ms 72.14.234.8 
+(72.14.234.8)  279.650 ms  277.492 ms
+12  209.85.250.9 (209.85.250.9)  274.521 ms  274.450 ms 209.85.253.249 
+(209.85.253.249)  270.558 ms
+13  209.85.250.9 (209.85.250.9)  269.147 ms 209.85.254.244 
+(209.85.254.244)  347.046 ms 209.85.250.9 (209.85.250.9)  285.265 ms
+14  64.233.175.112 (64.233.175.112)  344.852 ms 216.239.57.236 
+(216.239.57.236)  343.786 ms 64.233.175.112 (64.233.175.112)  345.273 ms
+15  108.170.246.129 (108.170.246.129)  345.054 ms  345.342 ms 
+64.233.175.112 (64.233.175.112)  343.706 ms
+16  108.170.238.119 (108.170.238.119)  345.610 ms 108.170.246.161 
+(108.170.246.161)  344.726 ms 108.170.238.117 (108.170.238.117)  345.536
+ ms
+17  lhr25s12-in-f46.1e100.net (216.58.204.46)  345.382 ms  345.031 ms  
+344.884 ms
+</pre>
+<h4 id="mtr">7. MTR Network Diagnostic Tool</h4>
+<p><a href="https://www.tecmint.com/mtr-a-network-diagnostic-tool-for-linux/" target="_blank" rel="noopener">MTR</a> is a modern command-line network diagnostic tool that combines the functionality of <strong>ping</strong> and <strong>traceroute</strong> into a single diagnostic tool. Its output is updated in real-time, by default until you exit the program by pressing <code>q</code>.</p>
+<p>The easiest way of running <strong>mtr</strong> is to provide it a host name or IP address as an argument, as follows.</p>
+<pre>$ mtr google.com
+OR
+$ mtr 216.58.223.78
+</pre>
+<h5>Sample Output</h5>
+<pre>tecmint.com (0.0.0.0)                                   Thu Jul 12 08:58:27 2018
+First TTL: 1
+
+ Host                                                   Loss%   Snt   Last   Avg  Best  Wrst StDev
+ 1. 192.168.0.1                                         0.0%    41    0.5   0.6   0.4   1.7   0.2
+ 2. 5.5.5.215                                           0.0%    40    1.9   1.5   0.8   7.3   1.0
+ 3. 209.snat-111-91-120.hns.net.in                      23.1%    40    1.9   2.7   1.7  10.5   1.6
+ 4. 72.14.194.226                                       0.0%    40   89.1   5.2   2.2  89.1  13.7
+ 5. 108.170.248.193                                     0.0%    40    3.0   4.1   2.4  52.4   7.8
+ 6. 108.170.237.43                                      0.0%    40    2.9   5.3   2.5  94.1  14.4
+ 7. bom07s10-in-f174.1e100.net                          0.0%    40    2.6   6.7   2.3  79.7  16.
+</pre>
+<p>You can limit the number of <strong>pings</strong> to a specific value and exit <strong>mtr</strong> after those pings, using the <code>-c</code> flag as shown.</p>
+<pre>$ mtr -c 4 google.com
+</pre>
+<h4 id="route">8. Route Command</h4>
+<p><strong>route</strong> is a command line utility for displaying or 
+manipulating the IP routing table of a Linux system. It is mainly used 
+to configure static routes to specific hosts or networks via an 
+interface.</p>
+<p>You can view Kernel IP routing table by typing.</p>
+<pre><strong>$ route</strong>
+
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         gateway         0.0.0.0         UG    100    0        0 enp0s3
+192.168.0.0     0.0.0.0         255.255.255.0   U     100    0        0 enp0s3
+192.168.122.0   0.0.0.0         255.255.255.0   U     0      0        0 virbr0
+</pre>
+<p>There are numerous commands you can use to configure routing. Here are some useful ones:</p>
+<p>Add a default gateway to the routing table.</p>
+<pre>$ sudo route add default gw &lt;gateway-ip&gt;
+</pre>
+<p>Add a network route to the routing table.</p>
+<pre>$ sudo route add -net &lt;network ip/cidr&gt; gw &lt;gateway ip&gt; &lt;interface&gt;
+</pre>
+<p>Delete a specific route entry from the routing table.</p>
+<pre>$ sudo route del -net &lt;network ip/cidr&gt;
+</pre>
+<h4 id="nmcli">9. Nmcli Command</h4>
+<p><a href="https://www.tecmint.com/nmcli-connect-wi-fi-from-linux-terminal/" target="_blank" rel="noopener">Nmcli</a> is an easy-to-use, scriptable command-line tool to report network status, manage network connections, and control the <strong>NetworkManager</strong>.</p>
+<p>To view all your network devices, type.</p>
+<pre><strong>$ nmcli dev status</strong>
+
+DEVICE      TYPE      STATE      CONNECTION         
+virbr0      bridge    connected  virbr0             
+enp0s3      ethernet  connected  Wired connection 1 
+</pre>
+<p>To check network connections on your system, type.</p>
+<pre><strong>$ nmcli con show</strong>
+
+Wired connection 1  bc3638ff-205a-3bbb-8845-5a4b0f7eef91  802-3-ethernet  enp0s3 
+virbr0              00f5d53e-fd51-41d3-b069-bdfd2dde062b  bridge          virbr0 
+</pre>
+<p>To see only the active connections, add the <code>-a</code> flag.</p>
+<pre>$ nmcli con show -a
+</pre>
+<h3>Network Scanning and Performance Analysis Tools</h3>
+<h4 id="netstat">10. Netstat Command</h4>
+<p><a href="https://www.tecmint.com/20-netstat-commands-for-linux-network-management/" target="_blank" rel="noopener">netstat</a>
+ is a command line tool that displays useful information such as network
+ connections, routing tables, interface statistics, and much more, 
+concerning the Linux networking subsystem. It is useful for network 
+troubleshooting and performance analysis.</p>
+<p>Additionally, it is also a fundamental network service debugging tool
+ used to check which programs are listening on what ports. For instance,
+ the following command will show all TCP ports in listening mode and 
+what programs are listening on them.</p>
+<pre><strong>$ sudo netstat -tnlp</strong>
+
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:587             0.0.0.0:*               LISTEN      1257/master         
+tcp        0      0 127.0.0.1:5003          0.0.0.0:*               LISTEN      1/systemd           
+tcp        0      0 0.0.0.0:110             0.0.0.0:*               LISTEN      1015/dovecot        
+tcp        0      0 0.0.0.0:143             0.0.0.0:*               LISTEN      1015/dovecot        
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      1/systemd           
+tcp        0      0 0.0.0.0:465             0.0.0.0:*               LISTEN      1257/master         
+tcp        0      0 0.0.0.0:53              0.0.0.0:*               LISTEN      1404/pdns_server    
+tcp        0      0 0.0.0.0:21              0.0.0.0:*               LISTEN      1064/pure-ftpd (SER 
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      972/sshd            
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      975/cupsd           
+tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      1257/master         
+tcp        0      0 0.0.0.0:8090            0.0.0.0:*               LISTEN      636/lscpd (lscpd -  
+tcp        0      0 0.0.0.0:993             0.0.0.0:*               LISTEN      1015/dovecot        
+tcp        0      0 0.0.0.0:995             0.0.0.0:*               LISTEN      1015/dovecot        
+tcp6       0      0 :::3306                 :::*                    LISTEN      1053/mysqld         
+tcp6       0      0 :::3307                 :::*                    LISTEN      1211/mysqld         
+tcp6       0      0 :::587                  :::*                    LISTEN      1257/master         
+tcp6       0      0 :::110                  :::*                    LISTEN      1015/dovecot        
+tcp6       0      0 :::143                  :::*                    LISTEN      1015/dovecot        
+tcp6       0      0 :::111                  :::*                    LISTEN      1/systemd           
+tcp6       0      0 :::80                   :::*                    LISTEN      990/httpd           
+tcp6       0      0 :::465                  :::*                    LISTEN      1257/master         
+tcp6       0      0 :::53                   :::*                    LISTEN      1404/pdns_server    
+tcp6       0      0 :::21                   :::*                    LISTEN      1064/pure-ftpd (SER 
+tcp6       0      0 :::22                   :::*                    LISTEN      972/sshd            
+tcp6       0      0 ::1:631                 :::*                    LISTEN      975/cupsd           
+tcp6       0      0 :::25                   :::*                    LISTEN      1257/master         
+tcp6       0      0 :::993                  :::*                    LISTEN      1015/dovecot        
+tcp6       0      0 :::995                  :::*                    LISTEN      1015/dovecot        
+</pre>
+<p>To view kernel routing table, use the <code>-r</code> flag (which is equivalent to running <strong>route</strong> command above).</p>
+<pre><strong>$ netstat -r</strong>
+
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+default         gateway         0.0.0.0         UG        0 0          0 enp0s3
+192.168.0.0     0.0.0.0         255.255.255.0   U         0 0          0 enp0s3
+192.168.122.0   0.0.0.0         255.255.255.0   U         0 0          0 virbr0
+</pre>
+<p><strong style="color: red;">Note</strong>: Although Netstat is a great tool, it is now obsolete (deprecated), its replacement is <strong>ss command</strong> which is explained below.</p>
+<h4 id="ss">11. ss Command</h4>
+<p><strong>ss</strong> (<strong>socket statistics</strong>) is a powerful command line utility to investigate sockets. It dumps socket statistics and displays information similar to <strong>netstat</strong>. In addition, it shows more TCP and state information compared to other similar utilities.</p>
+<p>The following example show how to list all <strong>TCP</strong> ports (<strong>sockets</strong>) that are open on a server.</p>
+<pre><strong>$ ss -ta</strong>
+
+State      Recv-Q Send-Q                                        Local 
+Address:Port                                                         
+Peer Address:Port                
+LISTEN     0      100                                                   
+    *:submission                                                        
+      *:*                    
+LISTEN     0      128                                               
+127.0.0.1:fmpro-internal                                                
+          *:*                    
+LISTEN     0      100                                                   
+    *:pop3                                                              
+      *:*                    
+LISTEN     0      100                                                   
+    *:imap                                                              
+      *:*                    
+LISTEN     0      128                                                   
+    *:sunrpc                                                            
+      *:*                    
+LISTEN     0      100                                                   
+    *:urd                                                               
+      *:*                    
+LISTEN     0      128                                                   
+    *:domain                                                            
+      *:*                    
+LISTEN     0      9                                                     
+    *:ftp                                                               
+      *:*                    
+LISTEN     0      128                                                   
+    *:ssh                                                               
+      *:*                    
+LISTEN     0      128                                               
+127.0.0.1:ipp                                                           
+          *:*                    
+LISTEN     0      100                                                   
+    *:smtp                                                              
+      *:*                    
+LISTEN     0      128                                                   
+    *:8090                                                              
+      *:*                    
+LISTEN     0      100                                                   
+    *:imaps                                                             
+      *:*                    
+LISTEN     0      100                                                   
+    *:pop3s                                                             
+      *:*                    
+ESTAB      0      0                                             
+192.168.0.104:ssh                                                       
+  192.168.0.103:36398                
+ESTAB      0      0                                                 
+127.0.0.1:34642                                                         
+  127.0.0.1:opsession-prxy       
+ESTAB      0      0                                                 
+127.0.0.1:34638                                                         
+  127.0.0.1:opsession-prxy       
+ESTAB      0      0                                                 
+127.0.0.1:34644                                                         
+  127.0.0.1:opsession-prxy       
+ESTAB      0      0                                                 
+127.0.0.1:34640                                                         
+  127.0.0.1:opsession-prxy       
+LISTEN     0      80                                                    
+   :::mysql                                                             
+     :::*             
+...
+</pre>
+<p>To display all active <strong>TCP</strong> connections together with their timers, run the following command.</p>
+<pre>$ ss -to
+</pre>
+<h4 id="nc">12 NC Command</h4>
+<p><a href="https://www.tecmint.com/check-remote-port-in-linux/" target="_blank" rel="noopener">NC (NetCat)</a> also referred to as the “<strong>Network Swiss Army knife</strong>”,
+ is a powerful utility used for almost any task related to TCP, UDP, or 
+UNIX-domain sockets. It is used open TCP connections, listen on 
+arbitrary TCP and UDP ports, perform port scanning plus more.</p>
+<p>You can also use it as a simple TCP proxies, for network daemon 
+testing, to check if remote ports are reachable and much more. 
+Furthermore, you can employ <strong>nc</strong> together with <a href="https://www.tecmint.com/transfer-files-between-two-linux-machines/" target="_blank" rel="noopener">pv command</a> to transfer files between two computers.</p><div style="text-align: center; width: 100%; height: auto; clear: none;" class="google-auto-placed ap_container"><ins style="display: block; margin: auto; background-color: transparent;" data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-2601749019656699" data-adsbygoogle-status="done"><ins id="aswift_5_expand" style="display:inline-table;border:none;height:200px;margin:0;padding:0;position:relative;visibility:visible;width:1120px;background-color:transparent;"><ins id="aswift_5_anchor" style="display:block;border:none;height:200px;margin:0;padding:0;position:relative;visibility:visible;width:1120px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_5" name="aswift_5" style="left:0;position:absolute;top:0;border:0px;width:1120px;height:200px;" height="200" width="1120" frameborder="0"></iframe></ins></ins></ins></div>
+<p>The following example, will show how to scan a list of ports.</p>
+<pre>$ nc -zv server2.tecmint.lan 21 22 80 443 3000
+</pre>
+<p>You can also specify a range of ports as shown.</p>
+<pre>$ nc -zv server2.tecmint.lan 20-90
+</pre>
+<p>The following example shows how to use <strong>nc</strong> to open a TCP connection to port <strong>5000</strong> on <strong>server2.tecmint.lan</strong>, using port <strong>3000</strong> as the source port, with a timeout of <strong>10</strong> seconds.</p>
+<pre>$ nc -p 3000 -w 10 server2.tecmint.lan 5000 
+</pre>
+<h4 id="nmap">13. Nmap Command</h4>
+<p><a href="https://www.tecmint.com/nmap-command-examples/" target="_blank" rel="noopener">Nmap</a> (<strong>Network Mapper</strong>)
+ is a powerful and extremely versatile tool for Linux system/network 
+administrators. It is used gather information about a single host or 
+explore networks an entire network. Nmap is also used to perform 
+security scans, network audit and finding open ports on remote hosts and
+ so much more.</p>
+<p>You can scan a host using its host name or IP address, for instance.</p>
+<pre><strong>$ nmap google.com </strong>
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2018-07-12 09:23 BST
+Nmap scan report for google.com (172.217.166.78)
+Host is up (0.0036s latency).
+rDNS record for 172.217.166.78: bom05s15-in-f14.1e100.net
+Not shown: 998 filtered ports
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 4.92 seconds
+</pre>
+<p>Alternatively, use an IP address as shown.</p>
+<pre><strong>$ nmap 192.168.0.103</strong>
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2018-07-12 09:24 BST
+Nmap scan report for 192.168.0.103
+Host is up (0.000051s latency).
+Not shown: 994 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+25/tcp   open  smtp
+902/tcp  open  iss-realsecure
+4242/tcp open  vrml-multi-use
+5900/tcp open  vnc
+8080/tcp open  http-proxy
+MAC Address: 28:D2:44:EB:BD:98 (Lcfc(hefei) Electronics Technology Co.)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.13 seconds
+</pre>
+<p>Read our following useful articles on nmap command.</p>
+<ol>
+<li><a href="https://www.tecmint.com/use-nmap-script-engine-nse-scripts-in-linux/" target="_blank" rel="noopener">How to Use Nmap Script Engine (NSE) Scripts in Linux</a></li>
+<li><a href="https://www.tecmint.com/nmap-network-security-scanner-in-kali-linux/" target="_blank" rel="noopener">A Practical Guide to Nmap (Network Security Scanner) in Kali Linux</a></li>
+<li><a href="https://www.tecmint.com/find-live-hosts-ip-addresses-on-linux-network/" target="_blank" rel="noopener">Find Out All Live Hosts IP Addresses Connected on Network in Linux</a></li>
+</ol>
+<h3>DNS Lookup Utilities</h3>
+<h4 id="host">14. host Command</h4>
+<p><a href="https://www.tecmint.com/linux-host-command-examples-for-querying-dns-lookups/" target="_blank" rel="noopener">host command</a> is a simple utility for carrying out DNS lookups, it translates host names to IP addresses and vice versa.</p>
+<pre><strong>$ host google.com</strong>
+
+google.com has address 172.217.166.78
+google.com mail is handled by 20 alt1.aspmx.l.google.com.
+google.com mail is handled by 30 alt2.aspmx.l.google.com.
+google.com mail is handled by 40 alt3.aspmx.l.google.com.
+google.com mail is handled by 50 alt4.aspmx.l.google.com.
+google.com mail is handled by 10 aspmx.l.google.com.
+</pre>
+<h4 id="dig">15. dig Command</h4>
+<p><a href="https://www.tecmint.com/10-linux-dig-domain-information-groper-commands-to-query-dns/" target="_blank" rel="noopener">dig</a> (<strong>domain information groper</strong>)
+ is also another simple DNS lookup utility, that is used to query DNS 
+related information such as A Record, CNAME, MX Record etc, for example:</p>
+<pre><strong>$ dig google.com</strong>
+
+; &lt;&lt;&gt;&gt; DiG 9.9.4-RedHat-9.9.4-51.el7 &lt;&lt;&gt;&gt; google.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 23083
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 13, ADDITIONAL: 14
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;google.com.			IN	A
+
+;; ANSWER SECTION:
+google.com.		72	IN	A	172.217.166.78
+
+;; AUTHORITY SECTION:
+com.			13482	IN	NS	c.gtld-servers.net.
+com.			13482	IN	NS	d.gtld-servers.net.
+com.			13482	IN	NS	e.gtld-servers.net.
+com.			13482	IN	NS	f.gtld-servers.net.
+com.			13482	IN	NS	g.gtld-servers.net.
+com.			13482	IN	NS	h.gtld-servers.net.
+com.			13482	IN	NS	i.gtld-servers.net.
+com.			13482	IN	NS	j.gtld-servers.net.
+com.			13482	IN	NS	k.gtld-servers.net.
+com.			13482	IN	NS	l.gtld-servers.net.
+com.			13482	IN	NS	m.gtld-servers.net.
+com.			13482	IN	NS	a.gtld-servers.net.
+com.			13482	IN	NS	b.gtld-servers.net.
+
+;; ADDITIONAL SECTION:
+a.gtld-servers.net.	81883	IN	A	192.5.6.30
+b.gtld-servers.net.	3999	IN	A	192.33.14.30
+c.gtld-servers.net.	14876	IN	A	192.26.92.30
+d.gtld-servers.net.	85172	IN	A	192.31.80.30
+e.gtld-servers.net.	95861	IN	A	192.12.94.30
+f.gtld-servers.net.	78471	IN	A	192.35.51.30
+g.gtld-servers.net.	5217	IN	A	192.42.93.30
+h.gtld-servers.net.	111531	IN	A	192.54.112.30
+i.gtld-servers.net.	93017	IN	A	192.43.172.30
+j.gtld-servers.net.	93542	IN	A	192.48.79.30
+k.gtld-servers.net.	107218	IN	A	192.52.178.30
+l.gtld-servers.net.	6280	IN	A	192.41.162.30
+m.gtld-servers.net.	2689	IN	A	192.55.83.30
+
+;; Query time: 4 msec
+;; SERVER: 192.168.0.1#53(192.168.0.1)
+;; WHEN: Thu Jul 12 09:30:57 BST 2018
+;; MSG SIZE  rcvd: 487
+</pre>
+<h4 id="nslookup">16. NSLookup Command</h4>
+<p><a href="https://www.tecmint.com/8-linux-nslookup-commands-to-troubleshoot-dns-domain-name-server/" target="_blank" rel="noopener">Nslookup</a>
+ is also a popular command line utility to query DNS servers both 
+interactively and non-interactively. It is used to query DNS resource 
+records (RR). You can find out “A” record (IP address) of a domain as 
+shown.</p>
+<pre><strong>$ nslookup google.com</strong>
+
+Server:		192.168.0.1
+Address:	192.168.0.1#53
+
+Non-authoritative answer:
+Name:	google.com
+Address: 172.217.166.78
+</pre>
+<p>You can also perform a reverse domain lookup as shown.</p>
+<pre><strong>$ nslookup 216.58.208.174</strong>
+
+Server:		192.168.0.1
+Address:	192.168.0.1#53
+
+Non-authoritative answer:
+174.208.58.216.in-addr.arpa	name = lhr25s09-in-f14.1e100.net.
+174.208.58.216.in-addr.arpa	name = lhr25s09-in-f174.1e100.net.
+
+Authoritative answers can be found from:
+in-addr.arpa	nameserver = e.in-addr-servers.arpa.
+in-addr.arpa	nameserver = f.in-addr-servers.arpa.
+in-addr.arpa	nameserver = a.in-addr-servers.arpa.
+in-addr.arpa	nameserver = b.in-addr-servers.arpa.
+in-addr.arpa	nameserver = c.in-addr-servers.arpa.
+in-addr.arpa	nameserver = d.in-addr-servers.arpa.
+a.in-addr-servers.arpa	internet address = 199.180.182.53
+b.in-addr-servers.arpa	internet address = 199.253.183.183
+c.in-addr-servers.arpa	internet address = 196.216.169.10
+d.in-addr-servers.arpa	internet address = 200.10.60.53
+e.in-addr-servers.arpa	internet address = 203.119.86.101
+f.in-addr-servers.arpa	internet address = 193.0.9.1
+</pre>
+<h3>Linux Network Packet Analyzers</h3>
+<h4 id="tcpdump">17. Tcpdump Command</h4>
+<p><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/" target="_blank" rel="noopener">Tcpdump</a>
+ is a very powerful and widely used command-line network sniffer. It is 
+used to capture and analyze TCP/IP packets transmitted or received over a
+ network on a specific interface.</p>
+<p>To capture packets from a given interface, specify it using the <code>-i</code> option.</p>
+<pre><strong>$ tcpdump -i eth1</strong>
+
+tcpdump: verbose output suppressed, use -v or -vv for full protocol 
+decode
+listening on enp0s3, link-type EN10MB (Ethernet), capture size 262144 
+bytes
+09:35:40.287439 IP tecmint.com.ssh &gt; 192.168.0.103.36398: Flags [P.],
+ seq 4152360356:4152360552, ack 306922699, win 270, options [nop,nop,TS 
+val 2211778668 ecr 2019055], length 196
+09:35:40.287655 IP 192.168.0.103.36398 &gt; tecmint.com.ssh: Flags [.], 
+ack 196, win 5202, options [nop,nop,TS val 2019058 ecr 2211778668], 
+length 0
+09:35:40.288269 IP tecmint.com.54899 &gt; gateway.domain: 43760+ PTR? 
+103.0.168.192.in-addr.arpa. (44)
+09:35:40.333763 IP gateway.domain &gt; tecmint.com.54899: 43760 
+NXDomain* 0/1/0 (94)
+09:35:40.335311 IP tecmint.com.52036 &gt; gateway.domain: 44289+ PTR? 
+1.0.168.192.in-addr.arpa. (42)
+</pre>
+<p>To capture a specific number of packets, use the <code>-c</code> option to enter the desired number.</p>
+<pre>$ tcpdump -c 5 -i eth1
+</pre>
+<p>You can also capture and save packets to a file for later analysis, use the <code>-w</code> flag to specify the output file.</p>
+<pre>$ tcpdump -w captured.pacs -i eth1
+</pre>
+<h4 id="wireshark">18. Wireshark Utility</h4>
+<p><a href="https://www.tecmint.com/wireshark-network-traffic-analyzer-for-linux/" target="_blank" rel="noopener">Wireshark</a>
+ is a popular, powerful, versatile and easy to use tool for capturing 
+and analyzing packets in a packet-switched network, in real-time.</p>
+<p>You can also save data it has captured to a file for later 
+inspection. It is used by system administrators and network engineers to
+ monitor and inspect the packets for security and troubleshooting 
+purposes.</p><div style="text-align: center; width: 100%; height: auto; clear: none;" class="google-auto-placed ap_container"><ins style="display: block; margin: auto; background-color: transparent;" data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-2601749019656699" data-adsbygoogle-status="done"><ins id="aswift_6_expand" style="display:inline-table;border:none;height:200px;margin:0;padding:0;position:relative;visibility:visible;width:1120px;background-color:transparent;"><ins id="aswift_6_anchor" style="display:block;border:none;height:200px;margin:0;padding:0;position:relative;visibility:visible;width:1120px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_6" name="aswift_6" style="left:0;position:absolute;top:0;border:0px;width:1120px;height:200px;" height="200" width="1120" frameborder="0"></iframe></ins></ins></ins></div>
+<p>Read our article “<a href="https://www.tecmint.com/wireshark-network-traffic-analyzer-for-linux/" target="_blank" rel="noopener">10 Tips On How to Use Wireshark to Analyze Network Packets</a> to learn more about Wireshark”.</p>
+<h4 id="bmon">19. Bmon Tool</h4>
+<p><a href="https://www.tecmint.com/bmon-network-bandwidth-monitoring-debugging-linux/" target="_blank" rel="noopener">bmon</a>
+ is a powerful, command line based network monitoring and debugging 
+utility for Unix-like systems, it captures networking related statistics
+ and prints them visually in a human friendly format. It is a reliable 
+and effective real-time bandwidth monitor and rate estimator.</p>
+<p>Read our article “<a href="https://www.tecmint.com/bmon-network-bandwidth-monitoring-debugging-linux/" target="_blank" rel="noopener">bmon – A Powerful Network Bandwidth Monitoring and Debugging Tool</a> to learn more about bmon”.</p>
+<h3>Linux Firewall Management Tools</h3>
+<h4 id="iptables">20. Iptables Firewall</h4>
+<p><a href="https://www.tecmint.com/basic-guide-on-iptables-linux-firewall-tips-commands/" target="_blank" rel="noopener">iptables</a>
+ is a command line tool for configuring, maintaining, and inspecting the
+ tables IP packet filtering and NAT ruleset. It it used to set up and 
+manage the Linux firewall (Netfilter). It allows you to list existing 
+packet filter rules; add or delete or modify packet filter rules; list 
+per-rule counters of the packet filter rules.</p>
+<p>You can learn how to use <strong>Iptables</strong> for various purposes from our simple yet comprehensive guides.</p>
+<ol>
+<li><a href="https://www.tecmint.com/basic-guide-on-iptables-linux-firewall-tips-commands/" target="_blank" rel="noopener">Basic Guide on IPTables (Linux Firewall) Tips / Commands</a></li>
+<li><a href="https://www.tecmint.com/linux-iptables-firewall-rules-examples-commands/" target="_blank" rel="noopener">25 Useful IPtable Firewall Rules Every Linux Administrator Should Know</a></li>
+<li><a href="https://www.tecmint.com/configure-iptables-firewall/" target="_blank" rel="noopener">How To Setup an Iptables Firewall to Enable Remote Access to Services</a></li>
+<li><a href="https://www.tecmint.com/block-ping-icmp-requests-to-linux/" target="_blank" rel="noopener">How to Block Ping ICMP Requests to Linux Systems</a></li>
+</ol>
+<h4 id="firewalld">21. Firewalld</h4>
+<p><a href="https://www.tecmint.com/firewalld-rules-for-centos-7/" target="_blank" rel="noopener">Firewalld</a> is a powerful and dynamic daemon to manage the Linux firewall (Netfilter), just like <strong>iptables</strong>. It uses “<strong>networks zones</strong>” instead of INPUT, OUTPUT and FORWARD CHAINS in iptables. On current Linux distributions such as <strong>RHEL/CentOS 7</strong> and <strong>Fedora 21+</strong>, <strong>iptables</strong> is actively being replaced by <strong>firewalld</strong>.</p>
+<p>To get started with <strong>firewalld</strong>, consult these guides listed below:</p>
+<ol>
+<li><a href="https://www.tecmint.com/firewalld-rules-for-centos-7/" target="_blank" rel="noopener">Useful ‘FirewallD’ Rules to Configure and Manage Firewall in Linux</a></li>
+<li><a href="https://www.tecmint.com/configure-firewalld-in-centos-7/" target="_blank" rel="noopener">How to Configure ‘FirewallD’ in RHEL/CentOS 7 and Fedora 21</a></li>
+<li><a href="https://www.tecmint.com/start-stop-disable-enable-firewalld-iptables-firewall/" target="_blank" rel="noopener">How to Start/Stop and Enable/Disable FirewallD and Iptables Firewall in Linux</a></li>
+<li><a href="https://www.tecmint.com/setup-samba-file-sharing-for-linux-windows-clients/" target="_blank" rel="noopener">Setting Up Samba and Configure FirewallD and SELinux to Allow File Sharing on Linux/Windows</a></li>
+</ol>
+<p><strong style="color: red;">Important</strong>: <strong>Iptables</strong> is still supported and can be installed with <a href="https://www.tecmint.com/20-linux-yum-yellowdog-updater-modified-commands-for-package-mangement/" target="_blank" rel="noopener">YUM package manager</a>. However, you can’t use <strong>Firewalld</strong> and <strong>iptables</strong> at the same time on same server – you must choose one.</p>
+<h4 id="ufw">22. UFW (Uncomplicated Firewall)</h4>
+<p><a href="https://www.tecmint.com/how-to-install-and-configure-ufw-firewall/" target="_blank" rel="noopener">UFW</a> is a well known and default firewall configuration tool on <strong>Debian</strong> and <strong>Ubuntu</strong>
+ Linux distributions. It is used top enable/disable system firewall, 
+add/delete/modify/reset packet filtering rules and much more.</p>
+<p>To check UFW firewall status, type.</p>
+<pre>$ sudo ufw status
+</pre>
+<p>If UFW firewall is not active, you can activate or enable it using the following command.</p>
+<pre>$ sudo ufw enable
+</pre>
+<p>To disable UFW firewall, use the following command.</p>
+<pre>$ sudo ufw disable 
+</pre>
+<p>Read our article “<a href="https://www.tecmint.com/setup-ufw-firewall-on-ubuntu-and-debian/" target="_blank" rel="noopener">How to Setup UFW Firewall on Ubuntu and Debian</a>” to learn more UFW).</p>
+<p>If you want to find more information about a particular program, you can consult its man pages as shown.</p>
+<pre>$ man programs_name
+</pre>
+<p>That’s all for now! In this comprehensive guide, we reviewed some of 
+the most used command-line tools and utilities for network management in
+ Linux, under different categories, for system administrators, and 
+equally useful to full-time network administrators/engineers.</p>
+<p>You can share your thoughts about this guide via the comment form 
+below. If we have missed any frequently used and important Linux 
+networking tools/utilities or any useful related information, also let 
+us know.</p>
+</div>
+<div class="sharrre-container" style="position: relative; top: 13662px; left: 0px;">
+<span>Share</span>
+<div id="twitter" data-url="https://www.tecmint.com/linux-networking-commands/" data-text="A Linux Sysadmin’s Guide to Network Management, Troubleshooting and Debugging" data-title="Tweet" class="sharrre"><a class="box" href="#"><div class="count" href="#">+</div><div class="share"><i class="fa fa-twitter"></i></div></a></div>
+<div id="facebook" data-url="https://www.tecmint.com/linux-networking-commands/" data-text="A Linux Sysadmin’s Guide to Network Management, Troubleshooting and Debugging" data-title="Like" class="sharrre"><a class="box" href="#"><div class="count" href="#">0</div><div class="share"><i class="fa fa-facebook-square"></i></div></a></div>
+<div id="googleplus" data-url="https://www.tecmint.com/linux-networking-commands/" data-text="A Linux Sysadmin’s Guide to Network Management, Troubleshooting and Debugging" data-title="+1" class="sharrre"><a class="box" href="#"><div class="count" href="#">0</div><div class="share"><i class="fa fa-google-plus-square"></i></div></a></div>
+<div id="linkedin" data-url="https://www.tecmint.com/linux-networking-commands/" data-text="A Linux Sysadmin’s Guide to Network Management, Troubleshooting and Debugging" data-title="Share It" class="sharrre"><a class="box" href="#" rel="nofollow"><div class="count" href="#">0</div><div class="share"><i class="fa fa-linkedin"></i></div></a></div>
+<div style="font-weight: 600; padding-top: 10px; width: 55px;"><a href="#comments"><img alt="Ask Anything" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/help.png"></a></div>
+</div>
+<script type="text/javascript">
+// Sharrre
+jQuery(document).ready(function(){
+jQuery('#twitter').sharrre({
+share: {
+twitter: true
+},
+template: '<a class="box" href="#"><div class="count" 
+href="#">{total}</div><div class="share"><i class="fa 
+fa-twitter"></i></div></a>',
+enableHover: false,
+enableTracking: true,
+buttons: { twitter: {via: 'tecmint'}},
+click: function(api, options){
+api.simulateClick();
+api.openPopup('twitter');
+}
+});
+jQuery('#facebook').sharrre({
+share: {
+facebook: true
+},
+template: '<a class="box" href="#"><div class="count" 
+href="#">{total}</div><div class="share"><i class="fa 
+fa-facebook-square"></i></div></a>',
+enableHover: false,
+enableTracking: true,
+click: function(api, options){
+api.simulateClick();
+api.openPopup('facebook');
+}
+});
+jQuery('#googleplus').sharrre({
+share: {
+googlePlus: true
+},
+template: '<a class="box" href="#"><div class="count" 
+href="#">{total}</div><div class="share"><i class="fa 
+fa-google-plus-square"></i></div></a>',
+enableHover: false,
+enableTracking: true,
+urlCurl: 
+'https://www.tecmint.com/wp-content/themes/tecmint/js/sharrre.php',
+click: function(api, options){
+api.simulateClick();
+api.openPopup('googlePlus');
+}
+});
+jQuery('#linkedin').sharrre({
+share: {
+linkedin: true
+},
+template: '<a class="box" href="#" rel="nofollow"><div class="count" 
+href="#">{total}</div><div class="share"><i class="fa 
+fa-linkedin"></i></div></a>',
+enableHover: false,
+enableTracking: true,
+buttons: {
+linkedin: {
+description: 'A Linux Sysadmin&#8217;s Guide to Network Management, 
+Troubleshooting and Debugging',media: 
+'https://www.tecmint.com/wp-content/uploads/2018/07/Linux-Networking-Commands.png'
+				}
+},
+click: function(api, options){
+api.simulateClick();
+api.openPopup('linkedin');
+}
+});
+// Scrollable sharrre bar, contributed by Erik Frye. Awesome!
+var shareContainer = jQuery(".sharrre-container"),
+header = jQuery('#header'),
+postEntry = jQuery('.entry'),
+$window = jQuery(window),
+distanceFromTop = 20,
+startSharePosition = shareContainer.offset(),
+contentBottom = postEntry.offset().top + postEntry.outerHeight(),
+topOfTemplate = header.offset().top;
+getTopSpacing();
+shareScroll = function(){
+if($window.width() > 719){	
+var scrollTop = $window.scrollTop() + topOfTemplate,
+stopLocation = contentBottom - (shareContainer.outerHeight() + 
+topSpacing);
+if(scrollTop > stopLocation){
+shareContainer.offset({top: contentBottom - 
+shareContainer.outerHeight(),left: startSharePosition.left});
+}
+else if(scrollTop >= postEntry.offset().top-topSpacing){
+shareContainer.offset({top: scrollTop + topSpacing, left: 
+startSharePosition.left});
+}else if(scrollTop < startSharePosition.top+(topSpacing-1)){
+shareContainer.offset({top: 
+startSharePosition.top,left:startSharePosition.left});
+}
+}
+},
+shareMove = function(){
+startSharePosition = shareContainer.offset();
+contentBottom = postEntry.offset().top + postEntry.outerHeight();
+topOfTemplate = header.offset().top;
+getTopSpacing();
+};
+/* As new images load the page content body gets longer. The bottom of 
+the content area needs to be adjusted in case images are still loading. 
+*/
+setTimeout(function() {
+contentBottom = postEntry.offset().top + postEntry.outerHeight();
+}, 2000);
+if (window.addEventListener) {
+window.addEventListener('scroll', shareScroll, false);
+window.addEventListener('resize', shareMove, false);
+} else if (window.attachEvent) {
+window.attachEvent('onscroll', shareScroll);
+window.attachEvent('onresize', shareMove);
+}
+function getTopSpacing(){
+if($window.width() > 1024)
+topSpacing = distanceFromTop + jQuery('.nav-wrap').outerHeight();
+else
+topSpacing = distanceFromTop;
+}
+});
+</script>
+<div class="clear"></div>
+</div>
+</div>
+</article>
+<div class="clear"></div>
+<div class="clear"></div>
+<div class="ads-inner-mobile">
+<center style="padding-top:30px;">
+
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-2601749019656699" data-ad-slot="7807254572"></ins>
+<script type="text/javascript">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>
+</div>
+<div class="clear"></div>
+<div class="after-post-box">
+<h2>If You Appreciate What We Do Here On TecMint, You Should Consider:</h2>
+<ol>
+<li>Stay Connected to: <strong><a target="_blank" rel="nofollow" href="https://bit.ly/1TP6lcM" title="Follow TecMint on Twitter">Twitter</a></strong> | <strong><a target="_blank" rel="nofollow" href="https://bit.ly/1rDYrdj" title="Like Us on Facebook">Facebook</a></strong> | <strong><a target="_blank" rel="nofollow" href="https://bit.ly/24J6lna" title="Join Us On Google+">Google Plus</a></strong></li>
+<li>Subscribe to our email updates: <strong><a target="_blank" rel="nofollow" href="https://bit.ly/2dhBpWQ" title="Subscribe to TecMint Email Updates">Sign Up Now</a></strong></li>
+<li>Get your own <strong><a target="_blank" rel="nofollow" title="WordPress Hosting" href="https://www.bluehost.com/track/tecmint/">self-hosted blog with a Free Domain</a></strong> at (<strong>$3.45/month</strong>).</li>
+<li>Become a Supporter - <strong><a target="_blank" href="https://www.tecmint.com/donate-to-tecmint/">Make a contribution via PayPal</a></strong></li>
+<li>Support us by <strong><a href="https://www.tecmint.com/linux-books-in-pdf-format/" target="_blank">purchasing our premium books</a></strong> in PDF format.</li>
+<li>Support us by taking our <strong><a rel="nofollow" target="_blank" href="https://deals.tecmint.com/search?utf8=%E2%9C%93&amp;query=linux">online Linux courses</a></strong></li>
+</ol>
+<p style="text-align: center;"><strong style=" color:#fe3300;font-size:20px;">We are thankful for your never ending support.</strong></p>
+</div>
+<div class="clear"></div>
+<p class="post-tags"><span>Tags:</span> <a href="https://www.tecmint.com/tag/linux-network-monitoring/" rel="tag">linux network monitoring</a><a href="https://www.tecmint.com/tag/linux-networking-tools/" rel="tag">linux networking tools</a></p> <div class="author-bio">
+<div class="bio-avatar"><img src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/1x1.gif" data-lazy-src="https://secure.gravatar.com/avatar/4e444ab611c7b8c7bcb76e58d2e82ae0?s=128&amp;d=blank&amp;r=g" alt="" srcset="https://secure.gravatar.com/avatar/4e444ab611c7b8c7bcb76e58d2e82ae0?s=256&amp;d=blank&amp;r=g 2x" class="avatar avatar-128 photo" height="128" width="128"><noscript><img
+ alt='' 
+src='https://secure.gravatar.com/avatar/4e444ab611c7b8c7bcb76e58d2e82ae0?s=128&#038;d=blank&#038;r=g'
+ 
+srcset='https://secure.gravatar.com/avatar/4e444ab611c7b8c7bcb76e58d2e82ae0?s=256&#038;d=blank&#038;r=g
+ 2x' class='avatar avatar-128 photo' height='128' width='128' /></noscript></div>
+<p style="float:right; font-weight:600;"><a target="_blank" class="author-link" href="https://www.tecmint.com/author/aaronkili/" rel="author">View all Posts</a></p>
+<p class="bio-name">Aaron Kili</p>
+<p class="bio-desc">Aaron Kili is a Linux and F.O.S.S enthusiast, an 
+upcoming Linux SysAdmin, web developer, and currently a content creator 
+for TecMint who loves working with computers and strongly believes in 
+sharing knowledge.</p>
+<p><span style="font-size:20px;font-weight:400;color:#a2042e">Your name can also be listed here. Got a tip? <a style="text-decoration:underline;" target="_blank" href="https://www.tecmint.com/submit-articles/">Submit it here</a> to become an <b>TecMint</b> author.</span></p>
+<div class="clear"></div>
+</div>
+<div class="hr"></div>
+<div class="grid one-fourth">
+<a href="https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/" target="_blank"><img alt="RedHat RHCE and RHCSA Certification Book" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/RedHat-RHCSA-RHCE-Exam-Study-Ebook.png" style="margin-right:10px;" width="200"></a>
+</div>
+<div class="grid one-fourth">
+<a href="https://www.tecmint.com/linux-foundation-lfcs-lfce-certification-exam-book/" target="_blank"><img alt="Linux Foundation LFCS and LFCE Certification Preparation Guide" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/Linux-Foundation-LFCS-LFCE-Certification-Ebook.png" width="200"></a>
+</div>
+<div class="grid one-fourth">
+<a href="https://deals.tecmint.com/sales/complete-linux-crash-course-includes-topics-on-red-hat-unix-kali-python-and-opensuse?utm_source=tecmint.com&amp;utm_medium=referral&amp;utm_campaign=complete-linux-crash-course-includes-topics-on-red-hat-unix-kali-python-and-opensu" rel="nofollow" target="_blank"><img src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/Linux-System-Administrator-Course.png" style="margin-right:10px;" width="200"></a>
+</div>
+<div class="grid one-fourth last">
+<a href="https://deals.tecmint.com/sales/become-an-ethical-hacker-bonus-bundle?utm_source=tecmint.com&amp;utm_medium=referral&amp;utm_campaign=become-an-ethical-hacker-bonus-bundle_090216" rel="nofollow" target="_blank"><img src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/Become-an-Ethical-Hacker.png" width="200"></a>
+</div>
+<div class="clear"></div>
+<div class="hr"></div>
+<ul class="post-nav group">
+<li class="next"><a href="https://www.tecmint.com/alacritty-fastest-terminal-emulator-for-linux/" rel="next"><i class="fa fa-chevron-right"></i><strong>Next story</strong> <span>Alacritty – A Fastest Terminal Emulator for Linux</span></a></li>
+<li class="previous"><a href="https://www.tecmint.com/teleconsole-share-linux-terminal-session-with-friends/" rel="prev"><i class="fa fa-chevron-left"></i><strong>Previous story</strong> <span>Teleconsole – Share Your Linux Terminal with Your Friends</span></a></li>
+</ul>
+<h4 class="heading">
+<i class="fa fa-hand-o-right"></i>You may also like...</h4>
+<ul class="related-posts group">
+<li class="related post-hover">
+<article class="post-12112 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-commands-2 tag-linux-ls-command">
+<div class="post-thumbnail">
+<a href="https://www.tecmint.com/linux-ls-command-tricks/" title="7 Quirky ‘ls’ Command Tricks Every Linux User Should Know">
+<img src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/1x1.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2015/03/ls-command-tricks-520x245.jpg" class="attachment-thumb-medium size-thumb-medium wp-post-image" alt="ls command tricks" srcset="https://www.tecmint.com/wp-content/uploads/2015/03/ls-command-tricks-520x245.jpg 520w, https://www.tecmint.com/wp-content/uploads/2015/03/ls-command-tricks-720x340.jpg 720w" sizes="(max-width: 520px) 100vw, 520px" height="245" width="520"><noscript><img
+ width="520" height="245" 
+src="https://www.tecmint.com/wp-content/uploads/2015/03/ls-command-tricks-520x245.jpg"
+ class="attachment-thumb-medium size-thumb-medium wp-post-image" alt="ls
+ command tricks" 
+srcset="https://www.tecmint.com/wp-content/uploads/2015/03/ls-command-tricks-520x245.jpg
+ 520w, 
+https://www.tecmint.com/wp-content/uploads/2015/03/ls-command-tricks-720x340.jpg
+ 720w" sizes="(max-width: 520px) 100vw, 520px" /></noscript> </a>
+<a class="post-comments" href="https://www.tecmint.com/linux-ls-command-tricks/#comments"><span><i class="fa fa-comments-o"></i>8</span></a>
+</div>
+<div class="related-inner">
+<h4 class="post-title">
+<a href="https://www.tecmint.com/linux-ls-command-tricks/" rel="bookmark" title="7 Quirky ‘ls’ Command Tricks Every Linux User Should Know">7 Quirky ‘ls’ Command Tricks Every Linux User Should Know</a>
+</h4>
+<div class="post-meta group">
+<p class="post-date">23 Mar, 2015</p>
+</div>
+</div>
+</article>
+</li>
+<li class="related post-hover"><div style="text-align: center; width: 100%; height: auto; clear: none;" class="google-auto-placed"><ins style="display: block; margin: 10px auto; background-color: transparent; height: 280px;" data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-2601749019656699" data-adsbygoogle-status="done"><ins id="aswift_7_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:406px;background-color:transparent;"><ins id="aswift_7_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:406px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_7" name="aswift_7" style="left:0;position:absolute;top:0;border:0px;width:406px;height:280px;" height="280" width="406" frameborder="0"></iframe></ins></ins></ins></div>
+<article class="post-23244 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-ls-command">
+<div class="post-thumbnail">
+<a href="https://www.tecmint.com/sort-ls-output-by-last-modified-date-and-time/" title="How to Sort Output of ‘ls’ Command By Last Modified Date and Time">
+<img src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/1x1.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2016/10/Sort-ls-Output-by-Modified-Date-and-Time.png" class="attachment-thumb-medium size-thumb-medium wp-post-image" alt="Sort Output of ‘ls’ Command By Last Modified Date and Time" srcset="https://www.tecmint.com/wp-content/uploads/2016/10/Sort-ls-Output-by-Modified-Date-and-Time.png 854w, https://www.tecmint.com/wp-content/uploads/2016/10/Sort-ls-Output-by-Modified-Date-and-Time-768x390.png 768w" sizes="(max-width: 854px) 100vw, 854px" height="434" width="854"><noscript><img
+ width="854" height="434" 
+src="https://www.tecmint.com/wp-content/uploads/2016/10/Sort-ls-Output-by-Modified-Date-and-Time.png"
+ class="attachment-thumb-medium size-thumb-medium wp-post-image" 
+alt="Sort Output of ‘ls’ Command By Last Modified Date and Time" 
+srcset="https://www.tecmint.com/wp-content/uploads/2016/10/Sort-ls-Output-by-Modified-Date-and-Time.png
+ 854w, 
+https://www.tecmint.com/wp-content/uploads/2016/10/Sort-ls-Output-by-Modified-Date-and-Time-768x390.png
+ 768w" sizes="(max-width: 854px) 100vw, 854px" /></noscript> </a>
+<a class="post-comments" href="https://www.tecmint.com/sort-ls-output-by-last-modified-date-and-time/#comments"><span><i class="fa fa-comments-o"></i>4</span></a>
+</div>
+<div class="related-inner">
+<h4 class="post-title">
+<a href="https://www.tecmint.com/sort-ls-output-by-last-modified-date-and-time/" rel="bookmark" title="How to Sort Output of ‘ls’ Command By Last Modified Date and Time">How to Sort Output of ‘ls’ Command By Last Modified Date and Time</a>
+</h4>
+<div class="post-meta group">
+<p class="post-date">27 Oct, 2016</p>
+</div>
+</div>
+</article>
+</li>
+<li class="related post-hover">
+<article class="post-30303 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-commandline-tools tag-linux-calculator">
+<div class="post-thumbnail">
+<a href="https://www.tecmint.com/bc-command-examples/" title="How to Use GNU bc (Basic Calculator) in Linux">
+<img src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/1x1.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2018/08/linux-bc-command-examples.png" class="attachment-thumb-medium size-thumb-medium wp-post-image" alt="Linux bc Command Examples" height="340" width="720"><noscript><img
+ width="720" height="340" 
+src="https://www.tecmint.com/wp-content/uploads/2018/08/linux-bc-command-examples.png"
+ class="attachment-thumb-medium size-thumb-medium wp-post-image" 
+alt="Linux bc Command Examples" /></noscript> </a>
+<a class="post-comments" href="https://www.tecmint.com/bc-command-examples/#comments"><span><i class="fa fa-comments-o"></i>5</span></a>
+</div>
+<div class="related-inner">
+<h4 class="post-title">
+<a href="https://www.tecmint.com/bc-command-examples/" rel="bookmark" title="How to Use GNU bc (Basic Calculator) in Linux">How to Use GNU bc (Basic Calculator) in Linux</a>
+</h4>
+<div class="post-meta group">
+<p class="post-date">17 Aug, 2018</p>
+</div>
+</div>
+</article>
+</li>
+</ul>
+<section id="comments" class="themeform">
+<h3 class="heading">1 Response</h3>
+<ul class="comment-tabs group">
+<li class="active"><a href="#commentlist-container"><i class="fa fa-comments-o"></i>Comments<span>1</span></a></li>
+<li><a href="#pinglist-container"><i class="fa fa-share"></i>Pingbacks<span>0</span></a></li>
+</ul>
+<div id="commentlist-container" class="comment-tab">
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-1102767">
+<div id="div-comment-1102767" class="comment-body">
+<div class="comment-author vcard">
+<img src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/1x1.gif" data-lazy-src="https://secure.gravatar.com/avatar/b96ebb0c745121a8640e1b89ded28695?s=96&amp;d=blank&amp;r=g" alt="" srcset="https://secure.gravatar.com/avatar/b96ebb0c745121a8640e1b89ded28695?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96"><noscript><img
+ alt='' 
+src='https://secure.gravatar.com/avatar/b96ebb0c745121a8640e1b89ded28695?s=96&#038;d=blank&#038;r=g'
+ 
+srcset='https://secure.gravatar.com/avatar/b96ebb0c745121a8640e1b89ded28695?s=192&#038;d=blank&#038;r=g
+ 2x' class='avatar avatar-96 photo' height='96' width='96' /></noscript> <cite class="fn">Sam</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/linux-networking-commands/#comment-1102767">
+February 18, 2019 at 3:19 pm</a> </div>
+<p>Thanks for this article. I’m not the best when it comes to networking so I’m doing my part by self education.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/linux-networking-commands/?replytocom=1102767#respond" onclick='if (!window.__cfRLUnblockHandlers) return false; return addComment.moveForm( "div-comment-1102767", "1102767", "respond", "30055" )' aria-label="Reply to Sam">Reply</a></div>
+</div>
+</li>
+</ol>
+</div>
+<div id="respond" class="comment-respond">
+<h3 id="reply-title" class="comment-reply-title">Got something to say? Join the discussion. <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.tecmint.com/linux-networking-commands/#respond" style="display:none;">Cancel reply</a></small></h3> <form action="https://www.tecmint.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" size="30" maxlength="245" required="required" type="text"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" size="30" maxlength="100" aria-describedby="email-notes" required="required" type="text"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" size="30" maxlength="200" type="text"></p>
+<p class="comment-form-subscriptions"><label for="subscribe-reloaded"><input style="width:30px" name="subscribe-reloaded" id="subscribe-reloaded" value="yes" type="checkbox"> Notify me of followup comments via e-mail. You can also <a href="https://www.tecmint.com/comment-subscriptions/?srp=30055&amp;srk=0b81c0e99cc43eb9ade2ba1b6ab240b4&amp;sra=s&amp;srsrc=f">subscribe</a> without commenting.</label></p><p class="form-submit"><input name="submit" id="submit" class="submit" value="Post Comment" type="submit"> <input name="comment_post_ID" value="30055" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="9583853881" type="hidden"></p><p style="display: none;"></p> <input id="ak_js" name="ak_js" value="1552499291006" type="hidden"></form>
+</div>
+<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>
+</section>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+<footer id="footer">
+<section class="container" id="footer-ads">
+<div class="container-inner">
+<div id="text-30" class="widget widget_text"> <div class="textwidget"><p></p><center><script type="text/javascript">
+var total_images = 2;
+var random_number = Math.floor((Math.random()*total_images));
+var random_img = new Array();
+random_img[0] = '<a target="_blank" rel="nofollow" 
+href="https://shareasale.com/r.cfm?b=1226423&#038;u=1260899&#038;m=59485&#038;urllink=&#038;afftrack="><img
+ 
+src="https://www.fossmint.com/wp-content/themes/fossmint/backupads/Linux-Foundation-LFCS-Certification.png"/></a>';
+random_img[1]
+ = '<a target="_blank" rel="nofollow" 
+href="https://shareasale.com/r.cfm?b=1226424&#038;u=1260899&#038;m=59485&#038;urllink=&#038;afftrack="><img
+ 
+src="https://www.fossmint.com/wp-content/themes/fossmint/backupads/Linux-Foundation-LFCE-Certification.png"/></a>';
+document.write(random_img[random_number]);
+</script><a target="_blank" rel="nofollow" href="https://shareasale.com/r.cfm?b=1226423&amp;u=1260899&amp;m=59485&amp;urllink=&amp;afftrack="><img src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/Linux-Foundation-LFCS-Certification.png"></a></center><p></p>
+</div>
+</div> </div>
+</section>
+<section class="container" id="footer-widgets">
+<div class="container-inner">
+<div class="pad group">
+<div class="footer-widget-1 grid one-third ">
+<div id="alxposts-3" class="widget widget_alx_posts">
+<h3>Linux Monitoring Tools</h3>
+<ul class="alx-posts group ">
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/scan-linux-for-malware-and-rootkits/" rel="bookmark" title="5 Tools to Scan a Linux Server for Malware and Rootkits">5 Tools to Scan a Linux Server for Malware and Rootkits</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/manage-and-limit-downloadupload-bandwidth-with-trickle-in-linux/" rel="bookmark" title="How to Limit the Network Bandwidth Used by Applications in a Linux System with Trickle">How to Limit the Network Bandwidth Used by Applications in a Linux System with Trickle</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/cpustat-monitors-cpu-utilization-by-processes-in-linux/" rel="bookmark" title="Cpustat – Monitors CPU Utilization by Running Processes in Linux">Cpustat – Monitors CPU Utilization by Running Processes in Linux</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/install-and-configure-zabbix-agents-on-centos-redhat-and-debian/" rel="bookmark" title="How to Install and Configure Zabbix Agents on Remote Linux Systems – Part 3">How to Install and Configure Zabbix Agents on Remote Linux Systems – Part 3</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/perf-performance-monitoring-and-analysis-tool-for-linux/" rel="bookmark" title="Perf- A Performance Monitoring and Analysis Tool for Linux">Perf- A Performance Monitoring and Analysis Tool for Linux</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-widget-2 grid one-third ">
+<div id="alxposts-4" class="widget widget_alx_posts">
+<h3>Linux Interview Questions</h3>
+<ul class="alx-posts group ">
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/useful-random-linux-interview-questions-and-answers/" rel="bookmark" title="10 Useful Random Linux Interview Questions and Answers">10 Useful Random Linux Interview Questions and Answers</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/ftp-interview-questions-and-answers/" rel="bookmark" title="10 VsFTP (Very Secure File Transfer Protocol) Interview Questions and Answers">10 VsFTP (Very Secure File Transfer Protocol) Interview Questions and Answers</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/basic-linux-interview-questions-and-answers/" rel="bookmark" title="11 Basic Linux Interview Questions and Answers">11 Basic Linux Interview Questions and Answers</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/practical-interview-questions-on-linux-shell-scripting/" rel="bookmark" title="Practical Interview Questions and Answers on Linux Shell Scripting">Practical Interview Questions and Answers on Linux Shell Scripting</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/useful-interview-questions-on-linux-services-and-daemons/" rel="bookmark" title="10 Useful Interview Questions on Linux Services and Daemons">10 Useful Interview Questions on Linux Services and Daemons</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-widget-3 grid one-third last">
+<div id="alxposts-5" class="widget widget_alx_posts">
+<h3>Open Source Tools</h3>
+<ul class="alx-posts group ">
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/best-media-server-software-for-linux/" rel="bookmark" title="10 Best Media Server Software for Linux in 2018">10 Best Media Server Software for Linux in 2018</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/best-clipboard-managers-for-linux/" rel="bookmark" title="10 Best Clipboard Managers for Linux">10 Best Clipboard Managers for Linux</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/github-alternatives-to-host-open-source-projects/" rel="bookmark" title="10 Best GitHub Alternatives to Host Open Source Projects">10 Best GitHub Alternatives to Host Open Source Projects</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/best-linux-ide-editors-source-code-editors/" rel="bookmark" title="18 Best IDEs for C/C++ Programming or Source Code Editors on Linux">18 Best IDEs for C/C++ Programming or Source Code Editors on Linux</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/best-pdf-page-cropping-tools-for-linux/" rel="bookmark" title="6 Best PDF Page Cropping Tools For Linux">6 Best PDF Page Cropping Tools For Linux</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<nav class="nav-container group" id="nav-footer">
+<div class="nav-toggle"><i class="fa fa-bars"></i></div>
+<div class="nav-text"></div>
+<div class="nav-wrap"><ul id="menu-footer" class="nav container group"><li id="menu-item-18572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18572"><a href="https://www.tecmint.com/donate-to-tecmint/">Donate to TecMint</a></li>
+<li id="menu-item-10437" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10437"><a href="https://www.tecmint.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-10442" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10442"><a href="https://www.tecmint.com/advertise/">Advertise on TecMint</a></li>
+<li id="menu-item-10441" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10441"><a href="https://www.tecmint.com/services/">Linux Services</a></li>
+<li id="menu-item-10435" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10435"><a href="https://www.tecmint.com/copyright-policy/">Copyright Policy</a></li>
+<li id="menu-item-10436" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10436"><a href="https://www.tecmint.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-13339" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13339"><a href="https://www.tecmint.com/career/">Career</a></li>
+<li id="menu-item-24288" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24288"><a href="https://www.tecmint.com/sponsored-post-guidelines-tecmint/">Sponsored Post</a></li>
+</ul></div>
+</nav>
+<section class="container" id="footer-bottom">
+<div class="container-inner">
+<a id="back-to-top" href="#"><i class="fa fa-angle-up"></i></a>
+<div class="pad group">
+<div class="grid one-half">
+<div id="copyright">
+<p>Tecmint: Linux Howtos, Tutorials &amp; Guides © 2019. All Rights Reserved.</p>
+<p>The material in this site cannot be republished either online or offline, without our permission.</p>
+</div>
+</div>
+<div class="grid one-half last">
+<ul class="social-links"><li><a rel="nofollow" class="social-tooltip" title="twitter" href="https://twitter.com/tecmint" target="Array"><i class="fa fa-twitter" style="color: #33ccff;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="facebook" href="https://www.facebook.com/TecMint" target="Array"><i class="fa fa-facebook" style="color: #3b5998;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Google+" href="https://plus.google.com/101049688653487009744" target="Array"><i class="fa fa-google-plus" style="color: #db4a39;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Feedly" href="https://feedly.com/i/subscription/feed/https://www.tecmint.com/feed/" target="Array"><i class="fa fa-rss" style="color: #87c040;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Youtube" href="https://www.youtube.com/channel/UCkiRkzdLvoGBtW_YArytJlQ" target="Array"><i class="fa fa fa-youtube-square" style="color: #c4302b;"></i></a></li></ul> </div>
+</div>
+</div>
+</section>
+</footer>
+</div>
+<script type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/jquery_002.js"></script>
+<script type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/light.js"></script>
+<script type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/scripts.js"></script>
+<script type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/jquery_003.js"></script>
+<script type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/comment-reply.js"></script>
+<script type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/jquery.js"></script>
+<script type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/lazy-load.js"></script>
+<script async="async" type="text/javascript" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/form.js"></script>
+<!--[if lt IE 9]>
+<script src="https://www.tecmint.com/wp-content/themes/tecmint/js/ie/respond.js"></script>
+<![endif]-->
+<div class="fixedBar">
+<div class="boxfloat">
+<ul id="tips">
+<li><a href="https://www.tecmint.com/51-useful-lesser-known-commands-for-linux-users/">51 Useful Lesser Known Commands for Linux Users</a></li>
+<li><a href="https://www.tecmint.com/linux-server-hardening-security-tips/">25 Hardening Security Tips for Linux Servers</a></li>
+<li style="display: list-item;"><a href="https://www.tecmint.com/60-commands-of-linux-a-guide-from-newbies-to-system-administrator/">60 Commands of Linux : A Guide from Newbies to System Administrator</a></li>
+<li><a href="https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/">20 Command Line Tools to Monitor Linux Performance</a></li>
+<li><a href="https://www.tecmint.com/18-tar-command-examples-in-linux/">18 Tar Command Examples in Linux</a></li>
+<li><a href="https://www.tecmint.com/20-linux-yum-yellowdog-updater-modified-commands-for-package-mangement/">20 Linux YUM (Yellowdog Updater, Modified) Commands</a></li>
+<li><a href="https://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/">25 Useful Basic Commands of APT-GET and APT-CACHE</a></li>
+<li><a href="https://www.tecmint.com/20-funny-commands-of-linux-or-linux-is-fun-in-terminal/">20 Funny Commands of Linux or Linux is Fun in Terminal</a></li>
+<li><a href="https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/">Ebook: Introducing the RHCSA and RHCE Exam Preparation Guide</a></li>
+<li><a href="https://www.tecmint.com/sed-command-to-create-edit-and-manipulate-files-in-linux/">Preparation for the LFCS (Linux Foundation Certified SysAdmin) Exam</a></li>
+<li><a href="https://www.tecmint.com/installing-network-services-and-configuring-services-at-system-boot/">Preparation for the LFCE (Linux Foundation Certified Engineer) Exam</a></li>
+<li><a href="https://www.tecmint.com/10-useful-free-linux-ebooks-for-newbies-and-administrators/">10 Useful Free Linux eBooks for Newbies and Administrators</a></li>
+<li><a href="https://www.tecmint.com/free-linux-shell-scripting-books/">4 Free Shell Scripting eBooks for Newbies and Administrators</a></li>
+</ul>
+</div>
+</div>
+
+<iframe src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/console.html" id="vimvixen-console-frame" class="vimvixen-console-frame"></iframe><ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important;" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" frameborder="0"></iframe></ins></ins></ins><iframe id="google_osd_static_frame_3070236495775" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe></body><iframe id="google_esf" name="google_esf" src="A%20Linux%20Sysadmin's%20Guide%20to%20Network%20Management,%20Troubleshooting%20and%20Debugging_files/zrt_lookup.html" style="display: none;" data-ad-client="ca-pub-2601749019656699"></iframe></html>

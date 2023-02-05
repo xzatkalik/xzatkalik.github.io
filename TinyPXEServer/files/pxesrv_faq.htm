@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm" selected="selected">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+<h2 align="center"><u>Tiny PXE Server FAQ</u></h2>
+
+
+
+<p>
+Please note that the information in this section has been copied from the FAQ included in the Tiny PXE Server download package.
+</p>
+
+
+<h3>Table des matières</h3>
+<p>
+<ul>
+<li><a href="pxesrv_faq.htm#1">1.how to pxe boot pxelinux</a></li>
+<li><a href="pxesrv_faq.htm#2">2.how to pxe boot grub4dos</a></li>
+<li><a href="pxesrv_faq.htm#3">3.how to pxe boot ipxe+menu</a></li> 
+<li><a href="pxesrv_faq.htm#4">4.how to pxe boot ipxe+pxelinux </a></li>
+<li><a href="pxesrv_faq.htm#5">5.how to pxe boot ipxe+iscsi thru rootpath</a></li> 
+<li><a href="pxesrv_faq.htm#6">6.how to pxe boot ipxe + g4dos </a></li>
+<li><a href="pxesrv_faq.htm#7">7.how to pxe boot winpe3 (wim) thru WDS</a></li>
+<li><a href="pxesrv_faq.htm#8">8.how to pxe boot xp installation thru RIS</a></li>
+<li><a href="pxesrv_faq.htm#9">9.how to pxe boot winpe3 (wim) thru ipxe+wimboot </a></li>
+<li><a href="pxesrv_faq.htm#10">10.how to pxe boot an iso file thru ipxe + memdisk</a></li>
+<li><a href="pxesrv_faq.htm#11">11.how to pre load settings in Tiny PXE Server </a></li>
+<li><a href="pxesrv_faq.htm#12">12.how to serve only specified mac addresses (and ignore others)</a></li>
+<li><a href="pxesrv_faq.htm#13">13.how to keep most recent used settings</a></li>
+</ul>
+</p>
+
+<p>
+<a name="1"></a>
+<h3 class="breaktop">1.how to pxe boot pxelinux</h3> 
+enter pxelinux.0 as boot filename <br />
+put pxelinux.cfg/default as boot menu in root folder (see example in zip file) <br />
+note : put menu.c32 in root folder
+</p>
+
+
+
+<p>
+<a name="2"></a>
+<h3 class="breaktop">2.how to pxe boot grub4dos</h3>
+enter grldr as boot filename <br />
+put menu.lst/default as boot menu in root folder  (see example in zip file)<br />
+note : use (pd) as pxe device
+</p>
+ 
+
+<p>
+<a name="3"></a>
+<h3 class="breaktop">3.how to pxe boot ipxe+menu </h3> 
+enter ipxe-undionly.kpxe as boot filename <br />
+enter menu.ipxe as user-class boot filename <br />
+put menu.ipxe in root folder   (see example in zip file)<br />
+note : use ipxe variable ${dhcp-server} to dynamically retrieve the ip of the boot server
+</p>
+ 
+ 
+
+<p>
+<a name="4"></a>
+<h3 class="breaktop">4.how to pxe boot ipxe+pxelinux </h3> 
+enter ipxe-undionly.kpxe as boot filename <br />
+enter pxelinux.0 as user class boot filename <br />
+put pxelinux.cfg/default as boot menu in root folder  (see example in zip file)<br />
+note : put menu.c32 in root folder
+</p>
+ 
+
+
+<p>
+<a name="5"></a>
+<h3 class="breaktop">5.how to pxe boot ipxe+iscsi thru rootpath </h3> 
+enter ipxe-undionly.kpxe as boot filename<br /> 
+enter iscsi path in root path <br />
+execute iscsi target (example : iscsi:192.168.1.100:tcp:3260:0:test)
+</p>
+ 
+
+
+
+<p>
+<a name="6"></a>
+<h3 class="breaktop">6.how to pxe boot ipxe + g4dos </h3> 
+enter ipxe-undionly.kpxe as boot filename <br />
+enter grldr as user class boot filename <br />
+put menu.lst/default as boot menu in root folder  (see example in zip file)<br />
+note : use (pd) as pxe device
+</p>
+ 
+
+
+
+<p>
+<a name="7"></a>
+<h3 class="breaktop">7.how to pxe boot winpe3 (wim) thru WDS</h3> 
+enter wdsnbp.com as boot filename<br />
+enter pxeboot.com as proxydhcp boot filename<br />
+enter boot\bcd as proxydhcp option 252<br />
+note : put bootmgr.exe in root folder, boot.wim in sources folder and boot.sdi in boot folder<br />
+note: wds files can be found in boot.wim of windows7/2008 installation files (\windows\boot\pxe)<br />
+note: see here how to customize a winpe <a target="_blank" href="http://ipxe.org/howto/winpe">http://ipxe.org/howto/winpe</a> 
+</p>
+
+
+
+
+<p>
+<a name="8"></a>
+<h3 class="breaktop">8.how to pxe boot xp installation thru RIS</h3> 
+enter startrom.0 as boot filename<br />
+put winnt.sif as unattended installation file in root folder  (see example in zip file)<br />
+put ntldr (renamed setupldr), ntdetect.com in root folder<br />
+share the root folder (windows shared, nullsessions enabled) containing a subfolder XP (installation cd files)<br />
+extract all inf files from lan driverpacks to INF folder in root folder<br />
+extract all sys files from lan driverpacks to XP\I386 folder in root folder
+</p>
+
+
+
+
+<p>
+<a name="9"></a>
+<h3 class="breaktop">9.how to pxe boot winpe3 (wim) thru ipxe+wimboot </h3> 
+enter ipxe-undionly.kpxe as boot filename <br />
+enter wimboot.ipxe as user-class boot filename <br />
+put wimboot.ipxe in root folder   (see example in zip file)<br />
+note : use ipxe variable ${dhcp-server} to dynamically retrieve the ip of the boot server
+in boot folder (example: http://${dhcp-server}/wimboot.ipxe)<br />
+note: see here how to customize a winpe <a target="_blank" href="http://ipxe.org/howto/winpe">http://ipxe.org/howto/winpe</a><br />
+note: tick httdp tickbox<br />
+</p>
+
+
+
+
+<p>
+<a name="10"></a>
+<h3 class="breaktop">10.how to pxe boot an iso file thru ipxe + memdisk</h3> 
+enter ipxe-undionly.kpxe as boot filename <br />
+enter menu.ipxe as user-class boot filename  <br />
+put iso.ipxe in root folder   (see example in zip file) <br />
+note : use ipxe variable ${dhcp-server} to dynamically retrieve the ip of the boot server
+</p>
+
+
+
+<p>
+<a name="11"></a>
+<h3 class="breaktop">11.how to pre load settings in Tiny PXE Server</h3>  
+rename config,sample into config,ini<br />
+uncomment (remove; in front of the line) the needed lines & set the option(s)
+</p>
+
+
+
+
+<p>
+<a name="12"></a>
+<h3 class="breaktop">12.how to serve only specified mac addresses (and ignore others) </h3>
+rename filter.sample to filter.txt and input specific mac address(es)
+</p>
+
+
+<p>
+<a name="13"></a>
+<h3 class="breaktop">13.how to keep most recent used settings </h3>
+use the MRU combobox fields: user class boot filename, option 17 and extra option
+</p>
+
+
+<p class="breakbottom">
+</p>
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

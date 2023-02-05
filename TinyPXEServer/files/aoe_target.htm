@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm" selected="selected">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+ 
+ 
+
+<h2 align="center"><u>AoE (Windows Target)</u></h2>
+
+
+<p>
+The ATA over Ethernet (AoE) Protocol was developed by Brantley Coile and Sam Hopkins of Coraid as a low cost Storage Area Network solution. AoE devices (<font class="file">Targets</font>) are referred to as Blades - 
+
+<div id="quote">
+<i>
+"...AoE server blades are little larger than 3.5" disk drives. They are inserted into slots in a small shelf. A number of these shelves can be bolted into simple relay racks, and many shelves connected to a local network segment...</i>" 
+(extract from "<font class="file">The ATA over Ethernet Protocol</font>" by <font class="file">Brantley Coile</font>).</div>
+</div>
+</p>
+
+
+<p>
+AoE is described by its developer as "...<i>an open standards based protocol that allows direct network access to disk drives</i>..." It utilises existing and widely available Ethernet for disk access over a local network. Connecting to storage blades using <font class="file">shelf</font> and <font class="file">slot</font> addresses, the storage blades appear as local disks. 
+</p>
+
+
+<p>
+vBlade, a Virtual Blade Emulator, can be used as an alternative to hardware blade targets. A Windows port of the Linux vBlade software was compiled by <b>Cristian A. Magadan</b>. The Windows port supports fixed type VHDs, fixed size RAW files and SPARSE type RAW files - <font class="file">EXPANDABLE</font> type VHDs are not supported. The software <font class="file">Target</font> has retained the use of (virtual) <font class="file">shelf</font> and <font class="file">slot</font> addresses to access virtual storage.
+</p>
+
+
+
+
+
+
+
+<a name="requirements"></a>
+<h3 class="breaktop"><u>Requirements</u></h3>
+
+
+<p>
+You will need to obtain the following files -
+<ul>
+<li><font class="file">WinPCap</font> - download from <a target="_blank" href="https://www.winpcap.org/">here</a> and install on the AoE <font class="file">Target</font> system.</li>
+</ul>
+<ul>
+<li><font class="file">vblade</font> - I have included the version compiled by <b>Cristian A. Magadan</b>, packaged with <font class="file">Tiny PXE Server</font> author <b>Erwan.l</b>'s vblade GUI <a target="_blank" href="tools/vblade.zip">here</a>.</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+<a name="setup"></a>
+<h3 class="breaktop"><u>Configuring vBlade</u></h3>
+
+
+<p>
+Assuming you are using the <font class="file">vblade</font> files obtained from the link above, extract the files from the .zip archive (to <font class="file">C:\pxesrv\vblade\</font>) - no installation is required. 
+</p>
+
+
+
+
+<p>
+vblade is a command-line tool and uses the following syntax - 
+<ul>
+<li><font class="file">vblade.exe [-b #] [shelf#] [slot#] [adapter] [image]</font></li>
+</ul>
+</p>
+
+<p>
+Where -
+<ul>
+<li><font class="file">-b #</font> - buffer size. 65 recommended as a minimum (e.g. <b>-b 65</b>)</li>
+</ul>
+<ul>
+<li><font class="file">shelf#</font> - shelf number (e.g. <b>0</b>). vblade information is limited, however based on information <a class="glossary" href="http://man.aiju.de/8/vblade">here</a>, valid <font class="file">shelf</font> numbers are between 0 and 65534.</li>
+</ul>
+<ul>
+<li><font class="file">slot</font> - slot number (e.g. <b>0</b>). vblade information is limited, however based on information <a class="glossary" href="http://man.aiju.de/8/vblade">here</a>, valid <font class="file">slot</font> numbers are 0-255.</li>
+</ul>
+<ul>
+<li><font class="file">adapter</font> - network device name in a format understood by the WinPCap driver (e.g. <b>\device\NPF_{B94D32D0-9ED0-4143-9054-A893CA975F2F}</b>)</li>
+</ul>
+<ul>
+<li><font class="file">image</font> - disk image with full path (e.g. <b>C:\pxesrv\aoe.vhd</b>). Do not use <font class="file">EXPANDABLE</font> type VHD files!</li>
+</ul>
+</p>
+
+
+
+<p>
+The <font class="file">adapter</font> name does not use the most user friendly syntax - read the instructions in 
+<font class="file">C:\pxesrv\vblade\README.win32</font> for help identifying the network adapter name, or alternatively use the vBlade GUI. The vBlade GUI can be used to generate a command and launch vblade. Run <font class="file">C:\pxesrv\vblade\vGui.exe</font>.
+</p>
+
+
+ 
+<p>
+Ensure the correct network adapter is displayed in the <font class="file">Interface</font> field (select a different interface as required) &gt; Edit the <font class="file">Shelf / Slot</font> as required &gt; type the name (with path) to your disk image file in the <font class="file">filename</font> field (or use the browse button <b>...</b>) &gt;  Click on the <b>Execute</b> button -
+<br />
+<img src="img/vblade1.jpg" border=1>
+</p>
+
+
+
+<p>
+Clicking on <b>Execute</b> will launch vBlade - the command generated by the vblade GUI will be displayed in the field highlighted in the screenshot below -
+<br />
+<img src="img/vblade3.jpg" border=1>
+</p>
+
+
+<p>
+The command can be copied from the vBlade GUI for use on a command-line or in a script. Using the output displayed in the screenshot above, the command for running <font class="file">C:\pxesrv\aoe.vhd</font> as an AoE <font class="file">Target</font> on network adapter <font class="file">\device\NPF_{B94D32D0-9ED0-4143-9054-A893CA975F2F}</font> (using <font class="file">shelf</font> <b>0</b> and <font class="file">slot</font> <b>0</b>) is -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" wrap="OFF" readonly>
+vblade.exe -b 65 0 0 "\device\NPF_{B94D32D0-9ED0-4143-9054-A893CA975F2F}" "C:\pxesrv\aoe.vhd"
+</textarea>
+</p>
+
+
+
+
+
+<p>
+If you prefer to use the command-line then read the instructions in 
+<font class="file">C:\pxesrv\vblade\README.win32</font> for help identifying the network adapter name.
+</p>
+ 
+<p>
+The screenshot below shows the vblade <font class="file">Target</font> running on the Server -
+<font class="file"></font>.
+<br />
+<img src="img/vblade4.jpg" border=1>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

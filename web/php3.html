@@ -1,0 +1,1753 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+   <meta name="GENERATOR" content="Mozilla/4.07 [en] (X11; I; Linux 2.0.36 i586) [Netscape]">
+   <meta name="Author" content="Marek Ondrej">
+   <title>Semstralny projekt II</title>
+<style type="text/css">.vimvixen-console-frame {
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2147483647;
+  border: none;
+  background-color: unset;
+  pointer-events: none; }
+</style><style type="text/css">.vimvixen-hint {
+  background-color: yellow;
+  border: 1px solid gold;
+  font-weight: bold;
+  position: absolute;
+  text-transform: uppercase;
+  z-index: 2147483647;
+  font-size: 12px;
+  color: black;
+}
+</style></head>
+<body vlink="#003300" text="#000000" link="#33FF33" bgcolor="#FFFFFF" alink="#FF0000">
+
+<center>
+<h1>
+<b><u>Jazyk PHP3</u></b></h1></center>
+
+<h1>
+<a name="T1"></a><b><u><font size="+1">1. OBSAH</font></u></b></h1>
+
+<blockquote><b>1. <a href="#T1">Obsah</a></b>
+<br><b>2. <a href="#T2">História vzniku jazyka PHP</a></b>
+<br><b>3. <a href="#T3">Úvod do PHP3</a></b>
+<br><b>4. <a href="#T4">Inštalácia</a></b>
+<blockquote><b>4.1.&nbsp;&nbsp;&nbsp; <a href="#T41">Zdroje</a></b>
+<br><b>4.2.&nbsp;&nbsp;&nbsp; <a href="#T42">Postup</a></b>
+<br><b>4.3.&nbsp;&nbsp;&nbsp; <a href="#T43">Konfigurácia</a></b></blockquote>
+<b>5.<a href="#T5"> Syntax a gramatika jazyka PHP</a></b>
+<blockquote><b>5.1.&nbsp;&nbsp;&nbsp; <a href="#T51">Použitie PHP v HTML
+dokumente</a></b>
+<br><b>5.2.&nbsp;&nbsp;&nbsp; <a href="#T52">Inicializácia premenných</a></b>
+<br><b>5.3.&nbsp;&nbsp;&nbsp;<a href="#T53"> Rozsah platnosti premenných</a></b>
+<br><b>5.4.&nbsp;&nbsp;&nbsp; <a href="#T54">Premenné premenné alebo dynamické
+meno premennej</a></b>
+<br><b>5.5.&nbsp;&nbsp;&nbsp; <a href="#T55">Manipulácie s typmi</a></b>
+<br><b>5.6.&nbsp;&nbsp;&nbsp; <a href="#T56">Manipulácie s poliami</a></b>
+<br><b>5.7.&nbsp;&nbsp;&nbsp; <a href="#T57">Skladba jazyka</a></b>
+<br><b>5.8.&nbsp;&nbsp;&nbsp; <a href="#T58">Operátory</a></b></blockquote>
+<b>6.<a href="#T6"> Popis funkcií jazyka PHP</a></b>
+<ol><b>6.1.&nbsp;&nbsp;&nbsp; <a href="#T61">Funkcie zamerané pre APACHE</a></b>
+<br><b>6.2.&nbsp;&nbsp;&nbsp;<a href="#T62"> Funkcie pre prácu s poliami</a></b>
+<br><b>6.3.&nbsp;&nbsp;&nbsp;<a href="#T63"> Funkcie pre prácu s časom
+a dátumom</a></b>
+<br><b>6.4.&nbsp;&nbsp;&nbsp; <a href="#T64">Funkcie pre prácu s adresármi</a></b>
+<br><b>6.5.&nbsp;&nbsp;&nbsp;<a href="#T65"> Funkcie na spúšťanie programov</a></b>
+<br><b>6.6.&nbsp;&nbsp;&nbsp; <a href="#T66">Funkcie pre prácu so súborovým
+systémom</a></b>
+<br><b>6.7.&nbsp;&nbsp;&nbsp; <a href="#T67">Funkcie určené pre HTTP protokol</a></b>
+<br><b>6.8.&nbsp;&nbsp;&nbsp; <a href="#T68">Informačné a riadiace funkcie
+PHP</a></b>
+<br><b>6.9.&nbsp;&nbsp;&nbsp; <a href="#T69">Funkcie pre elektronickú poštu</a></b>
+<br><b>6.10.&nbsp; <a href="#T610">Matematické funkcie</a></b>
+<br><b>6.11.&nbsp; <a href="#T611">Funkcie pre prácu so sieťou</a></b>
+<br><b>6.12.&nbsp; <a href="#T612">Funkcie pre regulárne výrazy</a></b>
+<br><b>6.13.&nbsp; <a href="#T613">Funkcie pre prácu s reťazcami</a></b>
+<br><b>6.14.&nbsp; <a href="#T614">Funkcie na prácu s URL adresami</a></b>
+<br><b>6.15.&nbsp; <a href="#T615">Funkcie na prácu s premennými</a></b>
+<br><b>6.16.&nbsp; <a href="#T616">Funkcie pre prácu s gzipovanými súbormi</a></b></ol>
+<b>7.<a href="#T7"> Pojednanie o bezpečnosti</a></b>
+<br><b>8. <a href="#T8">Príklady</a></b>
+<br><b>9. <a href="#T9">Zoznam internetových odkazov a dokumentácie</a></b></blockquote>
+
+<h2>
+<a name="T2"></a><u><font size="+1">2. História vzniku jazyka PHP</font></u></h2>
+Všetko to začalo v roku 1994. Za otca jazyka sa považuje Rasmus Lerdorf.
+Spočiatku to behalo len na jeho stránke, prvá verzia, ktorá bola prístupná
+pre širokú verejnosť bola prístupná až začiatkom roka 1995. Jazyk bol pomenovaný
+ako <b>Personal Home Page Tools.</b> Este v roku 1995 bol prepísaný parser
+jazyka a bol pmenovaný ako PHP/FI Verzia 2. Táto verzia obsahovala podporu
+intrprétera foriem (Form Interpreter - FI) a databázového servera mSQL.
+<p>V poslednej dobe prežíva PHP značný rozvoj. Keď v roku 1996 používalo
+PHP asi 15 000 webserverov, v roku 1997 to bolo už 50 000. V tomto čase
+sa vytvoril výkonný tým, ktorý vytvoril nový a výkonnejší syntaktický analyzátor
+podľa návrhov Zeev Suraski-ho a Andi Gutmans-a. Tak vznikla verzia PHP3.
+V súčasnej dobe používa PHP3 množstvo komerčných produktov a je používaný
+takmer 180 000 webservermi.
+</p><h2>
+<a name="T3"></a><u><font size="+1">3. Úvod do PHP3</font></u></h2>
+PHP verzie 3.0 je skript aplikovateľný v HTML dokumentoch, ktorý sa vykonáva
+na strane servera. Výhoda PHP spočíva v tom, že dokáže spolupracovať s
+mnohými databázovými systémami. Ide najmä o nasledovné databázové systémy:
+<p>Oracle
+<br>Adabas D
+<br>Sybase
+<br>FilePro
+<br>mSQL
+<br>Velocis
+<br>MySQL
+<br>Informix
+<br>Solid
+<br>dBase
+<br>ODBC
+<br>Unix dbm
+<br>PostgreSQL
+</p><p><font size="+0">Táto vlastnosť predurčuje PHP pre použitie v spolupráci
+s databázami. Jednoduchosť jazyka a jeho univerzálnosť sú základom pre
+jeho rýchle zvládnutie. Pri použití PHP teda stačí ak klient bude mať k
+dispozícii internetovský prehliadač, čo je v súčasnej dobe nulová investícia.
+Keďže PHP pracuje na strane servera, nie je potrebné toľko investovať do
+hardvéru klienta, ale stačí trocha zvíšiť výkon servera. PHP podporuje
+taktiež spoluprácu s veľmi výkonnými databázovými servermi pracujúcimi
+pod OS Linux čo znamená, že sú úplne zdarma aj pre komerčné použitie. Keď
+sa to zhrnie, pri takmer nulových investíciách do softvéru získame veľmi
+kvalitnú a spoľahlivú softvérovú podporu, ktorá môže nejednej firme pomôcť
+zautomatizovať svoju administratívu. Vďaka veľkému rozvoju internetu je
+možné s takýmto systémom spolupracovať z ľubovoľného miesta na svete pri
+dodržaní najvyžších bezpečnostných kritérií.</font>
+</p><h2>
+<a name="T4"></a><u>4. Inštalácia</u></h2>
+<a name="T41"></a><u><font size="+1">4.1. Zdroje</font></u>
+<br>&nbsp;&nbsp;&nbsp; PHP pracuje všade tam. kde pracuje WEB server APACHE.
+Keďže po prvý krát boli obe tieto produkty vytvorené pod operačným systémom
+Linux, popíšem postup inštalácie pod týmto operačným systémom. Inštalácia
+je veľmi jednoduchá. Najprv si stiahnete inštalačné súbory pre tú ktorú
+distribúciu. Pre Red Hat Linux[1] som vytvoril balíček s programom[2]
+<center>apache-1.3.3-3.0.5-1.i386.rpm</center>
+a dokumentáciou
+<center>apache-doc-1.3.3-3.0.5-1.i386.rpm</center>
+
+<p>V týchto balíčkoch sa nachádza inštalácia APACHE servera s prikompilovaným
+PHP3 modulom.&nbsp; Zdrojové kódy použité na vytvorenie týchto balíkov
+boli čerpané priamo zo serverov firiem, ktoré ich distribuujú [3][4].
+</p><p><a name="T42"></a><u><font size="+1">4.2. Postup</font></u>
+<br>Inštaláciu môže previesť len superužívateľ a to príkazom
+<i>rpm -Uhv&nbsp;
+apache-1.3.3-3.0.5-1.i386.rpm. </i>Samozrejme existujú aj iné zložitejšie
+metódy. V tomto prípade bol modul pridaný staticky, tj. priamo do kódu
+samotného servera. Je možné ho však pridať aj dynamicky, tj. pri spustení.
+Tento spôsob je v súčasnej dobe oveľa oblúbenejší a efektívnejší. Keďže
+APACHE má silnú podporu modulov, je možné podobným spôsobom pridať nielen
+modul PHP, ale aj rôzne ďalšie moduly, ako napríklad modul SSL pre kryptované
+spojenie.
+</p><p><a name="T43"></a><u><font size="+1">4.3. Konfigurácia</font></u>
+<br>Existujú dva spôsoby konfigurácie. Ten prvý je pomocou súboru <i>php3.ini.</i>
+Druhý spôsob spčíva v modifikácii konfigurčných súborov <i>httpd.conf,
+srm.conf</i> webservera APACHE. Obe spôsoby sú si ekvivalentné. Rozdiel
+je len v tom, že pravidlá, ktoré budú uvedené nižšie sa pri konfigurácii
+cez configuračné súbory web servera rozširujú o predponu "PHP3_".
+<br>Výber najhlavnejších configurovateľných&nbsp; pravidiel:
+</p><p><b>display_errors boolean </b>- určuje, či sa v html dokumente majú
+vypisovať chyby na zobrazovanú stránku, alebo nie,
+<br><b>doc_root string - </b>adresár určený pre súbori s ktorými môže PHP
+pracovať ak je zapnutý bezpečný mód práce,
+<br><b>engine boolean - (</b>len vo verzii ako modul APACHE-a) povolenie,
+resp. zakázanie PHP
+<br><b>error_log string - </b>meno súboru do ktorého sa budú ukladať chybové
+hlásenia
+<br><b>error_reporting integer -</b> nastavenie režimu pre generovanie
+chybových správ
+<br>1&nbsp;&nbsp;&nbsp; normálne chyby
+<br>2&nbsp;&nbsp;&nbsp; normálne upozornenia
+<br>4&nbsp;&nbsp;&nbsp; chyby prekladača
+<br>8&nbsp;&nbsp;&nbsp; nie kritické chyby (upozornenia)
+<br>Preddefinovaná hodnota je 7 (1+2+3)
+<br><b>open_basedir string </b>- určuje vrchol adresárového stromu, od
+ktorého sú súbori pre PHP prístupné. Nie je možné vyskočiť z tohoto podstromu
+symbolickou linkou, nakoľko sú tieto ignorované. Implicitne je povolené
+pristupovať ku všetkým súborom!
+<br><b>gpc_order string -</b> poradie vykonávania metód GET/POST/COOKIE
+v tvare napr. PG. Je možné takto zamedziť prepísaniu hodnôt premenných
+pri použití rovnakých mien premenných pre rôzne metódy.
+<br><b>include_path string - </b>adresár z ktorého čítajú funkcie <i>require(),
+include() </i>a<i> fopen_with_path()</i>.
+<br>Príklad pre UNIX:
+<br>&nbsp;&nbsp;&nbsp;&nbsp; include_path=.:/home/httpd/php-lib
+<br>Príklad pre WINDOWS :
+<br>&nbsp;&nbsp;&nbsp;&nbsp; include_path=.;c:\www\phplib
+<br>Imlicitne sa berie aktuálny adresár.
+<br><b>log_errors boolean - </b>určuje či sa budú vzniknuté chyby zanamenávať,
+alebo nie.
+<br><b>max_execution_time integer </b>- maximálny čas v sekundách, počas
+ktorého môže pracovať PHP skript. (ochrana pred preťažením servera)
+<br><b>memory_limit integer </b>- maximálne množstvo pamäte v bajtoch,
+ktoré si možu PHP skripty alokovať.
+<br><b>short_open_tag boolean </b>- skrátená forma otvárania PHP skriptu
+na HTML stránke. Ak je táto voľba povolená, tak je možné použiť "&lt;?",
+ak je voľba vypnutá je potrebné použiť kombináciu "&lt;?php".
+<br><b>sql.safe_mode boolean</b> - bezpečný mód pre sql
+<br><b>track_errors boolean - </b>ak je voľba povolená, posledná chyba
+sa bude ukladať do globálnej premennej $php_errormsg.
+<br><b>track_vars boolean -</b> ak je voľba povolená, potom vstupy GET,
+POST a cookie môžeme nájsť tiež v globálnych premenných&nbsp; $HTTP_GET_VARS,
+$HTTP_POST_VARS a $HTTP_COOKIE_VARS.
+<br><b>upload_tmp_dir string </b>- adresár pre odkladanie pomocných súborov.
+Musí mať povolený zápis pre používaťeľa pod ktorým sa vykonáva PHP skript
+<br><b>user_dir string </b>- bázový (domovský) adresár pre PHP skripty
+<br><b>warn_plus_overloading boolean </b>- pri zapnutí bude hlásiť upozornenia
+pri použití operácie (+) na reťazce. Ide o chybný zápis, nakoľko sa na
+používa
+<br>perácia konkatenácie (.)
+</p><p><b><u>Pravidlá pre konfiguráciu elektronickej pošty</u></b>
+<br><b>SMTP string </b>- DNS názov, alebo IP adresa SMTP servera. Je to
+potrebné pre používanie funkcií pre poštu s PHP pod OS WINDOWS
+<br><b>sendmail_from string </b>- text ktorý sa použije ako adresa pisateľa
+pošty
+<br><b>sendmail_path string </b>- cesta k programu, ktorý zabezpečuje prácu
+s poštou (napr. /usr/sbin/sendmail)
+</p><p><b><u>Pravidlá pre konfiguráciu bezpečného módu</u></b>
+<br><b>safe_mode boolean </b>- povolenie, alebo zakázanie bezpečného módu
+PHP
+<br><b>safe_mode_exec_dir string </b>- adresár, z ktorého je možné spúšťať
+programy pri zapnutom bezpečnom móde.
+</p><p><b><u>Pravidlá pre konfiguráciu nahrávania rozširujúcich modulov</u></b>
+<br><b>enable_dl boolean - </b>len pri použití ako modul APACHE-a, je možné
+povoliť dynamické nahrávanie rozširujúcich modulov do PHP
+<br><b>extension_dir string </b>- adresár, v ktorom sa budú hladať dynamicky
+nahrávateľné rozšírenia.
+<br><b>extension string</b> - dynamicky nahrávateľné rozšírenia, ktoré
+je možné
+</p><p><b><u>Pravidlá pre konfiguráciu MySQL</u></b>
+<br><b>mysql.allow_persistent boolean</b> - Povolenie trvalých pripojení
+k MySQL
+<br><b>mysql.max_persistent integer</b> - Maximálny počet trvalých pripojení
+k MySQL na proces.
+<br><b>mysql.max_links integer</b> - maximálny počet pripojení k MySQL
+vrátane trvalých.
+</p><p><b><u>Pravidlá pre konfiguráciu msql</u></b>
+<br><b>msql.allow_persistent boolean - </b>Povolenie trvalých pripojení
+k msql
+<br><b>msql.max_persistent integer -&nbsp;</b> Maximálny počet trvalých
+pripojení k msql na proces.
+<br><b>msql.max_links integer </b>- maximálny počet pripojení k msql vrátane
+trvalých.
+</p><p><b><u>Pravidlá pre konfiguráciu Postgresu</u></b>
+<br><b>pgsql.allow_persistent boolean&nbsp; - </b>Povolenie trvalých pripojení
+k Postgres-u
+<br><b>pgsql.max_persistent integer -&nbsp;</b> Maximálny počet trvalých
+pripojení k Postgres-u na proces.
+<br><b>pgsql.max_links integer </b>- maximálny počet pripojení k Postgres-u
+vrátane trvalých.
+</p><p><b><u>Pravidlá pre konfiguráciu Sybase</u></b>
+<br><b>sybase.allow_persistent boolean - p</b>ovolenie trvalých pripojení
+k Sybase
+<br><b>sybase.max_persistent integer -&nbsp;</b> maximálny počet trvalých
+pripojení k Sybase na proces.
+<br><b>sybase.max_links integer </b>- maximálny počet pripojení k Sybase
+vrátane trvalých.
+</p><p><b><u>Pravidlá pre konfiguráciu Sybase-CT</u></b>
+<br><b>sybct.allow_persistent boolean - </b>Povolenie trvalých pripojení
+k Sybase-CT
+<br><b>sybct.max_persistent integer -&nbsp;</b> Maximálny počet trvalých
+pripojení k&nbsp; Sybase-CT na proces.
+<br><b>sybct.max_links integer </b>- maximálny počet pripojení k Sybase-CT
+vrátane trvalých.
+</p><p><b><u>Pravidlá pre konfiguráciu BC Math</u></b>
+<br><b>bcmath.scale integer</b> - počet dekadických číslic pre všetky bcmath
+funkcie.
+</p><p><b><u>Pravidlá pre konfiguráciu všeobecného ODBC</u></b>
+<br><b>uodbc.default_db string</b> - zdroj údajov pre pripojenie cez ODBC,
+ak tento nie je špecifikovaný vo funkciách odbc_connect() alebo odbc_pconnect()
+<br><b>uodbc.default_user string</b> - meno používateľa, ktoré sa má použiť
+ak nie je&nbsp; špecifikované vo funkciách odbc_connect() alebo odbc_pconnect()
+<br><b>uodbc.default_pw string</b> - heslo, ktoré sa má použiť ak nie je&nbsp;
+špecifikované vo funkciách odbc_connect() alebo odbc_pconnect()
+<br><b>uodbc.allow_persistent boolean&nbsp; - </b>Povolenie trvalých pripojení
+cez ODBC
+<br><b>uodbc.max_persistent integer -&nbsp;</b> Maximálny počet trvalých
+pripojení cez ODBC na proces.
+<br><b>uodbc.max_links integer </b>- maximálny počet pripojení cez ODBC
+vrátane trvalých.
+</p><p><a name="T5"></a><b><u><font size="+1">5. Syntax a gramatika jazyka PHP</font></u></b>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.1. Použitie PHP v HTML
+dokumente
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.2. Inicializácia premenných
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.3. Rozsah platnosti premenných
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.4. Premenné premenné alebo
+dynamické meno premennej
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.5. Ďalšie premenné
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.6. Manipulácie s typmi
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.7. Manipulácie s poliami
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.8. Skladba jazyka
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.9. Operátory
+</p><p><a name="T51"></a><u><font size="+1">5.1. Použitie PHP v HTML dokumente</font></u>
+<br>Existujú 3 spôsoby ako zakomponovať skript napísaný v jazyku do HTML
+dokumentu:
+</p><p>1.&nbsp;&nbsp;&nbsp;&nbsp; &lt;? program ?&gt; - táto skrátená možnosť
+e najviac používaná, je ju však nutné pri konfigurácii zapnúť.
+<br>2.&nbsp;&nbsp;&nbsp; &lt;?php program ?&gt; - toto je klasická forma zápisu,
+pochádza z čias vytvorenia PHP, občas sa používa aj v tvare &lt;?php3 program
+?&gt;
+<br>3.&nbsp;&nbsp;&nbsp; &lt;script language="php"&gt; program &lt;/script&gt;
+</p><p><a name="T52"></a><u><font size="+1">5.2. Inicializácia premenných</font></u>
+<br>V PHP sa inicializácia premenných vykonáva jednoducho priradením hodnoty
+danej premennej.&nbsp; Väčšinou je typ premennej určený automaticky podľa
+hodnoty premennej a ako uvidíme neskôr vôbec nemusí byť určený staticky.
+Niektoré typy je možné inicializovať rôznymi spôsobmi.
+</p><p><b>Inicializácia polí:</b>
+<br>Pole premenných je možné inicializovať dvoma spôsobmi. Prvou možnosťou
+je sekvenčne napĺňať prvky poľa:
+<br>&nbsp;
+</p><pre><tt>$names[] = "Marek"&nbsp;&nbsp;&nbsp; // $names[0]="Marek"</tt></pre>
+
+<pre><tt>$names[]="Monika"&nbsp;&nbsp;&nbsp; //$names[1]="Monika"</tt></pre>
+
+<pre><tt>...</tt></pre>
+
+<p><br>Ďalším zo spôsobov je použitie funkcie <b>array()</b>, ktorá je
+zdokumentovaná v časti <i>"Funkcie pre prácu s poľami"</i>
+</p><p><b>Inicializácia objektov</b>
+<br>Objekty jemožné inicializovať pomocou operátora <i>new</i> :
+</p><blockquote><tt>class pozdrav</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp; function Ahoj()</tt>
+<br><tt>&nbsp;&nbsp; {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo "Ahoj";</tt>
+<br><tt>&nbsp;&nbsp; }</tt>
+<br><tt>}</tt>
+<br><tt>$x = new pozdrav;</tt>
+<br><tt>$x-&gt;Ahoj();</tt></blockquote>
+<a name="T53"></a><u><font size="+1">5.3. Rozsah platnosti premenných</font></u>
+<br>Jediné obmedzenie platnosti premenných v PHP je pri používateľom definovaných
+funkciách. Premenné použité v tele funkcie majú platnosť len v rámci danej
+funkcie. Samozrejme, že premenné platné na globálnej úrovni sú platné aj
+v tele funkcie. Ak chceme vo vnútri niektorej funkcie definovať globálne
+premenné, deklarujeme ich ako <i>global</i>:
+<blockquote><tt>$a=1;</tt>
+<br><tt>$b=2;</tt>
+<br><tt>Function Sum()</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp; global $a,$b,$c;</tt>
+<br><tt>&nbsp;&nbsp; $c = $a + $b;</tt>
+<br><tt>}</tt>
+<br><tt>Sum();</tt>
+<br><tt>echo $c;</tt></blockquote>
+&nbsp;V uvedenom prípade sa vo funkcii použijú globálne premenné a vytvorí
+sa nová premenná, do ktorej je uložený súčet predchádzajúcich dvoch. Premenná
+$c po ukončení funkcie bude naďalej platná v globálnej úrovni, premenné
+$a,$b sú vo vnútri funkcie reprezentované ako kópie globálnych premenných
+ktoré odkazujú na originály. Ďalším spôsobom použitia globálnych funkcií
+je pole <i>GLOBALS</i>, pomocou ktorého sa pristupuje ku globálny premenným,
+napr:
+<blockquote><tt>$a=1;</tt>
+<br><tt>$b=2;</tt>
+<br><tt>Function Sum()</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp; $GLOBALS["b"] = $GLOBALS["a"] + $GLOBALS["b"];</tt>
+<br><tt>}</tt>
+<br><tt>Sum();</tt>
+<br><tt>echo $b;</tt></blockquote>
+V HP existujú aj statické premenné, tj premenné platné v danej funkcii,
+ktorích hodnoty sa po ukončení funkcie nezrušia. Pre vytvorenie statickej
+premennej sa používa identifikátor static.
+<p><a name="T54"></a><u><font size="+1">5.4. Premenné premenné alebo dynamické
+meno premennej</font></u>
+<br>Niekedy potrebujeme meniť meno premennej počas behu programu. V PHP
+je to možné urobyť nasledovne:
+<br>Normálna definícia:&nbsp;&nbsp;&nbsp; $a="ahoj";
+<br>Pokiaľ chceme definovať premennú, ktorej meno bude identické s obsahom
+predchádzajúcej premennej, použijeme zápis:
+<br>$$a = "Skola";
+<br>V premennej $a bude text "Ahoj", v premennej $Ahoj bude text "Skola",
+teda príkazom
+<br><i>echo "$a $($a)"</i> čo je ekvivalentné <i>echo "$a $Ahoj", </i>vypíše
+text <i>Ahoj Skola</i>.
+<br>Pri použití polí je potrebné vyriešiť nejednoznačnosť. Napríklad ak
+zadáte $$a[1], potrebujete dať vedieť prekladaču, čo konkreétne máte na
+mysli. Môžeme mať na mysli $a[1] ako premennú, alebo myslíme $$a ako premennú
+poľa kde [1] je index. Syntax zápisu pomocou ktorého sa rieši uvedený problém
+je nasledovná: ${$a[1]} s významom prvého variantu a ${$a}[1] s významom
+druhého variantu.
+</p><p><a name="T55"></a><u><font size="+1">5.5. Manipulácie s typmi</font></u>
+<br>PHP podporuje automatické konverzie typov. Pristupovanie k danému typu
+závisí čisto od syntaxe zápisu(viď príklad):
+</p><blockquote><tt>$f = "0";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // $f je reťazec
+(ASCII 48)</tt>
+<br><tt>$f++;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+$f je reťazec "1" (ASCII 49)</tt>
+<br><tt>$f += 1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // $f je číslo typu
+int (2)</tt>
+<br><tt>$f = $f + 1.3; // $f je číslo typu double (3.3)</tt></blockquote>
+<a name="T56"></a><u><font size="+1">5.6. Manipulácie s poliami</font></u>
+<br>PHP podporuje skalárne a asociatívne polia premenných. V podstate medzi
+nimi nie je rozdiel. Pre prácu s poliami sa používajú funkcie:
+<br>&nbsp;&nbsp;&nbsp; <i>array() </i>- na vytvorenie poľa
+<br>&nbsp;&nbsp;&nbsp; <i>sort(), asort(), ksort()</i> - pre rôzne spôsoby
+triedenia polí
+<br>&nbsp;&nbsp;&nbsp; <i>next(), prev(), each()</i> - pre prechádzanie
+poliami
+<p><a name="T57"></a><u><font size="+1">5.7. Skladba jazyka</font></u>
+<br><b>Základné pravidlá</b>
+</p><blockquote>
+<ul>
+<li>
+príkazy sa môžu písať malými aj veľkými písmenami</li>
+
+<li>
+za príkazom musí nasledovať bodkočiarka</li>
+
+<li>
+blok príkazov sa píše do zložených zátvoriek (ak nie je požitý symbol ukončenia
+bloku - viď. konkrétne príkazy)</li>
+</ul>
+</blockquote>
+<b>Základné výrazy</b>
+<p><b>IF, ELSE, ELSEIF</b>
+<br>&nbsp;&nbsp;&nbsp; - použitie je podobné jazyku C,
+<br>IF (vyraz) {zoznam príkazov} ELSE / ELSEIF {zoznam príkazov}
+<br>príklad:
+</p><blockquote>i<tt>f ($a&gt;$b)</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; print "a je väčšie ako b";</tt>
+<br><tt>} else</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; print "a nie je väčšie ako b";</tt>
+<br><tt>}</tt></blockquote>
+ELSEIF
+<br>&nbsp;&nbsp;&nbsp; - alternatívna podmienka, príklad použitia:
+<blockquote><tt>if ($a &gt; $b)</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; print "a is bigger than b";</tt>
+<br><tt>elseif ($a == $b)</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; print "a is equal to b";</tt>
+<br><tt>else</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; print "a is smaller than b";</tt></blockquote>
+Alternatívntny zápis pre IF podmienku:
+<br>&nbsp;&nbsp;&nbsp; IF (vyraz) zoznam príkazov ELSE/ELSEIF zoznam príkazov
+ENDIF;
+<p><b>WHILE</b>
+<br>&nbsp;&nbsp;&nbsp; - jednoduchý cyklus, zoznam príkazov sa vykonáva
+:
+<br>WHILE (výraz) {zoznam príkazov}, alebo
+<br>WHILE (výraz): zoznam príkazov ENDWHILE
+<br>Pre tento a všetky ďalšie cykly platia príkazy <i>BREAK </i>a&nbsp;<i>
+CONTINUE</i>. Pričom príkaz break zabezpečí predčasné končenie cyklu a
+príkaz continue preskočenie nasledujucej časti kódu, otestuje sa podmienka
+a pokračuje sa&nbsp; v normálnom behu programu.
+</p><p><b>DO .. WHILE</b>
+<br>Ide o jednoduchý cyklus, ktorý overuje podmienku cyklu až na konci
+programového cyklu. To znamená že takýto cyklu sa vykoná vždy aspoň raz.
+<br>Napríklad:
+</p><blockquote><tt>$i = 0;</tt>
+<br><tt>do</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; print $i;</tt>
+<br><tt>} while ($i&gt;0);</tt></blockquote>
+<b>FOR</b>
+<br>Ide komlexný cyklus, ktorý zabezpečuje inicializáciu, testovanie podmienky
+a zmenu hodnoty riadiacej premennej. Syntax zápisu je totožná so zápisom
+v jazyku C:
+<br>FOR (výraz1;výraz2;výraz3) {príkazy},
+<br>kde výraz1 je inicializáciuo riadiacej premennej ( definovanie počiatočnej
+hodnoty), výraz2 je podmienkou cyklu, výraz3 určuje zmenu hodnoty&nbsp;
+riadiacej premennej cyklu. Existuje len tento variant zápisu. variant typu
+FOR(v1;v2;v3): príkazy ENDFOR je neprípustný.
+<p><b>SWITCH - CASE</b>
+<br>Ide o konštrukciu viacnásobného vetvenia zo syntaxou zápisu totožnou
+tej v jazyku C:
+</p><blockquote><tt>SWITCH (premenná)</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; CASE hodnota1: príkazy;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; CASE hodnota2: príkazy;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; ....</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; CASE hodnotaN: príkazy;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; DEFAULT:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+príkazy;</tt>
+<br><tt>}</tt></blockquote>
+Uvedená premenná sa porovnáva s jednotlivými hodnotami. Akk narazí na rovnakú
+hodnotu, tak vykoná príslušné príkazy a ak je za nimi uvedený príkaz break,
+tak preskočí zvyšok kódu. Ak na hľadanú hodnotu nenarazí, tak sa vykonajú
+príkazy uvedené za návestím DEFAULT. Toto návestie však nie je povinné,
+teda ak tam nie je tak sa jednoducho nič nevykoná.
+<p><b>REQUIRE, INCLUDE</b>
+<br>Oba tieto funkcie slúžia na vloženie kódu uloženého v inom súbore.
+Jediný rozdiel je v tom, že funkcia REQUIRE sa nedá použiť v cykle. Môžeme
+pomocou nej vložiť len jeden presne zadaný súbor:
+</p><blockquote><tt>require('header.inc');</tt></blockquote>
+pričom funkcia INCLUDE môže byť použitá aj nasledovne:
+<blockquote>
+<dd>
+<tt>$subory = array('prvy.inc', 'druhy.inc', 'treti.inc');</tt></dd>
+
+<dd>
+<tt>for ($i = 0; $i &lt; count($subory); $i++)</tt></dd>
+
+<dd>
+<tt>{</tt></dd>
+
+<dd>
+<tt>&nbsp; include($subory[$i]);</tt></dd>
+
+<dd>
+<tt>}</tt></dd>
+</blockquote>
+<b>FUNCTION</b>
+<br>Ide o konštruktor typu funkcia. Pomocou tohto kľúčového slova je možné
+vytvoriť funkciu:
+<br>&nbsp;
+<dd>
+<tt>FUNCTION meno_fn(argumenty)</tt></dd>
+
+<dd>
+<tt>{</tt></dd>
+
+<dd>
+<tt>&nbsp;&nbsp;&nbsp; telo funkcie;</tt></dd>
+
+<dd>
+<tt>}</tt></dd>
+
+<br>Pozrite si nasledujúci príklad:
+<blockquote><tt>function foo( $arg_1, $arg_2, ..., $arg_n )</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp; echo "Example function.\n";</tt>
+<br><tt>&nbsp;&nbsp; return $retval;</tt>
+<br><tt>}</tt></blockquote>
+<b>Návratové hodnoty funkcií</b>
+<br>Funkcia vracia hodnoty použitím príkazu RETURN (viď. predch. príklad.).
+Nie je možné vrátiť viacero hodonôt, ale je možné vrátiť pole (viď. príklad):
+<blockquote><tt>function test()</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp; return array( 0, 1, 2 );</tt>
+<br><tt>}</tt>
+<br><tt>list($a,$b,$c) = foo();</tt></blockquote>
+<b>Použitie smerníkov</b>
+<br>Doteraz spomenuté prípady odovzdávania informácií funkciám pracovali
+na princípe kopírovania hodnoty. Pri použití smerníkov pristupujeme vo
+funkcii k premennej priamo, tj. pristupujeme k nej ako k pamäťovému miestu.&nbsp;
+Hlavnou vlastnosťou tohoto prístupu je fakt, že pracujeme s pravou hodnotou
+a nie kópiou. To znamená, že ak hodonotu premennej vo vnútri funkcie zmeníme,
+po ukončení funkcie táto premenná bude obsahovať zmenenú hodnotu.
+<blockquote>&nbsp;
+<br><tt>function f( $text )</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp; $text .= ' s cukrom.';</tt>
+<br><tt>}</tt>
+<br><tt>$str = 'Dám si čaj ';</tt>
+<br><tt>f( $str );</tt>
+<br><tt>echo $str;&nbsp;&nbsp;&nbsp; // vypíše 'Dám si čaj '</tt>
+<br><tt>f( &amp;$str );</tt>
+<br><tt>echo $str;&nbsp;&nbsp;&nbsp; // vypíše 'Dám si čaj s cukrom.'</tt></blockquote>
+V tom prvom prípade sa vo funkcii pracuje s kópiou hodnoty premennej $text,
+v tom druhom sa pracuje s originálom premennej $text.
+<p><b>Preddefinované hodnoty</b>
+<br>Pri odovzdávaní hodnot funkciám je možné použiť preddefinované hodnoty
+parametrov. Nastavovani preddefinovaných hodnôt je rovnaké ako v objektových
+metódach programovania v jazyku C. Nasledovný príklad naznačuje spôsob
+určenia preddefinovanej hodnoty:
+</p><blockquote>&nbsp;
+<br><tt>function objednavka( $kava = "cappucino." )</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp; echo "Prosím si šálku kávy $kava.\n";</tt>
+<br><tt>}</tt>
+<br><tt>echo objednavka();</tt>
+<br><tt>echo objednavka( "espresso." );</tt></blockquote>
+Na obrazovku dostaneme výstup:
+<p><tt>Prosím si šálku kávy cappucino.</tt>
+<br><tt>Prosím si šálku kávy espresso.</tt>
+<br>Existuje však určité obmedzenie týkajúce sa použitia viacerých argumentov.
+Nie totižto možné vynechávať ľubovolné argumrnty funkcie, lebo potom prekladač
+nedokáže rozlíšiť ktorý argument sme vynechali a ktoré nie. Princíp je
+taký, že argumenty s preddefinovanými hodnotami sa uvádzajú až na koniec
+zoznamu argumentov funkcie.&nbsp; Vynechávať potom môžeme argumenty len
+od konca zoznamu.
+</p><p><b>CLASS</b>
+<br>Trieda (CLASS) patrí do skupiny premenných. Jedná sa typ podobný triedam
+z klasického objektového programovania. Od skutočných tried definujúcich
+objekty v tomto prípade neexistuje rozdelenie
+<br>Triedy v PHP nie sú až také bezpečné. Nepoužíva sa tu rozdelenie na
+<i>private,
+public </i>a<i> protected.</i> Takisto pojem <i>dedenie</i> je nahradený
+výstižnejším pojmom <i>rozšírenie </i>tried. Syntax je nasledovná:
+</p><blockquote>&nbsp;
+<br><tt>class MenoTriedy</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; definície premenných;&nbsp;&nbsp;&nbsp; //napr.
+var $MenoPremennej;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; definície funkcií;</tt>
+<br><tt>}</tt></blockquote>
+Vytvorenie objektu z danej triedy je možné nasledovne:
+<blockquote>&nbsp;
+<br><tt>$objekt = new MenoTriedy;</tt></blockquote>
+Kde operátor <i>new</i> zabezpečí alokovanie pamäte pre novovytvorený objekt.
+Jednotlivé funkcie triedy (v PHP sa nehovorí o metódach) sú dostupné použitím
+operátora '-&gt;':
+<br>&nbsp;
+<dd>
+<tt>$objekt-&gt;funkcia();</tt></dd>
+
+<br>Ako už bolo spomenuté triedy je možné rozširovať. Je to proces podobný
+dedeniu v objektovo orientovaných metódach programovania. Rozšírenie je
+vlastne vytvorenie novej triedy s využitím pôvodnej, ku ktorej pridáme
+ďalšie premenné a funkcie. Na vytvorenie rozšírenej triedy používame kľúčové
+slovo <i>extends</i>:
+<blockquote><tt>class MenoNovejTriedy extends MenoTriedy</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; definícia rozširujúcich premenných;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; definícia rozširujúcich funkcií;</tt>
+<br><tt>}</tt></blockquote>
+S takto vytvorenou triedou pracujeme ako s klasickou triedou pričom máme
+prístup aj k pôvodným funkciám a premenným triedy. Nebola tu ešte spomenutá
+premenná (operátor) $this. Táto premenná reprezentuje aktuálny objekt.
+Používa sa na prístup k členským premenným a funkciám danej triedy. Pokiaľ
+teda chceme pri vytváraní funkcíí pre našu triedu používať funkcie, alebo
+premenné patriace tejto triede musíme k nim pritupovať pomocou tejto premennej.
+Nasledujúci príklad ukazuje okrem použitia tohto operátora aj ďalšiu vlastnosť
+tried, a tou je použitie konštruktora. Jedná sa o špeciálnu funkciu ktorej
+meno sa zhoduje s menom triedy. Táto funkcia sa volá automaticky pri vytváraní
+objektu. Ak použijeme spomínané preddefinované hodnoty na náš konštruktor,
+dostaneme nástroj na inicializáciu základných hodnôt premenných našej triedy
+ako to ukazuje príklad:
+<br><tt></tt>&nbsp;
+<blockquote><tt>class konstruktor_test</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; var $prvky;&nbsp;&nbsp;&nbsp;&nbsp; // Pole
+prvkov</tt><tt></tt>
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function pridaj_prvok($cislo_prvku,
+$hodnota)&nbsp; // Add $num articles of $artnr to the cart</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$this-&gt;prvky[$cislo_prvku] += $hodnota;&nbsp;&nbsp;&nbsp; //použitie $this
+na prístup k premennej triedy</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; function konstruktor_test($a = "10", $b = 1)
+//sú nastavené preddefinované hodnoty</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $this-&gt;pridaj_prvok($a,
+$b);&nbsp;&nbsp;&nbsp; //volanie členskej funkcie</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>}</tt>
+<br><tt>$objekt1&nbsp;&nbsp; = new konstruktor_test;&nbsp;&nbsp; //nastavia
+sa prednastavené hodnoty</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//súčasne
+ s vytvorením objektu</tt>
+<br><tt>$objekt2 = new konstruktor_test("20", 17);&nbsp;&nbsp;&nbsp; //volanie
+konštruktora s konkretnymi hodnotami</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//v
+ tomto prípade dvôjde k prepísaniu</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//prednastavených
+ hodnoôt</tt></p></blockquote>
+<a name="T58"></a><u><font size="+1">5.8. Operátory</font></u>
+<p><b>Aritmetické operátory:</b>
+<br>&nbsp;
+</p><blockquote><tt><u>&nbsp;príklad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; názov operátora</u></tt>
+<br><tt>$a + $b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sčítanie</tt>
+<br><tt>$a - $b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Odčítanie</tt>
+<br><tt>$a * $b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Násobenie</tt>
+<br><tt>$a / $b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delenie</tt>
+<br><tt>$a % $b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Modulo</tt></blockquote>
+<b>Reťazcové operácie</b>
+<br>Patrí sem operátor konkatenácie, tj. spojenie dvoch reťazcov:
+<blockquote><tt>$a="text1";</tt>
+<br><tt>$b=$a."text2";&nbsp;&nbsp;&nbsp; //premenná $b bude obsahovať reťazec
+"text1text2"</tt></blockquote>
+<b>Operácie priradenia</b>
+<br>Základným operátorom je operátor '=', operátor priradenia. Používa
+sa v tvare:
+<blockquote><tt>$premenná=hodnota;</tt></blockquote>
+Kde hodnota môže byť buď priamy údaj, alebo výraz, ktorého hodnota sa týmto
+odovzdá premennej. Pomocou tohto operátora je možné priraďovať všetky hodnoty,
+tj. aj reťazce a polia, rovnako ako číselné konštanty. Je možné ho použiť
+viacnásobne:
+<blockquote><tt>$prem1=$prem2=hodnota;&nbsp;&nbsp;&nbsp; resp. $prem1=(prem2=3)+5</tt></blockquote>
+V prvom prípade nahradíme obe premenné tou istou hodnotou. V druhom prípade
+sa druhá premenná nastaví na hodnotu 3 a prvá na hodnotu 8. PHP pozná aj
+rozšírené operatóry priradenia, tj. operátor '=' spojený s niektorým z
+ďalších operátorov. Ide konkrétne o nasledovné možnosti:
+<p>+=&nbsp;&nbsp;&nbsp; premenej na lavej strane sa pričíta hodnota uvedená
+na pravej strane
+<br>-=&nbsp;&nbsp;&nbsp; odčítanie hodnoty od premennej
+<br>*=&nbsp;&nbsp;&nbsp; násobenie premennej
+<br>/=&nbsp;&nbsp;&nbsp;&nbsp; delenie premennej
+<br>%=&nbsp; zvyšok po delení premennej
+<br>.=&nbsp;&nbsp;&nbsp; pripojenie reťazca k premennej
+</p><p><b>Bitové operátory</b>
+<br>Tieto operátory pracujú s premennou v binárnom tvare a operácie vykonávajú
+na bitoch jednotlivých hodnôt. Výsledkom takejto operácie je hodnota.
+</p><blockquote><tt><u>príklad&nbsp;&nbsp;&nbsp; názov operátora</u></tt>
+<br><tt>$a &amp; $b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AND&nbsp;&nbsp;
+- bitový súčin</tt>
+<br><tt>$a | $b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR&nbsp;&nbsp;&nbsp;
+- bitový súčet</tt>
+<br><tt>~$a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NOT&nbsp;&nbsp; - bitová negácia</tt></blockquote>
+<b>Logické operátory</b>
+<br>Tieto operátory pracujú s premennou ako s hodnotou a výsledkom je logická
+hodnota TRUE alebo FALSE.
+<blockquote><tt><u>príklad&nbsp;&nbsp;&nbsp; názov operátora</u></tt>
+<br><tt>$a and $b&nbsp;&nbsp;&nbsp; AND&nbsp;&nbsp;&nbsp; - logický súčin</tt>
+<br><tt>$a of&nbsp; $b&nbsp;&nbsp;&nbsp; OR&nbsp;&nbsp;&nbsp;&nbsp; - logický
+súčet</tt>
+<br><tt>$a xor $b&nbsp;&nbsp;&nbsp; OR&nbsp;&nbsp;&nbsp;&nbsp; - logický
+exkluzívny súčet</tt>
+<br><tt>!$a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOT&nbsp;&nbsp;&nbsp;
+- logická negácia</tt>
+<br><tt>$a &amp;&amp;&nbsp; $b&nbsp;&nbsp;&nbsp; AND&nbsp;&nbsp;&nbsp;
+- logický súčin</tt>
+<br><tt>$a ||&nbsp; $b&nbsp;&nbsp;&nbsp; OR&nbsp;&nbsp;&nbsp;&nbsp; - logický
+súčet</tt></blockquote>
+<b>Operátory porovnania</b>
+<br>Operátory porovnania slúžia na porovnávanie dvoch rovnakých hodnôt,
+pričom výsledkom je logická hodnota TRUE alebo FALSE.
+<blockquote><tt><u>príklad&nbsp;&nbsp;&nbsp; názov operátora</u></tt>
+<br><tt>$a == $b&nbsp;&nbsp;&nbsp; test na rovnosť</tt>
+<br><tt>$a != $b&nbsp;&nbsp;&nbsp; test na nerovnosť</tt>
+<br><tt>$a &lt;&nbsp; $b&nbsp;&nbsp;&nbsp; test či hodnota na ľavej strane
+je menšia ako na pravej</tt>
+<br><tt>$a&nbsp; &gt; $b&nbsp;&nbsp;&nbsp; test či hodnota na ľavej strane
+je väčšia ako na pravej</tt>
+<br><tt>$a &lt;= $b&nbsp;&nbsp;&nbsp; test či hodnota na ľavej strane je
+menšia alebo rovná ako na pravej</tt>
+<br><tt>$a &gt;= $b&nbsp;&nbsp;&nbsp; test či hodnota na ľavej strane je väčšia
+alebo rovná ako na pravej</tt></blockquote>
+<a name="T6"></a><b><u><font size="+1">6. Popis základných funkcií jazyka
+PHP</font></u></b>
+<p>V nasledovnej budú popísané niektoré základné funkcie pre prácu s PHP.
+Z dôvodu veľkého rozsahu tejto časti uvádzam len zbežné informácie. Pokiaľ
+máte záujem o podrobnejšie informácie, tak si pozrite priloženú dokumentáciu
+k jazyku. [4][5]
+</p><blockquote>6.1.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie zamerané pre APACHE
+<br>6.2.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie pre prácu s poliami
+<br>6.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Funkcie pre prácu s kalendárom
+<br>6.4.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie pre prácu s časom a dátumom
+<br>6.5.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie pre prácu s adresármi
+<br>6.6.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie na spúšťanie programov
+<br>6.7.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie pre prácu so súborovým systémom
+<br>6.8.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie určené pre HTTP protokol
+<br>6.9.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie pre prácu s obrázkami
+<br>6.10.&nbsp; Informačné a riadiace funkcie PHP
+<br>6.11.&nbsp; Funkcie pre elektronickú poštu
+<br>6.12.&nbsp; Matematické funkcie
+<br>6.13.&nbsp;&nbsp; Sieťové funkcie
+<br>6.14.&nbsp;&nbsp; Funkcie pre regulárne výrazy
+<br>6.15.&nbsp;&nbsp; Funkcie prep rácu s reťazcami
+<br>6.16.&nbsp;&nbsp; Funkcie na prácu s URL adresami
+<br>6.17.&nbsp;&nbsp; Funkcie na prácu s premennými
+<br>6.18.&nbsp;&nbsp; Funkcie pre prácu s gzipovanými súbormi</blockquote>
+<a name="T61"></a><font size="+1">6.1.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie zamerané
+pre APACHE</font>
+<br><b>virtual - </b>vykonáva sub-požiadavku Apache -a
+<br>int virtual(string filename);
+<p><b>getallheaders -</b> navracia všetky hlavičky HTTP súčasnej požiadavky
+<br>array getallheaders(void);
+<br>príklad:
+</p><blockquote><tt>$headers = getallheaders();</tt>
+<br><tt>while (list($hlavička, $hodnota) = each($hlavička))</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo "$hlavička: $hodnota&lt;br&gt;\n";</tt></blockquote>
+<b>apache_note - </b>načítanie a nastavenie záznamov APACHE -a
+<br>string apache_note(string note_name, string [note_value]);
+<br>Ak sa táto funkcia volá s jedným argumentom, tak sa údaje načítavajú.
+Ak sa použijú oba záznamy, údaj esa prečítajú a prepíšu.<font size="+1"></font>
+<p><a name="T62"></a><font size="+1">6.2.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie
+pre prácu s poliami</font>
+<br><b>array </b>- vytvorenie poľa
+<br>array array(...);
+<br>Jednotlivé parametre poľa je možné&nbsp; indexovať pomocou operátora
+=&gt;. Príklad:
+</p><blockquote><tt>$ovocie = array(</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; "ovocie"&nbsp; =&gt; array("a"=&gt;"pomaranc","b"=&gt;"banan","c"=&gt;"jablko"),</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; "cisla" =&gt; array(1, 2, 3, 4, 5, 6)</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; "pozicie"&nbsp;&nbsp; =&gt; array("prva", 5 =&gt;
+"druha", "tretia")</tt>
+<br><tt>);</tt></blockquote>
+<b>array_walk -</b> použitie funkcie n avšetky prvky poľa
+<br>int array_walk(array arr, string func);
+<p><b>arsort - </b>triedenie poľa v opačnom poradí s dodržaním asociatívnosti
+indexov.
+<br>oid arsort(array pole);
+</p><p><b>asort -</b> triedenie poľa
+<br>void asort(array array);
+</p><p><b>count </b>- spočítanie prvkov premennej
+<br>int count(mixed var);
+<br>Ak premenná nie je definovaná tak sa vráti 0 a ak premenná nie je pole,
+tak vráti 1
+</p><p><b>current -</b> vráti aktuálny prvok v poli
+<br>mixed current(array array);
+</p><p><b>each </b>- vráti nasledovný index/ hodnotu z poľa
+<br>array each(array array);
+</p><p><b>end - </b>nastaví vnútorný ukazovateľ poľa na koniec
+<br>end(array array);
+</p><p><b>key - </b>vyberie kľúč z asociatívneho poľa
+<br>mixed key(array array);
+</p><p><b>ksort - </b>triedi pole podľa kľúča
+<br>int ksort(array array);
+</p><p><b>list </b>- priradí hodnoty z poľa do premenných uvedených ako argumenty
+tejto funkcie.
+<br>void list(...);
+</p><p><b>next</b> - posunie vnútorný ukazovateľ poľa o jednu hodnotu ďalej
+<br>mixed next(array array);
+</p><p><b>pos</b> - vráti aktuálny prvok poľa, je to ekvivalent funkcie current();
+<br>mixed pos(array array);
+</p><p><b>prev</b> - posunie vnútorný ukazovateľ poľa o jeden krok dozadu
+<br>mixed prev(array array);
+</p><p><b>reset</b> - resetovanie vnútorného ukazovateľa poľa, tj. nastaví
+ho na začiatok poľa
+<br>reset(array array);
+</p><p><b>rsort - </b>triedenie poľa v obrátenom poradí
+<br>void rsort(array array);
+</p><p><b>sizeof</b> - vráti počet elementov poľa
+<br>int sizeof(array array);
+</p><p><b>sort -</b> triedenie poľa
+<br>void sort(array array);
+</p><p><b>usort</b> - triedenie poľa s použitím používateľom definovanej funkcie
+porovnávania
+<br>void usort(array array, function cmp_function);
+</p><p>príklad:
+</p><dd>
+<tt>function cmp($a,$b)</tt></dd>
+
+<dd>
+<tt>{</tt></dd>
+
+<dd>
+<tt>&nbsp;&nbsp;&nbsp; if($a==$b) return 0;</tt></dd>
+
+<dd>
+<tt>&nbsp;&nbsp;&nbsp; return ($a&gt;$b) ? -1:1;</tt></dd>
+
+<dd>
+<tt>}</tt></dd>
+
+<dd>
+<tt>$a = array(3,2,5,6,1);</tt></dd>
+
+<dd>
+<tt>usort($a,cmp);</tt></dd>
+
+<dd>
+<tt>while(list($kľúč,$hodnota) = each($a))</tt></dd>
+
+<dd>
+<tt>{</tt></dd>
+
+<dd>
+<tt>&nbsp;&nbsp;&nbsp; echo "$kľúč: $hodnota\n";</tt></dd>
+
+<dd>
+<tt>}</tt></dd>
+
+<br>Tento príklad vypíše nasledovné hodnoty:
+<br>0: 6 1: 5 2: 3 3: 2 4: 1
+<p><a name="T63"></a><font size="+1">6.3.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie
+pre prácu s časom a dátumom</font>
+<br><b>checkdate</b> - testuje či zadaný dátum má správny formát
+<br>int checkdate(int month, int day, int year);
+</p><p>rok je akceptovaný v rozhraní: 1900 - 32767
+<br>mesiac môže byť z intervalu: 1 - 12
+<br>deň je povolený podľa určeného roku a mesiaca
+</p><p><b>date</b> - formátovanie a lokalizácia času a dátumu
+<br>string date(string format, int timestamp);
+</p><p>v textovom reťazci <i>formát&nbsp;</i> sa môžu nachádzať nasledovné
+znaky:
+</p><p>&nbsp;&nbsp;&nbsp; U - sekundy
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; Y - rok 4 číslice
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; y - rok 2 číslice
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; F - mesiac, dlhý textový formát
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; M - mesiac, krátky 3 - znakový textový formát
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; m - mesiac v číselnej forme
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; z - deň v roku v číselnej forme (1 - 365)
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; d - deň v mesiaci v číselnej forme s doplnením
+počiatočných núl
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; j -deň v mesiaci v číselnej forme bez doplnenia
+počiatočných núl
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; l (malé 'L') - deň v týždni v dlhej textovej
+forme
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; D - deň v týždni v krátkej 3 - znakovej textovej
+forme
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; w -deň v týždni v číselnej forme - jedna číslica
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; H - hodina, číselný tvar, 24 hodinový formát
+</p><p>&nbsp;&nbsp;&nbsp; h - hodina, číselný tvar, 12 hodinový formát
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; i - minúty, číselný tvar
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; s - sekundy, číselný tvar
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; A - "AM" alebo&nbsp; "PM"
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; a - "am" alebo "pm"
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; S - anglická rádová prípona, text, 2 znaky,&nbsp;
+"th" alebo "nd"
+</p><p>Príklad použitia:
+</p><blockquote><tt>print(date( "l dS of F Y h:i:s A" ));</tt></blockquote>
+<b>strftime </b>- formátovanie času a dátumu podľa nastavenia lokalizácie
+<br>string strftime(string format, int timestamp);
+<p>Je možné použiť nasledovné formátovacie výrazy:
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %a -skrátený názov dňa v týždni podľa lokalizácie
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %A - plný názov dňa v týždni podľa lokalizácie
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %b - skrátený názov mesiaca&nbsp; podľa lokalizácie
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %B - plný názov mesiaca&nbsp; podľa lokalizácie
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %c - na základe lokalizácie definovaný formát
+času a dátumu
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %d - deň v mesiaci v rozmedzí od&nbsp; 0 do
+31
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %H - hodiny v numerickom tvare, 24-hodinový
+formát (rozsah 00 to 23)
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %I - hodiny v numerickom tvare,&nbsp; 12-hodinový
+formát (rozsah 01 to 12)
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %j - ďeň v roku, numerický formát(rozsah 001
+až 366)
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %m - mesiac v numerickom tvare (rozsah 1 až
+12)
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %M - minúty
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %p - symbol&nbsp; `am' alebo `pm' v tvare predpísanom
+príslušnou lokalizačnou normou
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %S - sekundy
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %U - číslo týždňa pre súčasný rok, kde týždeň
+začína v nedeľu
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %W - číslo mesiaca v súčasnom roku, kde týždeň
+začína v pondelok
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %w - číslo dňa v týždni so začiatkom v nedeľu
+(0)
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %x - na základe lokalizácie definovaný formát
+dátumu
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %X - na základe lokalizácie definovaný formát
+času
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %y - číslo roku, 2 číslice (rozsah 00 až 99)
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %Y - číslo roku, 4 číslice
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp; %Z - časová zóna
+</p><p>&nbsp;&nbsp;&nbsp; %% - znak `%'
+</p><p>príklad:
+<br>setlocale ("LC_TIME", "sk");
+</p><blockquote><tt>print(strftime("%A&nbsp; - deň v týždni po slovensky."));</tt></blockquote>
+<b>getdate </b>- vráti informácie o čase a dátume
+<br>array getdate(int timestamp);
+<br>výstupné pole obsahuje nasledovné položky:
+<p>"seconds", "minutes", "hours", "mday", "wday", "mon", "year", "yday",
+"weekday", "month"
+</p><p><b>gmdate </b>- formát GMT a CUT dátumu a času
+<br>string gmdate(string format, int timestamp);
+</p><p><b>mktime -</b> vytvorenie času a dátumu UNIXu (timestamp)
+<br>int mktime(int hour, int minute, int second, int month, int day, int
+year);
+</p><p><b>gmmktime - </b>vytvorenie času a dátumu UNIXu v tvare GMT
+<br>int gmmktime(int hour, int minute, int second, int month, int day,
+int year);
+</p><p><b>time - z</b>istenie aktuálneho času a dátumu
+<br>int time(void);
+</p><p><b>microtime</b> - vráti čas a dátum rozšírený o informáciu o milisekundách
+<br>string microtime(void);
+</p><p><a name="T64"></a><font size="+1">6.4.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie
+pre prácu s adresármi</font>
+<br><b>chdir -</b> nastavenie adresára
+<br>int chdir(string directory);
+</p><p><b>dir - </b>trieda adresár
+<br>new dir(string directory);
+<br>Táto trieda obsahuje dva premenné: <i>handle</i> a <i>path</i>.
+</p><p><b>closedir -</b> uzavrie smerník na adresár (handle)
+<br>void closedir(int dir_handle);
+</p><p><b>opendir - </b>otvorí smerník na adresár
+<br>int opendir(string path);
+</p><p><b>readdir - </b>načíta meno ďalšieho súboru v adresáry určenom smerníkom
+<br>string readdir(int dir_handle);
+</p><p><b>rewinddir -</b> nastaví sa na prvý súbor v adresáry
+<br>oid rewinddir(int dir_handle);
+</p><p><a name="T65"></a><font size="+1">6.5.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie
+na spúšťanie programov</font>
+<br><b>escapeshellcmd</b> - ošetrí reťazec od špreciálnych riadiacich znakov,
+pomocou ktorých by bolo možné zneužiť spustenie shellu.
+<br>string escapeshellcmd(string command);
+</p><p><b>exec </b>- spustí externý program, návratovou hodnotou je posledný
+riadok zo štanderdného výstupu spusteného programu
+<br>string exec(string command, string [array], int [return_var]);
+</p><p><b>system - </b>spustí externý program a zobrazí jeho výstup
+<br>string system(string command, int [return_var]);
+</p><p><b>passthru</b> - spustí externý program a jeho výstup vráti v nespracovanom
+tvare. Návratovú hodnotu uloží do premennej uvedenej ako druhý argument.
+Je možné použiť túto funkciu napr. na zobrazovanie obrázkov, samozrejme
+ak sa v7stup správne uvedie pomocou <i>content-type</i>.
+<br>string passthru(string command, int [return_var]);
+</p><p><a name="T66"></a><font size="+1">6.6.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie
+pre prácu so súborovým systémom</font>
+<br><b>basename</b> - vráti názov súboru zo špecifikovanej cesty
+<br>string basename(string path);
+</p><p><b>chgrp -</b> nastaví skupinu (group) pre súbor
+<br>int chgrp(string filename, mixed group);
+</p><p><b>chmod</b> - nastaví prístupové práva k súboru
+<br>int chmod(string filename, int mode);
+</p><p><b>chown</b> - nastavenie vlastníka súboru
+<br>int chown(string filename, mixed user);
+</p><p><b>clearstatcache - </b>zruší informácie o posledne spustenom programe
+<br>void clearstatcache(void);
+</p><p><b>copy</b> - kopíruje súbor
+<br>int copy(string source, string dest);
+</p><p><b>dirname - </b>vráti adresárovú časť špecifikovanej cesty k súboru.
+Adresáre sú oddeľované znakmi "/" alebo "\"
+<br>string dirname(string path);
+</p><p><b>fclose -</b> uzavrie smerník na súbor
+<br>int fclose(int fp);
+</p><p><b>feof</b> - testuje smerník na súbor na dosiahnutie konca súboru
+<br>int feof(int fp);
+</p><p><b>fgetc</b> - načíta znak zo súboru
+<br>string fgetc(int fp);
+</p><p><b>fgets</b> - načíta riadok zo súboru, max. dĺžky <i>length. </i>Čítanie
+končí znakom nového riadka, alebo pri dosiahnutí konca súboru.
+<br>string fgets(int fp, int length);
+</p><p><b>fgetss - </b>načíta riadok zo súboru s vynechaním HTML príkazov a
+značiek, max. dĺžky <i>length. </i>Čítanie končí znakom nového riadka,
+alebo pri dosiahnutí konca súboru
+<br>string fgetss(int fp, int length);
+</p><p><b>file</b> - načíta celý súbor do poľa
+<br>array file(string filename);
+</p><p><b>file_exists</b> - testuje či daný súbor existuje
+<br>nt file_exists(string filename);
+</p><p><b>fileatime</b> - zistenie času posledného prístupu k súboru
+<br>int fileatime(string filename);
+</p><p><b>filectime</b> - vráti čas modifikácie súboru udaného príslušnou inódou
+súboru
+<br>int filectime(string filename);
+</p><p><b>filegroup</b> - zistí akej skupine používateľov prislúcha daný súbor
+<br>int filegroup(string filename);
+</p><p><b>fileinode</b> - vráti číslo inódy daného súboru
+<br>int fileinode(string filename);
+</p><p><b>filemtime</b> - vrá ti čas poslednej modifikácie súboru
+<br>int filemtime(string filename);
+</p><p><b>fileowner</b> - vráti identifikačné číslo vlastníka súboru
+<br>int fileowner(string filename);
+</p><p><b>fileperms</b> - zistí prístupové práva k súboru
+<br>int fileperms(string filename);
+</p><p><b>filesize</b> - zistí veľkosť súboru
+<br>int filesize(string filename);
+</p><p><b>filetype</b> - zistí typ súboru. Platné hopdnoty sú fifo, char, dir,
+block, link, file a unknown
+<br>string filetype(string filename);
+</p><p><b>fopen</b> - otvorí súbor alebo URL adresu(ak meno súboru začína reťazcom
+<i>http://,</i>
+alebo<i><b> </b>ftp://</i>)<i>.</i>
+<br>int fopen(string filename, string mode);
+</p><p>Sú povolené nasledovné prístupové módy:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'r' - len pre čítanie, smerník súboru
+sa nastaví na začiatok,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'r+' - pre čítanie a zápis, smerník
+na súbor sa nastaví na začiatok súboru,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'w' -&nbsp; pre zápis, existujúci súbor
+sa prepíše, ak súbor neexistuje, tak sa vytvorí nový,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'w+' - pre čitanie a zápis, smerník
+súbporu sa nastaví na začiatok, existujúci súbor sa prepíše, ak súbor neexistuje,
+tak sa vytvorí nový,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'a' - otvorenie pre zápis, smerník na
+súbor sa nastaví na koniec súboru, ak súbor neexistuje vytvorí sa nový
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'a+' - otvorenie pre zápis, a čitanie,&nbsp;
+smerník na súbor sa nastaví na koniec súboru, ak súbor neexistuje vytvorí
+sa nový
+</p><p>V móde súpboru môže byť uvedený znak <i>b, </i>ktorý určuje že k súboru
+sa bude pristupovať ako k binárnemu. Pri systémoch, ktoré nerozlišujú súbory
+na binárne a textové sa môže tento znak vynechať.
+</p><p><b>fpassthru</b> - pošle celý zvyšný obsah súboru na štandardný výstup
+<br>int fpassthru(int fp);
+</p><p><b>fputs</b> - zapíše reťazec do súboru
+<br>int fputs(int fp, string str, int [length]);
+</p><p><b>fread</b> - čítanie zo súboru v binárnom móde
+<br>string fread(int fp, int length);
+</p><p><b>fseek</b> - nastavenie smerníka súboru
+<br>int fseek(int fp, int offset);
+</p><p><b>ftell</b> - zistenie pozície v súbore (smerník súboru)
+<br>int ftell(int fp);
+</p><p><b>fwrite</b> - zápis do súboru v binárnom móde
+<br>int fwrite(int fp, string string, int [length]);
+</p><p><b>is_dir</b> - zistí či daný adresár existuje
+<br>bool is_dir(string filename);
+</p><p><b>is_executable</b> - zistí či súbor je spustiteľný
+<br>bool is_executable(string filename);
+</p><p><b>is_file</b> - zistí, či súbor existuje a je správny
+<br>bool is_file(string filename);
+</p><p><b>is_link</b> - zistí, či súbor je symbolická linka
+<br>bool is_link(string filename);
+</p><p><b>is_readable</b> - zistí, či súbor má povolené práva pre čítanie
+<br>bool is_readable(string filename);
+</p><p><b>is_writeable</b> -&nbsp; zistí, či súbor je možné čítať, či má povolené
+práva pre čítanie
+<br>bool is_readable(string filename);
+</p><p><b>link</b> - vytvorenie tvrdej linky
+<br>int link(string target, string link);
+</p><p><b>linkinfo</b> - zistenie informácii o linke
+<br>int linkinfo(string path);
+</p><p><b>mkdir</b> - vytvorenie adresára
+<br>int mkdir(string pathname, int mode);
+</p><p><b>pclose</b> - uzavretie smerníka rúry
+<br>int pclose(int fp);
+</p><p><b>popen</b> - otvorí rúru na proces uvedený ako argument
+<br>int popen(string command, string mode);
+</p><p><b>readfile</b> - načíta súbor a vypíše ho na štandardný výstup
+<br>int readfile(string filename);
+</p><p><b>readlink</b> - zistí kam smeruje linka
+<br>int readlink(string path);
+</p><p><b>rename</b> - premenovanie súboru
+<br>int rename(string oldname, string newname);
+</p><p><b>rewind</b> - nastaví smerník súboru na začiatok
+<br>nt rewind(int fp);
+</p><p><b>rmdir</b> - zmazanie adresára
+<br>int rmdir(string dirname);
+</p><p><b>stat</b> - získanie informácii o súbore
+<br>array stat(string filename);
+<br>Navrátené pole obsahuje nasledovné návestia:
+<br>&nbsp;&nbsp; 1. zariadenie
+<br>&nbsp;&nbsp; 2. inóda
+<br>&nbsp;&nbsp; 3. počet liniek
+<br>&nbsp;&nbsp; 4. identifikačné číslo vlastníka súboru
+<br>&nbsp;&nbsp; 5. číslo skupiny do ktorej patrí súbor
+<br>&nbsp;&nbsp; 6. typ zariadenia ak je to inódové zariadenie *
+<br>&nbsp;&nbsp; 7. veľkosť v bajtoch
+<br>&nbsp;&nbsp; 8. čas posledného prístupu
+<br>&nbsp;&nbsp; 9. čas poslednej zmeny
+<br>&nbsp; 10. čas poslednej úpravy
+<br>&nbsp; 11. veľkosť bloku pre V/V operácie
+<br>&nbsp; 12. počet alokovaných blokov
+<br>* - nastavené len v sytémoch podporujúcich blokový prístup inak (napr.
+pre MS Windows) vráti hodnotu -1
+</p><p><b>lstat</b> - vráti informácie o súbore alebo symbolickej linke
+<br>array lstat(string filename);
+<br>Návratové hodnoty viď. príkaz <i>stat</i>
+</p><p><b>symlink</b> - vytvorenie symbolickej linky
+<br>int symlink(string target, string link);
+</p><p><b>tempnam</b> - vytvorenie špeciálneho - ešte neexistujúceho mena súboru
+<br>string tempnam(string dir, string prefix);
+</p><p><b>touch</b> - nastavenie času modifikácie pre súbor
+<br>int touch(string filename, int time);
+</p><p><b>umask</b> - nastavenie, alebo získanie (použitie funkcie bez parametrov)
+PHP umask-u
+<br>int umask(int mask);
+</p><p><b>unlink</b> - zmaznaie súboru
+<br>int unlink(string filename);
+</p><p><a name="T67"></a><font size="+1">6.7.&nbsp;&nbsp;&nbsp;&nbsp; Funkcie
+určené pre HTTP protokol</font>
+<br><b>header</b> - pošle HTTP hlavičku v priamom tvare
+<br>int header(string string);
+</p><p>Príklad:
+<br>Header("Location: http://www.php.net");&nbsp; /* presmerovanie stránky
+*/
+<br>exit;
+</p><p><b>setcookie</b> - pošle <i>cookie</i> prehliadaču
+<br>int setcookie(string name, string value, int expire, string path, string
+domain, int secure);
+</p><p>Uložená hodnota premennej sa automaticky načíta pod tým istým menom
+pri ďalšom volaní.
+</p><p><a name="T68"></a><font size="+1">6.8.&nbsp; Informačné a riadiace funkcie
+PHP</font>
+<br><b>error_log</b> - zašle chybovú správu na určené miesto
+<br>int error_log(string message, int message_type, string [destination],
+string [extra_headers]);
+</p><p><b>error_reporting</b> - určenie, ktoré chyby sa budú hlásiť
+<br>int error_reporting(int [level]);
+</p><p><b>getenv </b>- zistenie hodnoty premennej prostredia
+<br>string getenv(string varname);
+</p><p><b>get_cfg_var</b> - zistenie hodnoty konfiguračnej premennej PHP
+<br>string get_cfg_var(string varname);
+</p><p><b>get_current_user</b> - zistenie mena vlastníka bežiaceho PHP skriptu
+<br>string get_current_user(void);
+</p><p><b>getlastmod</b> - zistenie času modifikácie poslednej stránky
+<br>int getlastmod(void);
+</p><p><b>getmyinode</b> - zistenie inódy aktuálneho skriptu
+<br>int getmyinode(void);
+</p><p><b>getmypid</b> - zistenie PID (identifikačné číslo procesu) PHP procesu
+<br>int getmypid(void);
+</p><p><b>getmyuid</b> - zistenie UID vlastníka PHP skriptu
+<br>int getmyuid(void);
+</p><p><b>phpinfo</b> - v upravených tabuľkaách vráti všetky informácie, ktoré
+má bežiaci PHP skript k dispozícii
+<br>int phpinfo(void);
+</p><p><b>phpversion</b> - zistenie aktuálnej verzie PHP
+<br>string phpversion(void);
+</p><p><b>putenv</b> - nastavenie hodnoty premennej prostredia
+<br>void putenv(string setting);
+</p><p><b>set_time_limit</b> - nastavenie časového limitu, počas ktorého sa
+môže skript vykonávať
+<br>void set_time_limit(int seconds);
+</p><p><a name="T69"></a><font size="+1">6.9.&nbsp; Funkcie pre elektronickú
+poštu</font>
+<br><b>mail</b> - poslanie elektronickej pošty
+<br>void mail(string to, string subject, string message, string additional_headers);
+</p><p>príklad:
+<br>mail("kpi@fei.tuke.sk", "Pozdrav z PHP", "Riadok 1\nRiadok 2\nRiadok
+3");
+</p><p><a name="T610"></a><font size="+1">6.10.&nbsp; Matematické funkcie</font>
+<br><b>Abs</b> - absolútna hodnota
+<br>mixed abs(mixed number);
+</p><p><b>Acos</b> - oblúkový kosínus
+<br>float acos(float arg)
+</p><p><b>Asin - </b>oblúkový sínus
+<br>float asin(float arg);
+</p><p><b>Atan</b> - oblúkový tangens
+<br>float atan(float arg);
+</p><p><b>BinDec</b> - konverzia reťazca binárnych čísel na celočíselný typ
+<br>int bindec(string binary_string);
+</p><p><b>Cos</b> - kosínus
+<br>float cos(float arg);
+</p><p><b>DecBin</b> - konverzia celého čísla na reťazec binárnych čísel
+<br>string decbin(int number);
+</p><p><b>DecHex</b> - konverzia celého čísla na reťazec hexadecimálnych číslic
+<br>string dechex(int number);
+</p><p><b>DecOct - </b>konverzia celého čísla na reťazec osmičkových číslic
+<br>string decoct(int number);<b></b>
+</p><p><b>Exp </b>- exponenciálna funkcia
+<br>float exp(float arg);
+</p><p><b>HexDec</b> - konverzia reťazca hexadecimálnych číslic na celé číslo
+<br>int hexdec(string hex_string);
+</p><p><b>Log</b> - prirodzený logaritmus
+<br>float log(float arg);
+</p><p><b>Log10</b> - desiatkový logaritmus
+<br>float log10(float arg);
+</p><p><b>max</b> - nájde maximálnu hodnotu z hodnôt argumentov tejto funkcie
+<br>mixed max(mixed arg1, mixed arg2, mixed argn);
+</p><p><b>min</b> - nájde minimálnu hodnotu z hodnôt argumentov tejto funkcie
+<br>mixed min(mixed arg1, mixed arg2, mixed argn);
+</p><p><b>OctDec</b> - konverzia reťazca osmičkových číslic na celé číslo
+<br>int octdec(string octal_string);
+</p><p><b>pi</b> - získanie hodnoty konštanty PI
+<br>double pi(void );
+</p><p><b>pow</b> - mocninová funkcia
+<br>float pow(float base, float exp);
+</p><p><b>round</b> - zaokrúhlenie hodnoty desatinného čísla
+<br>double round(double val);
+</p><p><b>Sin</b> - sínus
+<br>float sin(float arg);
+</p><p><b>Sqrt</b> - druhá odmocnina
+<br>float sqrt(float arg);
+</p><p><b>Tan</b> - tangens
+<br>float tan(float arg);
+</p><p><a name="T611"></a><font size="+1">6.11.&nbsp; Funkcie pre prácu so sieťou</font>
+<br><b>fsockopen</b> - otvorí socketové spojenie pre internetovskú, resp.
+UNIXovú doménu
+<br>int fsockopen(string hostname, int port, int [errno], string [errstr]);
+</p><p>Príklad:
+</p><blockquote><tt>$fp = fsockopen("www.php.net", 80, &amp;$errno, &amp;$errstr);</tt>
+<br><tt>if(!$fp)</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo "$errstr ($errno)&lt;br&gt;\n";</tt>
+<br><tt>}</tt>
+<br><tt>else</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp; fputs($fp,"GET / HTTP/1.0\n\n");</tt>
+<br><tt>&nbsp;&nbsp; while(!feof($fp))</tt>
+<br><tt>&nbsp;&nbsp; {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo fgets($fp,128);</tt>
+<br><tt>&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp; fclose($fp);</tt>
+<br><tt>}</tt></blockquote>
+<b>set_socket_blocking</b> - nastavenie blokovacieho módu pre sockety
+<br>int set_socket_blocking(int socket descriptor, int mode);
+<p><b>gethostbyaddr</b> - zistenie mena počítača&nbsp; na základe jeho
+IP adresy
+<br>string gethostbyaddr(string ip_address);
+</p><p><b>gethostbyname </b>- zistenie IP adresy na základe zadaného mena počítača
+<br>string gethostbyname(string hostname);
+</p><p><b>gethostbynamel</b> - zoznam IP adries prislúchajúcich uvedenému menu
+počítača
+<br>array gethostbynamel(string hostname);
+</p><p><b>checkdnsrr</b> - overí DNS záznam zodpovedajúci menu, resp. IP adresa
+počítača
+<br>int checkdnsrr(string host, string [type]);
+</p><p>kde typ môže byť jeden z A, MX, NS, SOA, PTR, CNAME, alebo&nbsp; ANY.
+Prednastavená je hodnota&nbsp; MX.
+<br>Na mieste mena počítača môže byť uvedená aj IP adresa
+</p><p><b>getmxrr</b> - zistí tzv. MX záznam zodpovedajúci internetovskému
+názvu
+<br>int getmxrr(string hostname, array mxhosts, array [weight]);
+</p><p><b>openlog</b> - nadviaže spojenie so systémovým zanamenávačom udalostí
+<br>void openlog(string ident, int option, int facility);
+</p><p><b>syslog</b> - generuje systémové hlásenie
+<br>void syslog(int priority, string message);
+</p><p><b>closelog</b> - uzatvorí spojenie so systémovým zaznamenávačom udalostí
+<br>int closelog(void);
+</p><p><b>debugger_on - </b>povolí interný PHP debugger
+<br>void debugger_on(string address);
+<br>Kde adresa je internetovská adresa
+</p><p><b>debugger_of</b>f - zakáže debugger
+<br>void debugger_off(void);
+<br>&nbsp;
+</p><p><a name="T612"></a><font size="+1">6.12.&nbsp;&nbsp; Funkcie pre regulárne
+výrazy</font>
+<br><b>ereg&nbsp;</b> - regulárny výraz
+<br>int ereg(string pattern, string string, array [regs]);
+</p><p>Príklad:
+</p><blockquote><tt>if ( ereg( "([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})", $date,
+$regs ) )</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo "$regs[3].$regs[2].$regs[1]";</tt>
+<br><tt>}</tt>
+<br><tt>else</tt>
+<br><tt>{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo "Nesprávny formát dátumu: $date";</tt>
+<br><tt>}</tt></blockquote>
+<b>ereg_replace -</b> regulárny výraz použitý pre nahradzovanie reťazcov
+<br>string ereg_replace(string pattern, string replacement, string string);
+<p><b>eregi</b> - regulárny výraz rozoznávajúci veľké a malé písmená
+<br>int eregi(string pattern, string string, array [regs]);
+</p><p><b>eregi_replace</b> - analógia <i>ereg_replace</i> s rozoznávaním veľkých
+a malých písmen
+<br>string eregi_replace(string pattern, string replacement, string string);
+</p><p><b>split</b> - rozloženie reťazca do poľa podľa regulárneho výrazu
+<br>array split(string pattern, string string, int [limit]);
+</p><p>Príklad:
+</p><blockquote><tt>$passwd_list = split( ":", $passwd_line, 5 );</tt></blockquote>
+
+<p><br><a name="T613"></a><font size="+1">6.13.&nbsp;&nbsp; Funkcie pre prácu
+s reťazcami</font>
+<br><b>AddSlashes -</b>pridá do reťazca znaky "\" pred riadiace znaky.
+Niektoré znaky majú špeciálny význam a nemôžu byť použité samostatne.
+<br>string addslashes(string str);
+</p><p><b>Chr -</b> vráti znak prísluchajúci ASCII hodnote
+<br>string chr(int ascii);
+</p><p><b>crypt</b> - zakódovanie reťazca pomocou UNIX DES kódovania, parametrami
+sú reťazec určený na zakódovanie a chcarakteristické slovo.
+<br>string crypt(string str, string [salt]);
+</p><p><b>echo -&nbsp;</b> vypíše jeden, alebo viac reťazcov
+<br>echo(string arg1, string [argn]...);
+</p><p><b>explode</b> - rozdelí reťazec na podľa podreťazcov (oddelovačov)
+<br>array explode(string separator, string string);
+</p><p><b>htmlspecialchars - </b>konvertuje špeciálne znaky na značky HTML
+<br>string htmlspecialchars(string string);
+</p><p>V súčasnej dobe ide o značky: &amp; ( &amp;amp;), " (&amp;quot), &lt;
+(&amp;lt), &gt; (&amp;gt)
+</p><p><b>implode</b> - vygeneruje z pola reťazec, oddelený oddeľovacím reťazcom
+<br>string implode(array pieces, string glue);
+</p><p><b>join</b> - pripojí k reťazcu prvky poľa
+<br>string join(array pieces, string glue);
+</p><p><b>ltrim -</b> vypustí medzery zo začiatku reťazca
+<br>string ltrim(string str);
+</p><p><b>nl2br</b> - konvertuje znaky nového riadku na ich formát HTML (značky
+&lt;BR&gt; )
+<br>string nl2br(string string);
+</p><p><b>Ord</b> - vráti ASCII hodnotu znaku
+<br>int ord(string string);
+</p><p><b>print -</b> vypíše reťazec
+<br>print(string arg);
+</p><p><b>printf</b> - vypíše formátovaný reťazec
+<br>int printf(string format, mixed [args]...);
+</p><p><b>rawurldecode</b> - rozkóduje reťazec z tvaru určeného pre URL
+<br>string rawurldecode(string str);
+</p><p>Ide o rozkódovanie sekvencií v tvare %XX, kde XX sú hexa číslice.
+</p><p><b>rawurlencode</b> - zakódovanie reťazca do tvaru URL
+<br>string rawurlencode(string str);
+</p><p><b>setlocale</b> - nastavenie lokalizačných premenných
+<br>string setlocale(string category, string locale);
+</p><p><b>sprintf</b> - vráti formátovaný reťazec
+<br>sprintf(string format, mixed [args]...);
+</p><p><b>strchr</b> - hľadá prvý výskyt uvedeného znaku, je analógiou funkcie
+<i>strstr</i>
+<br>string strchr(string haystack, string needle);
+</p><p><b>strcmp</b> - porovnanie reťazcov (v php je možné použiť operátor
+==)
+<br>int strcmp(string str1, string str2);
+</p><p><b>StripSlashes </b>- povyberá z reťazca znaky "\", ktoré boli uvedené
+pred špeciálnymi znakmi
+<br>string stripslashes(string str);
+</p><p><b>strlen</b> - zistenie dĺžky reťazca
+<br>int strlen(string str);
+</p><p><b>strrpos</b> - vyhľadanie posledného výskytu podreťazca v reťazci
+<br>string strrpos(string haystack, char needle);
+</p><p><b>strpos</b> - hľadanie prvého výskytu podreťazca v reťazci
+<br>string strpos(string haystack, string needle);
+</p><p><b>strrchr -&nbsp;</b> hľadá posledný výskyt znaku v reťazci
+<br>string strrchr(string haystack, string needle);
+</p><p><b>strrev</b> - otočenie reťazca
+<br>string strrev(string string);
+</p><p><b>strstr </b>- hľadanie prvého výskytu podreťazca v danom reťazci
+<br>string strstr(string haystack, string needle);
+</p><p><b>strtolower</b> - konvertuje všetky znaky reťazca na malé písmená
+<br>string strtolower(string str);
+</p><p><b>strtoupper</b> - konvertuje všetky znaky v reťazci na veľké písmená
+<br>string strtoupper(string string);
+</p><p><b>strtr</b> - transformuje v reťazeci znaky obsiahnuté v druhom reťazci
+na znaky v treťom reťazci. Posledné dva reťazce musia byť rovnako dlhé.
+Ak nie sú, znaky navyše sú ignorované.
+<br>string strtr(string str, string from, string to);
+</p><p><b>substr</b> - vráti podreťazec zadaného reťazca, udaný pozíciou začiatku
+a dĺžky
+<br>string substr(string string, int start, int [length]);
+</p><p>string substr(string string, int start, int [length]);
+<br><b>trim </b>- odsráni nadbytočné medzery zo začiatku a z konca reťazca
+<br>string trim(string str);
+</p><p><b>ucfirst</b> - Prvý znak reťazca nastaví na veľké písmeno
+<br>string ucfirst(string str);
+</p><p><a name="T614"></a><font size="+1">6.14.&nbsp;&nbsp; Funkcie na prácu
+s URL adresami</font>
+<br><b>parse_url</b> - rozloží URL adresu do poľa s položkami "scheme",
+"host", "port", "user", "pass", "path", "query" a&nbsp; "fragment".
+<br>array parse_url(string url);
+</p><p><b>urldecode </b>- dekóduje reťazec z tvaru URL (nahradí číselné kódy
+"%XX" znakmi)
+<br>string urldecode(string str);
+</p><p><b>urlencode</b>- zakóduje reťazec do tvaru URL
+<br>string urlencode(string str);
+</p><p><b>base64_encode</b> - kódovanie dát pomocou MIME base64
+<br>string base64_encode(string data);
+</p><p><b>base64_decode </b>- dekódovanie dát podľa MIME base64
+<br>string base64_decode(string encoded_data);
+</p><p><a name="T615"></a><font size="+1">6.15.&nbsp;&nbsp; Funkcie na prácu
+s premennými</font>
+<br><b>gettype </b>- zistenie typu premennej
+<br>string gettype(mixed var);
+</p><p>Návratové hodnoty môžu byť: "integer", "double", "string", "array",
+"object", "unknown type"
+</p><p><b>intval</b> - získanie celočíselnej hodnoty premennej
+<br>int intval(mixed var, int [base]);
+</p><p><b>doubleval</b> - získanie hodnoty premennej v tvare double
+<br>double doubleval(mixed var);
+</p><p><b>empty</b>- zistenie či premenná obsahuje nejakú hodnotu
+<br>int empty(mixed var);
+</p><p><b>strval</b> - získanie hodnoty premennej v tvare reťazca
+<br>string strval(mixed var);
+</p><p><b>is_array</b> - zistí, či premenná reprezentuje pole
+<br>int is_array(mixed var);
+</p><p><b>is_double</b> - zistí, či premenná je typu double
+<br>int is_double(mixed var);
+</p><p><b>is_float</b> - zistí, či premenná je typu float
+<br>nt is_float(mixed var);
+</p><p><b>is_int</b> - zistí, či premenná je typu int
+<br>int is_int(mixed var);
+</p><p><b>is_integer </b>- zistí, či premenná je typu integer, ekvivalent funkcie&nbsp;<i>
+is_long()</i>
+<br>int is_integer(mixed var);
+</p><p><b>is_long</b> - zistí, či premenná je typu long
+<br>int is_long(mixed var);
+</p><p><b>is_object</b> - zistí, či premenná je typu object
+<br>int is_object(mixed var);
+</p><p><b>is_real</b> - zistí, či premenná je typu real
+<br>int is_real(mixed var);
+</p><p><b>is_string</b> -&nbsp; zistí, či premenná je typu string
+<br>int is_string(mixed var);
+</p><p><b>isset</b> - zistí či premenná s uvedeným menom existuje
+<br>int isset(mixed var);
+</p><p><b>settype</b> - nastavenie typu premennej
+<br>int settype(string var, string type);
+</p><p>Povolené sú typy: "integer", "double", "string", "array", "object",
+"unknown type"
+</p><p><a name="T616"></a><font size="+2">6.16.&nbsp;&nbsp; Funkcie pre prácu
+s gzipovanými súbormi</font>
+<br><b>gzclose</b> - uzavretie smerníka na gzipovaný súbor
+<br>int gzclose(int zp);
+</p><p><b>gzeof</b> - test na dosiahnutie konca súboru
+<br>int gzeof(int zp);
+</p><p><b>gzfile</b> - načítanie súboru do poľa
+<br>array gzfile(string filename);
+</p><p><b>gzgetc</b> - načítanie znaku
+<br>string gzgetc(int zp);
+</p><p><b>gzgets</b> - načíta riadok zo súboru
+<br>string gzgets(int zp, int length);
+</p><p><b>gzgetss</b> - načíta riadok zo súboru pričom vynechá HTML značky
+<br>string gzgetss(int zp, int length);
+</p><p><b>gzopen</b> - otvorenie gzipovaného súboru
+<br>int gzopen(string filename, string mode);
+</p><p><b>gzpassthru</b> - vypíše obsah súboru
+<br>int gzpassthru(int zp);
+</p><p><b>gzputs</b> - zapísanie reťazca do súboru
+<br>int gzputs(int zp, string str, int [length]);
+</p><p><b>gzread</b> - čítanie zo&nbsp; súboru v binárnom móde
+<br>string gzread(int zp, int length);
+</p><p><b>gzrewind</b> - nastavenie ukazovateľa na začiatok súboru
+<br>int gzrewind(int zp);
+</p><p><b>gzseek</b> - nastavenie ukazovateľa na určitú pozíciu
+<br>int gzseek(int zp, int offset);
+</p><p><b>gztell</b> - zistenie pozície ukazovateľa súboru
+<br>int gztell(int zp);
+</p><p><b>readgzfile</b> - vypísanie obsahu súboru
+<br>int readgzfile(string filename);
+</p><p><b>gzwrite</b> - zápis zo súboru
+<br>int gzwrite(int zp, string string, int [length]);
+</p><p><a name="T7"></a><u><font size="+1">7. Pojednanie o bezpečnosti</font></u>
+</p><p>&nbsp;&nbsp;&nbsp; Použitie PHP je pre server, na ktorom súčasne majú
+účty viacerí používatelia. Keďže PHP pracuje ako modul WEB - servera, muséme
+hovoriť o zabezpečení práve tohto programu. Problém spočíva v tom, že WEB
+server pracuje pod určitým presne udaným UID (vlastníkom) a GID(skupinou).
+Web stránky si však môže urobyť každý používateľ, a teda si môže urobyť
+aj program v PHP. Takýto program potom bude bežať s právami ktoré mu nepatria
+a keďže PHP umožňuje dokonalý prístup k údajom je to nebezpečné. Na túto
+situáciu si treba dávať pozor. Existuje však určité riešenie. Je možné
+spustiť napr.&nbsp; dva rôzne WEB servre, pričom jeden bude slúžiť používateľom
+a jeden pre PHP. Na tom druhom samozrejme zakážeme prístup pre používateľov.
+Je to však na úkor pamäte a výkonu počítača. WEB server APACHE umožňuje
+zamedziť spúšťanie, resp. čítanie dokumentov zo zvolených adresárov. Ten
+druhý WEB server by mal bežať s inými právami, lebo potom to celé samozrejme
+nemá efekt. Ďalšou možnosťou je použiť samostatný počítač na tiieto služby.
+Pokiaľ sa pomocou PHP riešia rozsiahlejšie projekty, je to najlepšie riešenie.
+<br>&nbsp;&nbsp;&nbsp; Aj samotné PHP má určité prostriedky pre ochranu
+pred neoprávneným prístupom k určitým prostriedkom. V každom prípade ide
+o obmedzovanie niektorých vlastností PHP. Ide hlavne o obmedzenie prístupu
+k disku, prípadne k vyhradeniu určitej časti disku pre používanie. Týmto
+však obmedzíme všetkých používateľov PHP. Táto možnosť teda prichádza do
+úvahy ak chceme povoliť používať PHP aj pre klasických používateľov. Títo
+však svoje údaje medzi sebou ochrániť už nedokážu. To znamená že táto možnosť
+prichádza do úvahy väčšinou len pre zaúčanie sa. Spomenuté obmedzenia je
+možné zaviesť pomocou konfiguračných pravidiel, viď. časť konfigurácie.
+Budú nám teda bežať dva WEB servre s rôznymi konfiguráciami servera aj
+PHP. V tomto prípade odporúčam požiť konfigurovanie PHP pomocou konfiguračných
+súborov APACHEa.
+<br>&nbsp;&nbsp;&nbsp; To by bolo ohľadom bezpečnosti vo vnútri systému.
+Ako však ochránime informácie pri ich prenose po internetovej, resp. intranetovej
+sieti? Pri každom prístupe k databáze, resp. pri autentifikácii používateľov
+pre vstup do systému sa posielajú diskrétne informácie, ktorých zneužitím
+by mohlo dôsť k neoprávnenému prístupu k našim údajom. Odchytenie hesla
+počas autentifikácie je v sieti totižto veľmi jednoduché a pri súčasnom
+stave vývoja počítačovej techniky už vôbec nezáleží na tom či to heslo
+je zakódované, alebo sa posiela v priamom tvare. Pre používaný UNIX DES
+algoritmus na šifrovanie hesla je totižto už len otázka pomerne krátkeho
+času pokiaľ sa heslo dekóduje. Jedná sa o hodiny, rep. dni, závisí na výkone
+počítača. Ochrana heslom je teda už v súčasnosti nepostačujúca. Existuje
+však možnosť vytvorenia kódovaného spojenia. Tzv. SSL APACHE umožňuje spojenie
+dvoch počítačov kriptovať pomocou&nbsp; až 128 bitového kľuča. Táto možnosť
+je zatiaľ súčasnými prostriedkami neprekonateľná. Je to nadštandardné kriptovanie
+a existuje len veľmi málo informácií, ktoré by boli také dôležité aby sa
+niekto čo i len pokúsil ich dekódovať. Teda použitím SSL APACHEa, zabezpečíme
+aj prenos údajov pre PHP.
+<br>&nbsp;
+</p><p><a name="T8"></a><u><font size="+1">8. Príklady</font></u><font size="+1"></font>
+</p><p><font size="+1">8.1. HTTP autentifikácia</font>
+</p><p>Autentifikácia podľa hesla mena používateľa je možná len v prípade,
+že PHP beží ako modul Apache-a. Pomocou funkcie Header(), ktorá posiela
+tzv. hlavičkové informácie prehliadaču, požiadame o autentifikáciu. Objaví
+sa okno pre autentifikáciu. Po jeho vyplnení sa nastavia premenné <b>$PHP_AUTH_USER,
+$PHP_AUTH_PW a $PHP_AUTH_TYPE </b>pre meno používateľa, heslo a typ autentifikácie.
+Momentálne je podporovaný len jeden spôsob autentifikácie a to 'Basic'.
+Použitie demonštruje nasledovný <a href="http://marek.intrak.tuke.sk/~ondrejm/sp2/prikl001.php3">príklad:</a>
+</p><pre>&lt;?
+&nbsp;if(!isset($PHP_AUTH_USER))&nbsp;
+&nbsp;{
+&nbsp;&nbsp;&nbsp; Header("WWW-Authenticate: Basic realm=\"My Realm\"");
+&nbsp;&nbsp;&nbsp; Header("HTTP/1.0 401 Unauthorized");
+&nbsp;&nbsp;&nbsp; echo "Toto je text ak bol stlacený Cancel\n";
+&nbsp;&nbsp;&nbsp; exit;
+&nbsp;}&nbsp;
+&nbsp;else&nbsp;
+&nbsp;{
+&nbsp;&nbsp;&nbsp; echo "Hello $PHP_AUTH_USER.&lt;P&gt;";
+&nbsp;&nbsp;&nbsp; echo "You entered $PHP_AUTH_PW as your password.&lt;P&gt;";
+&nbsp;}
+?&gt;</pre>
+<font size="+1">8.2. Zistenie informácií všetkých dostupných informácií:</font>
+<p>&nbsp;&nbsp;&nbsp; Využíva sa jediná funkcia PHP - <i>phpinfo()</i>,
+táto funkcia produkuje kompletnú HTML stránku, takže jej použitie je jednoduché:
+</p><blockquote><tt>&lt;?</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; <a href="http://doc.inver.sk/php/priklady/prikl003.php3">phpinfo();</a></tt>
+<br><tt>?&gt;</tt></blockquote>
+<font size="+1"></font>
+<p><br><font size="+1">8.3. Použitie regulárnych výrazov</font><tt></tt>
+</p><p><tt>ereg("abc",$string); /* Nadobúda hodnotu TRUE ak sa "abc" nachádza
+v reťazci $string. */</tt><tt></tt>
+</p><p><tt>ereg("^abc",$string); /* Nadobúda hodnotu TRUE ak sa "abc" nachádza
+na začiatku reťazca $string. */</tt><tt></tt>
+</p><p><tt>ereg("abc$",$string); /* Nadobúda hodnotu TRUE ak sa "abc" nachádza
+na konci reťazca $string */</tt><tt></tt>
+</p><p><tt>eregi("(ozilla.[23]|MSIE.3)",$HTTP_USER_AGENT); /* Nadobúda hodnotu
+TRUE ak prehliadač je Netscape verzia 2 resp. 3 alebo MSIE 3. */</tt><tt></tt>
+</p><p><tt>ereg("([[:alnum:]]+) ([[:alnum:]]+) ([[:alnum:]]+)",$string,$regs);
+/* Uloží tri medzerami oddelené slová do $regs[1], $regs[2] a $regs[3].
+*/</tt><tt></tt>
+</p><p><tt>ereg_replace("^","&lt;BR&gt;",$string); /* Na začiatok reťazca $string
+vloží HTML&nbsp;značku &lt;BR&gt; */</tt><tt></tt>
+</p><p><tt>ereg_replace("$","&lt;BR&gt;",$string); /*&nbsp; Na koniec reťazca
+$string vloží HTML&nbsp;značku &lt;BR&gt; */</tt><tt></tt>
+</p><p><tt>ereg_replace("\n","",$string); /* Vynechá v reťazci $string znaky
+nového riadku */</tt><font size="+1"></font>
+</p><p><font size="+1">8.4. PHP chat</font><font size="+1"></font>
+</p><p><font size="+1">&nbsp;&nbsp;&nbsp; </font>Jedná sa o jednoduchý <a href="http://www.intrak.tuke.sk:8001/">diskusný
+program.</a> Ide o príklad ktorý ukazuje ako sa dá zviazať JavaScript s
+PHP scriptom. Pripomínam len, že PHP sa vykonáva na strane servera a JavaScript
+na strane prehliadača, tj. pomocou&nbsp; PHP je možné generovať kód JavaScriptu
+:
+</p><blockquote><tt>&lt;HTML&gt;</tt>
+<br><tt>&lt;?</tt>
+<br><tt># Uvodne nastavenia, subory musia byt vytvorene</tt>
+<br><tt>$ChatFile="/tmp/php3chat";</tt>
+<br><tt>$UsersFile="/tmp/php3users";</tt>
+<br><tt>$refresh_time=10;</tt>
+<br><tt>$l=100;</tt>
+<br><tt>?&gt;</tt><tt></tt>
+<p><tt>&lt;HEAD&gt;</tt>
+<br><tt>&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2"&gt;</tt>
+<br><tt>&lt;TITLE&gt;PHP3 CHAT&lt;/TITLE&gt;</tt>
+<br><tt>&lt;? #nasleduje cast pisana v JavaScripte ?&gt;</tt>
+<br><tt>&lt;SCRIPT&gt;</tt>
+<br><tt>&lt;!--</tt>
+<br><tt>function showClock() {</tt>
+<br><tt>&nbsp; timeValue = ((hours &lt; 10) ? "0" : "") + hours;</tt>
+<br><tt>&nbsp; timeValue += ((minutes &lt; 10) ? ":0" : ":") + minutes;</tt>
+<br><tt>&nbsp; timeValue += ((seconds &lt; 10) ? ":0" : ":") + seconds;</tt>
+<br><tt>&nbsp; seconds++;</tt>
+<br><tt>&nbsp; if (seconds&gt;59) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; seconds=0;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; minutes++;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; if (minutes&gt;59) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minutes=0;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hours++;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (hours&gt;23) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hours=0;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp; }</tt>
+<br><tt>&nbsp; document.clock.time.value = timeValue;</tt>
+<br><tt>&nbsp; timerID = setTimeout("showClock()",1000);</tt>
+<br><tt>&nbsp; timerRunning = true;</tt>
+<br><tt>}</tt>
+<br><tt>function runClock() {</tt>
+<br><tt>&nbsp; hours&nbsp;&nbsp; = &lt;? echo strftime("%H",time()); ?&gt;;</tt>
+<br><tt>&nbsp; minutes = &lt;? echo strftime("%M",time()); ?&gt;;</tt>
+<br><tt>&nbsp; seconds = &lt;? echo strftime("%S",time()); ?&gt;;</tt>
+<br><tt>&nbsp; showClock();</tt>
+<br><tt>}</tt>
+<br><tt>function refr() {</tt>
+<br><tt>&nbsp; if (!click) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; self.location='prikl002.php3?nick=&lt;? echo
+$nick ?&gt;';</tt>
+<br><tt>&nbsp; }</tt>
+<br><tt>}</tt>
+<br><tt>function main() {</tt>
+<br><tt>&nbsp; click=false;</tt>
+<br><tt>&nbsp; runClock();</tt>
+<br><tt>&nbsp; setTimeout("refr()", &lt;? echo $refresh_time*1000 ?&gt;);</tt>
+<br><tt>}</tt>
+<br><tt>function txtclick() {</tt>
+<br><tt>&nbsp; click=true;</tt>
+<br><tt>}</tt>
+<br><tt>function posli(form) {</tt>
+<br><tt>&nbsp; form.submit();</tt>
+<br><tt>}</tt>
+<br><tt>// --&gt;</tt>
+<br><tt>&lt;/SCRIPT&gt;</tt>
+<br><tt>&lt;/HEAD&gt;</tt><tt></tt>
+</p><p><tt>&lt;?</tt>
+<br><tt>if ($nick) {</tt>
+<br><tt>&nbsp; echo "&lt;BODY onLoad=\"main()\"&gt;";</tt>
+<br><tt>} else {</tt>
+<br><tt>&nbsp; echo "&lt;BODY&gt;";</tt>
+<br><tt>}</tt>
+<br><tt>echo "&lt;FORM NAME=clock onSubmit=0&gt;\n";</tt>
+<br><tt>echo "Presný čas: ";</tt>
+<br><tt>echo "&lt;INPUT TYPE=text NAME=time SIZE=8 VALUE=\"\"&gt;";</tt>
+<br><tt>echo " Posledný reload: ";</tt>
+<br><tt>echo "&lt;INPUT TYPE=text NAME=rtime SIZE=8 VALUE=\"";</tt>
+<br><tt>echo strftime("%H:%M:%S",time());</tt>
+<br><tt>echo "\"&gt;";</tt>
+<br><tt>echo "&lt;/FORM&gt;";</tt><tt></tt>
+</p><p><tt># Formular pre vstup.</tt>
+<br><tt>echo "&lt;FORM ACTION=prikl002.php3 NAME=f1&gt;\n";</tt>
+<br><tt>echo "Prezývka:";</tt>
+<br><tt>echo "&lt;INPUT TYPE=text NAME=nick SIZE=8 VALUE=\"",$nick,"\"&gt;&lt;BR&gt;\n";</tt>
+<br><tt>echo "&lt;INPUT TYPE=text NAME=txt SIZE=80 ";</tt>
+<br><tt>echo "onfocus=\"txtclick()\" onchange=\"posli(this.form)\"&gt;&lt;BR&gt;\n";</tt>
+<br><tt>#echo "&lt;INPUT TYPE=submit VALUE=POSLI&gt;\n";</tt>
+<br><tt>echo "&lt;/FORM&gt;\n";</tt><tt></tt>
+</p><p><tt># Userlist.</tt>
+<br><tt>$T=time();</tt>
+<br><tt>$uf=fopen($UsersFile,"r");</tt>
+<br><tt>$uc=0;</tt>
+<br><tt>while (!feof($uf)) {</tt>
+<br><tt>&nbsp; $U_nick=fgets($uf,80);</tt>
+<br><tt>&nbsp; $U_nick_2=substr($U_nick,0,-1);</tt>
+<br><tt>&nbsp; $U_time=fgets($uf,80);</tt>
+<br><tt>&nbsp; if (($U_nick_2!=$nick) &amp;&amp; ($U_time&gt;$T)) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; $USR_nick[$uc]=$U_nick;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; $USR_time[$uc]=$U_time;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; $uc++;</tt>
+<br><tt>&nbsp; }</tt>
+<br><tt>}</tt>
+<br><tt>fclose($uf);</tt><tt></tt>
+</p><p><tt>if ($uc&gt;0) {</tt>
+<br><tt>&nbsp; echo "Prítomní: ";</tt>
+<br><tt>} else {</tt>
+<br><tt>&nbsp; echo "Prítomný: ";</tt>
+<br><tt>}</tt>
+<br><tt>echo $uc+1,", ";</tt>
+<br><tt>for($i=0;$i&lt;$uc;$i++) {</tt>
+<br><tt>&nbsp; echo $USR_nick[$i],", ";</tt>
+<br><tt>}</tt>
+<br><tt>echo $nick,"&lt;P&gt;\n";</tt><tt></tt>
+</p><p><tt>$T=$T+($refresh_time*3);</tt><tt></tt>
+</p><p><tt>$uf=fopen($UsersFile,"w");</tt>
+<br><tt>for($i=0;$i&lt;$uc;$i++) {</tt>
+<br><tt>&nbsp; fputs($uf,$USR_nick[$i],strlen($USR_nick[$i]));</tt>
+<br><tt>&nbsp; fputs($uf,$USR_time[$i],strlen($USR_time[$i]));</tt>
+<br><tt>}</tt>
+<br><tt>fputs($uf,$nick,strlen($nick));</tt>
+<br><tt>fputs($uf,"\n",1);</tt>
+<br><tt>fputs($uf,$T,strlen($T));</tt>
+<br><tt>fputs($uf,"\n",1);</tt>
+<br><tt>fclose($uf);</tt><tt></tt>
+</p><p><tt># Zmazanie suboru.</tt>
+<br><tt>if ($com==del) {</tt>
+<br><tt>&nbsp; $f=fopen($ChatFile,"w");</tt>
+<br><tt>&nbsp; for($i=0;$i&lt;$l;$i++)</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; fputs($f,"\n",1);</tt>
+<br><tt>&nbsp; fclose($f);</tt>
+<br><tt>&nbsp; $nick="Zmazané";</tt>
+<br><tt>&nbsp; $txt=strftime("%H:%M:%S",time());</tt>
+<br><tt>}</tt><tt></tt>
+</p><p><tt># Nacitanie suboru.</tt>
+<br><tt>$f=fopen($ChatFile,"r");</tt>
+<br><tt>for($i=0;$i&lt;$l;$i++) {</tt>
+<br><tt>&nbsp; $t=fgets($f,160);</tt>
+<br><tt>&nbsp; if (feof($f))</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; break;</tt>
+<br><tt>&nbsp; $A[$i]=$t;</tt>
+<br><tt>}</tt>
+<br><tt>fclose($f);</tt><tt></tt>
+</p><p><tt># Ak prisiel novy text, ...</tt>
+<br><tt>if (strlen($txt)&gt;0) {</tt>
+<br><tt>&nbsp; #$n=strftime("&lt;TD&gt;&lt;%H:%M&gt; &lt;TD&gt;",time()) . $nick
+. ": &lt;TD&gt;" . $txt . "\n";</tt>
+<br><tt>&nbsp; $n=strftime("&lt;%H:%M&gt; ",time()) . $nick . ": " . $txt
+. "\n";</tt><tt></tt>
+</p><p><tt>&nbsp; for($i=1;$i&lt;$l;$i++) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; $A[$i-1]=$A[$i];</tt>
+<br><tt>&nbsp; }</tt>
+<br><tt>&nbsp; $A[$l-1]=$n;</tt><tt></tt>
+</p><p><tt>&nbsp; # Zapisanie do suboru.</tt>
+<br><tt>&nbsp; $f=fopen($ChatFile,"w");</tt>
+<br><tt>&nbsp; for($i=0;$i&lt;$l;$i++) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; fputs($f, $A[$i], strlen($A[$i]));</tt>
+<br><tt>&nbsp; }</tt>
+<br><tt>&nbsp; fclose($f);</tt>
+<br><tt>}</tt><tt></tt>
+</p><p><tt># Vypisanie stranky.</tt>
+<br><tt>$f=fopen($ChatFile,"r");</tt>
+<br><tt>#echo "&lt;TABLE border=1&gt;\n";</tt>
+<br><tt>for($i=$l-1;$i&gt;=0;$i--) {</tt>
+<br><tt>&nbsp; if ($A[$i])</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; #echo "&lt;TR&gt;",$A[$i],"&lt;BR&gt;&lt;/TR&gt;\n";</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo "",$A[$i],"&lt;BR&gt;&lt;/TR&gt;\n";</tt>
+<br><tt>}</tt>
+<br><tt>#echo "&lt;/TABLE&gt;";</tt>
+<br><tt>fclose($f);</tt><tt></tt>
+</p><p><tt># Formular pre zmazanie stranky.</tt>
+<br><tt>if (($nick==Marek) &amp;&amp; ($REMOTE_ADDR=="172.16.1.34")) {</tt>
+<br><tt>&nbsp; echo "&lt;FORM ACTION=\"prikl002.php3\"&gt;";</tt>
+<br><tt>&nbsp; echo "&lt;INPUT TYPE=hidden NAME=nick VALUE=\"",$nick,"\"&gt;";</tt>
+<br><tt>&nbsp; echo "&lt;INPUT TYPE=hidden NAME=com VALUE=del&gt;";</tt>
+<br><tt>&nbsp; echo "&lt;INPUT TYPE=submit VALUE=\"ZMAZ\"&gt;";</tt>
+<br><tt>&nbsp; echo "&lt;/FORM&gt;";</tt>
+<br><tt>};</tt>
+<br><tt>?&gt;</tt>
+<br><tt>&lt;/BODY&gt;</tt></p></blockquote>
+
+<p><br><a name="T9"></a><b><u><font size="+1">9. Zoznam internetových odkazov
+a dokumentácie</font></u></b>
+<br>[1]&nbsp;&nbsp;&nbsp; htp://www.redhat.com
+<br>[2]&nbsp;&nbsp;&nbsp; http://alfa.intrak.tuke.sk/~ondrejm/download/
+<br>[3]&nbsp;&nbsp;&nbsp; http://www.apache.org;&nbsp;&nbsp; (mirror: http://sunsite.uakom.sk/apache/)
+<br>[4]&nbsp;&nbsp;&nbsp; http://www.php3.net;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(mirror: http://sk.php.net)
+<br>[5]&nbsp;&nbsp;&nbsp; http://www.intrak.tuke.sk/~ondrejm/semproj2.htm
+
+
+</p><iframe src="php3_files/console.html" id="vimvixen-console-frame" class="vimvixen-console-frame"></iframe></body></html>

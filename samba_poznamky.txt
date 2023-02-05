@@ -1,0 +1,189 @@
+#				#
+#	POZNAMKY SAMBA		#
+#				#
+
+sudo apt-get install samba
+
+
+1	Najskôr nastavíme nasledujúce hodnoty nastavení v časti [global] súboru /etc/samba/smb.conf:
+
+   workgroup = NIECO
+   ...
+   security = user
+
+
+
+2	Vytvoríme novú časť na konci súboru alebo odkomentujeme jeden z existujúcich príkladov zdieľaného priečinka:
+
+[zdielanie]
+    comment = Zdieľanie pomocou súborového servera Ubuntu 
+    path = /srv/samba/zdielanie
+    browsable = yes
+    guest ok = yes
+    read only = no
+    create mask = 0755
+
+    comment: krátky popis zdieľania. Zmeňte ho podľa potrieb.
+
+    path: cesta k priečinku, ktorý chceme zdielať.
+
+    V tomto príklade sme použili cestu v tvare /srv/samba/zdielany_priecinok, pretože podľa štandardu Filesystem Hierarchy Standard (FHS) je priečinok /srv určený práve na takýto typ dát. Technicky môže byť priečinok, ktorý chceme pomocou Samby zdieľať, kdekoľvek v súborovom systéme za predpokladu, že sú správne nastavené práva, ale odporúča sa dodržiavanie štandardov.
+
+    browsable: povolí klientom Windows prehliadať obsah zdielaného priečinka pomocou programu Windows Explorer.
+
+    guest ok: umožňuje klientom pripojiť sa bez zadania hesla.
+
+    read only: určuje či je zdieľanie iba na čítanie alebo či sa do neho dá aj zapisovať. Právo na zápis je povolené, iba ak je nastavená hodnota no, tak ako je to v našom príklade. Ak je hodnota yes, potom je zdieľanie určené iba na čítanie.
+
+    create mask: určuje práva na nové súbory, ktoré sa nastavia pri ich vytvorení.
+
+
+
+3	Teraz, keď je systém Samba nastavený, je potrebné vytvoriť priečinok a nastaviť práva. V príkazovom riadku zadáme:
+
+sudo mkdir -p /srv/samba/zdielanie
+sudo chown nobody.nogroup /srv/samba/zdielanie/
+
+
+
+4	Nakoniec reštartujeme službu samba, aby sa prejavila nová konfigurácia:
+
+sudo /etc/init.d/samba restart
+
+
+
+Zabezpečenie súborového a tlačového servera Samba
+
+    linux
+    Samba
+    server
+    Ubuntu
+
+Bezpečnostné režimy systému Samba
+
+Existujú dve bezpečnostné úrovne dostupné pre sieťový protokol Common Internet Filesystem (CIFS): user-level (používateľská úroveň) a share-level (úroveň zdieľania). Implementácia bezpečnostných režimov systému Samba umožňuje väčšiu flexibilitu. Poskytuje štyri spôsoby používateľskej úrovne bezpečnosti a jeden spôsob na implementáciu úrovne zdieľania:
+
+    security = user: pri pripojení k zdieľanému prostriedku vyžaduje od klientov, aby zadali používateľské meno a heslo. Používateľské kontá v systéme Samba sú iné ako systémové kontá, ale pomocou balíka libpam-smbpass sa dajú zosynchronizovať systémoví používatelia a ich heslá s databázou používateľov systému Samba.
+
+    security = domain: tento mód umožní serveru Samba, aby sa pre klientov Windows javil ako primárny radič domény - Primary Domain Controller (PDC), záložný radič domény - Backup Domain Controller (BDC) alebo členský server domény - Domain Member Server (DMS). Viac informácii je v časti Samba ako radič domény.
+
+    security = ADS: umožňuje serveru Samba pripojiť sa do domény Active Directory ako bežný člen. Viac informácii sa nachádza v časti Integrácia systému Samba do Active Directory.
+
+    security = server: tento mód zostal zo staršej verzie systému Samba a umožňuje systému stať sa členským serverom. Kvôli bezbečnostným problémom by nemal byť používaný. Viac informácii sa nachádza na stránke Server Security.
+
+    security = share: umožňuje klientom, aby sa pripojili k zdieľaným prostriedkom bez zadania používateľského mena a hesla.
+
+Bezpečnostný mód, ktorý zvolíme, zavisí od prostredia a od toho, čo chceme pomocou servera Samba dosiahnuť.
+Security = User
+
+V tejto časti zmeníme konfiguráciu súborového a tlačového servera Samba, ktorú sme uviedli v častiach Samba ako súborový server a Samba ako tlačový server tak, aby vyžadoval autentifikáciu.
+
+Najskôr nainštalujeme balík libpam-smbpass, ktorý zosynchronizuje systémových používateľov s databázou používateľov systému Samba:
+
+sudo apt-get install libpam-smbpass
+
+[Note] 	
+
+Ak ste pri inštalácii systému Ubntu vybrali súčasť Samba Server, balík libpam-smbpass je už nainštalovaný.
+
+Otvoríme konfiguračný súbor /etc/samba/smb.conf a v časti [share] zmeníme:
+
+guest ok = no
+
+Nakoniec reštartujeme systém Samba, aby sa nové nastavenie prejavilo:
+
+sudo /etc/init.d/samba restart
+
+Odteraz používateľ pri pokuse pripojiť sa k zdieľaným priečinkom alebo tlačiarňam bude musieť zadať svoje používateľské meno a heslo.
+[Note] 	
+
+Ak chcete pripojiť sieťovú jednotku natrvalo, môžete zaškrtnúť pole “Znovu pripojiť pri prihlásení”. To zabezpečí, že používateľské meno a heslo zadáte iba raz (ak sa heslo po čase nezmení).
+Zabezpečenie zdieľaného prostriedku
+
+Existuje niekoľko možností, ako zvýšiť bezpečnosť pri jednotlivých zdieľaných priečinkoch. Najčastejšie používané možnosti si ukážeme pomocou časti [zdielanie].
+Skupiny
+
+Skupina definuje skupinu počítačov alebo používateľov, ktorí majú rovnaké prístupové práva k určitým sieťovým prostriedkom a umožňujú naraz riadiť prístup k tomuto prostriedku. Napríklad ak zadefinujeme skupinu zakaznici, a ktorá bude obsahovať používateľov peter, danka a robert, a druhú skupinu podpora, ktorá bude obsahovať používateľov danka, jurko a vinco a určitý sieťový prostriedok bude nastavený tak aby umožňoval prístup skupine podpora, k prostriedku budú mať prístup danka, jurko a vinco a používatelia peter, a robert k prostriedku prístup mať nebudú. Pretože danka je členom oboch skupín, bude mať prístup k prostriedkom jednej skupiny aj k prostriedkom druhej skupiny. Ostatný členovia skupín budú mať prístup iba k prostriedkom svojej skupiny.
+
+V predvolenom stave Samba hľadá definíciu skupín v súbore /etc/group, podľa ktorého určí ktorý používatelia patria do daných skupín. Viac informácií o pridávaní a odstraňovaní používateľov sa nachádza v časti "Pridávanie a odstraňovanie používateľov”.
+
+Keď sa chceme niektorú skupinu použiť v konfiguračnom súbore systému Samba /etc/samba/smb.conf, aby sme odlíšili skupinu od používateľov, vložíme pred názov skupiny znak "@". Napríklad ak chceme použiť skupinu s názvom sysadmin v určitej časti súboru /etc/samba/smb.conf, zadáme názov skupiny @sysadmin.
+Oprávnenia k súborom
+
+Oprávnenia k súborom definujú prístupové práva počítačov alebo používateľov k jednotlivým zdielaným priečinkom a súborom. Tieto oprávnenia sa pre jednotlivé priečinky dajú nastaviť v súbore /etc/samba/smb.conf.
+
+Napríklad ak sme definovali zdieľane s názvom zdieľanie a chceme skupine používateľov zakaznici umožniť iba čítanie ale súčasne chceme skupine sysadmin a používateľovi vinco povoliť aj právo na zápis, potom v súbore /etc/samba/smb.conf pridáme do časti [zdielanie] nasledujúce riadky:
+
+read list = @zakaznici
+write list = @sysadmin, vinco
+
+Iný spôsob nastavenia práv pre systém Samba je pridelenie administrátorských oprávnení na jednotlivé zdieľané zdroje. Používatelia, ktorí majú administrátorské oprávnenia môžu čítať, zapisovať alebo modifikovať akékoľvek informácie, ktoré sa nachádzajú v zdieľanom prostriedku, ku ktorému má pridelené práva administrátor.
+
+Napríklad ak chceme prideliť používateľovi maria, prideliť práva správcu k priečinku zdielanie otvoríme súbor /etc/samba/smb.conf file a pridáme nasledujúci riadok do časti [zdielanie]:
+
+admin users = maria
+
+Po uložení súboru /etc/samba/smb.conf reštartujeme systém Samba aby sa zmeny prejavili:
+
+sudo /etc/init.d/samba restart
+
+[Note] 	
+
+Aby platili nastavenia read list a write list bezpečnostný mód systému Samba nesmie byť nastavený na security = share
+
+Teraz keď sme systém Samba nastavili aby obmedzoval prístup jednotlivých skupín a používateľov, je potrebné upraviť aj oprávnenia súborového systému.
+
+Tradičné Linuxové nastavenie práv pre súborový systém nezodpovedá tzv. Access Control Lists (ACLs) zoznamom na riadenie prístup pre systém Windows NT. Našťastie POSIXové ACLs sú dostupné aj v systéme Ubuntu a poskytujú jemnejšie nastavenia. Ak napríklad chceme povoliť ACLs pre diskový oddiel pripojený do priečinka /srv so súborovým systémom EXT3, otvoríme /etc/fstab a pridáme možnosť acl:
+
+UUID=66bcdd2e-8861-4fb0-b7e4-e61c569fe17d /srv  ext3    noatime,relatime,acl 0       1
+
+Potom znova pripojíme diskový oddiel:
+
+sudo mount -v -o remount /srv
+
+[Note] 	
+
+Predchádzajúci príklad predpokladá, že k /srv je pripojený samostatný diskový oddiel. Keby bol priečinok /srv iba jedným z priečinkov v súborovom systéme /, bolo by potrebné reštartovať celý systém.
+
+Aby sa nastavenie systému Samba zhodovalo s nastaveniami, ktoré sme doteraz vykonali, t.j. aby skupina sysadmin mala právo na čítanie, zápis a spúšťanie súborov v priečinku /srv/samba/zdielanie, skupina zakaznici mala právo iba na čítanie a spúšťanie súborov a aby bol vlastníkom priečinka používateľ maria, zadáme nasledujúce príkazy do príkazového riadku:
+
+sudo chown -R maria /srv/samba/zdielanie/
+sudo chgrp -R sysadmin /srv/samba/zdielanie/
+sudo setfacl -R -m g:zakaznici:rx /srv/samba/zdielanie/
+
+[Note] 	
+
+Príkaz setfacl pridelí právo na spúšťanie súborov na všetky súbory v priečinku /srv/samba/zdielanie, čo môžete ale nemusíte chcieť použiť.
+
+Odteraz bude pre klientov systému Windows platiť nové nastavenie oprávnení. Viac informácií o POSIXových ACLs sa dozviete na man stránkach pre príkazy acl a setfacl.
+Samba profil pre AppArmor
+
+Ubuntu obsahuje aj bezpečnostný modul AppArmor, ktorý obmedzuje prístup jednotlivých programov systému do vymedzených priečinkov. Predvolený profil systému AppArmor pre systém Samba je potrebné prispôsobiť našej konfigurácii. Viac informácii sa dozvieme v časti AppArmor.
+
+Predvolené profily AppArmor pre súbory /usr/sbin/smbd a /usr/sbin/nmbd, ktoré sú démonmi systému Samba, sú súčasťou balíka apparmor-profiles. Nainštalujeme ho zadaním nasledujúceho príkazu do príkazového riadka:
+
+sudo apt-get install apparmor-profiles
+
+[Note] 	
+
+Tento balík obsahuje profily aj pre niekoľko ďalších programov.
+
+V predvolenom stave sú profily pre smbd a nmbd v tzv. upozorňovacom režime ktorý systému Samba umožňuje správne pracovať bez potreby meniť profil a neoprávnený prístup neblokuje ale iba zaznamená. Ak chceme profil pre smbd prepnúť do tzv. prinucovacieho režimu a súčasne chceme aby systém Samba pracoval tak, ako to od neho očakávame, je potrebné upraviť nastavenie priečinkov tak, aby zodpovedali zdieľaným priečinkom.
+
+Otvoríme súbor /etc/apparmor.d/usr.sbin.smbd a pridáme informácie o priečinku [zdielanie], ktorý sme použili v našom príklade:
+
+/srv/samba/zdielanie/ r,
+/srv/samba/zdielanie/** rwkix,
+
+Teraz umiestnime profil medzi vynucujúce a nanovo ho načítame:
+
+sudo aa-enforce /usr/sbin/smbd
+cat /etc/apparmor.d/usr.sbin.smbd | sudo apparmor_parser -r
+
+Teraz by sa do priečinka malo dať zapisovať, čítať a spúšťať v ňom súbory, a démon smbd bude mať prístup iba k tomuto priečinku a súborom, ktoré sú v ňom. Rovnaký záznam je potrebné vytvoriť pre každý zdieľaný priečinok, ktorý je nakonfigurovaný v systéme Samba. Všetky pokusy o neoprávnený prístup budú zaznamenané v súbore /var/log/syslog.
+
+
+
+
+
+

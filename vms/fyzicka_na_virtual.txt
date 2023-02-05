@@ -1,0 +1,62 @@
+Many businesses are opting to virtualize their existing machines. This solves a number of issues, which includes allowing you to: migrate many servers to one, have more control over backups, and more easily restore a machine after a major issue.
+
+It's easy to create new virtual machines and download and run a virtual appliance, but what about converting a currently running Linux machine to a virtual machine that can be used with either VMware or VirtualBox? Believe it or not, with just two commands you can have a file ready to be imported into your virtual machine tool of choice. I'll walk you through the process, but first, some preparation is required. Here's what you'll need:
+
+    An external drive as big or bigger than the drive to be virtualized
+    The dd tool
+    The qemu emulator software package
+    A lot of patience
+
+Let's make sure we have the external drive prepared. More than likely, the image to be copied to the external drive will be quite large. Because of that, the drive must be formatted in such a way that it can accept larger files (this means NTFS, ext3, or such). If your drive was formatted in the older FAT32 format, it will cause the dd command to fail after 4 GB of data have been transferred. For formatting the external drive from within Linux, I highly recommend using the Gparted tool to ensure you are formatting the right drive and formatting the right drive with the right filesystem type.
+Prepping the machine
+
+Once the external drive is prepared, it's time to prepare the physical machine for conversion. The more space used on the physical drive, the longer the conversion process will take. I ran a test on a drive that had over 100 GB of data, and the creation of the .img file took nearly three days. Because of this, you should delete or move all unnecessary files (such as images, movies, music, etc.) from the physical drive. Then, you should make sure you have all the updates you want, and the machine is in just the state you need. After that is complete, it's time to start the conversion process.
+Creating the image file
+
+The Business Value of Red Hat Integration Products
+
+This assessment shows that enterprises adopt Red Hat Fuse because they believe in a community-based open source approach to integration for modernizing their integration infrastructure that delivers strong ROI. For these organizations, Fuse was part of a larger digital transformation initiative and was also used to modernize integration.
+White Papers provided by Red Hat
+
+What we are going to do is use the dd command to create a bit by bit copy of the existing hard drive. Plug in your external drive and make note of the mount point (check /media where you should find that drive). Let's say your external drive is mounted at /media/EXTERNAL_DRIVE. Now, you have to know the name of the drive you want to copy. To find that out, issue the command mount, and you should see something similar to this:
+
+jlwallen@jlwallen-VGN-NS325J:~$ mount
+
+/dev/sda6 on / type ext4 (rw,errors=remount-ro,user_xattr)
+
+proc on /proc type proc (rw,noexec,nosuid,nodev)
+
+sysfs on /sys type sysfs (rw,noexec,nosuid,nodev)
+
+none on /sys/fs/fuse/connections type fusectl (rw)
+
+none on /sys/kernel/debug type debugfs (rw)
+
+none on /sys/kernel/security type securityfs (rw)
+
+udev on /dev type devtmpfs (rw,mode=0755)
+
+devpts on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=0620)
+
+tmpfs on /run type tmpfs (rw,noexec,nosuid,size=10%,mode=0755)
+
+none on /run/lock type tmpfs (rw,noexec,nosuid,nodev,size=5242880)
+
+none on /run/shm type tmpfs (rw,nosuid,nodev)
+
+gvfs-fuse-daemon on /home/jlwallen/.gvfs type fuse.gvfs-fuse-daemon (rw,nosuid,nodev,user=jlwallen)
+
+The important line is the first ¨C indicating the physical drive is located at /dev/sda. That is what we will use for the creation of the image file. The command to create this is:
+
+dd if=/dev/sda of=/media/EXTERNAL_DRIVE/sda.img bs=1024
+
+After you fire up this command, you need to walk away from the computer for two reasons: (1) The command will take quite a while to complete, and (2) You do not want to interact with that computer while dd runs, because you could wind up with an I/O Error. When that command finishes, take a look at the file on your external drive — it should be a rather sizable file named sda.img.
+Converting to a virtual machine image
+
+Before you start this process, you must make sure qemu is installed. Open your Add/Remove Software tool, do a search for "qemu" (no quotes), and install the package from there. When that installs, it will also install the necessary command to be used in this process.
+
+You can run this command that will convert the img file to a Qemu-ready image: qemu-img convert -f raw sda.img -O qcow sda-qcow.img. You can also run this command that will convert the img file to a VWware vmdk file: qemu-img convert -f raw sda.img -O vmdk sda.vmdk.
+
+Both commands will also take a while, though not nearly as long as the command to create the img file. When the command is complete, you will have either an .img or a .vmdk file ready to be used in either Qemu or VMware. You can migrate the file over to your virtualization server and fire it up.
+
+This is a great way to migrate running machines to a more modern, flexible system. Although virtualization isn't for everyone, if it is something you want to look into, this method is a great way to kick the tires.

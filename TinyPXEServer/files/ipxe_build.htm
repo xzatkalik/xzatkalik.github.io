@@ -1,0 +1,477 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm" selected="selected">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+<h2 align="center"><u>iPXE - How to Build</u></h2>
+
+
+<p>
+iPXE images can be built using the <a class="glossary" target="_blank" href="https://rom-o-matic.eu/">rom-o-matic</a> site. <a class="glossary" target="_blank" href="https://rom-o-matic.eu/">rom-o-matic</a> may not support all possible options and can be slow - downloading the source code from a git repository and building locally is an alternative option. 
+</p>
+
+
+
+<p>
+A Linux Live distro can be used to clone the git repository and build iPXE. The ipxe website lists some of the dependencies required (<a class="glossary" target="_blank" href="http://ipxe.org/download">here</a>) -
+<div id="quote">
+<i>
+"...You will need to have at least the following packages installed in order to build iPXE:
+<ul>
+<li>gcc (version 3 or later)</li>
+<li>binutils (version 2.18 or later)</li>
+<li>make</li>
+<li>perl</li>
+<li>syslinux (for isolinux, only needed for building .iso images)</li>
+<li>liblzma or xz header files..."</li>
+</ul>
+</i>
+</div>
+</p>
+
+
+<p>
+Page contents -
+<ul>
+<li><a class="glossary" href="ipxe_build.htm#ubuntu">ubuntu 16.04 Dependencies</a></li>
+<li><a class="glossary" href="ipxe_build.htm#lubuntu">lubuntu 16.04 Dependencies</a></li>
+<li><a class="glossary" href="ipxe_build.htm#config">Configuration File Basics</a></li>
+<li><a class="glossary" href="ipxe_build.htm#enable">Enabling a Feature</a></li>
+<li><a class="glossary" href="ipxe_build.htm#build">Build</a></li>
+</ul>
+</p>
+
+
+
+
+
+<a name="ubuntu"></a>
+<h3 class="breaktop"><u>ubuntu 16.04 Dependencies</u></h3>
+
+
+
+<p>
+ubuntu 16.04 requires the following dependencies in order to build ipxe successfully -
+<ul>
+<li>liblzma-dev</li>
+<li>binutils-dev</li>
+<li>lib32z1-dev</li>
+<li>libiberty-dev</li>
+<li>git</li>
+</ul>
+</p>
+
+
+<p class="break3em">
+Using an ubuntu 16.04 live system as a build environment (booted via PXE as per the instructions in the <a class="glossary" href="ubuntu.htm">Ubuntu</a> section of this guide), the dependencies listed above can be installed by starting a terminal (right-click on the Ubuntu desktop and select "<b>Open Terminal</b>") and running the following commands -
+<ul>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install liblzma-dev</li>
+<li>sudo apt-get install binutils-dev</li>
+<li>sudo apt-get install lib32z1-dev</li>
+<li>sudo apt-get install libiberty-dev</li>
+<li>sudo apt-get install git</li>
+</ul>
+</p>
+
+
+
+
+<p class="break3em">
+And to clone the iPXE git repository and prepare iPXE for local builds -
+<ul>
+<li>git clone git://git.ipxe.org/ipxe.git</li>
+<li>cd ipxe</li>
+<li>cd src</li>
+<li>make</li>
+</ul>
+</p>
+
+
+<p class="break3em">
+Bash script to automate the above commands - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="13" align="left" readonly>
+#!/bin/bash
+sudo apt-get update
+sudo apt-get install liblzma-dev
+sudo apt-get install binutils-dev
+sudo apt-get install lib32z1-dev
+sudo apt-get install libiberty-dev
+sudo apt-get install git
+git clone git://git.ipxe.org/ipxe.git
+cd ipxe
+cd src
+make
+</textarea>
+</p>
+
+
+
+<p class="break3em">
+An ubuntu <i>Live</i> USB with persistent storage can be used as an alternative to PXE booting ubuntu from a NFS share - allowing ipxe to be built on rebooting the device without having to re-run the above commands.
+</p>
+
+
+
+
+
+
+
+
+<a name="lubuntu"></a>
+<h3 class="breaktop"><u>lubuntu 16.04 Dependencies</u></h3>
+
+<p>
+lubuntu is a lightweight variant of ubuntu. In addition to the dependencies listed in the <a class="glossary" href="ipxe_build.htm#ubuntu">ubuntu 16.04 Dependencies</a> section, the following dependencies are also required -
+<ul>
+<li>gcc</li>
+<li>make</li>
+</ul>
+</p>
+
+<p class="break3em">
+Bash script to automate the installation of all dependencies and cloning the ipxe git tree - 
+<br />
+<textarea style="font-size:12px" cols="80" rows="15" align="left" readonly>
+#!/bin/bash
+sudo apt-get update
+sudo apt-get install liblzma-dev
+sudo apt-get install binutils-dev
+sudo apt-get install lib32z1-dev
+sudo apt-get install libiberty-dev
+sudo apt-get install gcc
+sudo apt-get install make
+sudo apt-get install git
+git clone git://git.ipxe.org/ipxe.git
+cd ipxe
+cd src
+make
+</textarea>
+</p>
+
+
+
+
+
+
+
+<a name="config"></a>
+<h3 class="breaktop"><u>Configuration File Basics</u></h3>
+
+
+
+
+<p>
+After running the commands in the preceding section, iPXE configuration files can be located in the following path - 
+<ul>
+<li><b>Home/ipxe/src/config/</b></li>
+</ul>
+</p>
+
+
+<p>
+Configuration files with <b>*.h</b> filenames (e.g. <b>Home/ipxe/src/config/general.h</b>) can be edited with a text editor to enable/disable features. The majority of options are contained in <b>Home/ipxe/src/config/general.h</b> (see <a class="glossary" href="txt/general.h.txt">here</a> for a copy (cloned from the ipxe git repository on 16/2/2017)).
+</p>
+
+
+
+<p>
+Any lines in a configuration file starting with a <b>#</b> (hash) will be processed - e.g. 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+#define	...
+</textarea>
+</p>
+
+
+<p class="break3em">
+Any lines in a configuration file starting with <b>//</b> (2 x Forwardslash) will <u>NOT</u> be processed - e.g. 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+//#define ...
+</textarea>
+</p>
+
+
+<p class="break3em">
+Any lines in a configuration file starting with <b>#define</b> will <u>enable</u> a feature - e.g. 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+#define	DOWNLOAD_PROTO_HTTP	/* Hypertext Transfer Protocol */
+</textarea>
+<br />
+Enable <font class="file">DOWNLOAD_PROTO_HTTP</font>
+</p>
+
+
+
+<p class="break3em">
+Any lines in a configuration file starting with <b>#undef</b> will <u>disable</u> a default feature - e.g. 
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+#undef	DOWNLOAD_PROTO_HTTPS	/* Secure Hypertext Transfer Protocol */
+</textarea>
+<br />
+Disable <font class="file">DOWNLOAD_PROTO_HTTPS</font>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="enable"></a>
+<h3 class="breaktop"><u>Enabling a Feature</u></h3>
+
+
+<p>
+The example below walks through the steps required to enable <font class="file">CONSOLE FRAMEBUFFER</font> support - if <font class="file">CONSOLE FRAMEBUFFER</font> support is enabled, PNG images can be used as menu backgrounds and higher resolutions are supported. There are a range of other <font class="file">CONSOLE</font> options that may be of interest - see <a class="glossary" target="_blank" href="http://ipxe.org/console">here</a>.
+</p>
+
+
+<p class="break3em">
+Edit <b>Home/ipxe/src/config/console.h</b> and change the following line...
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+//#define	CONSOLE_FRAMEBUFFER	/* Graphical framebuffer console */
+</textarea>
+<br />
+...to
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+#define		CONSOLE_FRAMEBUFFER	/* Graphical framebuffer console */
+</textarea>
+</p>
+
+
+
+<p class="break3em">
+Edit <b>Home/ipxe/src/config/general.h</b> and change the following line...
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+//#define CONSOLE_CMD		/* Console command */
+</textarea>
+</br>
+...to
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+#define CONSOLE_CMD		/* Console command */
+</textarea>
+</p>
+
+
+<p class="break3em">
+Also ensure that <font class="file">IMAGE_PNG</font> is enabled (in <b>Home/ipxe/src/config/general.h</b>) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+#define	IMAGE_PNG		/* PNG image support */
+</textarea>
+</p>
+
+
+
+
+
+<a name="build"></a>
+<h3 class="breaktop"><u>Build</u></h3>
+
+
+
+<p>
+Make any required changes to the configuration files (see above) and then start a terminal in the <b>Home/ipxe/src/</b> directory.
+</p>
+
+
+
+<p>
+Now run the required command to build an iPXE binary/executable/rom. To build an iPXE binary for use on <font class="file">Client</font> systems with 64-bit UEFI firmware for example, run the following command -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+make bin-x86_64-efi/snponly.efi
+</textarea>
+<br />
+The resulting binary will contain all native drivers for supported Network Cards.
+</p>
+
+
+
+<p class="break3em">
+And some example commands...
+<ul>
+<li>make bin/ipxe.kpxe</li>
+<li>make bin/ipxe.lkrn</li>
+<li>make bin/ipxe.pxe</li>
+<li>make bin/ipxe.usb</li>
+<li>make bin/undionly.kpxe</li>
+</ul>
+...the resulting files (which can be found in <font class="file">Home</font> &gt; <font class="file">ipxe</font> &gt; <font class="file">src</font> &gt; <font class="file">bin</font> path) will now include support for any additional commands/protocols/features enabled in the configuration files. 
+</p>
+
+
+<p class="break3em">
+And some more examples.... 
+<ul>
+<li>make bin-x86_64-efi/ipxe.efi</li>
+<li>make bin-x86_64-efi/snponly.efi</li>
+</ul>
+...the resulting files can be located in the <font class="file">Home</font> &gt; <font class="file">ipxe</font> &gt; <font class="file">src</font> &gt; <font class="file">bin-x86_64-efi</font> path. 
+</p>
+
+
+
+<p class="break3em">
+An iPXE binary containing just the driver for a specific Network Card can be created - the resulting binary will be significantly smaller in size. This is covered below and also in the <font class="file">Burning iPXE into ROM</font> page on the iPXE site (<a class="glossary" target="_blank" href="http://ipxe.org/howto/romburning">here</a>).
+</p>
+
+
+
+<p>
+You will need to identify the <font class="file">Vendor</font> and <font class="file">Device</font> IDs for your <font class="file">Network Card</font>. On Windows, open <font class="file">Device Manager</font> &gt; expand <font class="file">Network adapters</font> &gt; identify the adapter from the list &gt; right-click and select <font class="file">Properties</font>.
+</p>
+
+
+<p>
+The screenshot below shows the <font class="file">Properties</font> for an <font class="file">Intel(R) 82579LM Gigabit Network Connection</font>. To locate the <font class="file">Vendor</font> and <font class="file">Device</font> IDs &gt; Select the <font class="file">Details</font> tab &gt; select <font class="file">Hardware Ids</font> from the <font class="file">Property</font> list &gt; identify the IDs from the <font class="file">Value</font> field -
+<br />
+<img src="img/ven_and_dev.jpg" border=1>
+</p>
+
+
+<p>
+Based on the information displayed in the screenshot above, the <font class="file">Vendor</font> ID is <b>8086</b> and the <font class="file">Device</font> ID is <b>1502</b>.
+</p> 
+
+
+
+
+<p>
+To build an iPXE binary for this Network Card, run one of the following commands in a terminal (depending on your Firmware type) -
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+make bin/80861502.pxe
+</textarea>
+<br />
+Or
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+make bin-i386-efi/80861502.efi
+
+
+
+
+
+</textarea>
+<br />
+Or
+<br />
+<textarea style="font-size:12px" cols="80" rows="3" align="left" readonly>
+make bin-x86_64-efi/80861502.efi
+
+
+
+
+
+</textarea>
+</p>
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>

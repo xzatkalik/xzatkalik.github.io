@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><link type="text/css" rel="stylesheet" href="style1.css" media="screen" /><title>Tiny PXE Server</title></head><body><font> 
+ 
+ 
+ 
+<p> 
+<select ONCHANGE="location = this.options[this.selectedIndex].value;"> 
+<option value="" disabled></option> 
+<option value="../index.html">Contents</option> 
+<option value="" disabled>=======</option> 
+<option value="pxesrv_about.htm">Introduction</option> 
+<option value="pxesrv_settings.htm">Settings</option> 
+<option value="pxesrv_gui.htm">GUI Settings</option> 
+<option value="pxesrv_config.htm">Config.ini settings</option> 
+<option value="pxesrv_service.htm">Run as Service</option> 
+<option value="firewall.htm">Firewall Settings</option> 
+<option value="test_system.htm">Test System(s)</option> 
+<option value="misc.htm">Miscellaneous</option> 
+<option value="troubleshooting.htm">Troubleshooting</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot Loaders</option> 
+<option value="" disabled>==========</option> 
+<option value="pxelinux.htm">PXELINUX</option> 
+<option value="grub4dos.htm">Grub4Dos</option> 
+<option value="ipxe.htm">iPXE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Boot</option> 
+<option value="" disabled>====</option> 
+<option value="fdd.htm">Floppy Disk Image</option> 
+<option value="iso.htm">ISO Image</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Linux</option> 
+<option value="" disabled>=====</option> 
+<option value="centos_netinstall.htm">CentOS - Network...</option> 
+<option value="debian_netinstall.htm">Debian - Network...</option> 
+<option value="fatdog.htm">FatDog</option> 
+<option value="gparted.htm">GPartEd</option> 
+<option value="ubuntu.htm">ubuntu/Lubuntu</option> 
+<option value="ubuntu_netinstall.htm">ubuntu - Network...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>WinPE</option> 
+<option value="" disabled>=====</option> 
+<option value="winpe.htm">WinPE</option> 
+<option value="winpe_wimboot.htm">WinPE (wimboot)</option> 
+<option value="winpe_bcd.htm">Multiple WinPE</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Net Install Windows</option> 
+<option value="" disabled>===============</option> 
+<option value="ris.htm">RIS</option> 
+<option value="ris_issues.htm">Troubleshooting RIS</option> 
+<option value="win6x.htm">Install Windows NT 6.*</option> 
+<option value="win5x.htm">Install Windows NT 5.*</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (AoE)</option> 
+<option value="" disabled>================</option> 
+<option value="aoe_target.htm">AoE (Windows T...</option> 
+<option value="aoe_install_winnt5.htm">AoE (Install Driver...</option> 
+<option value="aoe_install_winnt6.htm">AoE (Install Driver...</option> 
+<option value="aoe.htm">AoE (Clone...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>SANBOOT (iSCSI)</option> 
+<option value="" disabled>================</option> 
+<option value="iscsi_targets.htm">iSCSI (Windows T...</option> 
+<option value="iscsi_kernsafe.htm">iSCSI (Kernsafe...</option> 
+<option value="iscsi_ms.htm">iSCSI (Microsoft...</option> 
+<option value="iscsi_pytarget.htm">iSCSI (pyTarget)</option> 
+<option value="iscsi.htm">iSCSI (Clone...</option> 
+<option value="iscsi_install.htm">iSCSI (Install...</option> 
+<option value="iscsi_centos.htm">iSCSI ...CentOS</option> 
+<option value="iscsi_ubuntu.htm">iSCSI ...ubuntu</option> 
+<option value="iscsi_ubuntu_netinstall.htm">iSCSI ...ubuntu (2)</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Miscellaneous</option> 
+<option value="" disabled>===========</option> 
+<option value="clone.htm">Capture Windows...</option> 
+<option value="clone_strarc.htm">Copy Windows...</option> 
+<option value="service.htm" selected="selected">Network Adapter C...</option> 
+<option value="wfplwf.htm">Unbinding The Light...</option> 
+<option value="forensics.htm">Digital Forensic Acq...</option> 
+<option value="ipxe_build.htm">iPXE - How to...</option> 
+<option value="" disabled></option> 
+<option value="" disabled>Appendices</option> 
+<option value="" disabled>=========</option> 
+<option value="pxesrv_zip.htm">Contents of pxesrv.zip</option> 
+<option value="pxesrv_faq.htm">Erwan's FAQ</option> 
+<option value="ack.htm">Acknowledgements...</option> 
+<option value="" disabled></option> 
+</select> 
+</p> 
+ 
+ 
+ 
+<hr> 
+<img src="img/logo6.jpg" BORDER=1></a> 
+ 
+
+
+
+<h2 align="center"><u>Network Adapter Configuration</u></h2>
+
+
+<font class="file"></font> 
+
+
+<p>
+<b><u><font color="red">NOTE</font></u></b> - <B><u>THIS PAGE FORMS PART OF THE INSTRUCTIONS FOR SETTING UP WINDOWS TO BOOT FROM A STORAGE AREA NETWORK (SAN) USING EITHER THE AoE OR iSCSI PROTOCOLS</B></u>.
+</p>
+
+
+<p>
+To successfully run Windows via a Network Boot, the drivers for the Network Adapter being used must be loaded early enough in the boot process to give access to the target disk image (the <font class="file">AoE</font> or <font class="file">iSCSI</font> target on the server. In order to do this we must first identify the <font class="file">Service</font> associated with the Network Adapter. 
+
+<ul>
+<li><a class="glossary" href="service.htm#service1">Identify Service (Method 1)</a> - wmic</li>
+<li><a class="glossary" href="service.htm#service2">Identify Service (Method 2)</a> - msinfo32</li>
+<li><a class="glossary" href="service.htm#service3">Identify Service (Method 3)</a> - device manager</li>
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+<a name="service1"></a>
+<h3 class="breaktop"><u>Identify Service (Method 1)</u></h3>
+
+
+<p>
+If the operating system includes the <font class="file">wmic</font> tool, then run the following command in a command-prompt - "<font class="file">wmic nic get name,servicename</font>". This command will output a list of adapters (by name) with the associated service name listed to the right. In the following example (Thinkpad X61 system), the <font class="file">Service</font> associated with the <font class="file">Intel(R) 82566MM Gigabit Network Connection</font> is <font class="file">e1express</font> - 
+<br />
+<img src="img/wmic1.jpg" border=1>
+</p>
+
+
+
+
+
+
+
+<a name="service2"></a>
+<h3 class="breaktop"><u>Identify Service (Method 2)</u></h3>
+
+
+<p>
+Open a Run Dialog box (press the Windows Key + R).
+</p>
+
+
+
+<p>
+Type <font class="file">msinfo32</font> &gt; click on <font class="file">OK</font> - this will open the <font class="file">System Information</font> tool.
+<br />
+<img src="img/run1.jpg" border=1>
+</p>
+
+
+<p>
+In the left pane, go to <font class="file">Components</font> &gt; <font class="file">Network</font> &gt; <font class="file">Adapter</font>. Now in the right pane, identify the network adapter based on its description (scroll through the list of adapters) and check the <font class="file">Service Name</font> - in the screenshot below it's <font class="file">e1yexpress</font>.
+<br />
+<img src="img/msinfo32.jpg" border=1>
+</p>
+
+
+
+
+
+
+
+
+<a name="service3"></a>
+<h3 class="breaktop"><u>Identify Service (Method 3)</u></h3>
+
+
+<p>
+Open a Run Dialog box (press the Windows Key + R).
+</p>
+
+
+
+<p>
+Type <font class="file">devmgmt.msc</font> &gt; click on <font class="file">OK</font> - this will open <font class="file">Device Manager</font>.
+</p>
+
+
+
+<p>
+Expand the <font class="file">Network adapters</font> tree &gt; identify the relevant adapter &gt; right-click on the adapter and select <font class="file">Properties</font> -
+<br />
+<img src="img/devmgmt1.jpg" border=1>
+</p>
+
+
+
+
+<p>
+In the <font class="file">Properties</font> window for the selected <font class="file">Network adapter</font> &gt; select the <font class="file">Details</font> tab and Select <font class="file">Service</font> in the <font class="file">Property</font> pick list. The <font class="file">Network adapter</font>'s associated <font class="file">Service</font> will be displayed in the <font class="file">Value</font> section (in this case <font class="file">e1iexpress</font>) -
+<br />
+<img src="img/devmgmt2.jpg" border=1>
+</p>
+
+
+
+
+<a name="start0"></a>
+<h3 class="breaktop"><u>Configure Service (Start 0)</u></h3>
+
+
+
+<p>
+The easiest way of changing the <font class="file">Network adapter</font>'s associated <font class="file">Service</font> to start early enough in the boot process to facilitate a Network Boot is to run the following command in an elevated command prompt -
+<br />
+<textarea style="font-size:12px" cols="95" rows="3" align=left readonly>
+reg.exe add HKLM\SYSTEM\CurrentControlSet\services\<SERVICENAME> /v Start /t REG_DWORD /d 0 /f
+</textarea>
+<br />
+E.g. 
+<br />
+<textarea style="font-size:12px" cols="95" rows="3" align=left readonly>
+reg.exe add HKLM\SYSTEM\CurrentControlSet\services\e1yexpress /v Start /t REG_DWORD /d 0 /f
+</textarea>  
+</p>  
+
+
+
+
+<p>
+Alternatively, open a Run Dialog box (press the Windows Key + R).
+</p>
+
+
+
+<p>
+Type <font class="file">regedit</font> &gt; click on <font class="file">OK</font> - this will open the <font class="file">Registry Editor</font> -
+<br />
+<img src="img/run2.jpg" border=1>
+</p>
+
+
+<p>
+In the tree on the left, select <font class="file">HKEY_LOCAL_MACHINE</font> &gt; <font class="file">SYSTEM</font> &gt; <font class="file">CurrentControlSet</font> &gt; <font class="file">Services</font> - 
+<br />
+<img src="img/regedit1.jpg" border=1>
+</p>
+
+
+<p>
+Now select the <font class="file">Service</font> identified earlier (<font class="file">e1yexpress</font> in this example) &gt; double-click on <font class="file">Start</font> in the right pane - 
+<br />
+<img src="img/regedit2.jpg" border=1>
+</p>
+
+
+<p>
+In the <font class="file">Value data</font> field &gt; type <font class="file">0</font> &gt; click on <font class="file">OK</font> -
+<br />
+<img src="img/regedit3.jpg" border=1>
+</p>
+
+
+
+
+
+
+
+
+
+<p class="breaktop"><font class="file">Document date - 28<sup>th</sup> February 2017(DRAFT)</font></p></font></body></html>
