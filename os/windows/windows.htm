@@ -6,6 +6,7 @@
 <body>
 	<ul>
       <li><a href="#admin">Windows Administracia</a></li>
+			<li><a href="#11">Windows 11</a></li>
 			<li><a href="#10">Windows 10</a></li>
 			<li><a href="#7">Windows 7</a></li>
 			<li><a href="#xp">Windows xp</a></li>
@@ -26,6 +27,68 @@
   </ul>
 	</p>
 
+	<a name=11></a><h1>Windows 11</h1>
+	<p>
+		<h2> Instalcia w11 bez MS konta</h2>
+		<ul>
+			<li>V okne na prihlasnie MS konta</li>
+			<li>Shift + F10 otvori cmd</li>
+			<li>zadat: ipconfig /release</li>
+			<li>zavriet cmd</li>
+			<li>v okne prihlasnie kliknt na sipku spat (vlavo hore)</li>
+			<li>system vypyta nazov lokalneho konta</li>
+		</ul>
+		
+		<h2> Registre Windows 11</h2>
+		<h3> Obnova kontextových menu </h3>
+		<p>
+		    Systém Windows, co se týká vzhledu a funkčnosti, přišel s řadou změn, které ne každý miluje. Jednou z nich je nová podoba kontextových menu (zobrazí se po kliknutí pravého tlačítka myši). Jestliže máte raději tu původní podobu, potom stačí provést následující. Otevřete editor systémového registru (klikněte na Start a zadejte příkaz regedit). Nyní přejděte na klíč HKEY_CURRENT_USER\Software\Classes\CLSID. Vytvořte nový klíč s názvem „{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}“. V něm vytvořte další klíč, tentokrát s názvem InprocServer32. Změny se projeví po restartu systému (jako i po úpravách, co budou následovat v dalších bodech).
+
+    Zdroj: https://www.idnes.cz/technet/software/registr-hack-start-hlavni-panel-editor-registru-kontextove-menu.A230116_114358_software_dvr
+		</p>
+		<h3> Jak přidat vlastní položku do kontextového menu </h3>
+		<p>
+		    Pokud byste chtěli do kontextové nabídky přidat nějakou položku (např. aplikaci), potom toho lze dosáhnout následovně. Dejme tomu, že zde chcete mít Poznámkový blok, respektive možnost ho z tohoto místa otevřít. Potom v editoru registru přejděte na klíč HKEY_CLASSES_ROOT\Directory\Background\shell. Nyní vytvořte nový klíč a pojmenujte ho tak, jak se má zobrazovat v kontextovém menu (např. Poznámkový blok). V něm vytvořte podklíč s názvem „command“. Posledním krokem je poklepat vpravo na položku default a zadání cesty, kde se aplikace nachází, tedy spouští pro Poznámkový blok, typicky „C:\Windows\System32\notepad.exe“. A to je vše.
+
+    Zdroj: https://www.idnes.cz/technet/software/registr-hack-start-hlavni-panel-editor-registru-kontextove-menu.A230116_114358_software_dvr
+		</p>
+			<h3> Změna velikosti hlavního panelu </h3>
+		<p>
+		        Pokud jste si nezvykli na vystředění hlavního panelu a rovnou jste si ho opět umístili vlevo, potom pro vás ještě máme tip na to, jak si ho zvětšit. Toho lze dosáhnout změnou měřítka, ale bude to platné pro celé uživatelské rozhraní Windows, jinými slovy to ovlivňuje i velikost ikon a textu. Co když však chcete změnit pouze velikost hlavního panelu, aniž byste změnili vše ostatní v systému? Zkuste tento hack registru. Přejděte na klíč HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced. Nyní vytvořte novou 32bitovou hodnotu DWORD a pojmenujte ji „TaskbarSi“ Na pravé straně poklikejte na volbu a pokud zadáte „0“ bude panel nejmenší, pokud „1“, tak bude střední (výchozí hodnota) a pokud „2“ tak největší.
+
+    Zdroj: https://www.idnes.cz/technet/software/registr-hack-start-hlavni-panel-editor-registru-kontextove-menu.A230116_114358_software_dvr
+		</p>
+					<h3>  Umístění hlavního panelu nahoru </h3>
+		<p>
+		           Neméně užitečná možnost pro ty, kteří chtějí mít hlavní panel na horním okraji obrazovky. V registru přejděte na klíč HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3. Na pravé straně poklikejte na volbu „Settings“. Nyní to bude trochu složitější. Na druhém řádku a šestém sloupci se nachází číslo „03“. Umístěte kurzor pomocí myši za toto číslo a stiskněte klávesu Backspace. Nyní zadejte „01“ a změny uložte kliknutím na OK.
+
+    Zdroj: https://www.idnes.cz/technet/software/registr-hack-start-hlavni-panel-editor-registru-kontextove-menu.A230116_114358_software_dvr
+		</p>
+					<h3>Vypnutí zamykací obrazovky </h3>
+		<p>
+		            Na zamykací obrazovce se mohou nacházet vlastní obrázky nebo obrázky ze služby Windows Spotlight. Je to sice pěkný způsob, jak si přizpůsobit svůj počítač, ale co když to nechcete? Zamykací obrazovka totiž vyžaduje další kliknutí nebo stisknutí klávesy, než se budete moci přihlásit k počítači. Proč tento mezikrok tedy neodstranit? V registru přejděte na klíč HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows. Vytvořte nový klíč s názvem „Personalization“. Na pravé straně vytvořte novou 32bitovou hodnotu DWORD a pojmenujte ji „NoLockScreen“. Nyní na ni poklikejte a zadejte jí „1“.
+
+    Zdroj: https://www.idnes.cz/technet/software/registr-hack-start-hlavni-panel-editor-registru-kontextove-menu.A230116_114358_software_dvr
+		</p>
+					<h3>Klasický Průzkumník Windows</h3>
+		<p>
+		                Dalším tipem je přechod na klasického Průzkumníka Windows. Ten nový je sice modernější, nabízí nové možnosti, ale nemusí být pro každého. Takže v editoru registru najděte klíč HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions. Nyní v něm vytvořte nový klíč s názvem „Blocked“. Následně na pravé straně vytvořte novou 32bitovou hodnotu DWORD a pojmenujte ji „{e2bf9676-5f8f-435c-97eb-11607a5bedf7}“. To je vše, a pokud byste se chtěli vrátit k novém Průzkumníku Windows, stačí smazat klíč „Blocked“.
+
+    Zdroj: https://www.idnes.cz/technet/software/registr-hack-start-hlavni-panel-editor-registru-kontextove-menu.A230116_114358_software_dvr
+		</p>
+					<h3>Návrat původní Start nabídky </h3>
+		<p>
+		                Podobné je to i se Start nabídkou, toužíte-li po té původní, potom stačí najít klíč HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ a vytvořte 32bitovou hodnotu DWORD s názvem Start_ShowClassicMode. Poklikejte na ni, zadejte „1“.
+
+    Zdroj: https://www.idnes.cz/technet/software/registr-hack-start-hlavni-panel-editor-registru-kontextove-menu.A230116_114358_software_dvr
+		</p>
+					<h3>Obejití kontroly TPM a CPU </h3>
+		<p>
+		               Není tajemstvím, že Microsoft podmiňuje používání operačního systému Windows 11 pouze na počítačích, které jsou vybaveny nejnovějšími čipy TPM a adekvátními CPU. Obojí lze poměrně snadno obejít a tudíž Windows 11 nainstalovat i přesto, že PC nesplňuje tyto hardwarové požadavky. Tedy následující postup platí pouze při upgradu z jiné verze Windows. V registru vyhledejte klíč HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup. Na pravé straně vytvořte novou 32bitovou hodnotu DWORD a pojmenujte ji „AllowUpgradesWithUnsupportedTPMOrCPU“. Následně na ni poklikejte a zadejte „1“.
+
+    Zdroj: https://www.idnes.cz/technet/software/registr-hack-start-hlavni-panel-editor-registru-kontextove-menu.A230116_114358_software_dvr
+		</p>
+	</p>
 
 	<a name=10></a><h1>Windows 10</h1>
 	<p>
