@@ -5,7 +5,8 @@
 </head>
 <body>
 	<ul>
-      <li><a href="#admin">Windows Administracia</a></li>
+			<li><a href="#winunix">Windows z unixu</a></li>
+			<li><a href="#admin">Windows Administracia</a></li>
 			<li><a href="#11">Windows 11</a></li>
 			<li><a href="#10">Windows 10</a></li>
 			<li><a href="#7">Windows 7</a></li>
@@ -17,6 +18,13 @@
 	<p>
 	
 
+	</p>
+	<a name=winunix></a><h1>Windows z unixu</h1>
+	<p><pre>
+		sudo apt install chntpw
+chntpw -e /path/to/windisk/Windows/System32/config/SOFTWARE
+cat \Microsoft\Windows NT\CurrentVersion\ProductName
+</pre>
 	</p>
 	
 	<a name=admin></a><h1>Windows Administracia</h1>
